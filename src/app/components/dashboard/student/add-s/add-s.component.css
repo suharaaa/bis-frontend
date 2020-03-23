@@ -7,12 +7,14 @@
 }
 
 .admission{
-    background: #f0f0f0;
+    background: #ffffff;
     border-radius: 10px;
-    padding-left: 45px;
-
 }
 
-.registration{
-    margin-left: 20px;
+form {
+    margin-bottom: 40px;
+}
+
+form button {
+    margin-right: 20px;
 }

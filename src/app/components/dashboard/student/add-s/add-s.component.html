@@ -1,174 +1,170 @@
-<div class="container" >
-    <div class="registration">
-            <h2  style="margin-top:20px"> R E G I S T R A T I O N  &nbsp; F O R M </h2><br>              
-        
-            <form method="post" action="php/check.php">
-                
-                    <div  class= "admission ">
-                        <h4 style="padding-top: 20px;">Student Information</h4><br>
-                        
-                        <div class="form-row">
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Admission Number</mat-label>
-                                    <input matInput placeholder="S012">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Admission Date</mat-label>
-                                    <input matInput [matDatepicker]="picker1" placeholder="3/6/2020">
-                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker1></mat-datepicker>
-                                </mat-form-field>
-                            </div>
-                        </div>
+<h2>Student Registration </h2><br>
 
-                        <div class="form-row">
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>First Name</mat-label>
-                                    <input matInput placeholder="Damon">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Last Name</mat-label>
-                                    <input matInput placeholder="Salvatore">
-                                </mat-form-field>
-                            </div>
-                        </div>
+<form>
 
-                        <div class="form-row">
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline" class="lwidth">
-                                    <mat-label>Address</mat-label>
-                                    <input matInput placeholder="221B, Baker Street, Colombo">
-                                </mat-form-field>
-                            </div>
-                        </div>
+    <div class="admission ">
+        <h4 style="padding-top: 20px;">Student Information</h4><br>
 
-                        <div class="form-row">
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Gender</mat-label>
-                                    <mat-select>
-                                    <mat-option value="male">Male</mat-option>
-                                    <mat-option value="female">Female</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Date Of Birth</mat-label>
-                                    <input matInput [matDatepicker]="picker" placeholder="3/6/2000">
-                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
-                                </mat-form-field>
-                            </div>
-                        </div>
+        <div class="form-row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Admission Number</mat-label>
+                    <input matInput placeholder="S012" disabled value="S200001">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Admission Date</mat-label>
+                    <input matInput [matDatepicker]="picker1" placeholder="3/6/2020">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
 
-                        <div class="form-row">
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Nationality</mat-label>
-                                    <input matInput placeholder="Sinhalease">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Religion</mat-label>
-                                    <input matInput placeholder="Bhuddist">
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
+        <div class="form-row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Damon">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Salvatore">
+                </mat-form-field>
+            </div>
+        </div>
 
-                    <div class="admission ">
-                        <h4 style="padding-top: 20px;">Parent/Guardian Information</h4><br>
-                        <p>1.Mother's Details</p>
-                        <div class="form-row">
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline" class="lwidth">
-                                    <mat-label>Name</mat-label>
-                                    <input matInput name="mname" placeholder="Mary Jean">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Occupation</mat-label>
-                                    <input matInput name="mwork" placeholder="Manager">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Work Phone</mat-label>
-                                    <input matInput name="mwtp" placeholder="0714589632">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline" class="lwidth">
-                                    <mat-label>Address</mat-label>
-                                    <input matInput name="madd" placeholder="221B, Backer Street, Colombo">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Phone</mat-label>
-                                    <input matInput name="mtp" placeholder="0174895874">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Email</mat-label>
-                                    <input matInput name="me" placeholder="jane@exsample.com">
-                                </mat-form-field>
-                            </div>
-                        </div>
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="221B, Baker Street, Colombo">
+                </mat-form-field>
+            </div>
+        </div>
 
-                        <p>2.Father's Details</p>
-                        <div class="form-row">
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline" class="lwidth">
-                                    <mat-label>Name</mat-label>
-                                    <input matInput name="fname" placeholder="John Salvatore">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Occupation</mat-label>
-                                    <input matInput name="fwork" placeholder="Businessmen">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Work Phone</mat-label>
-                                    <input matInput name="fwtp" placeholder="0174895874">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <mat-form-field appearance="outline" class="lwidth">
-                                    <mat-label>Address</mat-label>
-                                    <input matInput name="fadd" placeholder="221B, Backer Street, Colombo">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Phone</mat-label>
-                                    <input matInput name="ftp" placeholder="0174895874">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <mat-form-field appearance="outline" class="width">
-                                    <mat-label>Email</mat-label>
-                                    <input matInput name="fe" placeholder="john@exsample.com">
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </div><br>
-                <button mat-raised-button color="primary">Add Student</button>
-            </form>
+        <div class="form-row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Gender</mat-label>
+                    <mat-select>
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="3/6/2000">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
 
+        <div class="form-row">
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Nationality</mat-label>
+                    <input matInput placeholder="Sinhalease">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Religion</mat-label>
+                    <input matInput placeholder="Bhuddist">
+                </mat-form-field>
+            </div>
+        </div>
     </div>
-</div>
+    <br>
+
+    <div class="admission ">
+        <h4 style="padding-top: 20px;">Parent/Guardian Information</h4><br>
+        <p>1.Mother's Details</p>
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Name</mat-label>
+                    <input matInput name="mname" placeholder="Mary Jean">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Occupation</mat-label>
+                    <input matInput name="mwork" placeholder="Manager">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Work Phone</mat-label>
+                    <input matInput name="mwtp" placeholder="0714589632">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Address</mat-label>
+                    <input matInput name="madd" placeholder="221B, Backer Street, Colombo">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput name="mtp" placeholder="0174895874">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Email</mat-label>
+                    <input matInput name="me" placeholder="jane@exsample.com">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <p>2.Father's Details</p>
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Name</mat-label>
+                    <input matInput name="fname" placeholder="John Salvatore">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Occupation</mat-label>
+                    <input matInput name="fwork" placeholder="Businessmen">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Work Phone</mat-label>
+                    <input matInput name="fwtp" placeholder="0174895874">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Address</mat-label>
+                    <input matInput name="fadd" placeholder="221B, Backer Street, Colombo">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput name="ftp" placeholder="0174895874">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Email</mat-label>
+                    <input matInput name="fe" placeholder="john@exsample.com">
+                </mat-form-field>
+            </div>
+        </div>
+    </div><br>
+    <button mat-raised-button color="primary">Add Student</button>
+    <button mat-stroked-button>Clear</button>
+</form>

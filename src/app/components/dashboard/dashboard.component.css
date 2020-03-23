@@ -23,7 +23,14 @@ a, a:hover, a:focus {
 .logo{
 width: 40px;
 border-radius: 15px;
+margin-bottom: 20px;
 }
+
+.inner-container {
+    margin-left: 250px;
+    padding: 40px;
+}
+
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
@@ -32,7 +39,7 @@ border-radius: 15px;
     top: 0;
     left: 0;
     height: 100vh;
-    z-index: 999;
+    z-index: 9000;
     background: #404040;
     color: #fff;
     transition: all 0.3s;
@@ -44,8 +51,7 @@ border-radius: 15px;
 }
 
 #sidebar ul.components {
-    padding: 20px 0 20px 25px;
-    border-bottom: 1px solid #949494;
+    padding: 20px 0 20px 0;
 }
 
 #sidebar ul p {
@@ -54,7 +60,7 @@ border-radius: 15px;
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 30px;
     font-size: 1.1em;
     display: block;
 }

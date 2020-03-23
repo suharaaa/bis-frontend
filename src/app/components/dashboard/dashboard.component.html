@@ -1,14 +1,22 @@
-<div class="container" >
-<div class="col-md-2">
+<nav class="navbar sticky-top fixed-top navbar-light" style="background-color: #504f4f">
+    <a class="navbar-brand"></a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button mat-raised-button color="primary" type="submit" style="margin-right: 30px;">Search</button>
+        <button mat-raised-button color="warn" type="submit">Logout</button>
+    </form>
+</nav>
+
 <!-- Sidebar -->
 <nav id="sidebar">
     <div class="sidebar-header" style="text-align: center;">
         <img src="assets/images/logo.jpg" class="logo" alt="logo">
-        <h5>Bright International School</h5>
+        <h6>Bright International School</h6>
+        <p style="font-size: 14px; margin-top: 0; top: -8px; position: relative;">Management Dashboard</p>
     </div>
 
     <ul class="list-unstyled components">
-        <li >
+        <li>
             <a [routerLink]="['overview']">Overview</a>
         </li>
         <li>
@@ -42,7 +50,7 @@
                 <li>
                     <a href="#">Page 1</a>
                 </li>
-                
+
             </ul>
         </li>
         <li>
@@ -54,7 +62,7 @@
                 <li>
                     <a href="#">Page 2</a>
                 </li>
-                
+
             </ul>
         </li>
 
@@ -71,16 +79,7 @@
         </li>
     </ul>
 </nav>
-</div>
-<div class="col-md-10">
-    <nav class="navbar sticky-top navbar-light" style="background-color: #ececec" >
-        <a class="navbar-brand"></a>
-        <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
 
+<div class="inner-container">
     <router-outlet></router-outlet>
-</div>
 </div>
