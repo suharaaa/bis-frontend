@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
-
+import { ResultsComponent } from './components/dashboard/results/results.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { MatDatepickerModule } from '@angular/material';
     DashboardComponent,
     LoginComponent,
     OverviewComponent,
-    AddSComponent
+    AddSComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
