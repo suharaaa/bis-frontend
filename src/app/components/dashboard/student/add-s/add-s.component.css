@@ -1,0 +1,17 @@
+.width {
+    width: 80%;
+}
+
+.lwidth {
+    width: 90%;
+}
+
+.admission{
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding-left: 45px;
+}
+
+.registration{
+    margin-left: 20px;
+}
