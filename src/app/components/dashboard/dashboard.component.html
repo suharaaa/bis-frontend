@@ -1,1 +1,87 @@
-<p>dashboard works!</p>
+<div class="container" >
+<div class="wrapper col-md-2">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header" style="text-align: center;">
+            <img src="assets/images/logo.jpg" class="logo" alt="logo">
+            <h5>Bright International School</h5>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li >
+                <a [routerLink]="['overview']">Overview</a>
+            </li>
+            <li>
+                <a href="#stdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
+                <ul class="collapse list-unstyled" id="stdSubmenu">
+                    <li>
+                        <a [routerLink]="['student/add']">Enroll</a>
+                    </li>
+                    <li>
+                        <a href="#">Update Details</a>
+                    </li>
+                    <li>
+                        <a href="#">Unenroll</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#teachSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
+                <ul class="collapse list-unstyled" id="teachSubmenu">
+                    <li>
+                        <a href="#">Add a teacher</a>
+                    </li>
+                    <li>
+                        <a href="#">Manage details</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#classSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classes</a>
+                <ul class="collapse list-unstyled" id="classSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="#subSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Subjects</a>
+                <ul class="collapse list-unstyled" id="subSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    
+                </ul>
+            </li>
+
+            <li>
+                <a href="#attSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
+                <ul class="collapse list-unstyled" id="attSubmenu">
+                    <li>
+                        <a href="#">Students</a>
+                    </li>
+                    <li>
+                        <a href="#">Teachers</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+<div class="col-md-10">
+    <nav class="navbar sticky-top navbar-light" style="background-color: #ececec" >
+        <a class="navbar-brand"></a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <router-outlet></router-outlet>
+</div>
+</div>
