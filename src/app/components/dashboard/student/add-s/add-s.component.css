@@ -1,0 +1,20 @@
+.width {
+    width: 80%;
+}
+
+.lwidth {
+    width: 90%;
+}
+
+.admission{
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+form button {
+    margin-right: 20px;
+}
