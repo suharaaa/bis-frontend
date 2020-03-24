@@ -12,6 +12,9 @@ import { OverviewComponent } from './components/dashboard/overview/overview.comp
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { ResultsComponent } from './components/dashboard/results/results.component';
+import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
+import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
+import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ResultsComponent } from './components/dashboard/results/results.compone
     LoginComponent,
     OverviewComponent,
     AddSComponent,
-    ResultsComponent
+    ResultsComponent,
+    AttendanceComponent,
+    StudentAttendanceComponent,
+    TeacherAttendanceComponent
   ],
   imports: [
     BrowserModule,
