@@ -15,6 +15,9 @@ import { ResultsComponent } from './components/dashboard/results/results.compone
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
+import { NoticeComponent } from './components/dashboard/notice/notice.component';
+import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
+import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { TeacherAttendanceComponent } from './components/dashboard/attendance/te
     ResultsComponent,
     AttendanceComponent,
     StudentAttendanceComponent,
-    TeacherAttendanceComponent
+    TeacherAttendanceComponent,
+    NoticeComponent,
+    PublishNComponent,
+    ViewNComponent
   ],
   imports: [
     BrowserModule,

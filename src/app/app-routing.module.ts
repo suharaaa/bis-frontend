@@ -8,6 +8,9 @@ import { AddSComponent } from './components/dashboard/student/add-s/add-s.compon
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
+import { NoticeComponent } from './components/dashboard/notice/notice.component';
+import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
+import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,6 +30,12 @@ const routes: Routes = [
         children: [
           { path: 'students', component: StudentAttendanceComponent},
           { path: 'teachers', component: TeacherAttendanceComponent},
+        ] },
+      { path: 'notice', 
+        component: NoticeComponent,
+        children: [
+          { path: 'publish', component: PublishNComponent},
+          { path: 'view', component: ViewNComponent}
         ] }
     ]
   }
