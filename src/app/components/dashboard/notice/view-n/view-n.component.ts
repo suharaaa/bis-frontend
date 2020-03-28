@@ -10,6 +10,8 @@ export class ViewNComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
+
