@@ -29,7 +29,6 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
     LoginComponent,
     OverviewComponent,
     AddSComponent,
-    ResultsComponent,
     AttendanceComponent,
     StudentAttendanceComponent,
     TeacherAttendanceComponent,
