@@ -14,7 +14,6 @@ import { MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ResultsComponent } from './components/dashboard/results/results.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
