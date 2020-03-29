@@ -1,0 +1,28 @@
+.sttype{
+
+    padding-top: 2%;
+    width: 50%;
+    height: 2000%;
+
+}
+
+.btnaddF{
+
+    background-color: #008CBA;
+    border-radius: 1%;
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btnupdateF{
+
+    background-color: #4CAF50;
+    border-radius: 1%;
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+
+}

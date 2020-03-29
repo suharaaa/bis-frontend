@@ -8,6 +8,8 @@ import { AddSComponent } from './components/dashboard/student/add-s/add-s.compon
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
+import { FeesComponent } from './components/dashboard/fees/fees.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -27,7 +29,12 @@ const routes: Routes = [
         children: [
           { path: 'students', component: StudentAttendanceComponent},
           { path: 'teachers', component: TeacherAttendanceComponent},
-        ] }
+        ] },
+        { path: 'fees', 
+        component: FeesComponent,
+        children: [
+          { path: 'fees', component: FeesComponent},
+        ] },
     ]
   }
 ];
