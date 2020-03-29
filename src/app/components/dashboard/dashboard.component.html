@@ -74,10 +74,22 @@
             <a href="#attSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
             <ul class="collapse list-unstyled" id="attSubmenu">
                 <li>
-                    <a href="#">Students</a>
+                    <a [routerLink]="['attendance/students']">Students</a>
                 </li>
                 <li>
-                    <a href="#">Teachers</a>
+                    <a [routerLink]="['attendance/teachers']">Teachers</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Notices</a>
+            <ul class="collapse list-unstyled" id="noticeSubmenu">
+                <li>
+                    <a [routerLink]="['notice/publish']">Publish</a>
+                </li>
+                <li>
+                    <a [routerLink]="['notice/view']">View</a>
                 </li>
             </ul>
         </li>
