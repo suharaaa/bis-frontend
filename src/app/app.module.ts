@@ -12,6 +12,9 @@ import { OverviewComponent } from './components/dashboard/overview/overview.comp
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { ResultsComponent } from './components/dashboard/results/results.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { ResultsComponent } from './components/dashboard/results/results.compone
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
