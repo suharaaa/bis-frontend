@@ -11,6 +11,9 @@ import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ResultsComponent } from './components/dashboard/results/results.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
@@ -39,7 +42,11 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
