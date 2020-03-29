@@ -11,7 +11,6 @@ import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
-import { ResultsComponent } from './components/dashboard/results/results.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,7 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     OverviewComponent,
     AddSComponent,
-    ResultsComponent
+    
   ],
   imports: [
     BrowserModule,
