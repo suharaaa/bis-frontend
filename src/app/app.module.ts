@@ -27,6 +27,10 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
+import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
+import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
+import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
     ViewNComponent,
     TeacherComponent,
     AddTComponent,
-    ManageTComponent
+    ManageTComponent,
+    MarkStdAttnComponent,
+    ViewStdAttnComponent,
+    MarkTchAttnComponent,
+    ViewTchAttnComponent
   ],
   imports: [
     BrowserModule,
