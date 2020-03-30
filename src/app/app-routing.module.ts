@@ -11,6 +11,7 @@ import { AttendanceComponent } from './components/dashboard/attendance/attendanc
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { UpdateUnenrollComponent } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
         component: StudentComponent,
         children: [
           { path: 'add', component: AddSComponent},
+          { path: 'update', component: UpdateUnenrollComponent }
         ] },
       { path: 'attendance',
         component: AttendanceComponent,
