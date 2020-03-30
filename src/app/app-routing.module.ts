@@ -14,6 +14,11 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
+import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
+import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
+import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
+
 
 
 const routes: Routes = [
@@ -32,8 +37,18 @@ const routes: Routes = [
       { path: 'attendance',
         component: AttendanceComponent,
         children: [
-          { path: 'students', component: StudentAttendanceComponent},
-          { path: 'teachers', component: TeacherAttendanceComponent},
+          { path: 'students', 
+          component: StudentAttendanceComponent,
+          children: [
+            {path: 'mark', component: MarkStdAttnComponent},
+            {path: 'view', component: ViewStdAttnComponent}
+          ]},
+          { path: 'teachers',
+           component: TeacherAttendanceComponent,
+          children: [
+            {path: 'mark', component: MarkTchAttnComponent},
+            {path: 'view', component: ViewTchAttnComponent}
+          ]},
         ] },
       { path: 'notice', 
         component: NoticeComponent,

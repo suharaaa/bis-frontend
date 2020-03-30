@@ -74,10 +74,25 @@
             <a href="#attSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
             <ul class="collapse list-unstyled" id="attSubmenu">
                 <li>
-                    <a [routerLink]="['attendance/students']">Students</a>
+                    <a href="#attStdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
+                    <ul class="collapse list-unstyled" id="attStdSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/students/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/students/view']">View</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a [routerLink]="['attendance/teachers']">Teachers</a>
+                    <a href="#attTeaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
+                    <ul class="collapse list-unstyled" id="attTeaSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/teacher/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/teacher/view']">View</a>
+                        </li>
                 </li>
             </ul>
         </li>
