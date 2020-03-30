@@ -37,7 +37,7 @@
             <a href="#teachSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
             <ul class="collapse list-unstyled" id="teachSubmenu">
                 <li>
-                    <a href="#">Add a teacher</a>
+                    <a [routerLink]="['teacher/add']">Add a teacher</a>
                 </li>
                 <li>
                     <a href="#">Manage details</a>
@@ -72,14 +72,41 @@
             <a href="#attSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
             <ul class="collapse list-unstyled" id="attSubmenu">
                 <li>
-                    <a [routerLink]="['attendance/students']">Students</a>
+                    <a href="#attStdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
+                    <ul class="collapse list-unstyled" id="attStdSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/students/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/students/view']">View</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a [routerLink]="['attendance/teachers']">Teachers</a>
+                    <a href="#attTeaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
+                    <ul class="collapse list-unstyled" id="attTeaSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/teachers/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/teachers/view']">View</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
         <mat-divider></mat-divider>
+        <li>
+            <a href="#feesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Fees</a>
+            <ul class="collapse list-unstyled" id="feesSubmenu">
+                <li>
+                    <a [routerLink]="['fees/addfees']">Add Fees</a>
+                </li>
+                <li>
+                    <a [routerLink]="['fees/updatefees1']">Update Fees</a>
+                </li>
+            </ul>
+        </li>
         <li>
             <a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Notices</a>
             <ul class="collapse list-unstyled" id="noticeSubmenu">
