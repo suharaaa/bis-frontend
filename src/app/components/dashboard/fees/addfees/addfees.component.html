@@ -1,0 +1,142 @@
+
+  <h2>Student Fees</h2>
+
+<br>
+
+<h4>Add Fees</h4>
+<br>
+<form  class="example-form">
+
+  
+
+
+  <mat-form-field appearance="fill"  class= "width">
+    <mat-label>Select Grade</mat-label>
+    <mat-select>
+      <mat-option value="option">Grade 01</mat-option>
+      <mat-option value="option">Grade 02</mat-option>
+      <mat-option value="option">Grade 03</mat-option>
+    </mat-select> 
+    
+  </mat-form-field>
+
+  <br><br>
+
+  <h6>Term Fees</h6>
+
+    <br>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" class="example-right-align" required>
+      <span matPrefix>Rs&nbsp;&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+  <br>
+  <br>
+  <h6>Additional Fees (per term)</h6>
+
+    <table class = "feetype">
+
+      <tr>
+
+        <td> Facility Fees</td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" required>
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td> Library Charges</td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align">
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td> Laboratory Charges</td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" >
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+
+      <tr>
+
+        <td>Transportaion Fees</td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" >
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+
+
+      <tr>
+
+        <td> Other</td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" >
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+        </td>
+
+      </tr>
+
+
+
+    </table>
+
+
+
+
+
+<br>
+
+    <div class="bt">
+
+      <button (click)="show()" mat-raised-button color="primary" value="Submit" >Add Fees</button>
+
+      <button mat-stroked-button class="reset" value="Reset">Reset</button>
+      
+
+
+    </div>
+
+ 
+
+
+</form>
