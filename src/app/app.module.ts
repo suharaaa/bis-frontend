@@ -32,6 +32,7 @@ import { MarkStdAttnComponent } from './components/dashboard/attendance/student-
 import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
+import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-
     MarkStdAttnComponent,
     ViewStdAttnComponent,
     MarkTchAttnComponent,
-    ViewTchAttnComponent
+    ViewTchAttnComponent,
+    StudentfeesComponent
   ],
   imports: [
     BrowserModule,
