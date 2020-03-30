@@ -9,7 +9,12 @@ import { StudentAttendanceComponent } from './components/dashboard/attendance/st
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
+import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
+import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+
 import { from } from 'rxjs';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -33,10 +38,20 @@ const routes: Routes = [
         { path: 'fees', 
         component: FeesComponent,
         children: [
-          { path: 'fees', component: FeesComponent},
-        ] },
+          { path: 'addfees', component: AddfeesComponent},
+          { path: 'updatefees1', component: UpdatefeesComponent},
+          
+          ]}
+         
+        
     ]
-  }
+  },
+
+  { path: 'homepage', component: HomepageComponent }
+
+
+
+
 ];
 
 @NgModule({

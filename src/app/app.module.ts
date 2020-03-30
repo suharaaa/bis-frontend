@@ -17,6 +17,10 @@ import { StudentAttendanceComponent } from './components/dashboard/attendance/st
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 
+import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
+import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,13 @@ import { FeesComponent } from './components/dashboard/fees/fees.component';
     AttendanceComponent,
     StudentAttendanceComponent,
     TeacherAttendanceComponent,
-    FeesComponent
+    FeesComponent,
+  
+    AddfeesComponent,
+  
+    UpdatefeesComponent,
+  
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
