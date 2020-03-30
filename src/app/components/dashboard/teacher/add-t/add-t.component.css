@@ -1,0 +1,31 @@
+.width {
+    width: 80%;
+}
+
+.lwidth {
+    width: 90%;
+}
+
+.joining{
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+form button {
+
+    margin-left: 20px;
+
+    
+}
+
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.joining{
+    padding-left: 100px;
+}
