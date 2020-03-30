@@ -17,6 +17,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
+import { FeesComponent } from './components/dashboard/fees/fees.component';
+import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
+import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
@@ -35,6 +39,10 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
     AttendanceComponent,
     StudentAttendanceComponent,
     TeacherAttendanceComponent,
+    FeesComponent,
+    AddfeesComponent,
+    UpdatefeesComponent,
+    HomepageComponent,
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
