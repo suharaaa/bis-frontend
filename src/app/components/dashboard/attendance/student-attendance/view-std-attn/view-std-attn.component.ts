@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-view-std-attn',
   templateUrl: './view-std-attn.component.html',
@@ -13,3 +14,4 @@ export class ViewStdAttnComponent implements OnInit {
   }
 
 }
+
