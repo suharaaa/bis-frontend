@@ -1,11 +1,49 @@
+<img src="assets/images/logo.jpg" class="logo" alt="logo">
+       
 
-<nav class="navbar sticky-top fixed-top navbar-light" style="background-color: #504f4f">
-    <a class="navbar-brand"></a>
-    <form class="form-inline">
+<div class="heading">
+    <h2>Bright International School</h2>
+
+</div>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Results <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Subjects <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Notices <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Fees <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">My Profile <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button mat-raised-button color="primary" type="submit" style="margin-right: 30px;">Search</button>
         <button mat-raised-button color="warn" type="submit">Logout</button>
-    </form>
-</nav>
+      </form>
+    </div>
+  </nav>
+
+
+
+
+
 
 <router-outlet></router-outlet>
