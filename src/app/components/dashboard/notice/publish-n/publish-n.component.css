@@ -1,11 +1,16 @@
 .width {
-    width: 70%;
+    width: 100%;
 }
 
 .lwidth {
-    width: 90%;
+    width: 100%;
 }
 
 form button {
     margin-right: 20px;
+}
+
+#note {
+    font-size: 12px;
+    font-weight: bold;
 }
