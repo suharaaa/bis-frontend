@@ -51,7 +51,7 @@ import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
-    UpdateUnenrollComponent
+    UpdateUnenrollComponent,
     TeacherComponent,
     AddTComponent,
     ManageTComponent,

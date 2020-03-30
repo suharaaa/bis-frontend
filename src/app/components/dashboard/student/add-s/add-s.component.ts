@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { StudentService } from 'src/app/services/student.service';
+import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
+import { TaskErrorStateMatcher } from 'src/app/helpers/task-error-state-matcher';
 
 @Component({
   selector: 'app-add-s',
@@ -7,9 +10,15 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./add-s.component.css']
 })
 export class AddSComponent implements OnInit {
+
+  private matcher: TaskErrorStateMatcher;
+  
   email = new FormControl('', [Validators.required, Validators.email]);
   
-  constructor() { }
+  constructor(
+    private studentService: StudentService,
+    private snackbar: MatSnackBar
+  ) { }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -20,6 +29,7 @@ export class AddSComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.matcher = new TaskErrorStateMatcher();
   }
 
 }
