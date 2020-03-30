@@ -24,9 +24,14 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { UpdateUnenrollComponent } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
+import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
+import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
+import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 
 @NgModule({
@@ -47,9 +52,14 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
+    UpdateUnenrollComponent,
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
+    MarkStdAttnComponent,
+    ViewStdAttnComponent,
+    MarkTchAttnComponent,
+    ViewTchAttnComponent,
     StudentfeesComponent
   ],
   imports: [
