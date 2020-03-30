@@ -27,6 +27,7 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
     ViewNComponent,
     TeacherComponent,
     AddTComponent,
-    ManageTComponent
+    ManageTComponent,
+    StudentfeesComponent
   ],
   imports: [
     BrowserModule,
