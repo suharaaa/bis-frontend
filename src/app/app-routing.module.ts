@@ -12,7 +12,6 @@ import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { from } from 'rxjs';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
