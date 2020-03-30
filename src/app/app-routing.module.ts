@@ -11,6 +11,10 @@ import { AttendanceComponent } from './components/dashboard/attendance/attendanc
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
+import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
+import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -36,7 +40,13 @@ const routes: Routes = [
         children: [
           { path: 'publish', component: PublishNComponent},
           { path: 'view', component: ViewNComponent}
-        ] }
+        ] },
+      { path: 'teacher',
+        component: TeacherComponent,
+        children: [
+          { path: 'add', component: AddTComponent},
+          { path: 'manage', component: ManageTComponent}
+        ]}
     ]
   }
 ];

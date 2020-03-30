@@ -20,6 +20,9 @@ import { TeacherAttendanceComponent } from './components/dashboard/attendance/te
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
+import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
+import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.comp
     TeacherAttendanceComponent,
     NoticeComponent,
     PublishNComponent,
-    ViewNComponent
+    ViewNComponent,
+    TeacherComponent,
+    AddTComponent,
+    ManageTComponent
   ],
   imports: [
     BrowserModule,
