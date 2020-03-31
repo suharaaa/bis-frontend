@@ -33,6 +33,12 @@ import { ViewStdAttnComponent } from './components/dashboard/attendance/student-
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { SubjectComponent } from './components/dashboard/subject/subject.component';
+import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
+import { SubjectServices } from './services/subject.service';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +66,11 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
     ViewStdAttnComponent,
     MarkTchAttnComponent,
     ViewTchAttnComponent,
-    StudentfeesComponent
+    StudentfeesComponent,
+    SubjectComponent,
+    AddsubComponent,
+    UpdatesubComponent,
+    DeletesubComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +82,7 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule,SubjectServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

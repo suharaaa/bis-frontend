@@ -59,11 +59,15 @@
             <a href="#subSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Subjects</a>
             <ul class="collapse list-unstyled" id="subSubmenu">
                 <li>
-                    <a href="#">Page 1</a>
+                    <a [routerLink]="['subject/addsub']">Add Subjects and teachers</a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a [routerLink]="['subject/updatesub']">Edit Details</a>
                 </li>
+                <li>
+                    <a [routerLink]="['subject/deletesub']">Delete Details</a>
+                </li>
+
 
             </ul>
         </li>

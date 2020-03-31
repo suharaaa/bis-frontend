@@ -23,7 +23,10 @@ import { MarkStdAttnComponent } from './components/dashboard/attendance/student-
 import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
-
+import { SubjectComponent } from './components/dashboard/subject/subject.component';
+import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -73,6 +76,13 @@ const routes: Routes = [
         children: [
           { path: 'add', component: AddTComponent},
           { path: 'manage', component: ManageTComponent}
+        ]},
+        { path: 'subject',
+        component: SubjectComponent,
+        children: [
+          { path: 'addsub', component: AddsubComponent},
+          { path: 'updatesub', component: UpdatesubComponent},
+          { path: 'deletesub', component: DeletesubComponent},
         ]}
     ]
   },

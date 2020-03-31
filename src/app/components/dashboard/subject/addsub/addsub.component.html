@@ -1,0 +1,39 @@
+<form>
+    <div class="example-container">
+      
+      <mat-form-field hintLabel="" appearance="fill" class= "width">
+        <mat-label>Subject</mat-label>
+        <input matInput #input maxlength="20" placeholder="Subject">
+        <mat-hint align ="end">   </mat-hint>
+  </mat-form-field>
+          
+    </div>
+    <div *ngIf="angForm.controls['Subject'].invalid && (angForm.controls['Subject'].dirty || angForm.controls['Subject'].touched)" class="alert alert-danger">
+      <div *ngIf="angForm.controls['Subject'].errors.required">
+        Subject Name is required.
+      </div>
+    </div>
+  
+    <div class="example-container">
+      
+      <mat-form-field appearance="fill"  class= "width">
+        <mat-label>Teacher's Name</mat-label>
+        <mat-select>
+          <mat-option value="option">Option1</mat-option>
+          <mat-option value="option">Option2</mat-option>
+          <mat-option value="option">Option3</mat-option>
+        </mat-select>
+        
+        
+      </mat-form-field>
+  
+  </div>
+    
+      <button (click)="show()" mat-raised-button color="primary" value="Submit" >Add Subject</button>
+    
+      <button mat-stroked-button value="Reset">Reset</button>
+      
+   
+    
+  </form>
+  
