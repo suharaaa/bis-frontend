@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './view-n.component.html',
   styleUrls: ['./view-n.component.css']
 })
+
 export class ViewNComponent implements OnInit {
 
   constructor() { }
@@ -14,4 +15,6 @@ export class ViewNComponent implements OnInit {
   }
 
 }
+
+
 
