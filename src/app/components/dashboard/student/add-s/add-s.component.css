@@ -18,11 +18,3 @@ form {
 form button {
     margin-right: 20px;
 }
-
-.example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
-
-.admission{
-    padding-left: 100px;
-}
