@@ -12,17 +12,26 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
+<<<<<<< HEAD
     "@angular/cdk": "~8.2.3",
+=======
+>>>>>>> b5f77a274e5e1e24df4b9ae298a045d29a1a3b43
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
+<<<<<<< HEAD
     "@angular/material": "~8.2.3",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "bootstrap": "^4.4.1",
     "hammerjs": "^2.0.8",
+=======
+    "@angular/platform-browser": "~8.2.14",
+    "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/router": "~8.2.14",
+>>>>>>> b5f77a274e5e1e24df4b9ae298a045d29a1a3b43
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
