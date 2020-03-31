@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { NoticeService } from 'src/app/services/notice.service';
 
 interface APIResponse {
@@ -14,6 +15,7 @@ interface APIResponse {
 
 export class ViewNComponent implements OnInit {
 
+  private _id: String;
   private publishedOn: Date;
   private title: String;
   private teachersOnly: Boolean;
@@ -23,10 +25,12 @@ export class ViewNComponent implements OnInit {
   private notices:[];
 
   constructor(
-    private noticeService: NoticeService
+    private noticeService: NoticeService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
+    this._id = '';
     this.publishedOn = new Date();
     this.title = '';
     this.teachersOnly = false;
@@ -36,7 +40,18 @@ export class ViewNComponent implements OnInit {
     this.noticeService.viewNotices().subscribe((response : APIResponse) => {
       this.notices = response.data;
     });
+    
   } 
+
+  deleteNotice(){
+    this.noticeService.deleteNoticeById(this._id).subscribe(response => {
+      console.log(response);
+      this.snackBar.open('Notice is successfully deleted', null, { duration : 2000});
+    }, err => {
+      this.snackBar.open('Notice could not be deleted', null, { duration : 3000});
+      console.log(err.message);
+    });
+  }
 }
 
 
