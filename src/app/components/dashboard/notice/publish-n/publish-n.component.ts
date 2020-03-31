@@ -35,7 +35,6 @@ export class PublishNComponent implements OnInit {
   createNotice() {
     this.noticeService.createNotice(this.title,this.content,this.teachersOnly,this.expiresOn,this.noOfViewers).subscribe(response => {
       console.log(response);
-      
       this.snackBar.open('Notice is published successfully', null, { duration : 2000});
     }, err => {
       this.snackBar.open('Title & Content required', null, { duration : 3000});
