@@ -66,7 +66,7 @@ export class AddSComponent implements OnInit {
   }
 
   public enrollStudent() {
-    const student = new Student(this.fnFormControl.value, this.lnFormControl.value, this.addressFormControl.value, this.genderFormControl.value, this.dobFormControl.value, this.nationalFormControl.value, this.religionFormControl.value, this.mailFormControl.value, this.mnameFormControl.value, this.mworkFormControl.value, this.mwtpFormControl.value, this.maddFormControl.value, this.mtpFormControl.value, this.mmailFormControl.value, this.fnameFormControl.value, this.fworkFormControl.value, this.fwtpFormControl.value, this.faddFormControl.value, this.ftpFormControl.value, this.fmailFormControl.value);
+    const student = new Student(this.studentFormGroup.value);
 
     this.studentService.enrollStudent(student).subscribe(res => {
       //notify

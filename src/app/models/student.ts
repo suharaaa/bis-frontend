@@ -25,27 +25,27 @@ export class Student {
     private updatedOn: Date;
 
 
-    constructor(fname,lname,address,gender,dob,nation,religion,mail,mname,moccupation,mworkp,maddress,mphone,memail,faname,foccupation,fworkp,faddress,fphone,femail){
-        this.fname=fname;
-        this.lname=lname;
-        this.address=address;
-        this.gender=gender;
-        this.dob=dob;
-        this.nation=nation;
-        this.religion=religion;
-        this.mail=mail;
-        this.mname=mname;
-        this.moccupation=moccupation;
-        this.mworkp=mworkp;
-        this.maddress=maddress;
-        this.mphone=mphone;
-        this.memail=memail;
-        this.faname=faname;
-        this.foccupation=foccupation;
-        this.fworkp=fworkp;
-        this.faddress=faddress;
-        this.fphone=fphone;
-        this.femail=femail;
+    constructor(value){
+        this.fname = value.fname;
+        this.lname = value.lname;
+        this.address = value.address;
+        this.gender = value.gender;
+        this.dob = value.dob;
+        this.nation = value.nation;
+        this.religion = value.religion;
+        this.mail = value.mail;
+        this.mname = value.mname;
+        this.moccupation = value.moccupation;
+        this.mworkp = value.mworkp;
+        this.maddress = value.maddress;
+        this.mphone = value.mphone;
+        this.memail = value.memail;
+        this.faname = value.faname;
+        this.foccupation = value.foccupation;
+        this.fworkp = value.fworkp;
+        this.faddress = value.faddress;
+        this.fphone = value.fphone;
+        this.femail = value.femail;
     }
 
     
