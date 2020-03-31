@@ -47,7 +47,7 @@ export class PublishNComponent implements OnInit {
   clear() {
     this.title = '';
     this.content = '';
-    this.teachersOnly = null;
+    this.teachersOnly = false;
     this.expiresOn = null;
   }
 }
