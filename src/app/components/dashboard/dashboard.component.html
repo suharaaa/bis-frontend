@@ -3,7 +3,7 @@
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button mat-raised-button color="primary" type="submit" style="margin-right: 30px;">Search</button>
-        <button mat-raised-button color="warn" type="submit">Logout</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" type="submit">Logout</button>
     </form>
 </nav>
 
@@ -19,6 +19,7 @@
         <li>
             <a [routerLink]="['overview']">Overview</a>
         </li>
+        <mat-divider></mat-divider>
         <li>
             <a href="#stdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
             <ul class="collapse list-unstyled" id="stdSubmenu">
@@ -26,24 +27,24 @@
                     <a [routerLink]="['student/add']">Enroll</a>
                 </li>
                 <li>
-                    <a href="#">Update Details</a>
+                    <a [routerLink]="['student/update']">Update / Unenroll</a>
                 </li>
-                <li>
-                    <a href="#">Unenroll</a>
-                </li>
+            
             </ul>
         </li>
+        <mat-divider></mat-divider>
         <li>
             <a href="#teachSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
             <ul class="collapse list-unstyled" id="teachSubmenu">
                 <li>
-                    <a href="#">Add a teacher</a>
+                    <a [routerLink]="['teacher/add']">Add a teacher</a>
                 </li>
                 <li>
                     <a href="#">Manage details</a>
                 </li>
             </ul>
         </li>
+        <mat-divider></mat-divider>
         <li>
             <a href="#classSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Classes</a>
             <ul class="collapse list-unstyled" id="classSubmenu">
@@ -53,31 +54,83 @@
 
             </ul>
         </li>
+        <mat-divider></mat-divider>
         <li>
             <a href="#subSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Subjects</a>
             <ul class="collapse list-unstyled" id="subSubmenu">
                 <li>
-                    <a [routerLink]="['subject/addsub']">Add Subjects and Teachers</a>
+                    <a href="#">Page 1</a>
                 </li>
                 <li>
-                    <a [routerLink]="['subject/updatesub']">Update Subjects and Teachers</a>
-                </li>
-                <li>
-                    <a [routerLink]="['subject/deletesub']">Delete Subjects and Teachers</a>
+                    <a href="#">Page 2</a>
                 </li>
 
             </ul>
         </li>
-
+        <mat-divider></mat-divider>
         <li>
             <a href="#attSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Attendance</a>
             <ul class="collapse list-unstyled" id="attSubmenu">
                 <li>
-                    <a [routerLink]="['attendance/students']">Students</a>
+                    <a href="#attStdSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Students</a>
+                    <ul class="collapse list-unstyled" id="attStdSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/students/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/students/view']">View</a>
+                        </li>
+                    </ul>
+                </li>
+                <mat-divider></mat-divider>
+                <li>
+                    <a href="#attTeaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Teachers</a>
+                    <ul class="collapse list-unstyled" id="attTeaSubmenu">
+                        <li>
+                            <a [routerLink]="['attendance/teachers/mark']">Mark</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['attendance/teachers/view']">View</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <mat-divider></mat-divider>
+        <li>
+            <a href="#feesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Fees</a>
+            <ul class="collapse list-unstyled" id="feesSubmenu">
+                <li>
+                    <a [routerLink]="['fees/addfees']">Add Fees</a>
                 </li>
                 <li>
-                    <a [routerLink]="['attendance/teachers']">Teachers</a>
+                    <a [routerLink]="['fees/updatefees1']">Update Fees</a>
                 </li>
+            </ul>
+        </li>
+        <mat-divider></mat-divider>
+        <li>
+            <a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Notices</a>
+            <ul class="collapse list-unstyled" id="noticeSubmenu">
+                <li>
+                    <a [routerLink]="['notice/publish']">Publish</a>
+                </li>
+                <li>
+                    <a [routerLink]="['notice/view']">View</a>
+                </li>
+            </ul>
+        </li>
+        <mat-divider></mat-divider>
+        <li>
+            <a href="#usrSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Users</a>
+            <ul class="collapse list-unstyled" id="usrSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+
             </ul>
         </li>
     </ul>
