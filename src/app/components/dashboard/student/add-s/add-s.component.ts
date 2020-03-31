@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { StudentService } from 'src/app/services/student.service';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
-import { TaskErrorStateMatcher } from 'src/app/helpers/task-error-state-matcher';
+import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-matcher';
 import { Student } from 'src/app/models/student';
 
 @Component({
@@ -12,7 +12,7 @@ import { Student } from 'src/app/models/student';
 })
 export class AddSComponent implements OnInit {
 
-  private matcher: TaskErrorStateMatcher;
+  private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
 
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -54,7 +54,7 @@ export class AddSComponent implements OnInit {
       fphone: [''],
       femail: [''],
     });
-    this.matcher = new TaskErrorStateMatcher();
+    this.matcher = new StudentErrorStateMatcher();
   }
 
   public get StudentFormGroup(): FormGroup {
@@ -81,6 +81,10 @@ export class AddSComponent implements OnInit {
       });
     });
 
+  }
+
+  public clear() {
+    this.studentFormGroup.setValue[''];
   }
 
 
