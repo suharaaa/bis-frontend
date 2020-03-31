@@ -33,6 +33,7 @@ import { ViewStdAttnComponent } from './components/dashboard/attendance/student-
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { NoticeService } from './services/notice.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,10 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [
+    MatDatepickerModule,
+    NoticeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
