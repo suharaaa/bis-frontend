@@ -13,7 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
-import { ResultsComponent } from './components/dashboard/results/results.component';
+
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
 import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
@@ -32,7 +32,7 @@ import { DeletesubComponent } from './components/dashboard/subject/deletesub/del
     LoginComponent,
     OverviewComponent,
     AddSComponent,
-    ResultsComponent,
+  
     AttendanceComponent,
     StudentAttendanceComponent,
     TeacherAttendanceComponent,
