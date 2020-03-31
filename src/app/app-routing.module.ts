@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentComponent } from './components/dashboard/student/student.component';
@@ -50,11 +49,9 @@ const routes: Routes = [
     ]
   }
 ];
-=======
 
 
 const routes: Routes = [];
->>>>>>> b5f77a274e5e1e24df4b9ae298a045d29a1a3b43
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

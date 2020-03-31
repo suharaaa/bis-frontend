@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-<<<<<<< HEAD
  
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,7 +54,6 @@ import { DeletesubComponent } from './components/dashboard/subject/deletesub/del
 
 
   providers: [MatDatepickerModule],
-=======
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -68,7 +66,6 @@ import { AppComponent } from './app.component';
     AppRoutingModule
   ],
   providers: [],
->>>>>>> b5f77a274e5e1e24df4b9ae298a045d29a1a3b43
   bootstrap: [AppComponent]
 })
 export class AppModule { }
