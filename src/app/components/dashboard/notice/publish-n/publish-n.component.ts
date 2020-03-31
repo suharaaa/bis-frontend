@@ -27,9 +27,9 @@ export class PublishNComponent implements OnInit {
   ngOnInit(): void {
     this.title = '';
     this.content = '';
-    this.teachersOnly;
-    this.expiresOn;
-    this.noOfViewers;
+    this.teachersOnly = false;
+    this.expiresOn = new Date();
+    this.noOfViewers = 0;
   }
 
   createNotice() {
