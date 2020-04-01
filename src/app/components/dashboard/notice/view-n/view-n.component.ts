@@ -43,8 +43,8 @@ export class ViewNComponent implements OnInit {
     
   } 
 
-  deleteNotice(){
-    this.noticeService.deleteNoticeById(this._id).subscribe(response => {
+  deleteNotice(id: String){
+    this.noticeService.deleteNoticeById(id).subscribe(response => {
       console.log(response);
       this.snackBar.open('Notice is successfully deleted', null, { duration : 2000});
     }, err => {

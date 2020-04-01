@@ -19,20 +19,20 @@ export class NoticeService {
     return this.http.get(`${environment.apiHost}/notices`);
   }
 
-  public viewNoticeById(_id) {
-    return this.http.get(`${environment.apiHost}/notices/${_id}`);
+  public viewNoticeById(id) {
+    return this.http.get(`${environment.apiHost}/notices/${id}`);
   }
 
-  public updateNoticeById(_id,title, content, teachersOnly, expiresOn) {
-    return this.http.put(`${environment.apiHost}/notices/${_id}`, {title, content, teachersOnly, expiresOn});
+  public updateNoticeById(id,title, content, teachersOnly, expiresOn) {
+    return this.http.put(`${environment.apiHost}/notices/${id}`, {title, content, teachersOnly, expiresOn});
   }
 
-  public updateNoticeViewersById(_id,noOfViewers) {
-    return this.http.put(`${environment.apiHost}/notices/${_id}/noofviewers`, {noOfViewers});
+  public updateNoticeViewersById(id,noOfViewers) {
+    return this.http.put(`${environment.apiHost}/notices/${id}/noofviewers`, {noOfViewers});
   }
 
-  public deleteNoticeById(_id) {
-    return this.http.delete(`${environment.apiHost}/notices/${_id}`);
+  public deleteNoticeById(id) {
+    return this.http.delete(`${environment.apiHost}/notices/view/${id}`);
   }
 
 }
