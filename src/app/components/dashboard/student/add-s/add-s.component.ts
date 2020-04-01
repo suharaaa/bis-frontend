@@ -4,6 +4,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-matcher';
 import { Student } from 'src/app/models/student';
+import { APIResponse } from 'src/app/models/apiresponse';
 
 @Component({
   selector: 'app-add-s',
@@ -33,6 +34,7 @@ export class AddSComponent implements OnInit {
 
   ngOnInit() {
     this.studentFormGroup = this.formBuilder.group({
+      admissionNumber: [{ value: '', disabled: true }],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
       address: [''],
@@ -53,6 +55,9 @@ export class AddSComponent implements OnInit {
       faddress: [''],
       fphone: [''],
       femail: [''],
+    });
+    this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
+      this.studentFormGroup.get('admissionNumber').setValue(response.data);
     });
     this.matcher = new StudentErrorStateMatcher();
   }

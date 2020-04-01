@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./update-unenroll.component.css']
 })
 export class UpdateUnenrollComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'action'];
+  displayedColumns: string[] = ['id', 'fname', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(
@@ -29,7 +29,7 @@ export class UpdateUnenrollComponent implements OnInit {
 
   viewStudents(){
     this.studentService.viewStudents().subscribe((res: any) => {
-      this.dataSource.data = res.data;
+      this.dataSource = res.data;
     }, err => {
       console.log(err.message);
     });

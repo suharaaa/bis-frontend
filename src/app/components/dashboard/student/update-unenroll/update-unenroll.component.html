@@ -8,13 +8,13 @@
     <!-- RegNo Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *ngFor="let student of dataSource"> {{student.id} </td>
+      <td mat-cell *matCellDef="let student"> {{student._id}} </td>
     </ng-container>
   
     <!-- Name Column -->
     <ng-container matColumnDef="fname">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *ngFor="let student of dataSource"> {{student.fname}} </td>
+      <td mat-cell *matCellDef="let student"> {{student.fname}} </td>
     </ng-container>
 
     <!-- Action Column -->
