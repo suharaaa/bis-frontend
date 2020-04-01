@@ -71,7 +71,8 @@ export class AddSComponent implements OnInit {
   }
 
   public enrollStudent() {
-    const student = new Student(this.studentFormGroup.value);
+    
+    const student = new Student(this.studentFormGroup.getRawValue());
 
     this.studentService.enrollStudent(student).subscribe(res => {
       //notify

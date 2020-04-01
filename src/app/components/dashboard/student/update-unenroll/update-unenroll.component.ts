@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./update-unenroll.component.css']
 })
 export class UpdateUnenrollComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'fname', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'mail', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(

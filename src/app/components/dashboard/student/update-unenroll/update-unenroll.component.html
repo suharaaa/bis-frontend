@@ -7,14 +7,20 @@
 
     <!-- RegNo Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let student"> {{student._id}} </td>
+      <th mat-header-cell *matHeaderCellDef> Admission No. </th>
+      <td mat-cell *matCellDef="let student"> {{student.admissionNumber}} </td>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="fname">
+    <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let student"> {{student.fname}} </td>
+      <td mat-cell *matCellDef="let student"> {{student.fname}} {{student.lname}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="mail">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let student"> {{student.mail || 'N/A'}} </td>
     </ng-container>
 
     <!-- Action Column -->
