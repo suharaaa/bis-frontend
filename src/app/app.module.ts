@@ -34,6 +34,8 @@ import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+import { NoticeService } from './services/notice.service';
+import { StudentService } from './services/student.service';
 
 
 @NgModule({
@@ -76,7 +78,11 @@ import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [
+    MatDatepickerModule,
+    NoticeService,
+    StudentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
