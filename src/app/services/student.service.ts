@@ -16,5 +16,9 @@ export class StudentService {
     return this.http.post(`${environment.apiHost}/student`, student);
   }
 
+  public viewStudents(){
+    return this.http.get(`${environment.apiHost}/student`);
+  }
+
 
 }
