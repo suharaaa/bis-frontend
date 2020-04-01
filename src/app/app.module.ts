@@ -34,6 +34,7 @@ import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { NoticeService } from './services/notice.service';
+import { StudentService } from './services/student.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { NoticeService } from './services/notice.service';
   ],
   providers: [
     MatDatepickerModule,
-    NoticeService
+    NoticeService,
+    StudentService
   ],
   bootstrap: [AppComponent]
 })
