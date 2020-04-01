@@ -1,4 +1,33 @@
 <h2>Published Notices</h2><br>
 <div>
-    
+    <div class="col-md-12" >
+        <mat-card class="notice-card" *ngFor="let notice of notices" style="margin:1em;">
+            <mat-card-header>
+            <mat-card-title>{{notice.title}}</mat-card-title>
+            <mat-card-subtitle style="font-size: smaller;">{{ notice.publishedOn }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p style="color:grey;font-size: x-small;"> is teachers ONLY : {{ notice.teachersOnly }}</p>
+            <p>
+                {{ notice.content }}
+            </p>
+            <p style="float: right;">
+                No. of Viewers : {{ notice.noOfViewers}}
+            </p>
+            <p style="color:grey;font-size: smaller;">
+                Expires On : {{ notice.expiresOn }}
+            </p>
+        </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button style="background-color: darkred;color: white;" (click)="deleteNotice(notice._id)">Delete</button>
+                <button mat-raised-button style="background-color: #f69223;color: white;">Update</button>
+              </mat-card-actions>
+              <mat-card-content>
+            <p style="color:grey;font-size: smaller;">
+                Updated On : {{ notice.updatedOn }}
+            </p>
+          </mat-card-content>
+          
+        </mat-card>
+    </div>
 </div>

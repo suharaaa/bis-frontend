@@ -1,0 +1,13 @@
+notice-card {
+  max-width: 100%;
+  min-width: 400px;
+  border-radius: 5px;
+}
+
+button {
+  float: right;
+}
+
+p {
+  margin-left: 15px;;
+}
