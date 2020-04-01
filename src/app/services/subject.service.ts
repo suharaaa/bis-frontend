@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({
     providedIn: 'root'
@@ -7,19 +10,28 @@ import { HttpClient } from '@angular/common/http';
 
 export class SubjectServices {
 
-   uri = 'http://localhost:3000/subjects';
+   
 
     constructor(private http: HttpClient) { }
 
-    addSubject(Subject, TeacherName) {
-
-        const obj = {
-            Subject,
-            TeacherName
-        };
-
-        console.log(obj);
-        this.http.post(`${this.uri}/add`, obj)
-        .subscribe(res => console.log('Done'));
+    public createNewSubject(subjectname, classname, teachername){
+        return this.http.post(`${environment.apiHost}/subjects`,{subjectname, classname, teachername});
     }
+
+    public findSubjects() {
+        return this.http.get(`${environment.apiHost}/subjects`);
+    }
+
+    public findSubjectID(id){
+        return this.http.get(`${environment.apiHost}/subjects/${id}`);
+    }
+
+    public UpdateSubject(id,subjectname, classname, teachername){
+        return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname, classname, teachername});
+    }
+
+    public DeleteSubject(id){
+        return this.http.delete(`${environment.apiHost}/subjects/${id}`);
+    }
+
 }

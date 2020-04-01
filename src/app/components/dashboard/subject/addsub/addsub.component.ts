@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder,} from '@angular/forms';
 import { SubjectServices } from 'src/app/services/subject.service';
-import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
-import { TaskErrorStateMatcher } from 'src/app/helpers/task-error-state-matcher';
-import {FormControl, Validators} from '@angular/forms';
+import {  MatSnackBar } from '@angular/material';
+
+
+
+interface APIResponse {
+  success : boolean,
+  data : any
+}
 @Component({
   selector: 'app-addsub',
   templateUrl: './addsub.component.html',
@@ -11,24 +15,45 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class AddsubComponent implements OnInit {
 
- angForm: FormGroup;
- constructor(private fb: FormBuilder, private ps: SubjectServices) {
-    this.createForm();
-   }
+  
+  private subjectname: String;
+  private classname: Number;
+  private teachername: String;
+ 
+ constructor(
+   
+   private subjectService: SubjectServices,
+   private snackBar: MatSnackBar
+   ) {}
 
-   createForm() {
-
-    this.angForm = this.fb.group({
-      Subject: ['', Validators.required ]
       
 
-    });
-   }
-    addSubject(Subject, TeacherName) {
-      this.ps.addSubject(Subject, TeacherName);
-    }
+   
+  ngOnInit(): void {
+    this.subjectname = '';
+    this.classname = 0;
+    this.teachername = '';
 
-  ngOnInit() {
+  }
+
+  createNewSubject(){
+    this.subjectService.createNewSubject(this.subjectname,this.classname,this.teachername).subscribe(response => {
+    console.log(response);
+   this.snackBar.open('Subjects and teacher added successfully', null, { duration : 2000});
+    }, err => {
+    this.snackBar.open('Subject name and Class required', null, { duration : 3000});
+      console.log(err.message);
+  });
+    this.clear();
+    
+  }
+
+  clear() {
+    this.subjectname = '';
+    this.classname = 0;
+    this.teachername = '';
+    
+
   }
   
 

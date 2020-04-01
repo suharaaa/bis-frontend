@@ -2,8 +2,8 @@
     <a class="navbar-brand"></a>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button mat-raised-button color="primary" type="submit" style="margin-right: 30px;">Search</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" type="submit">Logout</button>
+        <button mat-raised-button color="primary" style="margin-right: 30px;">Search</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="logout()" >Logout</button>
     </form>
 </nav>
 
