@@ -3,7 +3,7 @@
 <form>
 
     <div class="joining ">
-        <h4 style="padding-top: 20px;">Teacher Information</h4><br>
+        <h4 style="padding-top: 20px;">Registration Form</h4><br>
 
         <div class="form-row">
             <div class="col-md-6 col-sm-12">
@@ -59,7 +59,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>NIC</mat-label>
-                    <input matInput name="dob" [errorStateMatcher]="TaskErrorStateMatcher" placeholder="1234567890">
+                    <input matInput name="nic" [errorStateMatcher]="TaskErrorStateMatcher" placeholder="1234567890">
                     </mat-form-field>
             </div>
         </div>
@@ -85,7 +85,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Marital Status</mat-label>
-                    <mat-select name="gender" [errorStateMatcher]="TaskErrorStateMatcher">
+                    <mat-select name="mstatus" [errorStateMatcher]="TaskErrorStateMatcher">
                         <mat-option value="female">Single</mat-option>
                         <mat-option value="male">Married</mat-option>
                         <mat-option value="female">Widowed</mat-option>
@@ -138,7 +138,7 @@
     </div>
     <br>
     
-    <button mat-stroked-button >Reset</button>
+    <button mat-stroked-button color = "warn">Reset</button>
     <button mat-raised-button color="primary">Add Teacher</button>
     
 </form>
