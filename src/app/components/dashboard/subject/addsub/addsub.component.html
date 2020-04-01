@@ -1,17 +1,15 @@
+<h2>Add Subjects and Teachers </h2><br>
+<br>
+
 <form>
     <div class="example-container">
       
       <mat-form-field hintLabel="" appearance="fill" class= "width">
-        <mat-label>Subject</mat-label>
+        <mat-label>Subjects</mat-label>
         <input matInput #input maxlength="20" placeholder="Subject">
         <mat-hint align ="end">   </mat-hint>
   </mat-form-field>
           
-    </div>
-    <div *ngIf="angForm.controls['Subject'].invalid && (angForm.controls['Subject'].dirty || angForm.controls['Subject'].touched)" class="alert alert-danger">
-      <div *ngIf="angForm.controls['Subject'].errors.required">
-        Subject Name is required.
-      </div>
     </div>
   
     <div class="example-container">
@@ -27,13 +25,15 @@
         
       </mat-form-field>
   
-  </div>
+    </div>
     
-      <button (click)="show()" mat-raised-button color="primary" value="Submit" >Add Subject</button>
+    <div class="form group">
+    <button (click)="addSubject(Subject.value, TecherName.value)" type="submit" class=" btn btn-primary" [disabled]="angForm.pristine || angForm.invalid" >Add Subject</button>
+  
+    <button mat-stroked-button value="Reset">Reset</button>
     
-      <button mat-stroked-button value="Reset">Reset</button>
+ 
       
-   
+    </div>
     
   </form>
-  
