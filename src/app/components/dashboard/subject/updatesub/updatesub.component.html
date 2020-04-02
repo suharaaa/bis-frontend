@@ -16,7 +16,7 @@
   
     <tbody>
         <tr *ngFor="let subject of subjects">
-            <td>{{ subject.subjectName }}</td>
+            <td>{{ subjects.subjectname }}</td>
             <td>{{ subject.teacherName}}</td>
             
             <td><a [routerLink]="['/updatesub', subject.id]" class="btn btn-primary">Edit</a></td>

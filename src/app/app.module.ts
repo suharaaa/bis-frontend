@@ -38,7 +38,13 @@ import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.co
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { SubjectServices } from './services/subject.service';
+import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
+import { StudentService } from './services/student.service';
+import { ClassComponent } from './components/dashboard/class/class.component';
+import { AddcComponent } from './components/dashboard/class/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+
 
 @NgModule({
   declarations: [
@@ -70,7 +76,12 @@ import { NoticeService } from './services/notice.service';
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    DeletesubComponent
+    DeletesubComponent,
+    UpdateTComponent,
+    ClassComponent,
+    AddcComponent,
+    ViewcComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -85,7 +96,8 @@ import { NoticeService } from './services/notice.service';
   providers: [
     MatDatepickerModule,
     NoticeService,
-    SubjectServices
+    SubjectServices,
+    StudentService
   ],
   bootstrap: [AppComponent]
 })

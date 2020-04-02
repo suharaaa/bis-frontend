@@ -1,25 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import {MatTableDataSource} from '@angular/material/table';
+import { Student } from 'src/app/models/student';
+import { StudentService } from 'src/app/services/student.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen'},
-  {position: 2, name: 'Helium'},
-  {position: 3, name: 'Lithium'},
-  {position: 4, name: 'Beryllium'},
-  {position: 5, name: 'Boron'},
-  {position: 6, name: 'Carbon'},
-  {position: 7, name: 'Nitrogen'},
-  {position: 8, name: 'Oxygen'},
-  {position: 9, name: 'Fluorine'},
-  {position: 10, name: 'Neon'}
-];
 
 
 @Component({
@@ -28,16 +11,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./update-unenroll.component.css']
 })
 export class UpdateUnenrollComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'action'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['id', 'name', 'mail', 'action'];
+  dataSource = new MatTableDataSource();
+
+  constructor(
+    private studentService: StudentService
+  ) { }
+  
+  ngOnInit() {
+    this.viewStudents();
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  constructor() { }
-  
-  ngOnInit() {
+
+  viewStudents(){
+    this.studentService.viewStudents().subscribe((res: any) => {
+      this.dataSource = res.data;
+    }, err => {
+      console.log(err.message);
+    });
   }
+
+  delete() {}
 
 }
