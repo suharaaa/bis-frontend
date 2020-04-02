@@ -41,9 +41,10 @@ import { SubjectServices } from './services/subject.service';
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
-import { ClassComponent } from './components/dashboard/class/class.component';
+import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/class/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+import { ClassesComponent } from './components/dashboard/classes/classes.component';
 
 
 @NgModule({
@@ -78,9 +79,9 @@ import { ViewcComponent } from './components/dashboard/class/viewc/viewc.compone
     UpdatesubComponent,
     DeletesubComponent,
     UpdateTComponent,
-    ClassComponent,
     AddcComponent,
-    ViewcComponent
+    ViewcComponent,
+    ClassesComponent
     
   ],
   imports: [
@@ -97,7 +98,9 @@ import { ViewcComponent } from './components/dashboard/class/viewc/viewc.compone
     MatDatepickerModule,
     NoticeService,
     SubjectServices,
-    StudentService
+    StudentService,
+    ClassServices
+    
   ],
   bootstrap: [AppComponent]
 })
