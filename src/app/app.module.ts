@@ -36,6 +36,7 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -66,6 +67,8 @@ import { StudentService } from './services/student.service';
     ViewTchAttnComponent,
     StudentfeesComponent,
     UpdateTComponent,
+    
+    SignupComponent,
     
   ],
   imports: [
