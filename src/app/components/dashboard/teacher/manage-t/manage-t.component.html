@@ -1,1 +1,28 @@
-<p>manage-t works!</p>
+<h2>Manage Teacher Information</h2>
+<br>
+
+<div class="list">
+<h4 style="padding-top: 20px;">Teachers List</h4><br>
+
+  <table >
+  
+      <thead>
+        <tr>
+            <td>ID Number</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td colspan="2">Actions</td>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+          <tr *ngFor="let teachers of teacher">
+              <td>{{ teachers.id }}</td>
+              <td>{{ teachers.fname }}</td>
+              <td>{{ teachers.lname }}</td>
+              <td><a [routerLink]="['/edit', teacher._id]" class="btn btn-primary">Edit</a></td>
+              <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
+            </tr>
+      </tbody>
+   </table>
+  </div>
