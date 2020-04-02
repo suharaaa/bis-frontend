@@ -1,4 +1,5 @@
 export class Student {
+    private admissionNumber: string;
     private fname: string;
     private lname: string;
     private address: string;
@@ -25,7 +26,8 @@ export class Student {
     private updatedOn: Date;
 
 
-    constructor(value){
+    constructor(value) {
+        this.admissionNumber = value.admissionNumber;
         this.fname = value.fname;
         this.lname = value.lname;
         this.address = value.address;
@@ -48,7 +50,14 @@ export class Student {
         this.femail = value.femail;
     }
 
-    
+    public get getAdmissionNumber(): string {
+        return this.admissionNumber;
+    }
+
+    public set setAdmissionNumber(admissionNumber: string) {
+        this.admissionNumber = admissionNumber;
+    }
+
     public get getfname() : string {
         return this.fname;
     }
