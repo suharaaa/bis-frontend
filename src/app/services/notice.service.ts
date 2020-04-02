@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -32,7 +32,7 @@ export class NoticeService {
   }
 
   public deleteNoticeById(id) {
-    return this.http.delete(`${environment.apiHost}/notices/view/${id}`);
+    return this.http.delete(`${environment.apiHost}/notices/${id}`);
   }
 
 }

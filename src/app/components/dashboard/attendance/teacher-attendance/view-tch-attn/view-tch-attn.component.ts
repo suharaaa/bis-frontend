@@ -30,6 +30,7 @@ export class ViewTchAttnComponent implements OnInit {
     {date: '04/03/2020', attendance: 40},
     {date: '05/03/2020', attendance: 40},
     {date: '06/03/2020', attendance: 37},
+    {date: '07/03/2020', attendance: 45},
   ];
 
   getTotal() {
