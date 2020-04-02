@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-results',
@@ -7,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router // 
+  )
+ 
+  { }
 
   ngOnInit() {
   }
 
-/* gradeSelect(){
-    this.router.navigate(["results/selectGrade"]);
-  }*/
+  subject(){
+    this.router.navigate(["homepage/selectSubject"]);
+  }
 
 }
