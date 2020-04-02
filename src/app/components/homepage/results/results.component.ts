@@ -19,8 +19,8 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
   }
 
-  subject(){
-    this.router.navigate(["homepage/selectSubject"]);
+  results(){
+    this.router.navigate(["homepage/addResults"]);
   }
 
 }

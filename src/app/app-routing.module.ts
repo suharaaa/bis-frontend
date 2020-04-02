@@ -11,7 +11,6 @@ import { TeacherAttendanceComponent } from './components/dashboard/attendance/te
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { SelectSubjectComponent } from './components/homepage/results/select-subject/select-subject.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 
@@ -40,7 +39,6 @@ const routes: Routes = [
   {path: 'homepage', component: HomepageComponent,
   children:[
     {path: 'results', component: ResultsComponent},
-      {path:'selectSubject', component: SelectSubjectComponent},
       {path:'addResults', component: AddResultsComponent},
       {path: 'student-res', component: StudentResComponent},
     ]

@@ -6,7 +6,12 @@
     padding-top: 20px;
     padding-bottom: 25px;
   }
-.tableMarks{
+.drop{
+    padding-left: 10%;
+    padding-right: 70%;
+}
+
+  .tableMarks{
     padding-left: 10%;
     padding-right: 10%;
     

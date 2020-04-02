@@ -29,7 +29,6 @@ import { TeacherComponent } from './components/dashboard/teacher/teacher.compone
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { SelectSubjectComponent } from './components/homepage/results/select-subject/select-subject.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { NoticeService } from './services/notice.service';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
@@ -59,7 +58,6 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     AddTComponent,
     ManageTComponent,
     ResultsComponent,
-    SelectSubjectComponent,
     AddResultsComponent,
     StudentResComponent,
  
