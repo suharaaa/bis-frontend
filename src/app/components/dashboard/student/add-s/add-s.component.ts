@@ -5,6 +5,8 @@ import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-matcher';
 import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
+import { ActivatedRoute } from '@angular/router';
+// import { ClassServices } from 'src/app/services/classes.service';
 
 @Component({
   selector: 'app-add-s',
@@ -21,7 +23,9 @@ export class AddSComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private studentService: StudentService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    // private classService: ClassServices,
+    private route:ActivatedRoute
   ) { }
 
   getErrorMessage() {
@@ -43,6 +47,7 @@ export class AddSComponent implements OnInit {
       nation: [''],
       religion: [''],
       mail: [''],
+      class:[''],
       mname: [''],
       moccupation: [''],
       mworkp: [''],
@@ -79,6 +84,7 @@ export class AddSComponent implements OnInit {
       this.snackbar.open('Enrolled successfully!', '', { duration: 2000 });
 
       //clear data
+      this.clear();
 
     }, err => {
       //error msg
@@ -90,7 +96,7 @@ export class AddSComponent implements OnInit {
   }
 
   public clear() {
-    this.studentFormGroup.setValue[''];
+    this.studentFormGroup.reset();
   }
 
 

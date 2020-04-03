@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./update-unenroll.component.css']
 })
 export class UpdateUnenrollComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'mail', 'action'];
+  displayedColumns = ['id', 'name', 'mail', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(
@@ -22,9 +22,10 @@ export class UpdateUnenrollComponent implements OnInit {
     this.viewStudents();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;  
   }
 
   viewStudents(){
@@ -34,6 +35,8 @@ export class UpdateUnenrollComponent implements OnInit {
       console.log(err.message);
     });
   }
+
+  
 
   delete() {}
 
