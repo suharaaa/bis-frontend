@@ -44,6 +44,7 @@ import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 
@@ -82,8 +83,9 @@ import { EditcComponent } from './components/dashboard/classes/editc/editc.compo
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
-    EditsubComponent,
-    EditcComponent
+      SignupComponent,
+      EditsubComponent,
+      EditcComponent
     
   ],
   imports: [
