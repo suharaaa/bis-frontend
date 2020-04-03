@@ -101,7 +101,7 @@
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Class</mat-label>
                     <mat-select name="class" [errorStateMatcher]="StudentErrorStateMatcher" required formControlName="class">
-                    <mat-option value="class._id" *\*ngFor="let class of classes">{{class.name}}</mat-option>
+                    <mat-option value="class._id" ngFor="let class of classes">{{class.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
