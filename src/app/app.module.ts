@@ -48,6 +48,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
     SignupComponent,
     EditsubComponent,
     EditcComponent,
-    NoticeboardComponent  
+    NoticeboardComponent,
+    UpdateNComponent  
   ],
   
   imports: [

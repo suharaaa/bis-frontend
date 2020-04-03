@@ -1,13 +1,12 @@
-notice-card {
-  max-width: 100%;
-  min-width: 400px;
-  border-radius: 5px;
+table {
+  width: 100%;
 }
 
-button {
-  float: right;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }
 
-p {
-  margin-left: 15px;;
+.mat-stroked-button{
+  margin-right: 20px;
 }
