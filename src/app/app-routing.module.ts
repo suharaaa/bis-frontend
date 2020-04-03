@@ -24,6 +24,7 @@ import { MarkStdAttnComponent } from './components/dashboard/attendance/student-
 import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
 
 
 const routes: Routes = [
@@ -78,7 +79,13 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'homepage', component: HomepageComponent }
+  { path: 'homepage', 
+    component: HomepageComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+      { path: 'home', component:HomepageComponent},
+      { path: 'noticeboard', component: NoticeboardComponent}
+    ] }
 ];
 
 @NgModule({
