@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,20 +11,22 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./update-unenroll.component.css']
 })
 export class UpdateUnenrollComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'mail', 'action'];
+  displayedColumns = ['id', 'name', 'mail', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) { }
   
   ngOnInit() {
     this.viewStudents();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;  
   }
 
   viewStudents(){
@@ -33,6 +35,10 @@ export class UpdateUnenrollComponent implements OnInit {
     }, err => {
       console.log(err.message);
     });
+  }
+
+  public updateStudent(id: string) {
+    this.router.navigate(['student/add'], { queryParams: { id } });
   }
 
   delete() {}

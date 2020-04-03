@@ -22,9 +22,6 @@ export class Student {
     private fphone: number;
     private femail: string;
 
-    private createdOn: Date;
-    private updatedOn: Date;
-
 
     constructor(value) {
         this.admissionNumber = value.admissionNumber;

@@ -5,7 +5,8 @@ import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-matcher';
 import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
-
+import { ActivatedRoute } from '@angular/router';
+import { ClassServices } from 'src/app/services/classes.service';
 
 @Component({
   selector: 'app-add-s',
@@ -16,13 +17,17 @@ export class AddSComponent implements OnInit {
 
   private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
+  private classes;
+  private id:string;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
     private studentService: StudentService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private classService: ClassServices,
+    private route:ActivatedRoute
   ) { }
 
   getErrorMessage() {
@@ -44,6 +49,7 @@ export class AddSComponent implements OnInit {
       nation: [''],
       religion: [''],
       mail: [''],
+      class:[''],
       mname: [''],
       moccupation: [''],
       mworkp: [''],
@@ -57,10 +63,22 @@ export class AddSComponent implements OnInit {
       fphone: [''],
       femail: [''],
     });
+
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.id = params.id;
+        this.studentService.getStudentId(this.id).subscribe(res => {
+          
+        })
+        
+      }
+    })
+
     this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
       this.studentFormGroup.get('admissionNumber').setValue(response.data);
     });
     this.matcher = new StudentErrorStateMatcher();
+    this.getAllClasses();
   }
 
   public get StudentFormGroup(): FormGroup {
@@ -69,6 +87,10 @@ export class AddSComponent implements OnInit {
 
   public get StudentErrorStateMatcher(): ErrorStateMatcher {
     return this.matcher;
+  }
+
+  public getAllClasses(){
+    this.classService.findClass().subscribe((res: {data: any}) => this.classes = res.data);
   }
 
   public enrollStudent() {
@@ -80,6 +102,7 @@ export class AddSComponent implements OnInit {
       this.snackbar.open('Enrolled successfully!', '', { duration: 2000 });
 
       //clear data
+      this.clear();
 
     }, err => {
       //error msg
@@ -91,7 +114,7 @@ export class AddSComponent implements OnInit {
   }
 
   public clear() {
-    this.studentFormGroup.setValue[''];
+    this.studentFormGroup.reset();
   }
 
 
