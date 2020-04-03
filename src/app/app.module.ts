@@ -33,9 +33,18 @@ import { ViewStdAttnComponent } from './components/dashboard/attendance/student-
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { SubjectComponent } from './components/dashboard/subject/subject.component';
+import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
+import { SubjectServices } from './services/subject.service';
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
+import { ClassServices } from './services/classes.service';
+import { AddcComponent } from './components/dashboard/class/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+import { ClassesComponent } from './components/dashboard/classes/classes.component';
 
 
 @NgModule({
@@ -65,7 +74,14 @@ import { StudentService } from './services/student.service';
     MarkTchAttnComponent,
     ViewTchAttnComponent,
     StudentfeesComponent,
+    SubjectComponent,
+    AddsubComponent,
+    UpdatesubComponent,
+    DeletesubComponent,
     UpdateTComponent,
+    AddcComponent,
+    ViewcComponent,
+    ClassesComponent
     
   ],
   imports: [
@@ -81,7 +97,10 @@ import { StudentService } from './services/student.service';
   providers: [
     MatDatepickerModule,
     NoticeService,
-    StudentService
+    SubjectServices,
+    StudentService,
+    ClassServices
+    
   ],
   bootstrap: [AppComponent]
 })
