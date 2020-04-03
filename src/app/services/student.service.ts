@@ -30,4 +30,8 @@ export class StudentService {
   public getStudentId(id: string) {
     return this.http.get(`${environment.apiHost}/students/${id}`);
   }
+
+  public deleteStudent(id) {
+    return this.http.delete(`${environment.apiHost}/students/${id}`);
+  }
 }

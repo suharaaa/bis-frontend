@@ -6,8 +6,7 @@ import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-ma
 import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
 import { ActivatedRoute } from '@angular/router';
-// import { ClassServices } from 'src/app/services/classes.service';
-
+import { ClassServices } from 'src/app/services/classes.service';
 
 @Component({
   selector: 'app-add-s',
@@ -18,6 +17,8 @@ export class AddSComponent implements OnInit {
 
   private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
+  private classes;
+  private id:string;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -25,7 +26,7 @@ export class AddSComponent implements OnInit {
     private formBuilder: FormBuilder,
     private studentService: StudentService,
     private snackbar: MatSnackBar,
-    // private classService: ClassServices,
+    private classService: ClassServices,
     private route:ActivatedRoute
   ) { }
 
@@ -62,10 +63,22 @@ export class AddSComponent implements OnInit {
       fphone: [''],
       femail: [''],
     });
+
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.id = params.id;
+        this.studentService.getStudentId(this.id).subscribe(res => {
+          
+        })
+        
+      }
+    })
+
     this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
       this.studentFormGroup.get('admissionNumber').setValue(response.data);
     });
     this.matcher = new StudentErrorStateMatcher();
+    this.getAllClasses();
   }
 
   public get StudentFormGroup(): FormGroup {
@@ -74,6 +87,10 @@ export class AddSComponent implements OnInit {
 
   public get StudentErrorStateMatcher(): ErrorStateMatcher {
     return this.matcher;
+  }
+
+  public getAllClasses(){
+    this.classService.findClass().subscribe((res: {data: any}) => this.classes = res.data);
   }
 
   public enrollStudent() {

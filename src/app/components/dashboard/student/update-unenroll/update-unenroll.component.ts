@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,8 @@ export class UpdateUnenrollComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   constructor(
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) { }
   
   ngOnInit() {
@@ -36,7 +37,9 @@ export class UpdateUnenrollComponent implements OnInit {
     });
   }
 
-  
+  public updateStudent(id: string) {
+    this.router.navigate(['student/add'], { queryParams: { id } });
+  }
 
   delete() {}
 

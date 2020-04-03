@@ -27,7 +27,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let student">
-        <a mat-stroked-button color="primary" routerLink=".">Update</a>
+        <a mat-stroked-button color="primary" (click)="updateStudent(student._id)">Update</a>
         <a mat-stroked-button style="color: #f69223;" (click)="delete()">Delete</a>
       </td>
     </ng-container>
