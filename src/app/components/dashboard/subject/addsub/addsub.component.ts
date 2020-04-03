@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubjectServices } from 'src/app/services/subject.service';
+import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
 
 
@@ -17,12 +18,14 @@ export class AddsubComponent implements OnInit {
 
   
   private subjectname: String;
-  private classname: Number;
-  private teachername: String;
+  private classname: any;
+  private teachername: any;
  
  constructor(
    
    private subjectService: SubjectServices,
+   private classService: ClassServices,
+
    private snackBar: MatSnackBar
    ) {}
 

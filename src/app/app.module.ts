@@ -36,16 +36,18 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
-import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { SubjectServices } from './services/subject.service';
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
-import { AddcComponent } from './components/dashboard/class/addc/addc.component';
-import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
+import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
+
 
 @NgModule({
   declarations: [
@@ -77,12 +79,13 @@ import { SignupComponent } from './components/signup/signup.component';
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    DeletesubComponent,
     UpdateTComponent,
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
-    SignupComponent,
+      SignupComponent,
+      EditsubComponent,
+      EditcComponent
     
   ],
   imports: [

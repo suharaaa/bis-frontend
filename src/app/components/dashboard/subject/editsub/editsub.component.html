@@ -1,0 +1,15 @@
+<form>
+    <input type="text" name="subjectname" class="form-control" placeholder="Subject Name" [(ngModel)]="assignIn"><br>
+
+    
+    <select class="form-control" name="class" placeholder="Class">
+      <option [value]="classes._id" *ngFor="let class of classes">{{classes.name}}</option>
+    </select><br>
+
+    <select class="form-control" name="teachername" placeholder="Teacher Name">
+        <option [value]="classes._id" *ngFor="let class of classes">{{classes.name}}</option>
+      </select><br>
+
+    <button class="btn btn-primary" (click)="save()" *ngIf="!isOnUpdate">Add</button>
+    <button class="btn btn-primary" (click)="updateSubject()" *ngIf="isOnUpdate">Update</button>
+  </form>
