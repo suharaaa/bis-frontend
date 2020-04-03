@@ -47,6 +47,7 @@ import { ClassesComponent } from './components/dashboard/classes/classes.compone
 import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
 
 
 @NgModule({
@@ -83,11 +84,12 @@ import { EditcComponent } from './components/dashboard/classes/editc/editc.compo
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
-      SignupComponent,
-      EditsubComponent,
-      EditcComponent
-    
+    SignupComponent,
+    EditsubComponent,
+    EditcComponent,
+    NoticeboardComponent  
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

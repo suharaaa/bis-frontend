@@ -33,6 +33,7 @@ import { AddcComponent } from './components/dashboard/classes/addc/addc.componen
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent} from './components/signup/signup.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -101,7 +102,13 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'homepage', component: HomepageComponent }
+  { path: 'homepage', 
+    component: HomepageComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+      { path: 'home', component:HomepageComponent},
+      { path: 'noticeboard', component: NoticeboardComponent}
+    ] }
 ];
 
 @NgModule({
