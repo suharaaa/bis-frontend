@@ -27,7 +27,6 @@ import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
-import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
@@ -85,8 +84,7 @@ const routes: Routes = [
         component: SubjectComponent,
         children: [
           { path: 'addsub', component: AddsubComponent},
-          { path: 'updatesub', component: UpdatesubComponent},
-          { path: 'deletesub', component: DeletesubComponent},
+          { path: 'updatesub', component: UpdatesubComponent}
         ]},
         { path: 'classes',
         component: ClassesComponent,

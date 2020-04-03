@@ -26,7 +26,7 @@ public teachers: [];
 
     private classService: ClassServices,
    private snackBar: MatSnackBar,
-   public teacherService: TeacherService
+   //public teacherService: TeacherService
 
   ) { }
 
@@ -35,11 +35,11 @@ public teachers: [];
     this.name ='';
     this.classteacher ='';
 
-   this.teacherService.findTeacher().subscribe(res =>{
+  /* this.teacherService.findTeacher().subscribe(res =>{
      this.teachers = res.data;
    })
   
-
+*/
 
   }
 
@@ -61,4 +61,4 @@ public teachers: [];
     
 
 }
-}
+  }
