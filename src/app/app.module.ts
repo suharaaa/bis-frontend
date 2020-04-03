@@ -34,6 +34,23 @@ import { NoticeService } from './services/notice.service';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 
 
+import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
+import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
+import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
+import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
+import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { SubjectComponent } from './components/dashboard/subject/subject.component';
+import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
+import { SubjectServices } from './services/subject.service';
+import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+import { StudentService } from './services/student.service';
+import { ClassServices } from './services/classes.service';
+import { AddcComponent } from './components/dashboard/class/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+import { ClassesComponent } from './components/dashboard/classes/classes.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +78,20 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     AddResultsComponent,
     StudentResComponent,
  
+    MarkStdAttnComponent,
+    ViewStdAttnComponent,
+    MarkTchAttnComponent,
+    ViewTchAttnComponent,
+    StudentfeesComponent,
+    SubjectComponent,
+    AddsubComponent,
+    UpdatesubComponent,
+    DeletesubComponent,
+    UpdateTComponent,
+    AddcComponent,
+    ViewcComponent,
+    ClassesComponent,
+    SignupComponent,
     
 
   ],
@@ -76,7 +107,11 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
   ],
   providers: [
     MatDatepickerModule,
-   NoticeService
+   NoticeService,
+   SubjectServices,
+    StudentService,
+    ClassServices
+    
   ],
   bootstrap: [AppComponent]
 })
