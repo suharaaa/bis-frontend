@@ -45,7 +45,7 @@ import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/class/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
-
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +81,8 @@ import { ClassesComponent } from './components/dashboard/classes/classes.compone
     UpdateTComponent,
     AddcComponent,
     ViewcComponent,
-    ClassesComponent
+    ClassesComponent,
+    SignupComponent,
     
   ],
   imports: [

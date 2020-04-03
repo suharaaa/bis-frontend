@@ -31,9 +31,11 @@ import { DeletesubComponent } from './components/dashboard/subject/deletesub/del
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+import { SignupComponent} from './components/signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   {
     path: 'dashboard', 
     component: DashboardComponent,
