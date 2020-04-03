@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from 'src/app/services/attendance.service';
-import { ClassService } from 'src/app/services/class.service';
+import { ClassServices } from 'src/app/services/classes.service';
 import { MatSnackBar } from '@angular/material';
 
 interface APIResponse {
@@ -22,7 +22,7 @@ export class MarkStdAttnComponent implements OnInit {
   public count: number;
 
   constructor(
-    private classService: ClassService,
+    private classService: ClassServices,
     private attendanceService: AttendanceService,
     private snackBar: MatSnackBar
   ) { }
