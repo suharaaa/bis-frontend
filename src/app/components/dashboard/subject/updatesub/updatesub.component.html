@@ -1,7 +1,11 @@
 
 <h2>Edit Subjects and Teachers </h2><br>
 <br>
-
+<div class="row">
+    <button class="btn btn-primary" (click)="goToNewStudent()">
+      Add New
+    </button> 
+  </div><br>
 
 
 <table class="table table-hover">
@@ -14,13 +18,22 @@
     </tr>
     </thead>
   
-    <tbody>
+    <tbody *ngIf="classObject && classObject.students.length > 0" ,*ngIf="teacherObject && teacherObject.students.length > 0">
         <tr *ngFor="let subject of subjects">
             <td>{{ subjects.subjectname }}</td>
-            <td>{{ subject.teacherName}}</td>
+            <td>{{ classObject.classname}}</td>
+            <td>{{ s.teachername}}</td>
             
-            <td><a [routerLink]="['/updatesub', subject.id]" class="btn btn-primary">Edit</a></td>
-            <td><a [routerLink]="deleteSubject(subject.id)" class="btn btn-danger">Delete</a></td>
+            <td>
+                <button class="btn btn-primary" (click)="updateSubject(subjects._id)">
+                  Update
+                </button>
+              </td>
+              <td>
+                  <button class="btn btn-primary" (click)="DeleteSubject(subjects._id)">
+                    Delete
+                  </button>
+                </td>
         </tr>
     </tbody>
   </table>

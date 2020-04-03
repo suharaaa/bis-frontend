@@ -26,14 +26,17 @@ import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
-import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
+import { SignupComponent} from './components/signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   {
     path: 'dashboard', 
     component: DashboardComponent,
@@ -86,13 +89,14 @@ const routes: Routes = [
         children: [
           { path: 'addsub', component: AddsubComponent},
           { path: 'updatesub', component: UpdatesubComponent},
-          { path: 'deletesub', component: DeletesubComponent},
+          { path: 'editsub', component: EditsubComponent}
         ]},
         { path: 'classes',
         component: ClassesComponent,
         children: [
           { path: 'addc', component: AddcComponent},
           { path: 'viewc', component: ViewcComponent},
+          { path: 'editc', component: EditcComponent}
         ]}
     ]
   },
