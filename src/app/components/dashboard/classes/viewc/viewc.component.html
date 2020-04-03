@@ -1,0 +1,35 @@
+<h2>Edit Classes and Class Teachers </h2><br>
+<br>
+<div class="row">
+    <button class="btn btn-primary" (click)="goToNewStudent()">
+      Add New
+    </button>
+  
+    
+  </div><br>
+  
+  <table class="table">
+    <thead>
+      <th>Class</th>
+      <th>Classs Teacher</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let class of classes">
+        <td>{{class.name}}</td>
+        <td>{{class.classteacher}}</td>
+
+        <td>
+          <button class="btn btn-primary" (click)="updateClass(classes._id)">
+            Update
+          </button>
+        </td>
+        <td>
+            <button class="btn btn-primary" (click)="DeleteClass(classes._id)">
+              Delete
+            </button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+

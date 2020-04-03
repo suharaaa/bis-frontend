@@ -1,0 +1,57 @@
+<h2>Add Subjects and Teachers </h2><br>
+<br>
+
+<form>
+    <div class = "example-conatiner">
+      
+      <mat-form-field hintLabel="" appearance="fill" class= "width">
+        <mat-label>Subjects</mat-label>
+        <input matInput type="text" input maxlength="20" placeholder="Subject" name="subjectname" [(ngModel)]="subjectname">
+        <mat-hint align = "end">   </mat-hint>
+  </mat-form-field>
+</div>
+    <br>
+  
+  <div class = "example-conatiner">
+    
+    
+    <mat-form-field appearance="fill"  class= "width">
+      <mat-label >Class</mat-label>
+      <mat-select name ="classname" [(ngModel)]="classname">
+        <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
+        
+      </mat-select>
+      
+      
+    </mat-form-field>
+  </div>
+
+
+  
+    <br>
+    
+    <div class = "example-conatiner">
+      
+      
+      <mat-form-field appearance="fill"  class= "width">
+        <mat-label >Teacher's Name</mat-label>
+        <mat-select name ="teachername" [(ngModel)]="teachername">
+          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
+          
+        </mat-select>
+        
+        
+      </mat-form-field>
+    </div>
+    
+    
+    
+    <button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button>
+  
+    <button mat-stroked-button (click)="clear()" value="Reset">Reset</button>
+    
+ 
+      
+    
+    
+  </form>
