@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -34,6 +33,7 @@ import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.compo
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent} from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
