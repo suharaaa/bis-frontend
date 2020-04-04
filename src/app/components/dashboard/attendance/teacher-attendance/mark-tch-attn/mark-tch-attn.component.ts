@@ -18,7 +18,7 @@ export class MarkTchAttnComponent implements OnInit {
   displayedColumns = ['teacherName', 'action'];
   dataSource = new MatTableDataSource();
 
-  public teachers: any
+  public teacherlist: any
   public attendanceRecord: any;
   public count: number;
   public date: Date;
@@ -37,14 +37,13 @@ export class MarkTchAttnComponent implements OnInit {
 
   private loadTeachers() {
     this.teacherService.viewTeacher().subscribe((response : {data:any}) => {
-      this.teachers = response.data;
-      this.dataSource = this.teachers;
+      this.teacherlist = response.data;
       this.attendanceRecord = {
         date: new Date(),
         records: []
       };
 
-      this.attendanceRecord.records = this.teachers.teachers.map(t =>{
+      this.attendanceRecord.records = this.teacherlist.teachers.map(t =>{
         return {
           teacher: t._id,
           isPresent: false
