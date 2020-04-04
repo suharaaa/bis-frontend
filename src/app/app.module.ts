@@ -33,9 +33,22 @@ import { ViewStdAttnComponent } from './components/dashboard/attendance/student-
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { SubjectComponent } from './components/dashboard/subject/subject.component';
+import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { SubjectServices } from './services/subject.service';
 import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
+import { ClassServices } from './services/classes.service';
+import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+import { ClassesComponent } from './components/dashboard/classes/classes.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
+import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 
 
 @NgModule({
@@ -65,9 +78,20 @@ import { StudentService } from './services/student.service';
     MarkTchAttnComponent,
     ViewTchAttnComponent,
     StudentfeesComponent,
+    SubjectComponent,
+    AddsubComponent,
+    UpdatesubComponent,
     UpdateTComponent,
-    
+    AddcComponent,
+    ViewcComponent,
+    ClassesComponent,
+    SignupComponent,
+    EditsubComponent,
+    EditcComponent,
+    NoticeboardComponent,
+    UpdateNComponent  
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -81,7 +105,10 @@ import { StudentService } from './services/student.service';
   providers: [
     MatDatepickerModule,
     NoticeService,
-    StudentService
+    SubjectServices,
+    StudentService,
+    ClassServices
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -23,11 +23,11 @@ export class NoticeService {
     return this.http.get(`${environment.apiHost}/notices/${id}`);
   }
 
-  public updateNoticeById(id,title, content, teachersOnly, expiresOn) {
-    return this.http.put(`${environment.apiHost}/notices/${id}`, {title, content, teachersOnly, expiresOn});
+  public updateNoticeById(id: string, student) {
+    return this.http.put(`${environment.apiHost}/notices/${id}`, student);
   }
 
-  public updateNoticeViewersById(id,noOfViewers) {
+  public updateNoticeViewersById(id,noOfViewers: number) {
     return this.http.put(`${environment.apiHost}/notices/${id}/noofviewers`, {noOfViewers});
   }
 

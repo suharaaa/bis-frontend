@@ -1,0 +1,46 @@
+<h2>Add Classes and Class Teachers </h2><br>
+<br>
+
+<form>
+    
+    <br>
+
+
+    <form>
+        <div class = "example-conatiner">
+          
+          <mat-form-field hintLabel="" appearance="fill" class= "width">
+            <mat-label>Class</mat-label>
+            <input matInput type="text" input maxlength="20" placeholder="Class" name="name" [(ngModel)]="name">
+            <mat-hint align = "end">   </mat-hint>
+      </mat-form-field>
+    </div>
+        <br>
+    
+    <br>
+    
+    <div class = "example-conatiner">
+      
+      
+      <mat-form-field appearance="fill"  class= "width">
+        <mat-label >Teacher's Name</mat-label>
+        <mat-select placeholder ="classteacher">
+          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
+          
+        </mat-select>
+        
+        
+      </mat-form-field>
+    </div>
+    
+    
+    
+    <button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button>
+  
+    <button mat-stroked-button (click)="clear()" value="Reset">Reset</button>
+    
+ 
+      
+    
+    
+  </form>

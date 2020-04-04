@@ -1,3 +1,6 @@
+import { TeacherService } from './../../../../services/teacher.service';
+import { Teacher } from './../../../../models/teacher';
+import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -12,9 +15,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class ManageTComponent implements OnInit {
 
-  displayedColumns = ['id', 'fname', 'lname', 'action'];
+  displayedColumns: string[] = ['id', 'fname', 'lname', 'action'];
+  dataSource = new MatTableDataSource ();
 
-  constructor() { }
+  constructor( private teacherService: TeacherService) { }
 
   ngOnInit() {
   }
