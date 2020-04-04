@@ -1,36 +1,17 @@
 <h2>Mark Teachers' Attendance</h2>
-<div class="form-row">
-    <div class="col-md-4 col-sm-12">
-        <mat-form-field appearance="outline" class="width">
-            <mat-label>Select Date</mat-label>
-            <input matInput [matDatepicker]="pickerexdate" placeholder="6/4/2020" name="date" [(ngModel)]="date" >
-            <mat-datepicker-toggle matSuffix [for]="pickerexdate"></mat-datepicker-toggle>
-            <mat-datepicker #pickerexdate></mat-datepicker>
-        </mat-form-field>
+<div *ngIf="attendanceRecord">
+  <div class="row" *ngFor="let record of attendanceRecord.records; let i = index;">
+    <div class="col-md-6">
+      {{teacherlist.teachers[i].name}}
     </div>
-</div>
-<div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 50px;">
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="teacherName">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let teacher"> {{teacher.fname}} {{teacher.lname}} </td>
-        </ng-container>
-      
-        <!-- Action Column -->
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef> Mark </th>
-          <td mat-cell *matCellDef="let teacher">
-            <input type="checkbox" name="record" [(ngModel)]="record.isPresent" (change)="getCount()" >
-          </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <br>
-      <h4>Count : {{count}}</h4>
-      <br>
-      <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <div class="col-md-6">
+    <input type="checkbox" [(ngModel)]="record.isPresent" (change)="getCount()">
+  </div>
+  <br>
+  <div class="row">
+    <h4>Count : {{count}}</h4>
+  </div>
+  <div class="row">
+     <button class="btn btn-primary" (click)="save()">Save</button>
+    </div>
 </div>
