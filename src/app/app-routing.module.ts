@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -33,7 +34,7 @@ import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.compo
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent} from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
-import { ComponentPortal } from '@angular/cdk/portal';
+import { UpdateNComponent} from './components/dashboard/notice/update-n/update-n.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -77,7 +78,10 @@ const routes: Routes = [
         component: NoticeComponent,
         children: [
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent}
+          { path: 'view', component: ViewNComponent, 
+          children: [
+            { path: 'update', component: UpdateNComponent }
+          ]},  
         ] },
       { path: 'teacher',
         component: TeacherComponent,
