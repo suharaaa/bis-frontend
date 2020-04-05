@@ -1,17 +1,13 @@
 <h2>Mark Teachers' Attendance</h2>
-<div *ngIf="attendanceRecord">
-  <div class="row" *ngFor="let record of attendanceRecord.records; let i = index;">
-    <div class="col-md-6">
-      {{teacherlist.teachers[i].name}}
-    </div>
-  <div class="col-md-6">
-    <input type="checkbox" [(ngModel)]="record.isPresent" (change)="getCount()">
-  </div>
-  <br>
-  <div class="row">
-    <h4>Count : {{count}}</h4>
-  </div>
-  <div class="row">
-     <button class="btn btn-primary" (click)="save()">Save</button>
-    </div>
-</div>
+<mat-selection-list #teachers>
+  <mat-list-option *ngFor="let teacher of teacherslist">
+    {{teacher.fname}} {{teacher.lname}}
+  </mat-list-option>
+</mat-selection-list>
+<br>
+<p>
+  Count : {{teachers.selectedOptions.selected.length}}
+</p>
+<br>
+  <button mat-raised-button color="primary" (click)=" saveTchAttendance() ">Save</button>
+
