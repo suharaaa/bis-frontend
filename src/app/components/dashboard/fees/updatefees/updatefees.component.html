@@ -54,6 +54,20 @@
       <th mat-header-cell *matHeaderCellDef> Other Charges </th>
       <td mat-cell *matCellDef="let fees"> {{fees.other}} </td>
     </ng-container>
+
+
+  
+
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let fees">
+      
+        <button mat-raised-button color="primary" (click)="UpdateFee(fees._id)">Update</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteFee(fees._id)">Delete</button>
+      </td>
+    </ng-container>
+
 <!--total 
     <ng-container matColumnDef="TOTAL">
       <th mat-header-cell *matHeaderCellDef> Total Charges </th>

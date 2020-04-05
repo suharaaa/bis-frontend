@@ -18,7 +18,7 @@ interface APIResponse {
 })
 export class UpdatefeesComponent implements OnInit {
 
-  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other'];
+  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(
@@ -52,5 +52,13 @@ export class UpdatefeesComponent implements OnInit {
     });
   }
 
-
+  DeleteFee(id: String){
+    this.feesService.deleteFee().subscribe(response => {
+      console.log(response);
+      this.snackBar.open('Fee is successfully deleted', null, { duration : 2000});
+    }, err => {
+      this.snackBar.open('Fee could not be deleted', null, { duration : 3000});
+      console.log(err.message);
+    });
+  }
 }
