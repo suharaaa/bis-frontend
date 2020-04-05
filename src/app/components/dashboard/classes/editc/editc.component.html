@@ -9,6 +9,6 @@
         <option [value]="teachers._id" *ngFor="let teacher of teachers">{{teachers.name}}</option>
       </select><br>
 
-    <button class="btn btn-primary" (click)="save()" *ngIf="!isOnUpdate">Add</button>
+   /*<button class="btn btn-primary" (click)="save()" *ngIf="!isOnUpdate">Add</button>*/
     <button class="btn btn-primary" (click)="updateClass()" *ngIf="isOnUpdate">Update</button>
   </form>

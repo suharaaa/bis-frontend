@@ -18,8 +18,8 @@
     <mat-form-field appearance="fill"  class= "width">
       <mat-label >Class</mat-label>
       <mat-select name ="classname" [(ngModel)]="classname">
-        <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
-        
+      //<mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
+      <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
       </mat-select>
       
       
@@ -36,7 +36,7 @@
       <mat-form-field appearance="fill"  class= "width">
         <mat-label >Teacher's Name</mat-label>
         <mat-select name ="teachername" [(ngModel)]="teachername">
-          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
+          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.fname}}{{teacher.lname}}</mat-option>
           
         </mat-select>
         
@@ -47,6 +47,8 @@
     
     
     <button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button>
+    <br>
+    <br>
   
     <button mat-stroked-button (click)="clear()" value="Reset">Reset</button>
     
