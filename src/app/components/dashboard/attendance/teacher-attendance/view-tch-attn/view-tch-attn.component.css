@@ -2,6 +2,12 @@ table {
     width: 100%;
   }
   
-  tr.mat-footer-row {
-    font-weight: bold;
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
   }
+  
+  .mat-stroked-button{
+    margin-right: 20px;
+  }
+  

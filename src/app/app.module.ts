@@ -37,7 +37,7 @@ import { SubjectComponent } from './components/dashboard/subject/subject.compone
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
-import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -48,6 +48,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 
 
 @NgModule({
@@ -80,16 +81,17 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    UpdateTComponent,
+
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
     SignupComponent,
     EditsubComponent,
     EditcComponent,
-    NoticeboardComponent  
+    NoticeboardComponent,
+    UpdateNComponent  
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -106,7 +108,7 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
     SubjectServices,
     StudentService,
     ClassServices
-    
+
   ],
   bootstrap: [AppComponent]
 })

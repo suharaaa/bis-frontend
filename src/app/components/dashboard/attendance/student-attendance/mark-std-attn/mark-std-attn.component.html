@@ -1,47 +1,26 @@
-<h2>Mark Students Attendance</h2><br>
+<h2>Mark Students' Attendance</h2>
 
-<form>
-    <div class = "attnSheet">
-        <div class="col-md-4 col-sm-12">
-            <mat-form-field appearance="outline" class="width">
-                <mat-label>Select Date</mat-label>
-                <input matInput [matDatepicker]="pickerexdate" placeholder="6/4/2020">
-                <mat-datepicker-toggle matSuffix [for]="pickerexdate"></mat-datepicker-toggle>
-                <mat-datepicker #pickerexdate></mat-datepicker>
+<div class="form-row">
+    <div class="col-md-4 col-sm-12">
+            <mat-form-field appearance="outline">
+              <mat-label>Class</mat-label>
+              <mat-select name ="classname" [(ngModel)]="classname">
+              <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
+            </mat-select>
             </mat-form-field>
-        </div>
-
-        <div class="col-md-4 col-sm-12">
-            <mat-form-field appearance="outline" class="width">
-                <mat-label>Select Class</mat-label>
-                <mat-select name="class" [(ngModel)]="selectedClass" (change)="onSelectClass()">
-                    <mat-option [value] = "class._id" *ngFor="let class of classes">{{class.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div><br>
-
-        <div class="list">
-            <mat-selection-list class="selection-list" #students>
-                <mat-list-option *ngFor="let student of classObject.students">
-                    <mat-list>
-                        <mat-list-item [(ngModel)]="record.isPresent" (change)="getCount()">{{student.name}}</mat-list-item>
-                    </mat-list>
-                </mat-list-option>
-            </mat-selection-list>
-            <br>
-            <p>
-                Number of Students : {{this.count}}
-            </p>
-  
-        </div><br>
-
-        <div>
-            <button mat-raised-button color="primary" (click)="save()">Save</button>
-        </div>
-        
-        <br>
-        <div>
-           <button type="button" class="btn btn-info">Summery Report</button>
-        </div>
     </div>
-</form>
+</div>
+
+<div>
+    <mat-selection-list #students>
+        <mat-list-option *ngFor="let student of studentslist">
+          {{student.fname}} {{student.lname}}
+        </mat-list-option>
+      </mat-selection-list>
+      <br>
+      <p>
+        Count : {{students.selectedOptions.selected.length}}
+      </p>
+      <br>
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>

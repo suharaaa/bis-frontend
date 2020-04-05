@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { AttendanceService } from 'src/app/services/attendance.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router'
 
-export interface DailyAttendance {
-  date: string;
-  attendance: number;
+interface APIResponse {
+  success : boolean,
+  data : any
 }
 
 @Component({
@@ -11,33 +16,38 @@ export interface DailyAttendance {
   styleUrls: ['./view-tch-attn.component.css']
 })
 
-@Component({
-  selector: 'table-footer-row-example',
-  styleUrls: ['./view-tch-attn.component.css'],
-  templateUrl: './view-tch-attn.component.html',
-})
-
 export class ViewTchAttnComponent implements OnInit {
 
-  constructor() { }
+  teacherslist: string[];
+  displayedColumns = ['teacherName', 'action'];
+  dataSource = new MatTableDataSource();
 
-  ngOnInit() {
+  public teacherlist: any
+  public attendanceRecord: any;
+  public count: number;
+  public date: Date;
+
+  constructor(
+    private teacherService: TeacherService,
+    private attendanceService: AttendanceService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.teacherlist;
+    this.attendanceRecord;
+    this.count = 0;
+    this.date = new Date()
+    this.viewAttendance()
   }
 
-  displayedColumns: string[] = ['date', 'attendance'];
-  count: DailyAttendance[] = [
-    {date: '03/03/2020', attendance: 40},
-    {date: '04/03/2020', attendance: 40},
-    {date: '05/03/2020', attendance: 40},
-    {date: '06/03/2020', attendance: 37},
-    {date: '07/03/2020', attendance: 45},
-  ];
-
-  getTotal() {
-    return this.count.map(c => c.attendance).reduce((acc, value) => acc + value, 0);
+  viewAttendance() {
+    this.attendanceService.viewTchAttendance(this.attendanceRecord).subscribe((response : APIResponse) => {
+      this.dataSource = response.data;
+    });
   }
+
   
-  durations: string[] = [
-    'Daily', 'Monthly', 'Annually'
-  ];
+
 }

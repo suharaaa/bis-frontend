@@ -17,7 +17,7 @@ export class PublishNComponent implements OnInit {
   private content: String;
   private teachersOnly: boolean;
   private expiresOn: Date;
-  private noOfViewers: Number;
+  private noOfViewers: number;
 
   constructor(
     private noticeService: NoticeService,

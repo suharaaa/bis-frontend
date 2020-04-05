@@ -34,11 +34,11 @@ export class Teacher {
         this.qul = value.qul;
     }
 
-    public get getTidNumber(): string {
+    public get gettidNumber(): string {
         return this.tid;
     }
 
-    public set setTidNumber(tid: string) {
+    public set settidNumber(tid: string) {
         this.tid = tid;
     }
 
