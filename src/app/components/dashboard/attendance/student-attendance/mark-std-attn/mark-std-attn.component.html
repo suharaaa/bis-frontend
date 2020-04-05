@@ -5,7 +5,9 @@
             <mat-form-field appearance="outline">
               <mat-label>Class</mat-label>
               <mat-select name ="classname" [(ngModel)]="classname">
+                <mat-selection-list #classes>
               <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
+            </mat-selection-list>
             </mat-select>
             </mat-form-field>
     </div>
