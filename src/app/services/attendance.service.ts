@@ -33,7 +33,10 @@ export class AttendanceService{
     }
 
     public saveTchAttendance(attendanceRecord) {
-        return this.http.post(`${environment.apiHost}/attendance/teachers/mark`, {attendanceRecord});
+        return this.http.post(`${environment.apiHost}/teacher-attendance`, {attendanceRecord});
     }
 
+    public viewTchAttendance(attendanceRecord){
+        return this.http.get(`${environment.apiHost}/teacher-attendance/${attendanceRecord}`);
+    }
 }
