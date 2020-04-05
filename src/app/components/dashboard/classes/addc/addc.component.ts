@@ -18,14 +18,15 @@ interface APIResponse {
 export class AddcComponent implements OnInit {
 
   private name: String;
-  private classteacher: String;
+  private classteacher: any;
  
-
+public teachers: [];
 
   constructor(
 
     private classService: ClassServices,
-   private snackBar: MatSnackBar
+   private snackBar: MatSnackBar,
+   //public teacherService: TeacherService
 
   ) { }
 
@@ -33,6 +34,13 @@ export class AddcComponent implements OnInit {
 
     this.name ='';
     this.classteacher ='';
+
+  /* this.teacherService.findTeacher().subscribe(res =>{
+     this.teachers = res.data;
+   })
+  
+*/
+
   }
 
   createNewClass(){
@@ -53,4 +61,4 @@ export class AddcComponent implements OnInit {
     
 
 }
-}
+  }

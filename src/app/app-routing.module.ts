@@ -1,5 +1,5 @@
 
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -26,12 +26,18 @@ import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-
 import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
+import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
-import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent} from './components/signup/signup.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent} from './components/dashboard/notice/update-n/update-n.component';
+import {FeesComponent } from './components/dashboard/fees/fees.component';
+import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
+import {  UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -50,8 +56,34 @@ const routes: Routes = [
       { path: 'attendance',
         component: AttendanceComponent,
         children: [
-          { path: 'students', component: StudentAttendanceComponent},
-          { path: 'teachers', component: TeacherAttendanceComponent},
+          { path: 'students', 
+          component: StudentAttendanceComponent,
+          children: [
+            {path: 'mark', component: MarkStdAttnComponent},
+            {path: 'view', component: ViewStdAttnComponent}
+          ]},
+          { path: 'teachers',
+           component: TeacherAttendanceComponent,
+          children: [
+            {path: 'mark', component: MarkTchAttnComponent},
+            {path: 'view', component: ViewTchAttnComponent}
+          ]},
+        ] },
+      { path: 'fees', 
+        component: FeesComponent,
+        children: [
+          { path: 'addfees', component: AddfeesComponent},
+          { path: 'updatefees1', component: UpdatefeesComponent},
+          
+          ]},
+      { path: 'notice', 
+        component: NoticeComponent,
+        children: [
+          { path: 'publish', component: PublishNComponent},
+          { path: 'view', component: ViewNComponent, 
+          children: [
+            { path: 'update', component: UpdateNComponent }
+          ]},  
         ] },
 
       { path: 'teacher',
@@ -65,13 +97,14 @@ const routes: Routes = [
         children: [
           { path: 'addsub', component: AddsubComponent},
           { path: 'updatesub', component: UpdatesubComponent},
-          { path: 'deletesub', component: DeletesubComponent},
+          { path: 'editsub', component: EditsubComponent}
         ]},
         { path: 'classes',
         component: ClassesComponent,
         children: [
           { path: 'addc', component: AddcComponent},
           { path: 'viewc', component: ViewcComponent},
+          { path: 'editc', component: EditcComponent}
         ]}
     ]
   },
@@ -82,12 +115,21 @@ const routes: Routes = [
       {path: 'student-res', component: StudentResComponent},
     ]
      
-  }
+  },
+  { path: 'homepage', 
+    component: HomepageComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+      { path: 'home', component:HomepageComponent},
+      { path: 'noticeboard', component: NoticeboardComponent}
+    ] }
+];
   
 
   
-  ]; 
+ 
 
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

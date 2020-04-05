@@ -14,8 +14,8 @@ export class SubjectServices {
 
     constructor(private http: HttpClient) { }
 
-    public createNewSubject(subjectname, classname, teachername){
-        return this.http.post(`${environment.apiHost}/subjects`,{subjectname, classname, teachername});
+    public createNewSubject(subjectname,classname, teachername){
+        return this.http.post(`${environment.apiHost}/subjects`,{subjectname,classname,teachername});
     }
 
     public findSubjects() {
@@ -26,8 +26,8 @@ export class SubjectServices {
         return this.http.get(`${environment.apiHost}/subjects/${id}`);
     }
 
-    public UpdateSubject(id,subjectname, classname, teachername){
-        return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname, classname, teachername});
+    public UpdateSubject(id,subjectname, classname,teachername){
+        return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname,classname,teachername});
     }
 
     public DeleteSubject(id){

@@ -12,7 +12,20 @@
     justify-content: center;
   }
 
+  
   .list{
     background: #ffffff;
     border-radius: 10px;
+}
+
+.mat-form-field {
+  
+  font-size: 14px;
+  width: 50%;
+}
+
+
+
+.mat-stroked-button{
+  margin-right: 20px;
 }

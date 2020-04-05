@@ -1,44 +1,42 @@
-<h2>Summery Report - Student Attendance</h2><br>
+<h2>View Attendances</h2>
 
-<form>
-<div class="col-md-4 col-sm-12">
-    <mat-form-field appearance="outline" class="width">
-        <mat-label>Select Time Duration</mat-label>
-        <mat-select>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let duration of durations" [value]="duration">{{duration}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div><br>
+<div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 50px;">
 
-<div class="col-md-4 col-sm-12">
-    <mat-form-field appearance="outline" class="width">
-        <mat-label>Select Class</mat-label>
-        <mat-select>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let class of classes" [value]="class">{{class}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div><br>
+        <!-- Id -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.title}} </td>
+        </ng-container>
+      
+        <!-- Published Date Column -->
+        <ng-container matColumnDef="publishedOn">
+          <th mat-header-cell *matHeaderCellDef> Published Date </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.publishedOn}} </td>
+        </ng-container>
+    
+        <!-- Expiry Date Column -->
+        <ng-container matColumnDef="expiresOn">
+          <th mat-header-cell *matHeaderCellDef> Expiry Date </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.expiresOn}} </td>
+        </ng-container>
 
-<table mat-table [dataSource]="count" class="mat-elevation-z8">
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let count"> {{count.date}} </td>
-      <td mat-footer-cell *matFooterCellDef> Total </td>
-    </ng-container>
-  
-    <!-- Attendance Count Column -->
-    <ng-container matColumnDef="attendance">
-      <th mat-header-cell *matHeaderCellDef> Attendance </th>
-      <td mat-cell *matCellDef="let count"> {{count.attendance}} </td>
-      <td mat-footer-cell *matFooterCellDef> {{getTotal()}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-  </table><br>
-  
-</form>
+        <!-- isTeachersOnly Column -->
+        <ng-container matColumnDef="isTeachersOnly">
+            <th mat-header-cell *matHeaderCellDef> is Teachers Only </th>
+            <td mat-cell *matCellDef="let notice"> {{notice.teachersOnly}} </td>
+          </ng-container>
+    
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let notice">
+            <a mat-stroked-button color="primary" (click)="updateNotice(notice._id)">Update</a>
+            <a mat-stroked-button style="color: #f69223;" (click)="deleteNotice(notice._id)">Delete</a>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>

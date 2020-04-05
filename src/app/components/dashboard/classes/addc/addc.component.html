@@ -6,38 +6,27 @@
     <br>
 
 
-    <div class = "example-conatiner">
-      
-      <mat-form-field appearance="fill"  class= "width">
-        <mat-label>Class</mat-label>
-        <mat-select name="name">
-          <mat-option value="1">1</mat-option>
-          <mat-option value="2">2</mat-option>
-          <mat-option value="3">3</mat-option>
-          <mat-option value="4">4</mat-option>
-          <mat-option value="5">5</mat-option>
-          <mat-option value="6">6</mat-option>
-          <mat-option value="7">7</mat-option>
-          <mat-option value="8">8</mat-option>
-          <mat-option value="9">9</mat-option>
-          <mat-option value="10">10</mat-option>
-          <mat-option value="11">11</mat-option>
-        </mat-select>
-        
-        
+    <form>
+        <div class = "example-conatiner">
+          
+          <mat-form-field hintLabel="" appearance="fill" class= "width">
+            <mat-label>Class</mat-label>
+            <input matInput type="text" input maxlength="20" placeholder="Class" name="name" [(ngModel)]="name">
+            <mat-hint align = "end">   </mat-hint>
       </mat-form-field>
-  
-    <br>
     </div>
+        <br>
+    
+    <br>
+    
     <div class = "example-conatiner">
       
       
       <mat-form-field appearance="fill"  class= "width">
         <mat-label >Teacher's Name</mat-label>
-        <mat-select name ="classteacher">
-          <mat-option value="Ishara Bandara">Ishara Bandara</mat-option>
-          <mat-option value="Sandali Silva">Sandali Sliva</mat-option>
-          <mat-option value="Sachintha Dissanayake">Sachintha Dissanayake</mat-option>
+        <mat-select placeholder ="classteacher">
+          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
+          
         </mat-select>
         
         

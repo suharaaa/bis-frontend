@@ -1,15 +1,19 @@
 .logo{
-
+    position: absolute;
     width: 110px;
     height: 110px;
     float: left;
+    top: 0px;
 
 }
 
 
 .heading{
-
     text-align: center;
     padding-top: 20px;
     padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #f69223;
+    font-family: 'IM Fell French Canon SC', serif;
 }

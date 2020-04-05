@@ -16,10 +16,6 @@ export class AttendanceService{
         return this.http.post(`${environment.apiHost}/std-attendances`, {classObject, attendanceRecord, count});
     }
 
-    public createStdAttendance(classObject, attendanceRecord, count){
-        return this.http.post(`${environment.apiHost}/std-attendances`, {classObject, attendanceRecord, count});
-    }
-
     public viewStdAttendance(classObject){
         return this.http.get(`${environment.apiHost}/std-attendances/${classObject}`);
     }
@@ -36,5 +32,11 @@ export class AttendanceService{
         return this.http.post(`${environment.apiHost}/std-attendances`, {count});
     }
 
+    public saveTchAttendance(attendanceRecord) {
+        return this.http.post(`${environment.apiHost}/teacher-attendance`, {attendanceRecord});
+    }
 
+    public viewTchAttendance(attendanceRecord){
+        return this.http.get(`${environment.apiHost}/teacher-attendance/${attendanceRecord}`);
+    }
 }

@@ -1,9 +1,10 @@
-<img src="assets/images/logo.jpg" class="logo" alt="logo">
-
-
+<head>
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">
+</head>
 <div class="heading">
     <h2>Bright International School</h2>
 </div>
+<img src="assets/images/logo.jpg" class="logo" alt="logo">
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -15,13 +16,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink = "/homepage/results">Results <span class="sr-only">(current)</span></a>
-        </li>
+          <a class="nav-link" routerLink = "/homepage/results">Results <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" [routerLink]="['noticeboard']">Noticeboard<span class="sr-only">(current)</span></a>
+     </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Subjects <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Notices <span class="sr-only">(current)</span></a>
+          <a class="nav-link"  href="#">Results <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Fees <span class="sr-only">(current)</span></a>

@@ -30,7 +30,6 @@ import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.compon
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
-import { NoticeService } from './services/notice.service';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 
 
@@ -42,15 +41,20 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
-import { DeletesubComponent } from './components/dashboard/subject/deletesub/deletesub.component';
 import { SubjectServices } from './services/subject.service';
-import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+
+import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
-import { AddcComponent } from './components/dashboard/class/addc/addc.component';
-import { ViewcComponent } from './components/dashboard/class/viewc/viewc.component';
+import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
+import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
+import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
+import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
+
 
 @NgModule({
   declarations: [
@@ -86,15 +90,17 @@ import { SignupComponent } from './components/signup/signup.component';
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    DeletesubComponent,
-    UpdateTComponent,
+
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
     SignupComponent,
-    
-
+    EditsubComponent,
+    EditcComponent,
+    NoticeboardComponent,
+    UpdateNComponent  
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -111,7 +117,7 @@ import { SignupComponent } from './components/signup/signup.component';
    SubjectServices,
     StudentService,
     ClassServices
-    
+
   ],
   bootstrap: [AppComponent]
 })

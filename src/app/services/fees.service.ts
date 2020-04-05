@@ -24,8 +24,8 @@ export class FeesService {
       return this.http.get(`${environment.apiHost}/fees/:id`);
     }
   
-    public updateFee(title, content, teachersOnly, expiresOn) {
-      return this.http.put(`${environment.apiHost}/notices/:id`, {title, content, teachersOnly, expiresOn});
+    public updateFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other) {
+      return this.http.put(`${environment.apiHost}/fees/:id`, {grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other});
     }
   
 

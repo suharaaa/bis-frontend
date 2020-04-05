@@ -15,13 +15,23 @@ export class StudentService {
     return this.http.get(`${environment.apiHost}/students/admissionNumber`);
   }
 
-  public enrollStudent(student: Student){
+  public enrollStudent(student: Student) {
     return this.http.post(`${environment.apiHost}/students`, student);
   }
 
-  public viewStudents(){
+  public viewStudents() {
     return this.http.get(`${environment.apiHost}/students`);
   }
 
+  public updateStudents(id: string, student) {
+    return this.http.put(`${environment.apiHost}/students/${id}`, student);
+  }
 
+  public getStudentId(id: string) {
+    return this.http.get(`${environment.apiHost}/students/${id}`);
+  }
+
+  public deleteStudent(id) {
+    return this.http.delete(`${environment.apiHost}/students/${id}`);
+  }
 }
