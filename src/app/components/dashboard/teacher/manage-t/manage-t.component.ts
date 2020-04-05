@@ -21,8 +21,9 @@ export class ManageTComponent implements OnInit {
   constructor( private teacherService: TeacherService) { }
 
   ngOnInit() {
-    this.viewTeacher();
+   // this.viewTeacher();
   }
+
 
 
 
