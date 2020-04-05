@@ -37,7 +37,7 @@ import { SubjectComponent } from './components/dashboard/subject/subject.compone
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
-import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -81,7 +81,7 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    UpdateTComponent,
+
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
@@ -91,7 +91,7 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
     NoticeboardComponent,
     UpdateNComponent  
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -108,7 +108,7 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
     SubjectServices,
     StudentService,
     ClassServices
-    
+
   ],
   bootstrap: [AppComponent]
 })
