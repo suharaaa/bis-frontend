@@ -23,15 +23,15 @@ export class SubjectServices {
     }
 
     public findSubjectID(id){
-        return this.http.get(`${environment.apiHost}/subjects/:id`);
+        return this.http.get(`${environment.apiHost}/subjects/${id}`);
     }
 
     public UpdateSubject(id,subjectname, classname,teachername){
-        return this.http.put(`${environment.apiHost}/subjects/:id`,{subjectname,classname,teachername});
+        return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname,classname,teachername});
     }
 
     public DeleteSubject(id){
-        return this.http.delete(`${environment.apiHost}/subjects/:id`);
+        return this.http.delete(`${environment.apiHost}/subjects/${id}`);
     }
 
 }

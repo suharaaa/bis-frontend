@@ -20,6 +20,10 @@ export class UpdatesubComponent implements OnInit {
   displayedColumns: string[] = ['subjectname', 'classname', 'teachername','action'];
   dataSource = new MatTableDataSource();
 
+  private _id: String;
+  private classname: String;
+  private subjectname: String;
+  private teachername: String;
 
   constructor(
     private subjectServices : SubjectServices,
@@ -46,18 +50,15 @@ export class UpdatesubComponent implements OnInit {
     });
   }
 
-  DeleteSubject(id:String){
+  DeleteSubject(id: String){
     this.subjectServices.DeleteSubject(id).subscribe(response => {
-    console.log(response);
-   this.snackBar.open('Subjects and teacher added successfully', null, { duration : 2000});
+      console.log(response);
+      this.snackBar.open('Subject is successfully deleted', null, { duration : 2000});
     }, err => {
-    this.snackBar.open('Subject name and Class required', null, { duration : 3000});
+      this.snackBar.open('Subject could not be deleted', null, { duration : 3000});
       console.log(err.message);
-  });
-    
-    
+    });
   }
-
 }
 
 
