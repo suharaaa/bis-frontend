@@ -1,0 +1,45 @@
+<h2>Update Notice</h2><br>
+
+<form>
+    <div class="content">
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Regarding Parents Meeting" name="title" [(ngModel)]="title" >
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline" class="lwidth">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput placeholder="Enter message here..." name="content" [(ngModel)]="content" ></textarea>
+                  </mat-form-field>
+            </div>
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12">
+                <h6>Audience</h6>
+                <mat-checkbox name="teachersOnly" [(ngModel)]="teachersOnly" >Teachers only</mat-checkbox>
+                <p id="note">Note: Please check this, only if you want to display this notice to teachers. 
+                    Students will not be able to see this notice, once you check this.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="col-md-4 col-sm-12">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="pickerexdate" placeholder="6/4/2020" name="expiresOn" [(ngModel)]="expiresOn" >
+                    <mat-datepicker-toggle matSuffix [for]="pickerexdate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerexdate></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="updateNotice()">Update</button>
+</form>
+
