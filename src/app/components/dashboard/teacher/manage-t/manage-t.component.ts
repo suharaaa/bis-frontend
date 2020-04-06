@@ -24,7 +24,7 @@ export class ManageTComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.viewTeacher();
+   this.viewTeacher();
   }
 
 
@@ -47,5 +47,7 @@ export class ManageTComponent implements OnInit {
   }
 
 
-  delete() {}
+delete() {
+
+}
 }

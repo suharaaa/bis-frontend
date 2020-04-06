@@ -28,6 +28,11 @@ import { UpdateUnenrollComponent } from './components/dashboard/student/update-u
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { ResultsComponent } from './components/homepage/results/results.component';
+import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+
+
 import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
 import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
 import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
@@ -73,6 +78,10 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
+    ResultsComponent,
+    AddResultsComponent,
+    StudentResComponent,
+ 
     MarkStdAttnComponent,
     ViewStdAttnComponent,
     MarkTchAttnComponent,
@@ -104,8 +113,8 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
   ],
   providers: [
     MatDatepickerModule,
-    NoticeService,
-    SubjectServices,
+   NoticeService,
+   SubjectServices,
     StudentService,
     ClassServices
 
