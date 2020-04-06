@@ -17,8 +17,9 @@ export class AddSComponent implements OnInit {
 
   private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
-  private classes;
-  private id:string;
+  private classes:[];
+  private id: string;
+  public isOnUpdate: boolean;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -27,7 +28,7 @@ export class AddSComponent implements OnInit {
     private studentService: StudentService,
     private snackbar: MatSnackBar,
     private classService: ClassServices,
-    private route:ActivatedRoute
+    private route: ActivatedRoute
   ) { }
 
   getErrorMessage() {
@@ -39,6 +40,7 @@ export class AddSComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.classes = [];
     this.studentFormGroup = this.formBuilder.group({
       admissionNumber: [{ value: '', disabled: true }],
       fname: ['', Validators.required],
@@ -49,7 +51,7 @@ export class AddSComponent implements OnInit {
       nation: [''],
       religion: [''],
       mail: [''],
-      class:[''],
+      class: [''],
       mname: [''],
       moccupation: [''],
       mworkp: [''],
@@ -66,18 +68,24 @@ export class AddSComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       if (params.id) {
+        this.isOnUpdate = true;
         this.id = params.id;
-        this.studentService.getStudentId(this.id).subscribe(res => {
-          
+        this.studentService.getStudentId(this.id).subscribe((res: APIResponse) => {
+          this.studentFormGroup.patchValue(res.data);
+          this.studentFormGroup.controls.class.patchValue(res.data.class && res.data.class._id);
         })
-        
+
+      }
+      else {
+        this.isOnUpdate = false;
+        this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
+          this.studentFormGroup.get('admissionNumber').setValue(response.data);
+        });
       }
     })
 
-    this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
-      this.studentFormGroup.get('admissionNumber').setValue(response.data);
-    });
     this.matcher = new StudentErrorStateMatcher();
+
     this.getAllClasses();
   }
 
@@ -89,13 +97,16 @@ export class AddSComponent implements OnInit {
     return this.matcher;
   }
 
-  public getAllClasses(){
-    this.classService.findClass().subscribe((res: {data: any}) => this.classes = res.data);
+  public getAllClasses() {
+    this.classService.findClass().subscribe((res: { data: any }) => {
+      console.log(res.data);
+      this.classes = res.data;
+    });
   }
 
   public enrollStudent() {
-    
-    const student = new Student(this.studentFormGroup.getRawValue());
+
+    const student = new Student(this.studentFormGroup.getRawValue()); //getRawValue-cus enrollment num is disabled
 
     this.studentService.enrollStudent(student).subscribe(res => {
       //notify
@@ -111,6 +122,19 @@ export class AddSComponent implements OnInit {
       });
     });
 
+  }
+
+  public changeStudent() {
+    const student = new Student(this.studentFormGroup.getRawValue());
+    this.studentService.updateStudents(this.id, student).subscribe(res => {
+      //notify
+      this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+    }, err => {
+      //error msg
+      this.snackbar.open(err.message, '', {
+        duration: 2000
+      });
+    });
   }
 
   public clear() {
