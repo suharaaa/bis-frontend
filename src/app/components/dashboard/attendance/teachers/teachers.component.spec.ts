@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarkTchAttnComponent } from './mark-tch-attn.component';
+import { TeachersComponent } from './teachers.component';
 
-describe('MarkTchAttnComponent', () => {
-  let component: MarkTchAttnComponent;
-  let fixture: ComponentFixture<MarkTchAttnComponent>;
+describe('TeachersComponent', () => {
+  let component: TeachersComponent;
+  let fixture: ComponentFixture<TeachersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarkTchAttnComponent ]
+      declarations: [ TeachersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkTchAttnComponent);
+    fixture = TestBed.createComponent(TeachersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

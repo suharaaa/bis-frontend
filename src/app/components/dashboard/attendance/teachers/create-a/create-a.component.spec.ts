@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarkStdAttnComponent } from './mark-std-attn.component';
+import { CreateAComponent } from './create-a.component';
 
-describe('MarkStdAttnComponent', () => {
-  let component: MarkStdAttnComponent;
-  let fixture: ComponentFixture<MarkStdAttnComponent>;
+describe('CreateAComponent', () => {
+  let component: CreateAComponent;
+  let fixture: ComponentFixture<CreateAComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarkStdAttnComponent ]
+      declarations: [ CreateAComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkStdAttnComponent);
+    fixture = TestBed.createComponent(CreateAComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
