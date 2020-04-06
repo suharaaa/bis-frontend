@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 interface APIResponse {
   success : boolean,
@@ -11,15 +11,13 @@ interface APIResponse {
 }
 
 @Component({
-  selector: 'app-view-tch-attn',
-  templateUrl: './view-tch-attn.component.html',
-  styleUrls: ['./view-tch-attn.component.css']
+  selector: 'app-view-a',
+  templateUrl: './view-a.component.html',
+  styleUrls: ['./view-a.component.css']
 })
-
-export class ViewTchAttnComponent implements OnInit {
-
+export class ViewAComponent implements OnInit {
   teacherslist: string[];
-  displayedColumns = ['teacherName', 'action'];
+  displayedColumns = ['teacherName', 'attendanceRecord', 'action'];
   dataSource = new MatTableDataSource();
 
   public teacherlist: any
@@ -43,11 +41,9 @@ export class ViewTchAttnComponent implements OnInit {
   }
 
   viewAttendance() {
-    this.attendanceService.viewTchAttendance(this.attendanceRecord).subscribe((response : APIResponse) => {
+    this.attendanceService.viewAttendance().subscribe((response : APIResponse) => {
       this.dataSource = response.data;
     });
   }
-
-  
 
 }

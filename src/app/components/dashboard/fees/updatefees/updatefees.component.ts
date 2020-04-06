@@ -21,6 +21,20 @@ export class UpdatefeesComponent implements OnInit {
   displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'action'];
   dataSource = new MatTableDataSource();
 
+
+  private _id: String;
+  private grade : String;
+    private termfee :Number;
+    private facilityfee : Number;
+    private librarycharges :Number;
+    private laboratorycharges :Number;
+    private transportationfee :Number ;
+    private other :Number;
+
+
+
+
+
   constructor(
 
     private feesService: FeesService,
@@ -53,7 +67,7 @@ export class UpdatefeesComponent implements OnInit {
   }
 
   DeleteFee(id: String){
-    this.feesService.deleteFee().subscribe(response => {
+    this.feesService.deleteFee(id).subscribe(response => {
       console.log(response);
       this.snackBar.open('Fee is successfully deleted', null, { duration : 2000});
     }, err => {

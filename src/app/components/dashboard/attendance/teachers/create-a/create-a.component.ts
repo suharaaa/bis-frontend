@@ -5,12 +5,11 @@ import { TeacherService } from 'src/app/services/teacher.service';
 //import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
-  selector: 'app-mark-tch-attn',
-  templateUrl: './mark-tch-attn.component.html',
-  styleUrls: ['./mark-tch-attn.component.css']
+  selector: 'app-create-a',
+  templateUrl: './create-a.component.html',
+  styleUrls: ['./create-a.component.css']
 })
-
-export class MarkTchAttnComponent implements OnInit {
+export class CreateAComponent implements OnInit {
   teacherslist: string[];
   //displayedColumns = ['teacherName', 'action'];
   //dataSource = new MatTableDataSource();
@@ -54,8 +53,8 @@ export class MarkTchAttnComponent implements OnInit {
     });
   }
 
-  public saveTchAttendance() {
-    this.attendanceService.saveTchAttendance(this.attendanceRecord).subscribe(response => {
+  public createAttendance() {
+    this.attendanceService.createAttendance(this.attendanceRecord).subscribe(response => {
       console.log(response);
       this.snackBar.open('Attendance is recorded successfully', null, { duration : 2000});
     }, err => {
@@ -73,6 +72,5 @@ export class MarkTchAttnComponent implements OnInit {
       
     });
   }
-
 
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewStdAttnComponent } from './view-std-attn.component';
+import { StudentResComponent } from './student-res.component';
 
-describe('ViewStdAttnComponent', () => {
-  let component: ViewStdAttnComponent;
-  let fixture: ComponentFixture<ViewStdAttnComponent>;
+describe('StudentResComponent', () => {
+  let component: StudentResComponent;
+  let fixture: ComponentFixture<StudentResComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewStdAttnComponent ]
+      declarations: [ StudentResComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewStdAttnComponent);
+    fixture = TestBed.createComponent(StudentResComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -31,19 +31,29 @@ export class FeesService {
 
 //try to delete the other fees by giving like updatenoticeviewersbyid
 
-
+/*
   
-    public deleteFee() {
+    public deleteFee(id) {
       return this.http.delete(`${environment.apiHost}/fees/:id`);
+    }
+*/
+    public deleteFee(id) {
+      return this.http.delete(`${environment.apiHost}/fees/${id}`);
     }
 
 
-
-
-
-    
-
-
-
+/*
+    deleteTutorial() {
+      this.tutorialService.delete(this.currentTutorial.id)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.router.navigate(['/tutorials']);
+          },
+          error => {
+            console.log(error);
+          });
+    }
+*/
 
 }
