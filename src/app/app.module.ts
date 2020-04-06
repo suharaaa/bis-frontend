@@ -48,6 +48,10 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 
+import { ResultsComponent } from './components/homepage/results/results.component';
+import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +88,10 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
     TeachersComponent,
     CreateAComponent,
     ViewAComponent,
-    UpdateAComponent  
+    UpdateAComponent,
+    ResultsComponent,
+    AddResultsComponent,
+    StudentResComponent 
   ],
 
   imports: [
@@ -99,8 +106,8 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
   ],
   providers: [
     MatDatepickerModule,
-    NoticeService,
-    SubjectServices,
+   NoticeService,
+   SubjectServices,
     StudentService,
     ClassServices
 

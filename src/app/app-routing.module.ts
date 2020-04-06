@@ -7,10 +7,10 @@ import { StudentComponent } from './components/dashboard/student/student.compone
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
-import { FeesComponent } from './components/dashboard/fees/fees.component';
-import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
-import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { ResultsComponent } from './components/homepage/results/results.component';
+import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
@@ -33,6 +33,9 @@ import { TeachersComponent } from './components/dashboard/attendance/teachers/te
 import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
+import {FeesComponent } from './components/dashboard/fees/fees.component';
+import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
+import {  UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -47,7 +50,6 @@ const routes: Routes = [
         component: StudentComponent,
         children: [
           { path: 'add', component: AddSComponent},
-          { path: 'update', component: UpdateUnenrollComponent }
         ] },
       { path: 'attendance',
         component: AttendanceComponent,
@@ -78,6 +80,7 @@ const routes: Routes = [
             { path: 'update', component: UpdateNComponent }
           ]},  
         ] },
+
       { path: 'teacher',
         component: TeacherComponent,
         children: [
@@ -100,7 +103,14 @@ const routes: Routes = [
         ]}
     ]
   },
-
+  {path: 'homepage', component: HomepageComponent,
+  children:[
+    {path: 'results', component: ResultsComponent},
+      {path:'addResults', component: AddResultsComponent},
+      {path: 'student-res', component: StudentResComponent},
+    ]
+     
+  },
   { path: 'homepage', 
     component: HomepageComponent,
     children: [
@@ -109,6 +119,12 @@ const routes: Routes = [
       { path: 'noticeboard', component: NoticeboardComponent}
     ] }
 ];
+  
+
+  
+ 
+
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

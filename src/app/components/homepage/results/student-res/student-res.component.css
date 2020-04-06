@@ -1,0 +1,32 @@
+
+
+.heading{
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+.drop{
+    padding-left: 10%;
+    padding-right: 70%;
+}
+
+  .tableMarks{
+    padding-left: 10%;
+    padding-right: 10%;
+    
+}
+th{
+    padding-right: 75px;
+}
+
+td{
+    padding-right: 75px;
+}
+
+
+.form{
+    size: 6px 4px;
+    padding-top: 0%;
+    
+}
