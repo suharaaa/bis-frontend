@@ -79,7 +79,7 @@ export class AddTComponent implements OnInit {
       const teacher = new Teacher(this.teacherFormGroup.getRawValue());
 
       this.teacherService.addTeacher(teacher).subscribe(res => {
-
+        console.log(res);
         this.snackbar.open('Added successfully!', '', { duration: 2000 });
 
         this.clear();
