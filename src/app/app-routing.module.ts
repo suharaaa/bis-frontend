@@ -6,8 +6,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentComponent } from './components/dashboard/student/student.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
 import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
-import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
-import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
@@ -20,10 +18,6 @@ import { UpdateUnenrollComponent } from './components/dashboard/student/update-u
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
-import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
-import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
-import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
-import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
@@ -35,6 +29,10 @@ import { EditcComponent } from './components/dashboard/classes/editc/editc.compo
 import { SignupComponent} from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
 import { UpdateNComponent} from './components/dashboard/notice/update-n/update-n.component';
+import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
+import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
+import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
+import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -54,17 +52,14 @@ const routes: Routes = [
       { path: 'attendance',
         component: AttendanceComponent,
         children: [
-          { path: 'students', 
-          component: StudentAttendanceComponent,
+          { path: 'teachers', 
+          component: TeachersComponent,
           children: [
-            {path: 'mark', component: MarkStdAttnComponent},
-            {path: 'view', component: ViewStdAttnComponent}
-          ]},
-          { path: 'teachers',
-           component: TeacherAttendanceComponent,
-          children: [
-            {path: 'mark', component: MarkTchAttnComponent},
-            {path: 'view', component: ViewTchAttnComponent}
+            {path: 'create', component: CreateAComponent},
+            {path: 'view', component: ViewAComponent,
+            children: [
+              { path: 'update', component: UpdateAComponent}
+            ]},
           ]},
         ] },
       { path: 'fees', 
