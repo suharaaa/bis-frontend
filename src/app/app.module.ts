@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/app/services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -116,7 +117,8 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
    NoticeService,
    SubjectServices,
     StudentService,
-    ClassServices
+    ClassServices,
+    TeacherService
 
   ],
   bootstrap: [AppComponent]
