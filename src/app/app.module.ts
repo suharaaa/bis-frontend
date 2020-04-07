@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/app/services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -109,7 +110,8 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
    NoticeService,
    SubjectServices,
     StudentService,
-    ClassServices
+    ClassServices,
+    TeacherService
 
   ],
   bootstrap: [AppComponent]

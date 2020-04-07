@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { APIResponse } from 'src/app/models/apiresponse';
-import { Teacher } from './../../../../models/teacher';
-import { TeacherService } from './../../../../services/teacher.service';
+import { Teacher } from 'src/app/models/teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
@@ -24,7 +24,7 @@ export class AddTComponent implements OnInit {
     private formBuilder: FormBuilder,
     private teacherService: TeacherService,
     private snackbar: MatSnackBar,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
   getErrorMessage() {
     if (this.teacherFormGroup.controls.email.hasError('required')) {
@@ -54,7 +54,7 @@ export class AddTComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.id = params.id;
-        this.teacherService.getTId(this.id).subscribe(res => {
+        this.teacherService.getTeacherId(this.id).subscribe(res => {
         });
 
       }
@@ -79,7 +79,7 @@ export class AddTComponent implements OnInit {
       const teacher = new Teacher(this.teacherFormGroup.getRawValue());
 
       this.teacherService.addTeacher(teacher).subscribe(res => {
-
+        // console.log(res);
         this.snackbar.open('Added successfully!', '', { duration: 2000 });
 
         this.clear();
