@@ -53,6 +53,7 @@ export class CreateAComponent implements OnInit {
     });
   }
 
+
   public createAttendance() {
     this.attendanceService.createAttendance(this.attendanceRecord).subscribe(response => {
       console.log(response);
@@ -60,16 +61,6 @@ export class CreateAComponent implements OnInit {
     }, err => {
       this.snackBar.open('Attendance recording is failed', null, { duration : 3000});
       console.log(err.message);
-    });
-  }
-
-  public getCount() {
-    this.count = 0;
-    this.attendanceRecord.records.forEach(r => {
-      if (r.isPresent) {
-        this.count++;
-      }
-      
     });
   }
 
