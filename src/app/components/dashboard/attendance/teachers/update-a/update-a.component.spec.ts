@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewTchAttnComponent } from './view-tch-attn.component';
+import { UpdateAComponent } from './update-a.component';
 
-describe('ViewTchAttnComponent', () => {
-  let component: ViewTchAttnComponent;
-  let fixture: ComponentFixture<ViewTchAttnComponent>;
+describe('UpdateAComponent', () => {
+  let component: UpdateAComponent;
+  let fixture: ComponentFixture<UpdateAComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewTchAttnComponent ]
+      declarations: [ UpdateAComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewTchAttnComponent);
+    fixture = TestBed.createComponent(UpdateAComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
