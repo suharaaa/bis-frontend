@@ -32,7 +32,7 @@ export class TeacherService {
     return this.http.put(`${environment.apiHost}/teachers/${id}`, teacher);
   }
 
-  public deleteteacher(id) {
+  public deleteTeacher(id) {
     return this.http.delete(`${environment.apiHost}/teachers/${id}`);
   }
 

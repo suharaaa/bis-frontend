@@ -92,7 +92,38 @@ export class AddTComponent implements OnInit {
       });
 
     }
-    
+
+    public updateTeacher(id: string) {
+      // const teacher = this.teacherFormGroup.value;
+      // this.teacherService.viewTeacher();
+      // this.tid
+      // fname
+      // lname
+      // address
+      // gender
+      // nic
+      // dob
+      // phone
+      // mstatus
+      // mphone
+      // nationality
+      // religion
+      // mail
+      // qul
+      const teacher = new Teacher(this.teacherFormGroup.setValue);
+      // const teacher = this.TeacherFormGroup.setValue;
+      this.teacherService.updateTeacher(id, teacher).subscribe(res => {
+        this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+
+        this.clear();
+
+      }, err => {
+
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
+      });
+    }
 
     public clear() {
       this.teacherFormGroup.reset ();

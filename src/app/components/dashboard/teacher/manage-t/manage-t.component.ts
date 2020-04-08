@@ -3,7 +3,7 @@ import { TeacherService } from 'src/app/services/teacher.service';
 import { Teacher } from 'src/app/models/teacher';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
-
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -20,6 +20,7 @@ export class ManageTComponent implements OnInit {
   dataSource = new MatTableDataSource ();
 
   constructor(
+    private snackBar: MatSnackBar,
     private teacherService: TeacherService,
     private router: Router) { }
 
@@ -46,9 +47,15 @@ export class ManageTComponent implements OnInit {
     this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
   }
 
-  
 
-delete() {
+deleteTeacher(id: string) {
+  this.teacherService.deleteTeacher(id).subscribe(res => {
+    this.snackBar.open('Teacher is successfully deleted', null , { duration : 2000});
+  }, err => {
+    this.snackBar.open(err.message, '', {
+      duration: 2000
+    });
+  });
 
 }
 }
