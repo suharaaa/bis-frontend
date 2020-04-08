@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { TeacherService } from './../../../../services/teacher.service';
-import { Teacher } from './../../../../models/teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { Teacher } from 'src/app/models/teacher';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 
@@ -43,9 +43,10 @@ export class ManageTComponent implements OnInit {
   }
 
   public updateTeacher(id: string) {
-    this.router.navigate(['teacher/add'], { queryParams: { id } });
+    this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
   }
 
+  
 
 delete() {
 

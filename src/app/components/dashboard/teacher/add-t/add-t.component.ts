@@ -92,6 +92,7 @@ export class AddTComponent implements OnInit {
       });
 
     }
+    
 
     public clear() {
       this.teacherFormGroup.reset ();
