@@ -50,7 +50,7 @@ const routes: Routes = [
         component: StudentComponent,
         children: [
           { path: 'add', component: AddSComponent},
-          { path: 'update', component: UpdateUnenrollComponent },
+          { path: 'update', component: UpdateUnenrollComponent }
         ] },
       { path: 'attendance',
         component: AttendanceComponent,
