@@ -13,39 +13,25 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">index 1</th>
-        <td>Name 1</td>
+        <th scope="row"> 1</th>
+        <td>  <mat-form-field appearance="fill">
+          <input matInput type="text" class="example-right-align" required name="name" [(ngModel)]="name">
+                  
+        </mat-form-field></td>
         <div class ="form">
          <td> 
-          <input class="form-control form-control-lg" type="text" ></td>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" class="example-right-align" required name="marks" [(ngModel)]="marks">
+                    
+          </mat-form-field>
+          <button mat-stroked-button (click)="clear()">Clear</button>
         </div>
       </tr>
-      <tr>
-        <th scope="row">index 2</th>
-        <td>Name 2</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
-      <tr>
-        <th scope="row">index 3</th>
-        <td>Name 3</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
-      <tr>
-        <th scope="row">index 4</th>
-        <td>Name 4</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
+     <tr>
+      
+      </tr> 
       <br/>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button mat-raised-button color="primary" (click)="createNewResult()">Submit</button>
     </tbody>
   </table>
 
