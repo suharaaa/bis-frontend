@@ -14,8 +14,8 @@ export class ClassServices {
 
     constructor(private http: HttpClient) { }
 
-    public createNewClass(classname, classteachername){
-        return this.http.post(`${environment.apiHost}/classes`,{classname, classteachername});
+    public createNewClass(name, classteacher){
+        return this.http.post(`${environment.apiHost}/classes`,{name, classteacher});
     }
 
     public findClass() {
@@ -26,8 +26,8 @@ export class ClassServices {
         return this.http.get(`${environment.apiHost}/classes/${id}`);
     }
 
-    public UpdateClass(id,classname, classteachername){
-        return this.http.put(`${environment.apiHost}/classes/${id}`,{classname, classteachername});
+    public UpdateClass(id,name, classteacher){
+        return this.http.put(`${environment.apiHost}/classes/${id}`,{name, classteacher});
     }
 
     public DeleteClass(id){
