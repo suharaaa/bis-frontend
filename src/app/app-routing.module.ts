@@ -26,7 +26,7 @@ import { ClassesComponent } from './components/dashboard/classes/classes.compone
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
 import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
-import { SignupComponent} from './components/signup/signup.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
 import { UpdateNComponent} from './components/dashboard/notice/update-n/update-n.component';
 import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
@@ -41,20 +41,33 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   {
-    path: 'dashboard', 
+    path: 'dashboard',
     component: DashboardComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'overview' },
       { path: 'overview', component: OverviewComponent },
-      { path: 'student', 
+      {
+        path: 'student',
         component: StudentComponent,
         children: [
-          { path: 'add', component: AddSComponent},
+          { path: 'add', component: AddSComponent },
           { path: 'update', component: UpdateUnenrollComponent }
-        ] },
-      { path: 'attendance',
+        ]
+      },
+      {
+        path: 'attendance',
         component: AttendanceComponent,
         children: [
+
+          {
+            path: 'students',
+            component: StudentAttendanceComponent,
+            children: [
+              { path: 'mark', component: MarkStdAttnComponent },
+              { path: 'view', component: ViewStdAttnComponent }
+            ]
+          },
+        
           { path: 'teachers', 
           component: TeachersComponent,
           children: [
@@ -66,15 +79,19 @@ const routes: Routes = [
           ]},
         ] },
       { path: 'fees', 
+
         component: FeesComponent,
         children: [
-          { path: 'addfees', component: AddfeesComponent},
-          { path: 'updatefees1', component: UpdatefeesComponent},
-          
-          ]},
-      { path: 'notice', 
+          { path: 'addfees', component: AddfeesComponent },
+          { path: 'updatefees1', component: UpdatefeesComponent },
+
+        ]
+      },
+      {
+        path: 'notice',
         component: NoticeComponent,
         children: [
+
           { path: 'publish', component: PublishNComponent},
           { path: 'view', component: ViewNComponent, 
           children: [
@@ -83,27 +100,34 @@ const routes: Routes = [
         ] },
 
       { path: 'teacher',
+
         component: TeacherComponent,
         children: [
-          { path: 'add', component: AddTComponent},
-          { path: 'manage', component: ManageTComponent}
-        ]},
-        { path: 'subject',
+          { path: 'add', component: AddTComponent },
+          { path: 'manage', component: ManageTComponent }
+        ]
+      },
+      {
+        path: 'subject',
         component: SubjectComponent,
         children: [
-          { path: 'addsub', component: AddsubComponent},
-          { path: 'updatesub', component: UpdatesubComponent},
-          { path: 'editsub', component: EditsubComponent}
-        ]},
-        { path: 'classes',
+          { path: 'addsub', component: AddsubComponent },
+          { path: 'updatesub', component: UpdatesubComponent },
+          { path: 'editsub', component: EditsubComponent }
+        ]
+      },
+      {
+        path: 'classes',
         component: ClassesComponent,
         children: [
-          { path: 'addc', component: AddcComponent},
-          { path: 'viewc', component: ViewcComponent},
-          { path: 'editc', component: EditcComponent}
-        ]}
+          { path: 'addc', component: AddcComponent },
+          { path: 'viewc', component: ViewcComponent },
+          { path: 'editc', component: EditcComponent }
+        ]
+      }
     ]
   },
+
   {path: 'homepage', component: HomepageComponent,
   children:[
     {path: 'results', component: ResultsComponent},
@@ -112,13 +136,14 @@ const routes: Routes = [
     ]
      
   },
-  { path: 'homepage', 
+
     component: HomepageComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-      { path: 'home', component:HomepageComponent},
-      { path: 'noticeboard', component: NoticeboardComponent}
-    ] }
+      { path: 'home', component: HomepageComponent },
+      { path: 'noticeboard', component: NoticeboardComponent }
+    ]
+  }
 ];
   
 
