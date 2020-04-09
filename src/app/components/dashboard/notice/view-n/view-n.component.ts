@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { NoticeService } from 'src/app/services/notice.service';
+import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router'
 
 interface APIResponse {
   success : boolean,
@@ -15,6 +17,9 @@ interface APIResponse {
 
 export class ViewNComponent implements OnInit {
 
+  displayedColumns = ['title', 'publishedOn', 'expiresOn', 'isTeachersOnly', 'action'];
+  dataSource = new MatTableDataSource();
+
   private _id: String;
   private publishedOn: Date;
   private title: String;
@@ -23,10 +28,12 @@ export class ViewNComponent implements OnInit {
   private updatedOn: Date;
   private expiresOn: Date;
   private notices:[];
+  private currentDate: Date;
 
   constructor(
     private noticeService: NoticeService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,11 +44,20 @@ export class ViewNComponent implements OnInit {
     this.noOfViewers = null;
     this.updatedOn = new Date();
     this.expiresOn = new Date();
-    this.noticeService.viewNotices().subscribe((response : APIResponse) => {
-      this.notices = response.data;
-    });
+    this.currentDate = new Date();
+    this.viewAllNotices()
     
   } 
+
+  viewAllNotices() {
+    this.noticeService.viewNotices().subscribe((response : APIResponse) => {
+      this.dataSource = response.data;
+    });
+  }
+
+  updateNotice(id: String) {
+    this.router.navigate(['/dashboard/notice/view/update'], {queryParams: {id} });
+  }
 
   deleteNotice(id: String){
     this.noticeService.deleteNoticeById(id).subscribe(response => {
@@ -53,6 +69,4 @@ export class ViewNComponent implements OnInit {
     });
   }
 }
-
-
 

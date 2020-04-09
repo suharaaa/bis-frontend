@@ -24,26 +24,36 @@ export class FeesService {
       return this.http.get(`${environment.apiHost}/fees/:id`);
     }
   
-    public updateFee(title, content, teachersOnly, expiresOn) {
-      return this.http.put(`${environment.apiHost}/notices/:id`, {title, content, teachersOnly, expiresOn});
+    public updateFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other) {
+      return this.http.put(`${environment.apiHost}/fees/:id`, {grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other});
     }
   
 
 //try to delete the other fees by giving like updatenoticeviewersbyid
 
-
+/*
   
-    public deleteFee() {
+    public deleteFee(id) {
       return this.http.delete(`${environment.apiHost}/fees/:id`);
+    }
+*/
+    public deleteFee(id) {
+      return this.http.delete(`${environment.apiHost}/fees/${id}`);
     }
 
 
-
-
-
-    
-
-
-
+/*
+    deleteTutorial() {
+      this.tutorialService.delete(this.currentTutorial.id)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.router.navigate(['/tutorials']);
+          },
+          error => {
+            console.log(error);
+          });
+    }
+*/
 
 }

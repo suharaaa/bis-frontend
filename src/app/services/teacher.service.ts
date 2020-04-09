@@ -11,8 +11,12 @@ export class TeacherService {
 
   constructor(private http: HttpClient) { }
 
+  public getTeacherId(id: string) {
+    return this.http.get(`${environment.apiHost}/teachers/${id}`);
+  }
+
   public getNextTid() {
-    return this.http.get(`${environment.apiHost}/teachers/:id`);
+    return this.http.get(`${environment.apiHost}/teachers/tid`);
   }
 
   public addTeacher(teacher: Teacher) {
@@ -24,12 +28,12 @@ export class TeacherService {
   }
 
 
-  public updateTeacher(teacher: Teacher) {
-    return this.http.put(`${environment.apiHost}/teachers/:id`, teacher);
+  public updateTeacher(id: string, teacher) {
+    return this.http.put(`${environment.apiHost}/teachers/${id}`, teacher);
   }
 
-  public deleteteacher() {
-    return this.http.delete(`${environment.apiHost}/teachers/:id`);
+  public deleteteacher(id) {
+    return this.http.delete(`${environment.apiHost}/teachers/${id}`);
   }
 
 

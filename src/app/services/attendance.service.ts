@@ -12,29 +12,29 @@ export class AttendanceService{
         private http: HttpClient
       ) { }
 
-    public saveStdAttendance(classObject, attendanceRecord, count){
-        return this.http.post(`${environment.apiHost}/std-attendances`, {classObject, attendanceRecord, count});
+    public createAttendance(attendanceRecord) {
+        return this.http.post(`${environment.apiHost}/attendance`, {attendanceRecord});
     }
 
-    public createStdAttendance(classObject, attendanceRecord, count){
-        return this.http.post(`${environment.apiHost}/std-attendances`, {classObject, attendanceRecord, count});
+    public viewAttendance(){
+        return this.http.get(`${environment.apiHost}/attendance`);
     }
 
-    public viewStdAttendance(classObject){
-        return this.http.get(`${environment.apiHost}/std-attendances/${classObject}`);
+    public viewAttendanceById(id){
+        return this.http.get(`${environment.apiHost}/attendance/${id}`);
     }
 
-    public updateStdAttendance(id,classObject, attendanceRecord){
-        return this.http.put(`${environment.apiHost}/std-attendances/${id}`, {classObject, attendanceRecord});
+    public updateAtttendance(id, attendanceRecord){
+        return this.http.put(`${environment.apiHost}/attendance/${id}`, {attendanceRecord});
     }
 
-    public deleteStdAttendance(id){
-        return this.http.delete(`${environment.apiHost}/std-attendances/${id}`);
+    public deleteAttendance(id){
+        return this.http.delete(`${environment.apiHost}/attendance/${id}`);
     }
 
-    public getCount(count){
-        return this.http.post(`${environment.apiHost}/std-attendances`, {count});
+    public getCount(id){
+        return this.http.get(`${environment.apiHost}/attendances/${id}`);
     }
 
-
+    
 }

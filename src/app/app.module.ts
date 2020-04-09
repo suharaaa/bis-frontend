@@ -1,3 +1,4 @@
+import { TeacherService } from 'src/app/services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,8 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
-import { StudentAttendanceComponent } from './components/dashboard/attendance/student-attendance/student-attendance.component';
-import { TeacherAttendanceComponent } from './components/dashboard/attendance/teacher-attendance/teacher-attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
@@ -28,16 +27,12 @@ import { UpdateUnenrollComponent } from './components/dashboard/student/update-u
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
-import { MarkStdAttnComponent } from './components/dashboard/attendance/student-attendance/mark-std-attn/mark-std-attn.component';
-import { ViewStdAttnComponent } from './components/dashboard/attendance/student-attendance/view-std-attn/view-std-attn.component';
-import { MarkTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/mark-tch-attn/mark-tch-attn.component';
-import { ViewTchAttnComponent } from './components/dashboard/attendance/teacher-attendance/view-tch-attn/view-tch-attn.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
-import { UpdateTComponent } from './components/dashboard/teacher/manage-t/update-t/update-t.component';
+
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -48,6 +43,15 @@ import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
+import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
+import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
+import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
+import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
+import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
+
+import { ResultsComponent } from './components/homepage/results/results.component';
+import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 
 
 @NgModule({
@@ -59,8 +63,6 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
     OverviewComponent,
     AddSComponent,
     AttendanceComponent,
-    StudentAttendanceComponent,
-    TeacherAttendanceComponent,
     FeesComponent,
     AddfeesComponent,
     UpdatefeesComponent,
@@ -72,24 +74,27 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
-    MarkStdAttnComponent,
-    ViewStdAttnComponent,
-    MarkTchAttnComponent,
-    ViewTchAttnComponent,
     StudentfeesComponent,
     SubjectComponent,
     AddsubComponent,
     UpdatesubComponent,
-    UpdateTComponent,
     AddcComponent,
     ViewcComponent,
     ClassesComponent,
     SignupComponent,
     EditsubComponent,
     EditcComponent,
-    NoticeboardComponent  
+    NoticeboardComponent,
+    UpdateNComponent,
+    TeachersComponent,
+    CreateAComponent,
+    ViewAComponent,
+    UpdateAComponent,
+    ResultsComponent,
+    AddResultsComponent,
+    StudentResComponent 
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -102,11 +107,12 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
   ],
   providers: [
     MatDatepickerModule,
-    NoticeService,
-    SubjectServices,
+   NoticeService,
+   SubjectServices,
     StudentService,
-    ClassServices
-    
+    ClassServices,
+    TeacherService
+
   ],
   bootstrap: [AppComponent]
 })

@@ -13,8 +13,8 @@ export class Teacher {
     private religion: string;
     private mail: string;
     private qul: string;
-    private createdOn: Date;
-    private updatedOn: Date;
+    // private createdOn: Date;
+    // private updatedOn: Date;
 
 
     constructor(value) {
@@ -34,11 +34,11 @@ export class Teacher {
         this.qul = value.qul;
     }
 
-    public get getTidNumber(): string {
+    public get gettid(): string {
         return this.tid;
     }
 
-    public set setTidNumber(tid: string) {
+    public set settid(tid: string) {
         this.tid = tid;
     }
 
