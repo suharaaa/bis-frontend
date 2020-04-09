@@ -11,7 +11,7 @@ export class TeacherService {
 
   constructor(private http: HttpClient) { }
 
-  public getTId(id: string) {
+  public getTeacherId(id: string) {
     return this.http.get(`${environment.apiHost}/teachers/${id}`);
   }
 
