@@ -48,7 +48,7 @@ this.viewTeacher();
 
 
   createNewClass(){
-    this.classService.createNewClass(this.name,this.teachers[this.classteacher]).subscribe(response => {
+    this.classService.createNewClass(this.name,this.classteacher).subscribe(response => {
     console.log(response);
    this.snackBar.open('Class and Class Teacher added successfully', null, { duration : 2000});
     }, err => {
