@@ -3,6 +3,7 @@ import { SubjectServices } from 'src/app/services/subject.service';
 import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 interface APIResponse {
   success :  boolean,
@@ -27,7 +28,8 @@ export class UpdatesubComponent implements OnInit {
 
   constructor(
     private subjectServices : SubjectServices,
-    private snackBar : MatSnackBar
+    private snackBar : MatSnackBar,
+   private router : Router
 
   ) { }
 
@@ -48,6 +50,11 @@ export class UpdatesubComponent implements OnInit {
     }, err => {
       console.log(err.message);
     });
+  }
+
+  UpdateSubject(id: String){
+
+    this.router.navigate(['subject/addsub'], { queryParams: { id } });
   }
 
   DeleteSubject(id: String){
