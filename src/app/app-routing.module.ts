@@ -86,18 +86,16 @@ const routes: Routes = [
         path: 'notice',
         component: NoticeComponent,
         children: [
-          { path: 'publish', component: PublishNComponent },
-          {
-            path: 'view', component: ViewNComponent,
-            children: [
-              { path: 'update', component: UpdateNComponent }
-            ]
-          },
-        ]
-      },
 
-      {
-        path: 'teacher',
+          { path: 'publish', component: PublishNComponent},
+          { path: 'view', component: ViewNComponent, 
+          children: [
+            { path: 'update', component: UpdateNComponent }
+          ]},  
+        ] },
+
+      { path: 'teacher',
+
         component: TeacherComponent,
         children: [
           { path: 'add', component: AddTComponent },
@@ -124,23 +122,17 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'homepage', component: HomepageComponent,
-    children: [
-      { path: 'results', component: ResultsComponent },
-      { path: 'addResults', component: AddResultsComponent },
-      { path: 'student-res', component: StudentResComponent },
+
+  {path: 'homepage', component: HomepageComponent,
+  children:[
+    { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+    { path: 'home', component: HomepageComponent },
+    { path: 'noticeboard', component: NoticeboardComponent },
+    {path: 'results', component: ResultsComponent},
+    {path:'addResults', component: AddResultsComponent},
+    {path: 'student-res', component: StudentResComponent}
     ]
 
-  },
-  {
-    path: 'homepage',
-    component: HomepageComponent,
-    children: [
-      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-      { path: 'home', component: HomepageComponent },
-      { path: 'noticeboard', component: NoticeboardComponent }
-    ]
   }
 ];
 
