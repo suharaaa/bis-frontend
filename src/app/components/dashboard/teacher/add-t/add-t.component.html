@@ -139,6 +139,6 @@
     
     <button mat-stroked-button color = "warn" (click)="clear()">Reset</button>
     <button mat-raised-button color="primary" (click)="addTeacher()" *ngIf="!isOnUpdate">Add Teacher</button>
-    <button mat-raised-button color="primary" (click)="updateTeacher(Teacher._id)" *ngIf="isOnUpdate">Update</button>
+    <button mat-raised-button color="primary" (click)="updateTeacher()" *ngIf="isOnUpdate">Update</button>
     
 </form>
