@@ -105,7 +105,7 @@ export class AddTComponent implements OnInit {
 
     public updateTeacher() {
 
-      const teacher = new Teacher(this.teacherFormGroup.patchValue);
+      const teacher = new Teacher(this.teacherFormGroup.getRawValue());
 
       this.teacherService.updateTeacher(this.id, teacher).subscribe(res => {
         this.snackbar.open('Updated successfully!', '', { duration: 2000 });
