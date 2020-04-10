@@ -21,10 +21,10 @@ export class UpdatesubComponent implements OnInit {
   displayedColumns: string[] = ['subjectname', 'classname', 'teachername','action'];
   dataSource = new MatTableDataSource();
 
-  private _id: String;
+ /* private _id: String;
   private classname: String;
   private subjectname: String;
-  private teachername: String;
+  private teachername: String;*/
 
   constructor(
     private subjectServices : SubjectServices,
@@ -54,7 +54,7 @@ export class UpdatesubComponent implements OnInit {
 
   UpdateSubject(id: String){
 
-    this.router.navigate(['subject/addsub'], { queryParams: { id } });
+    this.router.navigate(['dashboard/subject/addsub'], { queryParams: { id } });
   }
 
   DeleteSubject(id: String){

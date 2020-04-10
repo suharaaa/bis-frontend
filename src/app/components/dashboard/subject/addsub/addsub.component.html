@@ -65,7 +65,9 @@
     
     
     
-    <button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button>
+    <!--button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button-->
+    <button mat-raised-button color="primary" (click)="createNewSubject()" *ngIf="!isOnUpdate">Add Subject</button>
+    <button mat-raised-button color="primary" (click)="changeSubject()" *ngIf="isOnUpdate">Update</button>
     <br>
     <br>
   

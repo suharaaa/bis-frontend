@@ -43,13 +43,16 @@ public teachers: [];
     
       this.route.queryParams.subscribe(params => {
         if (params.id) {
-          this.classService.findClassID(params.id).subscribe((res: { data: any }) => {
+          this.isOnUpdate = true;
+          this.classService.findClassID(params.id).subscribe((res: APIResponse) => {
             this.id = params.id;
             this.name = res.data.name;
             this.classteacher=res.data.classteacher;
          
-            this.isOnUpdate = true;
+  
           });
+        }else{
+          this.isOnUpdate = false;
         }
       });
   
@@ -63,10 +66,10 @@ this.viewTeacher();
   }
  
 
-  changeClass(){
-    this.classService.UpdateClass(this.name,this.classteacher).subscribe(response => {
+  changeClass(id:String){
+    this.classService.UpdateClass(this.id,this.name,this.classteacher).subscribe(response => {
     console.log(response);
-   this.snackBar.open('Class and Class Teacher added successfully', null, { duration : 2000});
+   this.snackBar.open('Updated successfully', null, { duration : 2000});
     }, err => {
     this.snackBar.open('Class and Class Teacher required', null, { duration : 3000});
       console.log(err.message);

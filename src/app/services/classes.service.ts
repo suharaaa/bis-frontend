@@ -26,8 +26,8 @@ export class ClassServices {
         return this.http.get(`${environment.apiHost}/classes/${id}`);
     }
 
-    public UpdateClass(id:String ,classes){
-        return this.http.put(`${environment.apiHost}/classes/${id}`,classes);
+    public UpdateClass(id:String ,name,classteacher){
+        return this.http.put(`${environment.apiHost}/classes/${id}`,{name,classteacher});
     }
 
     public DeleteClass(id){

@@ -74,7 +74,7 @@ export class EditcComponent implements OnInit {
       this.snackBar.open('Subject could not be deleted', null, { duration : 3000});
       console.log(err.message);
     });
-  }*/
+  }
 
   public UpdateClass() {
     this.classService.UpdateClass(
@@ -97,4 +97,4 @@ export class EditcComponent implements OnInit {
     this.snackBar.open('Class and Class Teacher required', null, { duration : 3000});
       console.log(err.message);
   });
-  }}
+  }*/}
