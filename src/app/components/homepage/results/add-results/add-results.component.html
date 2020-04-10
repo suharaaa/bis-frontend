@@ -1,37 +1,48 @@
-<div class="heading">
-    <h2>Add Results</h2>
-</div>
-<div class = "tableMarks">
-<table class="table table-striped" table id="Marks">
-    <thead>
-      <tr>
-        <th scope="col">Index number</th>
-        <th scope="col">Student's Name</th>
-        <th scope="col">Marks</th>
-      
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row"> 1</th>
-        <td>  <mat-form-field appearance="fill">
-          <input matInput type="text" class="example-right-align" required name="name" [(ngModel)]="name">
-                  
-        </mat-form-field></td>
-        <div class ="form">
-         <td> 
-          <mat-form-field appearance="fill">
-            <input matInput type="number" class="example-right-align" required name="marks" [(ngModel)]="marks">
-                    
-          </mat-form-field>
-          <button mat-stroked-button (click)="clear()">Clear</button>
-        </div>
-      </tr>
-     <tr>
-      
-      </tr> 
-      <br/>
-      <button mat-raised-button color="primary" (click)="createNewResult()">Submit</button>
-    </tbody>
-  </table>
 
+  <div class = "heading"><h2>Results</h2></div>
+
+  <br>
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
+
+     
+     <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let results"> {{results.name}} </td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef> Grade </th>
+      <td mat-cell *matCellDef="let results"> {{results.grade}} </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef> Subject </th>
+      <td mat-cell *matCellDef="let results"> {{results.subject}} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="marks">
+      <th mat-header-cell *matHeaderCellDef> marks </th>
+      <td mat-cell *matCellDef="let results"> {{results.marks}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let results">
+      
+        <button mat-raised-button color="primary" (click)="UpdateResult(Results_id)">Update</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteResults(results._id)">Delete</button>
+      </td>
+    </ng-container>
+
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+  </table>

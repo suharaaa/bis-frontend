@@ -48,14 +48,13 @@
     </mat-select> 
     
   </mat-form-field><br/><br/>
-  
-  <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="results()" >ADD RESULTS</button>
+</div>
   <br/><br/>
-  <div class = "tableMarks">
-    <table class="table table-striped" table id="Marks">
+  <div class = "body2">
+  <table class="table table-striped" table id="results">
         <thead>
           <tr>
-            <th scope="col">Index number</th>
+          
             <th scope="col">Student's Name</th>
             <th scope="col">Marks</th>
           
@@ -63,7 +62,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row"> 1</th>
+          
             <td>  <mat-form-field appearance="fill">
               <input matInput type="text" class="example-right-align" required name="name" [(ngModel)]="name">
                       
@@ -77,11 +76,13 @@
               <button mat-stroked-button (click)="clear()">Clear</button>
             </div>
           </tr>
-         <tr>
-          
-          </tr> 
+         
           <br/>
-          <button mat-raised-button color="primary" (click)="createNewResult()">Submit</button>
+         
         </tbody>
-      </table>
+        
+  </table>
+  <button mat-raised-button color="primary" (click)="createNewResult()">SUBMIT</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button>
+</div>
     

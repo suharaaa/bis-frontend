@@ -31,8 +31,12 @@ export class ResultsComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    this.marks = null, Validators.required
+  ngOnInit():void {
+  this.grade = '';
+  this.term ='';
+  this.subject ='';
+  this.name ='';
+  this.marks=null;
   }
   
   createNewResult() {
@@ -46,6 +50,7 @@ export class ResultsComponent implements OnInit {
     });
 
   }
+
 
   results(){
     this.router.navigate(["homepage/addResults"]);

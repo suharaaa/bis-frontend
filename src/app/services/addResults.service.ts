@@ -13,9 +13,16 @@ import { HttpClient } from '@angular/common/http';
     ) { }
   
     public createNewResult(grade, term, subject, name, marks) {
-      return this.http.post(`${environment.apiHost}/attendance`, {grade,term,subject,name,marks});
+      return this.http.post(`${environment.apiHost}/results`, {grade,term,subject,name,marks});
   }
 
-   
+  public viewResults() {
+    return this.http.get(`${environment.apiHost}/results`);
+  }
+
+  public DeleteResults(id){
+    return this.http.delete(`${environment.apiHost}/results/${id}`);
+  }
+  
 
 }
