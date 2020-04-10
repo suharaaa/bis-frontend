@@ -38,7 +38,7 @@ export class UpdateUnenrollComponent implements OnInit {
   }
 
   public updateStudent(id: string) {
-    this.router.navigate(['student/add'], { queryParams: { id } });
+    this.router.navigate(['dashboard/student/add'], { queryParams: { id } });
   }
 
   delete() {}
