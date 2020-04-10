@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { ActivatedRoute } from '@angular/router';
 
 interface APIResponse {
   success : boolean,
@@ -19,6 +21,8 @@ export class AddcComponent implements OnInit {
 
   private name: String;
   private classteacher: any;
+  private id: string;
+  public isOnUpdate: boolean;
  
 public teachers: [];
 
@@ -26,7 +30,8 @@ public teachers: [];
 
     private classService: ClassServices,
    private snackBar: MatSnackBar,
-   //public teacherService: TeacherService
+   public teacherService: TeacherService,
+   private route: ActivatedRoute
 
   ) { }
 
@@ -35,13 +40,43 @@ public teachers: [];
     this.name ='';
     this.classteacher ='';
 
-  /* this.teacherService.findTeacher().subscribe(res =>{
-     this.teachers = res.data;
-   })
+    
+      this.route.queryParams.subscribe(params => {
+        if (params.id) {
+          this.isOnUpdate = true;
+          this.classService.findClassID(params.id).subscribe((res: APIResponse) => {
+            this.id = params.id;
+            this.name = res.data.name;
+            this.classteacher=res.data.classteacher;
+         
   
-*/
+          });
+        }else{
+          this.isOnUpdate = false;
+        }
+      });
+  
+  
+this.viewTeacher();
 
   }
+
+  public viewTeacher() {
+    this.teacherService.viewTeacher().subscribe((res: { data: any }) => this.teachers = res.data);
+  }
+ 
+
+  changeClass(id:String){
+    this.classService.UpdateClass(this.id,this.name,this.classteacher).subscribe(response => {
+    console.log(response);
+   this.snackBar.open('Updated successfully', null, { duration : 2000});
+    }, err => {
+    this.snackBar.open('Class and Class Teacher required', null, { duration : 3000});
+      console.log(err.message);
+  });
+
+}
+
 
   createNewClass(){
     this.classService.createNewClass(this.name,this.classteacher).subscribe(response => {
@@ -52,6 +87,7 @@ public teachers: [];
       console.log(err.message);
   });
     this.clear();
+    
     
   }
 
