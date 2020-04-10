@@ -84,7 +84,7 @@ const routes: Routes = [
       { path: 'teacher',
         component: TeacherComponent,
         children: [
-          { path: 'add', component: AddTComponent},
+          { path: 'add/:id', component: AddTComponent},
           { path: 'manage', component: ManageTComponent}
         ]},
         { path: 'subject',

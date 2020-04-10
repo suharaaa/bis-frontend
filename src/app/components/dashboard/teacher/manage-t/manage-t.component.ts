@@ -43,8 +43,8 @@ export class ManageTComponent implements OnInit {
     });
   }
 
-  public updateTeacher(id: string) {
-    this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
+  public updateTeacher() {
+    this.router.navigate(['dashboard/teacher/add/:id', this.teacherService.getTeacherId]);
   }
 
 
