@@ -99,7 +99,6 @@ export class AddSComponent implements OnInit {
 
   public getAllClasses() {
     this.classService.findClass().subscribe((res: { data: any }) => {
-      console.log(res.data);
       this.classes = res.data;
     });
   }
@@ -126,6 +125,7 @@ export class AddSComponent implements OnInit {
 
   public changeStudent() {
     const student = new Student(this.studentFormGroup.getRawValue());
+    
     this.studentService.updateStudents(this.id, student).subscribe(res => {
       //notify
       this.snackbar.open('Updated successfully!', '', { duration: 2000 });
