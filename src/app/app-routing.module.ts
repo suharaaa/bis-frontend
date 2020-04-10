@@ -98,12 +98,10 @@ const routes: Routes = [
 
         component: TeacherComponent,
         children: [
-          { path: 'add', component: AddTComponent },
-          { path: 'manage', component: ManageTComponent }
-        ]
-      },
-      {
-        path: 'subject',
+          { path: 'add', component: AddTComponent},
+          { path: 'manage', component: ManageTComponent}
+        ]},
+        { path: 'subject',
         component: SubjectComponent,
         children: [
           { path: 'addsub', component: AddsubComponent },
