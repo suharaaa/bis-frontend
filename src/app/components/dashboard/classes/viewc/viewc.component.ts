@@ -21,9 +21,9 @@ export class ViewcComponent implements OnInit {
   dataSource = new MatTableDataSource();
 
   
-  private _id: String;
+ /* private _id: String;
   private name: String;
-  private classteacher: String;
+  private classteacher: String;*/
 
 
   constructor(
@@ -33,6 +33,7 @@ export class ViewcComponent implements OnInit {
   ) { }
 
   ngOnInit() :void{
+
     this.findClass();
   }
 
@@ -47,12 +48,18 @@ export class ViewcComponent implements OnInit {
       console.log(err.message);
     });
   }
+
+
+  public UpdateClass(id: string) {
+    this.router.navigate(['dashboard/classes/addc'], { queryParams: { id } });
+  }
+
   DeleteClass(id: String){
     this.classServices.DeleteClass(id).subscribe(response => {
       console.log(response);
-      this.snackBar.open('Subject is successfully deleted', null, { duration : 2000});
+      this.snackBar.open('class is successfully deleted', null, { duration : 2000});
     }, err => {
-      this.snackBar.open('Subject could not be deleted', null, { duration : 3000});
+      this.snackBar.open('class could not be deleted', null, { duration : 3000});
       console.log(err.message);
     });
   }

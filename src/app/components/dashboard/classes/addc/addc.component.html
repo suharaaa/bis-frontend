@@ -47,7 +47,9 @@
     
     <br>
     
-    <button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button>
+    <!--button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button-->
+    <button mat-raised-button color="primary" (click)="createNewClass()" *ngIf="!isOnUpdate">Add Class</button>
+    <button mat-raised-button color="primary" (click)="changeClass()" *ngIf="isOnUpdate">Update</button>
     <br>
     <br>
     <br>
