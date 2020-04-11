@@ -16,7 +16,7 @@ export class AttendanceService{
         private datepipe: DatePipe
       ) { }
 
-    private formatDate = (d: Date): string => this.datepipe.transform(d, 'dd-MM-yyyy');
+    public formatDate = (d: Date): string => this.datepipe.transform(d, 'dd-MM-yyyy');
 
     public createAttendance(id: string, date: Date, status: string) {
         const formattedDate = this.formatDate(date);
