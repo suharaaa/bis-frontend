@@ -51,6 +51,7 @@ import { NoticeboardComponent } from './components/homepage/noticeboard/noticebo
 import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +90,8 @@ import { UpdateNComponent } from './components/dashboard/notice/update-n/update-
     EditsubComponent,
     EditcComponent,
     NoticeboardComponent,
-    UpdateNComponent  
+    UpdateNComponent,
+     
   ],
   
   imports: [
