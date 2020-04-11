@@ -139,7 +139,8 @@
 
     <div class="bt">
 
-      <button mat-raised-button color="primary" value="Submit"  (click)="createNewFee()">Add Fees</button>
+      <button mat-raised-button color="primary" value="Submit"  (click)="createNewFee()"  *ngIf="!isOnUpdate">Add Fees</button>
+      <button mat-raised-button color="primary" (click)="changeFee()" *ngIf="isOnUpdate">Update</button>
 
       <br><br>
 
@@ -153,3 +154,8 @@
 
 
 </form>
+
+
+
+
+
