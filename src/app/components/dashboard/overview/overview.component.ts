@@ -7,6 +7,9 @@ import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { APIResponse } from 'src/app/models/apiresponse';
 
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { AttendanceService } from 'src/app/services/attendance.service';
+
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -23,14 +26,88 @@ export class OverviewComponent implements OnInit {
     classesCount: 0
   };
 
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+
+  public isLoading: boolean;
+  public isLoadingPieChart: boolean;
+  
+  public barChartLabels = [new Date().getFullYear() - 1, new Date().getFullYear()];
+  public barChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData = [
+    { data: [0, 0], label: 'Female', backgroundColor: '#f69223' },
+    { data: [0, 0], label: 'Male', backgroundColor: '#1f3146' }
+  ];
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+      position: 'top',
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+  public pieChartLabels: Label[] = [['Present'], ['Absent']];
+  public pieChartData: number[] = [2, 7];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [pluginDataLabels];
+  public pieChartColors = [
+    {
+      backgroundColor: ['#f69223', '#1f3146'],
+    },
+  ];
+
   constructor(
-    private statisticsService: StatisticsService
+    private statisticsService: StatisticsService,
+    private attendanceService: AttendanceService
   ) { }
 
   ngOnInit() {
+
+    this.isLoading = true;
+    this.isLoadingPieChart = true;
+
     this.statisticsService.getAllStatistics().subscribe((response: APIResponse) => {
       this.statistics = response.data;
-    })
+    });
+    
+    this.statisticsService.getEnrollmentsByYear().subscribe((response: APIResponse) => {
+      this.barChartData[0].data[0] = response.data.lastYearFemale;
+      this.barChartData[0].data[1] = response.data.thisYearFemale;
+      this.barChartData[1].data[0] = response.data.lastYearMale;
+      this.barChartData[1].data[1] = response.data.thisYearMale;
+      this.isLoading = false;
+    });
+
+    this.attendanceService.getAttendanceByDate(new Date()).subscribe((response: APIResponse) => {
+      this.pieChartData[0] = response.data.reduce((c, a) => {
+        if (a.status === 'present') {
+          return c + 1;
+        } else {
+          return c;
+        }
+      }, 0);
+
+      this.pieChartData[1] = response.data.reduce((c, a) => {
+        if (a.status === 'absent') {
+          return c + 1;
+        } else {
+          return c;
+        }
+      }, 0);
+
+      this.isLoadingPieChart = false;
+    });
   }
 
 }

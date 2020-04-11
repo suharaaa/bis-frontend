@@ -15,4 +15,8 @@ export class StatisticsService {
     return this.http.get(`${environment.apiHost}/statistics`);
   }
 
+  public getEnrollmentsByYear() {
+    return this.http.get(`${environment.apiHost}/statistics/enrollments`)
+  }
+
 }

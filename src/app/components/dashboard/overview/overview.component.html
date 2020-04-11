@@ -45,3 +45,45 @@
         </mat-card>
     </div>
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card class="chart-card" style="margin-left: 46px;">
+                <mat-card-header>
+                    <mat-card-title>Student Enrollments</mat-card-title>
+                    <mat-card-subtitle>Students by gender by year</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas *ngIf="!isLoading" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                [legend]="barChartLegend" [chartType]="barChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            
+        </div>
+
+        <div class="col-md-6">
+            <mat-card class="chart-card" style="margin-right: 46px;">
+                <mat-card-header>
+                    <mat-card-title>Teacher Attendance</mat-card-title>
+                    <mat-card-subtitle>Available teachers today</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas *ngIf="!isLoadingPieChart" baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+                                [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        
+        </div>
+    </div>
+</div>

@@ -45,3 +45,7 @@
     position: relative;
     bottom: -10px;
   }
+
+  .form-row {
+    margin-bottom: 40px;
+  }
