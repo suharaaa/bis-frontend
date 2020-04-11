@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
@@ -25,10 +24,9 @@ export class UpdateUnenrollComponent implements OnInit {
     this.viewStudents();
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;  
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   viewStudents(){
@@ -43,11 +41,11 @@ export class UpdateUnenrollComponent implements OnInit {
     this.router.navigate(['dashboard/student/add'], { queryParams: { id } });
   }
 
-  public delete(_id: string) {
-    this.studentService.deleteStudent( _id ).subscribe(res => {
+  public unenroll(_id: string) {
+    this.studentService.unenrollStudent( _id ).subscribe(res => {
       this.viewStudents();
       //notify
-      this.snackbar.open('Deleted successfully!', '', { duration: 2000 });
+      this.snackbar.open('Unenrolled successfully!', '', { duration: 2000 });
     }, err => {
       //error msg
       this.snackbar.open(err.message, '', {
