@@ -11,8 +11,8 @@ import { MatSnackBar } from '@angular/material';
 })
 export class UpdateUnenrollComponent implements OnInit {
 
-  displayedColumns = ['id', 'name','class', 'mail', 'action'];
-  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = ['id', 'name','class', 'mail', 'action'];
+  dataSource : MatTableDataSource<any>;
 
   constructor(
     private studentService: StudentService,
@@ -24,9 +24,8 @@ export class UpdateUnenrollComponent implements OnInit {
     this.viewStudents();
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(keyword) {
+    this.dataSource.filter = keyword.trim().toLowerCase();
   }
 
   viewStudents(){
