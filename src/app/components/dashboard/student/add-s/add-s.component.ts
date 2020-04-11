@@ -8,6 +8,8 @@ import { APIResponse } from 'src/app/models/apiresponse';
 import { ActivatedRoute } from '@angular/router';
 import { ClassServices } from 'src/app/services/classes.service';
 
+import * as faker from 'faker';
+
 @Component({
   selector: 'app-add-s',
   templateUrl: './add-s.component.html',
@@ -60,13 +62,13 @@ export class AddSComponent implements OnInit {
       mworkp: [''],
       maddress: [''],
       mphone: ['', Validators.required],
-      memail: ['', Validators.required, Validators.email],
+      memail: ['', Validators.required],
       faname: ['', Validators.required],
       foccupation: [''],
       fworkp: [''],
       faddress: [''],
       fphone: ['', Validators.required],
-      femail: ['', Validators.required, Validators.email],
+      femail: ['', Validators.required],
     });
 
     this.route.queryParams.subscribe(params => {
@@ -81,15 +83,19 @@ export class AddSComponent implements OnInit {
       }
       else {
         this.isOnUpdate = false;
-        this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
-          this.studentFormGroup.get('admissionNumber').setValue(response.data);
-        });
+        this.getNextAdmissionNumber();
       }
     })
 
     this.matcher = new StudentErrorStateMatcher();
 
     this.getAllClasses();
+  }
+
+  private getNextAdmissionNumber(): void {
+    this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
+      this.studentFormGroup.get('admissionNumber').setValue(response.data);
+    });
   }
 
 
@@ -143,6 +149,37 @@ export class AddSComponent implements OnInit {
 
   public clear() {
     this.studentFormGroup.reset();
+    this.getNextAdmissionNumber();
+    this.studentFormGroup.controls.admissionDate.patchValue(new Date());
+  }
+
+  /**
+   * For Demo Perposes ONLY
+   */
+  public populateForm() {
+    this.studentFormGroup.patchValue({
+      fname: faker.name.firstName(),
+      lname: faker.name.lastName(),
+      address: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      gender: faker.random.arrayElement(['male', 'female']),
+      dob: faker.date.past(10, '2001-04-11'),
+      nation: faker.random.arrayElement(['Sinhaleese', 'Muslim', 'Tamil']),
+      religion: faker.random.arrayElement(['Buddhist', 'Christianity', 'Islam', 'Hindu']),
+      mail: faker.internet.email(),
+      class: '',
+      mname: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      moccupation: faker.name.jobTitle(),
+      mworkp: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      maddress: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      mphone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      memail: faker.internet.email(),
+      faname: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      foccupation: faker.name.jobTitle(),
+      fworkp: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      faddress: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      fphone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      femail: faker.internet.email(),
+    });
   }
 
 
