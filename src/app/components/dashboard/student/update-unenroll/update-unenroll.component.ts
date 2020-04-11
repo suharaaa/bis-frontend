@@ -30,7 +30,7 @@ export class UpdateUnenrollComponent implements OnInit {
 
   viewStudents(){
     this.studentService.viewStudents().subscribe((res: any) => {
-      this.dataSource = res.data;
+      this.dataSource = new MatTableDataSource(res.data);
     }, err => {
       console.log(err.message);
     });

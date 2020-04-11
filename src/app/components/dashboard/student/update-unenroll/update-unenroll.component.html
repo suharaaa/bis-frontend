@@ -1,13 +1,15 @@
 <h4 class="topic"> Students List</h4><br>
-<div class=row *ngIf="expression">
-<mat-form-field appearance="outline">
-  <mat-label>Search name</mat-label>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex. suhara">
-</mat-form-field>
+<div class="container-fluid">
+  <div class=row>
+    <mat-form-field appearance="outline">
+      <mat-label>Search name</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find students by Admission Number, Name, Class or Email">
+    </mat-form-field>
+  </div>
 </div>
 
 <div class="list mat-elevation-z8" >
-  <table mat-table [dataSource]="dataSource" >
+  <table mat-table [dataSource]="dataSource">
 
     <!-- RegNo Column -->
     <ng-container matColumnDef="id">
