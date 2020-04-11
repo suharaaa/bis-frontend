@@ -32,7 +32,6 @@ import { SubjectComponent } from './components/dashboard/subject/subject.compone
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
-
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -48,11 +47,10 @@ import { TeachersComponent } from './components/dashboard/attendance/teachers/te
 import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
-
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +60,8 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     LoginComponent,
     OverviewComponent,
     AddSComponent,
+    UpdateUnenrollComponent,
+    StudentArchiveComponent,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -70,7 +70,6 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
-    UpdateUnenrollComponent,
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
@@ -92,7 +91,7 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     UpdateAComponent,
     ResultsComponent,
     AddResultsComponent,
-    StudentResComponent 
+    StudentResComponent
   ],
 
   imports: [
@@ -107,8 +106,8 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
   ],
   providers: [
     MatDatepickerModule,
-   NoticeService,
-   SubjectServices,
+    NoticeService,
+    SubjectServices,
     StudentService,
     ClassServices,
     TeacherService
