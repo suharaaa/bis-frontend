@@ -28,7 +28,6 @@ import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.compo
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
-import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
 import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
@@ -88,11 +87,8 @@ const routes: Routes = [
         children: [
 
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent, 
-          children: [
-            { path: 'update', component: UpdateNComponent }
-          ]},  
-        ] },
+          { path: 'view', component: ViewNComponent} 
+        ]},
 
       { path: 'teacher',
 
@@ -121,23 +117,22 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'homepage', component: HomepageComponent,
-  children:[
-    { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-    { path: 'home', component: HomepageComponent },
-    { path: 'noticeboard', component: NoticeboardComponent },
-    {path: 'results', component: ResultsComponent},
-    {path:'addResults', component: AddResultsComponent},
-    {path: 'student-res', component: StudentResComponent}
+  {path: 'homepage', 
+  component: HomepageComponent,
+    children:[
+      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+      { path: 'home', component: HomepageComponent },
+      { path: 'noticeboard', component: NoticeboardComponent },
+      {path: 'results', 
+      component: ResultsComponent,
+        children: [
+          {path:'addResults', component: AddResultsComponent},
+          {path: 'student-res', component: StudentResComponent}
+        ]
+      }
     ]
-
   }
 ];
-
-
-
-
-
 
 
 @NgModule({
