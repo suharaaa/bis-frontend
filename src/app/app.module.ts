@@ -45,12 +45,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
-import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
 import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
-
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
@@ -87,7 +85,6 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     EditsubComponent,
     EditcComponent,
     NoticeboardComponent,
-    UpdateNComponent,
     TeachersComponent,
     CreateAComponent,
     ViewAComponent,
