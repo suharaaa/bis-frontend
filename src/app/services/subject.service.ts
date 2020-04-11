@@ -26,7 +26,7 @@ export class SubjectServices {
         return this.http.get(`${environment.apiHost}/subjects/${id}`);
     }
 
-    public UpdateSubject(id,subjectname, classname,teachername){
+    public UpdateSubject(id:String,subjectname, classname,teachername){
         return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname,classname,teachername});
     }
 
