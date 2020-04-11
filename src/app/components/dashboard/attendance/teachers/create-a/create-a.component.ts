@@ -73,7 +73,6 @@ export class CreateAComponent implements OnInit {
     }, err => {
         this.showSnackBar(`Could not mark ${r.teacher.fname}'s attendance.`);
     });
-  }
 
   public showSnackBar(message: string): void {
     this.snackBar.open(message, null, { duration: 2000 });
