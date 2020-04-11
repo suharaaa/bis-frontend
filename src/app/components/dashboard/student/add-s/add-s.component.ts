@@ -21,7 +21,7 @@ export class AddSComponent implements OnInit {
   private id: string;
   public isOnUpdate: boolean;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  mail = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,39 +31,42 @@ export class AddSComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  
   getErrorMessage() {
-    if (this.studentFormGroup.controls.email.hasError('required')) {
+    if (this.studentFormGroup.controls.mail.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.mail.hasError('mail') ? 'Not a valid email' : '';
   }
 
   ngOnInit() {
     this.classes = [];
+    // this.studentFormGroup = new FormGroup[];
     this.studentFormGroup = this.formBuilder.group({
       admissionNumber: [{ value: '', disabled: true }],
+      admissionDate: [new Date()],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      address: [''],
-      gender: [''],
-      dob: [''],
-      nation: [''],
-      religion: [''],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
+      dob: ['', Validators.required],
+      nation: ['', Validators.required],
+      religion: ['', Validators.required],
       mail: [''],
-      class: [''],
-      mname: [''],
+      class: ['', Validators.required],
+      mname: ['', Validators.required],
       moccupation: [''],
       mworkp: [''],
       maddress: [''],
-      mphone: [''],
-      memail: [''],
-      faname: [''],
+      mphone: ['', Validators.required],
+      memail: ['', Validators.required, Validators.email],
+      faname: ['', Validators.required],
       foccupation: [''],
       fworkp: [''],
       faddress: [''],
-      fphone: [''],
-      femail: [''],
+      fphone: ['', Validators.required],
+      femail: ['', Validators.required, Validators.email],
     });
 
     this.route.queryParams.subscribe(params => {
@@ -88,6 +91,7 @@ export class AddSComponent implements OnInit {
 
     this.getAllClasses();
   }
+
 
   public get StudentFormGroup(): FormGroup {
     return this.studentFormGroup;
