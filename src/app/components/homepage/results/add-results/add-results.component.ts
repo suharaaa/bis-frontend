@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators} from '@angular/forms';
 import { ResultsService } from 'src/app/services/addResults.service';
 import { MatSnackBar, MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 
 interface APIResponse {
   success : boolean,
@@ -24,17 +25,19 @@ export class AddResultsComponent implements OnInit {
     private name : string;
     private subject : string;
     private marks : number;
-  ResultsService: any;
+  
     
 
   constructor( private resultsService: ResultsService,
-    private snackBar: MatSnackBar) {  
+    private snackBar: MatSnackBar,
+    private router : Router) {  
   }
   
 
   ngOnInit() {
     this.viewResults();
    
+    
 
   }
 
@@ -62,6 +65,10 @@ export class AddResultsComponent implements OnInit {
   }
   
   
+  UpdateResults(id: String){
+
+    this.router.navigate(['homepage/results'], { queryParams: { id } });
+  }
 
   
 

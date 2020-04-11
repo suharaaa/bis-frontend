@@ -24,5 +24,12 @@ import { HttpClient } from '@angular/common/http';
     return this.http.delete(`${environment.apiHost}/results/${id}`);
   }
   
+  public UpdateSubject(id:String,grade,term,subject,name,marks){
+    return this.http.put(`${environment.apiHost}/results/${id}`,{grade, term, subject,name, marks});
+  }
 
+  public findResultID(id){
+    return this.http.get(`${environment.apiHost}/results/${id}`);
 }
+
+  }

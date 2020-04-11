@@ -33,7 +33,7 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let results">
       
-        <button mat-raised-button color="primary" (click)="UpdateResult(Results_id)">Update</button>
+        <button mat-raised-button color="primary" (click)="UpdateResults(results._id)">Update</button>
         <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteResults(results._id)">Delete</button>
       </td>
     </ng-container>

@@ -3,6 +3,12 @@ import { Router } from '@angular/router';
 import { Validators} from '@angular/forms';
 import { ResultsService } from 'src/app/services/addResults.service';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+
+interface APIResponse {
+  success : boolean,
+  data : any
+}
 
 @Component({
   selector: 'app-results',
@@ -11,16 +17,20 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ResultsComponent implements OnInit {
 
+  private id: string;
+  public isOnUpdate: boolean;
   private grade :string;
- private term : string;
- private subject : string;  
+  private term : string;
+  private subject : string;  
   private name : string;
   private marks :Number;
   
   
   
 
-  constructor(private resultsService: ResultsService,
+  constructor(
+    private resultsService: ResultsService,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     private router: Router , 
     
@@ -29,14 +39,29 @@ export class ResultsComponent implements OnInit {
   { 
   }
 
-
-
   ngOnInit():void {
   this.grade = '';
   this.term ='';
   this.subject ='';
   this.name ='';
   this.marks=null;
+
+  this.route.queryParams.subscribe(params => {
+    if (params.id) {
+      this.isOnUpdate = true;
+      this.resultsService.findResultID(params.id).subscribe((res: APIResponse) => {
+        this.id = params.id;   
+        this.grade = res.data.grade;
+        this.term = res.data.term;
+        this.subject = res.data.subject;
+        this.name = res.data.name;     
+        this.marks=res.data.marks;
+      });
+    }else{
+      this.isOnUpdate = false;
+    }
+  });
+
   }
   
   createNewResult() {
@@ -51,6 +76,7 @@ export class ResultsComponent implements OnInit {
 
   }
 
+ 
 
   results(){
     this.router.navigate(["homepage/addResults"]);
@@ -58,6 +84,17 @@ export class ResultsComponent implements OnInit {
 
   clear(){
     this.marks = 0;
+  }
+
+  changeResult(id:String){
+    this.resultsService.UpdateSubject(this.id,this.grade, this.term, this.subject, this.name,this.marks).subscribe(response => {
+    console.log(response);
+   this.snackBar.open('Updated successfully', null, { duration : 2000});
+    }, err => {
+    this.snackBar.open('mark required', null, { duration : 3000});
+      console.log(err.message);
+  });
+
   }
 
 }

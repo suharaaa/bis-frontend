@@ -83,6 +83,7 @@
         
   </table>
   <button mat-raised-button color="primary" (click)="createNewResult()">SUBMIT</button><br/><br/>
-  <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button>
+  <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="changeResult()" *ngIf="isOnUpdate">Update</button>
 </div>
     
