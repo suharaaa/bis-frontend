@@ -1,0 +1,15 @@
+<h2>Mark Teachers' Attendance</h2>
+<mat-selection-list #teachers >
+  <mat-list-option *ngFor="let teacher of teacherslist" [selected]="teacher.selected" (click)="getSelectedTeachers(teachers)" [value]="teacher._id">
+    {{teacher.fname}} {{teacher.lname}}
+  </mat-list-option>
+</mat-selection-list>
+<br>
+<p>
+  Count : {{teachers.selectedOptions.selected.length}}
+</p>
+  <p> {{ selectedOptions }}</p>
+<br>
+  <button mat-raised-button color="primary" (click)=" createAttendance() ">Save</button>
+
+

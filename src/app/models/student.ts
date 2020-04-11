@@ -8,7 +8,7 @@ export class Student {
     private nation: string;
     private religion: string;
     private mail: string;
-    
+    private class: any;
     private mname: string;
     private moccupation: string;
     private mworkp: number;
@@ -33,6 +33,7 @@ export class Student {
         this.nation = value.nation;
         this.religion = value.religion;
         this.mail = value.mail;
+        this.class = value.class;
         this.mname = value.mname;
         this.moccupation = value.moccupation;
         this.mworkp = value.mworkp;

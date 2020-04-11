@@ -1,10 +1,13 @@
+import { ActivatedRoute } from '@angular/router';
 import { APIResponse } from 'src/app/models/apiresponse';
-import { Teacher } from './../../../../models/teacher';
-import { TeacherService } from './../../../../services/teacher.service';
+import { Teacher } from 'src/app/models/teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { TeacherErrorStateMatcher } from 'src/app/helpers/teacher-error-state-matcher';
+
+
 
 @Component({
   selector: 'app-add-t',
@@ -14,23 +17,27 @@ import { TeacherErrorStateMatcher } from 'src/app/helpers/teacher-error-state-ma
 export class AddTComponent implements OnInit {
 
   private matcher: TeacherErrorStateMatcher;
-  private teacherForm: FormGroup;
+  private teacherFormGroup: FormGroup;
+  private id: string;
+  public isOnUpdate: boolean;
+
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
     private teacherService: TeacherService,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private route: ActivatedRoute
   ) { }
   getErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.teacherFormGroup.controls.email.hasError('required')) {
       return 'You should enter a value';
     }
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
   ngOnInit() {
-    this.teacherForm = this.formBuilder.group({
+    this.teacherFormGroup = this.formBuilder.group({
       tid: [{ value: '', disabled: true}],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
@@ -46,14 +53,31 @@ export class AddTComponent implements OnInit {
       mail: [''],
       qul: [''],
     });
-    this.teacherService.getNextTid().subscribe((response: APIResponse) => {
-      this.teacherForm.get('tid').setValue(response.data);
+
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.isOnUpdate = true;
+        this.id = params.id;
+        this.teacherService.getTeacherId(this.id).subscribe((res: APIResponse) => {
+          this.teacherFormGroup.patchValue(res.data);
+          this.teacherFormGroup.controls.class.patchValue(res.data.class && res.data.class._id);
+        });
+
+      } else {
+        this.isOnUpdate = false;
+        this.teacherService.getNextTid().subscribe((response: APIResponse) => {
+
+          this.teacherFormGroup.get('tid').setValue(response.data);
+        });
+      }
     });
+
+
     this.matcher = new TeacherErrorStateMatcher();
   }
 
-  public get TeacherForm(): FormGroup {
-      return this.teacherForm;
+  public get TeacherFormGroup(): FormGroup {
+      return this.teacherFormGroup;
   }
 
   public get TeacherErrorStateMatcher(): ErrorStateMatcher {
@@ -62,11 +86,13 @@ export class AddTComponent implements OnInit {
 
   public addTeacher() {
 
-      const teacher = new Teacher(this.teacherForm.getRawValue());
+      const teacher = new Teacher(this.teacherFormGroup.getRawValue());
 
       this.teacherService.addTeacher(teacher).subscribe(res => {
-
+        // console.log(res);
         this.snackbar.open('Added successfully!', '', { duration: 2000 });
+
+        this.clear();
 
       }, err => {
 
@@ -77,9 +103,25 @@ export class AddTComponent implements OnInit {
 
     }
 
+    public updateTeacher() {
+
+      const teacher = new Teacher(this.teacherFormGroup.getRawValue());
+
+      this.teacherService.updateTeacher(this.id, teacher).subscribe(res => {
+        this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+
+
+
+      }, err => {
+
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
+      });
+    }
+
     public clear() {
-      
-      this.teacherForm.setValue [''];
+      this.teacherFormGroup.reset ();
     }
 
 

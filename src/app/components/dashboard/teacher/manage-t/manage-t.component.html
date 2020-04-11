@@ -1,7 +1,16 @@
 <h2>Manage Teacher Information</h2>
 <br>
 
+
+<mat-form-field appearance="outline">
+  <mat-label>Search ID Number</mat-label>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex.  T00001">
+</mat-form-field>
+
+<br>
+
 <div class="list mat-elevation-z8">
+
   <h4 style="padding-top: 20px;">Teachers List</h4><br>
 
   <table mat-table [dataSource]="dataSource">
@@ -9,16 +18,16 @@
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID Number </th>
-      <td mat-cell *matCellDef="let teacher"> {{teacher.admissionNumber}} </td>
+      <td mat-cell *matCellDef="let teacher"> {{teacher.tid}} </td>
     </ng-container>
 
-    <!-- Name Column -->
+    
     <ng-container matColumnDef="fname">
       <th mat-header-cell *matHeaderCellDef> First Name </th>
       <td mat-cell *matCellDef="let teacher"> {{teacher.fname}} </td>
     </ng-container>
 
-    <!-- Email Column -->
+    
     <ng-container matColumnDef="lname">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
       <td mat-cell *matCellDef="let teacher"> {{teacher.lname}} </td>
@@ -28,8 +37,8 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let teacher">
-        <!--<a mat-stroked-button color="primary" routerLink=".">Update</a>>-->
-        <a mat-stroked-button color="warn" (click)="delete()">Delete</a>
+        <a mat-raised-button color="primary" (click)="updateTeacher(teacher._id)">Edit</a>
+        <a mat-stroked-button style="color: #f69223;" (click)="deleteTeacher(teacher._id)">Delete</a>
       </td>
     </ng-container>
 

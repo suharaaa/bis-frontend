@@ -1,6 +1,6 @@
 <h2>Teacher Registration </h2><br>
 
-<form>
+<form [formGroup]="TeacherFormGroup">
 
     <div class="joining ">
         <h4 style="padding-top: 20px;">Registration Form</h4><br>
@@ -9,13 +9,13 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Teacher ID Number</mat-label>
-                    <input matInput name="tid" placeholder="T012" disabled value="T200001">
+                    <input matInput name="tid" placeholder="T012" formControlName="tid">
                 </mat-form-field>
             </div>
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Joined Date</mat-label>
-                    <input matInput name="jdate" [errorStateMatcher]="TeacherErrorStateMatcher" [matDatepicker]="picker1" placeholder="3/6/2020">
+                    <input matInput name="jdate"[matDatepicker]="picker1" placeholder="3/6/2020" >
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
@@ -26,13 +26,13 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>First Name</mat-label>
-                    <input matInput name="fname" [errorStateMatcher]="TeacherErrorStateMatcher"  placeholder="Ruvindi">
+                    <input matInput name="fname" [errorStateMatcher]="TeacherErrorStateMatcher"  placeholder="Ruvindi" formControlName="fname">
                 </mat-form-field>
             </div>
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Last Name</mat-label>
-                    <input matInput name="lname" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Gunathilake">
+                    <input matInput name="lname" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Gunathilake" formControlName="lname">
                 </mat-form-field>
             </div>
         </div>
@@ -41,7 +41,7 @@
             <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline" class="lwidth">
                     <mat-label>Address</mat-label>
-                    <input matInput name="address" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="243B, Queen Street, Kandy">
+                    <input matInput name="address" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="243B, Queen Street, Colombo" formControlName="address">
                 </mat-form-field>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Gender</mat-label>
-                    <mat-select name="gender" [errorStateMatcher]="TeacherErrorStateMatcher">
+                    <mat-select name="gender" [errorStateMatcher]="TeacherErrorStateMatcher" formControlName="gender">
                         <mat-option value="male">Male</mat-option>
                         <mat-option value="female">Female</mat-option>
                     </mat-select>
@@ -59,7 +59,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>NIC</mat-label>
-                    <input matInput name="nic" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="1234567890">
+                    <input matInput name="nic" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="1234567890" formControlName="nic">
                     </mat-form-field>
             </div>
         </div>
@@ -68,7 +68,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Date Of Birth</mat-label>
-                    <input matInput name="dob" [errorStateMatcher]="TeacherErrorStateMatcher" [matDatepicker]="picker" placeholder="mm/dd/yyyy">
+                    <input matInput name="dob" [errorStateMatcher]="TeacherErrorStateMatcher" [matDatepicker]="picker" placeholder="mm/dd/yyyy" formControlName="dob">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -76,7 +76,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput name="phone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000" >
+                    <input matInput name="phone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000" formControlName="phone">
                 </mat-form-field>
             </div>
         </div>
@@ -85,7 +85,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Marital Status</mat-label>
-                    <mat-select name="mstatus" [errorStateMatcher]="TeacherErrorStateMatcher">
+                    <mat-select name="mstatus" [errorStateMatcher]="TeacherErrorStateMatcher" formControlName="mstatus">
                         <mat-option value="female">Single</mat-option>
                         <mat-option value="male">Married</mat-option>
                         <mat-option value="female">Widowed</mat-option>
@@ -96,7 +96,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Mobile Number</mat-label>
-                    <input matInput name="mphone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000">
+                    <input matInput name="mphone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000" formControlName="mphone">
                 </mat-form-field>
             </div>
 
@@ -106,23 +106,22 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Religion</mat-label>
-                    <input matInput name="religion" [errorStateMatcher]="TeacherErrorStateMatcher"  placeholder="Bhuddist">
+                    <input matInput name="religion" [errorStateMatcher]="TeacherErrorStateMatcher"  placeholder="Buddhist" formControlName="religion">
                 </mat-form-field>
             </div>
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Email</mat-label>
-                    <input matInput name="mail" placeholder="pat@example.com" [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    <input matInput name="mail" placeholder="pat@example.com"  required formControlName="mail">
                 </mat-form-field>
             </div>
-         </div>
+        </div>
 
         <div class="form-row">
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Nationality</mat-label>
-                    <input matInput name="nationality" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Sinhalease">
+                    <input matInput name="nationality" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Sinhalease" formControlName="nationality">
                 </mat-form-field>
             </div>
         </div>
@@ -131,14 +130,15 @@
             <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline" class="lwidth">
                     <mat-label>Qualifications</mat-label>
-                    <input matInput name="qul" [errorStateMatcher]="TeacherErrorStateMatcher" >
+                    <input matInput name="qul" [errorStateMatcher]="TeacherErrorStateMatcher" formControlName="qul" >
                 </mat-form-field>
             </div>
         </div>
     </div>
     <br>
     
-    <!--<button mat-stroked-button color = "warn">Reset</button>-->
-    <button mat-raised-button color="primary" (click)="addTeacher()">Add Teacher</button>
+    <button mat-stroked-button color = "warn" (click)="clear()">Reset</button>
+    <button mat-raised-button color="primary" (click)="addTeacher()" *ngIf="!isOnUpdate">Add Teacher</button>
+    <button mat-raised-button color="primary" (click)="updateTeacher()" *ngIf="isOnUpdate">Update</button>
     
 </form>

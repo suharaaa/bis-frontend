@@ -18,8 +18,22 @@
     <mat-form-field appearance="fill"  class= "width">
       <mat-label >Class</mat-label>
       <mat-select name ="classname" [(ngModel)]="classname">
-        <mat-option value="classes._id" *ngFor = "let class of classes">{{classes.name}}</mat-option>
         
+          <mat-option value="Grade 01">Grade 01</mat-option>
+          <mat-option value="Grade 02">Grade 02</mat-option>
+          <mat-option value="Grade 03">Grade 03</mat-option>
+          <mat-option value="Grade 04">Grade 04</mat-option>
+          <mat-option value="Grade 05">Grade 05</mat-option>
+          <mat-option value="Grade 06">Grade 06</mat-option>
+          <mat-option value="Grade 07">Grade 07</mat-option>
+          <mat-option value="Grade 08">Grade 08</mat-option>
+          <mat-option value="Grade 09">Grade 09</mat-option>
+          <mat-option value="Grade 10">Grade 10</mat-option>
+          <mat-option value="Grade 11">Grade 11</mat-option>
+          <mat-option value="Grade 12">Grade 12</mat-option>
+          <mat-option value="Grade 13">Grade 13</mat-option>
+      
+     
       </mat-select>
       
       
@@ -36,17 +50,26 @@
       <mat-form-field appearance="fill"  class= "width">
         <mat-label >Teacher's Name</mat-label>
         <mat-select name ="teachername" [(ngModel)]="teachername">
-          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
-          
+          <mat-option value="Ruvindi Gunathilaka">Ruvindi Gunathilaka</mat-option>
+          <mat-option value="Sahan Karunathilaka">Sahan Karunathilaka</mat-option>
+          <mat-option value="Yasiru	Guanthilake">Yasiru	Guanthilake</mat-option>
+          <mat-option value="Nisal	Perera">	Nisal	Perera</mat-option>
+          <mat-option value="Ronald	Weeraman">Ronald	Weeraman</mat-option>
+          <mat-option value="Vinod	Silva">	Vinod	Silva</mat-option>
+          <mat-option value="Anne	Fernando">	Anne	Fernando</mat-option>
+          <mat-option value="Jane	Leone">	Jane	Leone</mat-option>
+        
         </mat-select>
-        
-        
       </mat-form-field>
     </div>
     
     
     
-    <button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button>
+    <!--button (click)="createNewSubject()" type="submit" class=" btn btn-primary" >Add Subject</button-->
+    <button mat-raised-button color="primary" (click)="createNewSubject()" *ngIf="!isOnUpdate">Add Subject</button>
+    <button mat-raised-button color="primary" (click)="changeSubject()" *ngIf="isOnUpdate">Update</button>
+    <br>
+    <br>
   
     <button mat-stroked-button (click)="clear()" value="Reset">Reset</button>
     
