@@ -52,6 +52,8 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+import { AttendanceService } from './services/attendance.service';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -109,14 +111,15 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
 
     ],
   providers: [
+    DatePipe,
     MatDatepickerModule,
-   NoticeService,
-   SubjectServices,
+    AttendanceService,
+    NoticeService,
+    SubjectServices,
     StudentService,
     ClassServices,
     TeacherService,
-    ResultsService
-
+    ResultsService,
   ],
   bootstrap: [AppComponent]
 })

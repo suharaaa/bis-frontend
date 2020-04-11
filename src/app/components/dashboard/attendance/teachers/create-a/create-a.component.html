@@ -1,15 +1,46 @@
 <h2>Mark Teachers' Attendance</h2>
-<mat-selection-list #teachers >
-  <mat-list-option *ngFor="let teacher of teacherslist" [selected]="teacher.selected" (click)="getSelectedTeachers(teachers)" [value]="teacher._id">
-    {{teacher.fname}} {{teacher.lname}}
-  </mat-list-option>
-</mat-selection-list>
-<br>
-<p>
-  Count : {{teachers.selectedOptions.selected.length}}
-</p>
-  <p> {{ selectedOptions }}</p>
-<br>
-  <button mat-raised-button color="primary" (click)=" createAttendance() ">Save</button>
+<p>Today: {{date | date: 'dd/MM/yyyy'}}</p>
 
+<div class="row" *ngIf="datasource">
+  <div class="col-md-4">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Find teachers by Name and ID" (keyup)="search($event.target.value)">
+    </mat-form-field>
+  </div>
+</div>
+
+<table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let attendanceRecord"> {{attendanceRecord.teacher.tid}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let attendanceRecord"> {{attendanceRecord.teacher.fname}} {{attendanceRecord.teacher.lname}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let attendanceRecord"> 
+      <button mat-raised-button color="primary" style="margin-right: 10px;" *ngIf="attendanceRecord.status === 'absent'"
+      (click)="markAttendance(attendanceRecord.teacher._id, 'present', attendanceRecord)">Present</button>
+      
+      <button mat-raised-button color="warn" *ngIf="attendanceRecord.status === 'present'"
+      (click)="markAttendance(attendanceRecord.teacher._id, 'absent', attendanceRecord)">Absent</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<br>
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource } from '@angular/material';
 import { AttendanceService } from 'src/app/services/attendance.service';
-import { TeacherService } from 'src/app/services/teacher.service';
-//import {MatTableDataSource} from '@angular/material/table';
+import { APIResponse } from 'src/app/models/apiresponse';
+import { StaffAttendance } from 'src/app/models/attendance.model';
+import { STAFF_ATTENDANCE_STATUS } from 'src/app/models/staff-attendance-status.enum';
 
 @Component({
   selector: 'app-create-a',
@@ -10,68 +11,72 @@ import { TeacherService } from 'src/app/services/teacher.service';
   styleUrls: ['./create-a.component.css']
 })
 export class CreateAComponent implements OnInit {
-  teacherslist: {
-    _id: string;
-    selected: Boolean;
-  } [];
-  selectedOptions: any[];
-  //displayedColumns = ['teacherName', 'action'];
-  //dataSource = new MatTableDataSource();
+  
+  displayedColumns: string[] = ['id', 'name', 'actions'];
+  datasource: MatTableDataSource<any>;
 
-  public teacherlist: any
-  public attendanceRecord: any;
-  public count: number;
+  public attendanceRecords:[];
   public date: Date;
 
   constructor(
-    private teacherService: TeacherService,
     private attendanceService: AttendanceService,
     private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
+    this.date = new Date();
     this.loadTeachers();
-    this.count = 0;
-    this.date = new Date()
-    //this.selectedOptions = this.teacherslist
-    //.filter(item => item.selected).map(item => item._id);
   }
 
   private loadTeachers() {
-    this.teacherService.viewTeacher().subscribe((response : {data:any}) => {
-      this.teacherlist = response.data;
-      this.teacherslist = this.teacherlist;
-      //this.attendanceRecord = {
-      //  records: [this.teacherlist.teachers.map(t =>{
-      //    return {
-      //      teacher: t._id,
-       //     isPresent: false
-      //    };
-      //  })]
-     // };
-
-      //this.attendanceRecord.records = this.teacherlist.teachers.map(t =>{
-       // return {
-        //  teacher: t._id,
-        //  isPresent: false
-       // };
-     // });
+    this.attendanceService.getAttendanceByDate(this.date).subscribe((response: APIResponse) => {
+      this.attendanceRecords = response.data.filter(r => r.status === STAFF_ATTENDANCE_STATUS.ABSENT);
+      this.datasource = new MatTableDataSource(this.attendanceRecords);
+      this.datasource.filterPredicate = this.filterPredicate;
     });
   }
 
-
-  public getSelectedTeachers(teachers) {
-    this.selectedOptions = teachers.selectedOptions.selected.map(item =>item.value);
+  private filterPredicate = (data, filter: string) => {
+    const accumulator = (currentTerm, key) => {
+      return this.nestedFilterCheck(currentTerm, data, key);
+    };
+    const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+    const transformedFilter = filter.trim().toLowerCase();
+    return dataStr.indexOf(transformedFilter) !== -1;
   }
 
-  public createAttendance() {
-    this.attendanceService.createAttendance(this.selectedOptions).subscribe(response => {
-      console.log(response);
-      this.snackBar.open('Attendance is recorded successfully', null, { duration : 2000});
+  private nestedFilterCheck(search, data, key) {
+    if (typeof data[key] === 'object') {
+      for (const k in data[key]) {
+        if (data[key][k] !== null) {
+          search = this.nestedFilterCheck(search, data[key], k);
+        }
+      }
+    } else {
+      search += data[key];
+    }
+    return search;
+  }
+
+  search(keyword) {
+    this.datasource.filter = keyword.trim().toLowerCase();
+  }
+
+  public markAttendance(id: string, status: STAFF_ATTENDANCE_STATUS, r: any) {
+    this.attendanceService.updateAtttendance(id, this.date, status).subscribe((response: APIResponse) => {
+      if (response.success) {
+        this.showSnackBar(`Attence of ${r.teacher.fname} marked successfully!`);
+      } else {
+        this.showSnackBar(`Could not mark ${r.teacher.fname}'s attendance.`);
+      }
+      this.loadTeachers();
     }, err => {
-      this.snackBar.open('Attendance recording is failed', null, { duration : 3000});
-      console.log(err.message);
+        this.showSnackBar(`Could not mark ${r.teacher.fname}'s attendance.`);
     });
+  }
+
+  public showSnackBar(message: string): void {
+    this.snackBar.open(message, null, { duration: 2000 });
   }
 
 }
