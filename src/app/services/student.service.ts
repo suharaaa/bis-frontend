@@ -31,7 +31,7 @@ export class StudentService {
     return this.http.get(`${environment.apiHost}/students/${id}`);
   }
 
-  public deleteStudent(id) {
+  public deleteStudent(id: string) {
     return this.http.delete(`${environment.apiHost}/students/${id}`);
   }
 }

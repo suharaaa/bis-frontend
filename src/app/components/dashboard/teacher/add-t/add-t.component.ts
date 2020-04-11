@@ -8,6 +8,7 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 import { TeacherErrorStateMatcher } from 'src/app/helpers/teacher-error-state-matcher';
 
 
+
 @Component({
   selector: 'app-add-t',
   templateUrl: './add-t.component.html',
@@ -18,6 +19,8 @@ export class AddTComponent implements OnInit {
   private matcher: TeacherErrorStateMatcher;
   private teacherFormGroup: FormGroup;
   private id: string;
+  public isOnUpdate: boolean;
+
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
@@ -53,16 +56,23 @@ export class AddTComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       if (params.id) {
+        this.isOnUpdate = true;
         this.id = params.id;
-        this.teacherService.getTeacherId(this.id).subscribe(res => {
+        this.teacherService.getTeacherId(this.id).subscribe((res: APIResponse) => {
+          this.teacherFormGroup.patchValue(res.data);
+          this.teacherFormGroup.controls.class.patchValue(res.data.class && res.data.class._id);
         });
 
+      } else {
+        this.isOnUpdate = false;
+        this.teacherService.getNextTid().subscribe((response: APIResponse) => {
+
+          this.teacherFormGroup.get('tid').setValue(response.data);
+        });
       }
     });
 
-    this.teacherService.getNextTid().subscribe((response: APIResponse) => {
-      this.teacherFormGroup.get('tid').setValue(response.data);
-    });
+
     this.matcher = new TeacherErrorStateMatcher();
   }
 
@@ -91,6 +101,23 @@ export class AddTComponent implements OnInit {
         });
       });
 
+    }
+
+    public updateTeacher() {
+
+      const teacher = new Teacher(this.teacherFormGroup.getRawValue());
+
+      this.teacherService.updateTeacher(this.id, teacher).subscribe(res => {
+        this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+
+
+
+      }, err => {
+
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
+      });
     }
 
     public clear() {

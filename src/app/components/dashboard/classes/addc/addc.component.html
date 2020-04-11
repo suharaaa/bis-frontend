@@ -24,18 +24,35 @@
       
       <mat-form-field appearance="fill"  class= "width">
         <mat-label >Teacher's Name</mat-label>
-        <mat-select placeholder ="classteacher">
-          <mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.name}}</mat-option>
-          
+      
+           
+       <!--mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.fname}} {{teacher.lname}}</mat-option-->
+       <mat-select placeholder ="classteacher" name ="classteacher" [(ngModel)]="classteacher">
+        <mat-option value="Ruvindi Gunathilaka">Ruvindi Gunathilaka</mat-option>
+        <mat-option value="Sahan Karunathilaka">Sahan Karunathilaka</mat-option>
+        <mat-option value="Yasiru	Guanthilake">Yasiru	Guanthilake</mat-option>
+        <mat-option value="Nisal	Perera">	Nisal	Perera</mat-option>
+        <mat-option value="Ronald	Weeraman">Ronald	Weeraman</mat-option>
+        <mat-option value="Vinod	Silva">	Vinod	Silva</mat-option>
+        <mat-option value="Anne	Fernando">	Anne	Fernando</mat-option>
+        <mat-option value="Jane	Leone">	Jane	Leone</mat-option>
+     
+        
+      
         </mat-select>
         
         
       </mat-form-field>
     </div>
     
+    <br>
     
-    
-    <button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button>
+    <!--button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button-->
+    <button mat-raised-button color="primary" (click)="createNewClass()" *ngIf="!isOnUpdate">Add Class</button>
+    <button mat-raised-button color="primary" (click)="changeClass()" *ngIf="isOnUpdate">Update</button>
+    <br>
+    <br>
+    <br>
   
     <button mat-stroked-button (click)="clear()" value="Reset">Reset</button>
     
