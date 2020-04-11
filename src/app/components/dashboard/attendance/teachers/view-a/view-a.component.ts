@@ -52,7 +52,7 @@ export class ViewAComponent implements OnInit {
     this.attendanceService.updateAtttendance(r.teacher._id, this.date, STAFF_ATTENDANCE_STATUS.PRESENT)
       .subscribe((response: APIResponse) => {
         if (response.success) {
-          this.showSnackBar(`Attence of ${r.teacher.fname} updated successfully!`);
+          this.showSnackBar(`Attendance of ${r.teacher.fname} updated successfully!`);
         } else {
           this.showSnackBar(`Could not mark ${r.teacher.fname}'s attendance.`);
         }
@@ -65,7 +65,7 @@ export class ViewAComponent implements OnInit {
   deleteRecord(r: any) {
     this.attendanceService.deleteAttendance(r._id).subscribe((response: APIResponse) => {
       if (response.success) {
-        this.showSnackBar(`Attence of ${r.teacher.fname} on ${this.attendanceService.formatDate(this.date)} deleted successfully!`);
+        this.showSnackBar(`Attendance of ${r.teacher.fname} on ${this.attendanceService.formatDate(this.date)} deleted successfully!`);
       } else {
         this.showSnackBar(`Could not delete ${r.teacher.fname}'s attendance.`);
       }
