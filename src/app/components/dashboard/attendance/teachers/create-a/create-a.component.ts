@@ -65,7 +65,7 @@ export class CreateAComponent implements OnInit {
   public markAttendance(id: string, status: STAFF_ATTENDANCE_STATUS, r: any) {
     this.attendanceService.updateAtttendance(id, this.date, status).subscribe((response: APIResponse) => {
       if (response.success) {
-        this.showSnackBar(`Attence of ${r.teacher.fname} marked successfully!`);
+        this.showSnackBar(`Attendance of ${r.teacher.fname} marked successfully!`);
       } else {
         this.showSnackBar(`Could not mark ${r.teacher.fname}'s attendance.`);
       }
