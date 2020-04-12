@@ -120,11 +120,13 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Email</mat-label>
-                    <input matInput name="mail" placeholder="pat@example.com" required formControlName="mail">
-                    <mat-error *ngIf="mail.hasError('email') && !mail.hasError('required')">
+                    <input matInput name="mail" [errorStateMatcher]="StudentErrorStateMatcher"
+                     placeholder="pat@example.com" required formControlName="mail">
+                    <mat-error *ngIf="StudentFormGroup.controls.mail.hasError('email') && 
+                        !StudentFormGroup.controls.mail.hasError('required')">
                         Please enter a valid email address
                     </mat-error>
-                    <mat-error *ngIf="mail.hasError('required')">
+                    <mat-error *ngIf="StudentFormGroup.controls.mail.hasError('required')">
                         Email is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -196,7 +198,10 @@
                     <input matInput name="mmail" placeholder="pat@example.com" required formControlName="memail">
                     <mat-error *ngIf="StudentFormGroup.controls.memail.hasError('required')">Please enter the Mother's
                         email</mat-error>
-
+                    <mat-error *ngIf="StudentFormGroup.controls.memail.hasError('email') && 
+                                            !StudentFormGroup.controls.memail.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -249,6 +254,10 @@
                     <input matInput name="fmail" placeholder="pat@example.com" required formControlName="femail">
                     <mat-error *ngIf="StudentFormGroup.controls.femail.hasError('required')">Please enter the Father's
                         email</mat-error>
+                    <mat-error *ngIf="StudentFormGroup.controls.femail.hasError('email') && 
+                                            !StudentFormGroup.controls.femail.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
                 </mat-form-field>
             </div>
 

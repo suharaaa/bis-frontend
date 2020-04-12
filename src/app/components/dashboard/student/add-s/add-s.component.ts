@@ -55,20 +55,20 @@ export class AddSComponent implements OnInit {
       dob: ['', Validators.required],
       nation: ['', Validators.required],
       religion: ['', Validators.required],
-      mail: [''],
+      mail: ['', Validators.email],
       class: ['', Validators.required],
       mname: ['', Validators.required],
       moccupation: [''],
       mworkp: [''],
       maddress: [''],
       mphone: ['', Validators.required],
-      memail: ['', Validators.required],
+      memail: ['', [Validators.required, Validators.email]],
       faname: ['', Validators.required],
       foccupation: [''],
       fworkp: [''],
       faddress: [''],
       fphone: ['', Validators.required],
-      femail: ['', Validators.required],
+      femail: ['', [Validators.required, Validators.email]],
     });
 
     this.route.queryParams.subscribe(params => {
