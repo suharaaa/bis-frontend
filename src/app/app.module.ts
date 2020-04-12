@@ -56,6 +56,7 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
+import { HomeComponent } from './components/homepage/home/home.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { DatePipe } from '@angular/common';
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
+    HomeComponent,
 
   ],
 
