@@ -35,11 +35,8 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
-<<<<<<< HEAD
 import { HomeComponent } from './components/homepage/home/home.component';
-=======
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
->>>>>>> 78f8ffd45122403fca6e4b530d605627ba745aa7
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
