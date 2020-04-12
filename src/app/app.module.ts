@@ -34,7 +34,7 @@ import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.co
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
 import { ResultsService } from './services/addResults.service';
-
+import { HomeComponent } from './components/homepage/home/home.component';
 
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
@@ -97,6 +97,7 @@ import { DatePipe } from '@angular/common';
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
+    HomeComponent
 
   ],
 
