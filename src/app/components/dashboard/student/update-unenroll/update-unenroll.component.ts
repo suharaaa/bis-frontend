@@ -3,6 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-unenroll',
@@ -16,8 +17,9 @@ export class UpdateUnenrollComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
+    private snackbar: MatSnackBar,
     private router: Router,
-    private snackbar: MatSnackBar
+    public dialog: MatDialog
   ) { }
   
   ngOnInit() {
@@ -40,6 +42,17 @@ export class UpdateUnenrollComponent implements OnInit {
     this.router.navigate(['dashboard/student/add'], { queryParams: { id } });
   }
 
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DialogBox);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.unenroll(_id);
+      }
+    });
+  }
+
+  
   public unenroll(_id: string) {
     this.studentService.unenrollStudent( _id ).subscribe(res => {
       this.viewStudents();
@@ -52,5 +65,19 @@ export class UpdateUnenrollComponent implements OnInit {
       });
     });
   }
+
+}
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox.html',
+})
+export class DialogBox {
+
+  constructor (
+
+  ){}
+
+  public unenroll() {}
 
 }
