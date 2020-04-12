@@ -1,6 +1,7 @@
 import { TeacherService } from 'src/app/services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +53,7 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 
@@ -64,6 +66,8 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     OverviewComponent,
     AddSComponent,
+    UpdateUnenrollComponent,
+    StudentArchiveComponent,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -72,7 +76,6 @@ import { DatePipe } from '@angular/common';
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
-    UpdateUnenrollComponent,
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
@@ -106,7 +109,7 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    
+    ChartsModule
 
 
     ],

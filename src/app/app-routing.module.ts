@@ -35,6 +35,7 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -49,8 +50,10 @@ const routes: Routes = [
         path: 'student',
         component: StudentComponent,
         children: [
+          { path: '', pathMatch: 'full', redirectTo: 'update' },
           { path: 'add', component: AddSComponent },
-          { path: 'update', component: UpdateUnenrollComponent }
+          { path: 'update', component: UpdateUnenrollComponent },
+          { path: 'archive', component: StudentArchiveComponent }
         ]
       },
       {
