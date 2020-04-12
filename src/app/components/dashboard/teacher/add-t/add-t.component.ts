@@ -6,7 +6,7 @@ import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { TeacherErrorStateMatcher } from 'src/app/helpers/teacher-error-state-matcher';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +27,8 @@ export class AddTComponent implements OnInit {
     private formBuilder: FormBuilder,
     private teacherService: TeacherService,
     private snackbar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
   getErrorMessage() {
     if (this.teacherFormGroup.controls.email.hasError('required')) {
@@ -92,15 +93,17 @@ export class AddTComponent implements OnInit {
         // console.log(res);
         this.snackbar.open('Added successfully!', '', { duration: 2000 });
 
-        this.clear();
+        
+        // this.router.navigate(['dashboard/teacher/add']);
+        // this.clear();
 
       }, err => {
 
-        this.snackbar.open(err.message, '', {
+        this.snackbar.open('Please fill required fields', '', {
           duration: 2000
         });
       });
-
+      this.clear();
     }
 
     public updateTeacher() {
@@ -110,14 +113,16 @@ export class AddTComponent implements OnInit {
       this.teacherService.updateTeacher(this.id, teacher).subscribe(res => {
         this.snackbar.open('Updated successfully!', '', { duration: 2000 });
 
+        this.clear();
 
 
       }, err => {
 
-        this.snackbar.open(err.message, '', {
-          duration: 2000
+        this.snackbar.open('Please fill required fields', '', {
+          duration: 3000
         });
       });
+      // this.router.navigate(['dashboard/teacher/manage']);
     }
 
     public clear() {

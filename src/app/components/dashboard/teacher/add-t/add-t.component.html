@@ -86,10 +86,10 @@
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Marital Status</mat-label>
                     <mat-select name="mstatus" [errorStateMatcher]="TeacherErrorStateMatcher" formControlName="mstatus">
-                        <mat-option value="female">Single</mat-option>
-                        <mat-option value="male">Married</mat-option>
-                        <mat-option value="female">Widowed</mat-option>
-                        <mat-option value="female">Divorced</mat-option>
+                        <mat-option value="Single">Single</mat-option>
+                        <mat-option value="Married">Married</mat-option>
+                        <mat-option value="Widowed">Widowed</mat-option>
+                        <mat-option value="Divorced">Divorced</mat-option>
                         </mat-select>
                 </mat-form-field>
             </div>
@@ -139,6 +139,6 @@
     
     <button mat-stroked-button color = "warn" (click)="clear()">Reset</button>
     <button mat-raised-button color="primary" (click)="addTeacher()" *ngIf="!isOnUpdate">Add Teacher</button>
-    <button mat-raised-button color="primary" (click)="updateTeacher()" *ngIf="isOnUpdate">Update</button>
+    <button mat-raised-button color="primary" (click)="updateTeacher()" *ngIf="isOnUpdate" >Update</button>
     
 </form>
