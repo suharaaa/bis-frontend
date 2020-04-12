@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { FeesService } from 'src/app/services/fees.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 interface APIResponse {
   success : boolean,
@@ -21,7 +22,7 @@ export class UpdatefeesComponent implements OnInit {
   displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'action'];
   dataSource = new MatTableDataSource();
 
-
+/*
   private _id: String;
   private grade : String;
     private termfee :Number;
@@ -30,9 +31,9 @@ export class UpdatefeesComponent implements OnInit {
     private laboratorycharges :Number;
     private transportationfee :Number ;
     private other :Number;
+ public currentfee = null;
 
-
-
+*/
 
 
   constructor(
@@ -40,13 +41,15 @@ export class UpdatefeesComponent implements OnInit {
     private feesService: FeesService,
     
     //private feesService: FeesService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
 
     this.findFees();
+    
 
 
   }
@@ -66,10 +69,22 @@ export class UpdatefeesComponent implements OnInit {
     });
   }
 
+
+
+  public UpdateFee(id: string) {
+    this.router.navigate(['dashboard/fees/addfees'], { queryParams: { id } });
+    //this.feesService.updateFee(id)
+  }
+
+
+
+
+
   DeleteFee(id: String){
     this.feesService.deleteFee(id).subscribe(response => {
       console.log(response);
-      this.snackBar.open('Fee is successfully deleted', null, { duration : 2000});
+      this.snackBar.open('Fee records have been successfully deleted', null, { duration : 2000});
+     
     }, err => {
       this.snackBar.open('Fee could not be deleted', null, { duration : 3000});
       console.log(err.message);

@@ -56,7 +56,7 @@ export class ViewNComponent implements OnInit {
   }
 
   updateNotice(id: String) {
-    this.router.navigate(['/dashboard/notice/view/update'], {queryParams: {id} });
+    this.router.navigate(['dashboard/notice/publish'], {queryParams: {id} });
   }
 
   deleteNotice(id: String){

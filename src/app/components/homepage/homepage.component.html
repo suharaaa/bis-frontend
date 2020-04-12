@@ -8,22 +8,19 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink = "/homepage">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink = "/homepage/results">Results <span class="sr-only">(current)</span></a></li>
-          <li><a class="nav-link" [routerLink]="['noticeboard']">Noticeboard<span class="sr-only">(current)</span></a>
-     </li>
+          <a class="nav-link" [routerLink] = "['homepage']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink] = "['noticeboard']">Noticeboard <span class="sr-only">(current)</span></a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Subjects <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link"  href="#">Results <span class="sr-only">(current)</span></a>
+          <a class="nav-link"  [routerLink]="['results']">Results <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Fees <span class="sr-only">(current)</span></a>
@@ -42,7 +39,58 @@
 
 
 
+  <router-outlet></router-outlet>
 
+ 
+    
+  
+   
+     
+    
+  
+    
 
+<br><br>
 
-<router-outlet></router-outlet>
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Contact Us</h6>
+          <p class="text-justify">Bright International School Colombo  </p>
+          <p>466/5 N M. Ishak Mawatha</p>
+           <p> 0112 682 855</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Branches</h6>
+          <ul class="footer-links">
+            <li>Maradana</li>
+            <li>Kolonnawa</li>
+            <li>Kandy</li>
+            
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Follow Us</h6>
+          <ul class="footer-links">
+            <li><a href="http://www.facebook.com/Brightschools.lk/">Facebook</a></li>
+            <li><a href="http://www.twitter.com">Twiiter</a></li>
+          
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          
+        </div>
+
+      
+      </div>
+    </div>
+</footer>

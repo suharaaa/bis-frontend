@@ -1,3 +1,4 @@
+import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
 
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -28,7 +29,6 @@ import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.compo
 import { EditcComponent } from './components/dashboard/classes/editc/editc.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NoticeboardComponent } from './components/homepage/noticeboard/noticeboard.component';
-import { UpdateNComponent } from './components/dashboard/notice/update-n/update-n.component';
 import { TeachersComponent } from './components/dashboard/attendance/teachers/teachers.component';
 import { CreateAComponent } from './components/dashboard/attendance/teachers/create-a/create-a.component';
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
@@ -36,6 +36,7 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -50,8 +51,10 @@ const routes: Routes = [
         path: 'student',
         component: StudentComponent,
         children: [
+          { path: '', pathMatch: 'full', redirectTo: 'update' },
           { path: 'add', component: AddSComponent },
-          { path: 'update', component: UpdateUnenrollComponent }
+          { path: 'update', component: UpdateUnenrollComponent },
+          { path: 'archive', component: StudentArchiveComponent }
         ]
       },
       {
@@ -88,18 +91,16 @@ const routes: Routes = [
         children: [
 
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent, 
-          children: [
-            { path: 'update', component: UpdateNComponent }
-          ]},  
-        ] },
+          { path: 'view', component: ViewNComponent} 
+        ]},
 
       { path: 'teacher',
 
         component: TeacherComponent,
         children: [
           { path: 'add', component: AddTComponent},
-          { path: 'manage', component: ManageTComponent}
+          { path: 'manage', component: ManageTComponent},
+          { path: 'history', component: DeleteHistoryComponent}
         ]},
         { path: 'subject',
         component: SubjectComponent,
@@ -121,23 +122,22 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'homepage', component: HomepageComponent,
-  children:[
-    { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-    { path: 'home', component: HomepageComponent },
-    { path: 'noticeboard', component: NoticeboardComponent },
-    {path: 'results', component: ResultsComponent},
-    {path:'addResults', component: AddResultsComponent},
-    {path: 'student-res', component: StudentResComponent}
+  {path: 'homepage', 
+  component: HomepageComponent,
+    children:[
+      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+      { path: 'home', component: HomepageComponent },
+      { path: 'noticeboard', component: NoticeboardComponent },
+      {path: 'results', 
+      component: ResultsComponent,
+        children: [
+          {path:'addResults', component: AddResultsComponent},
+          {path: 'student-res', component: StudentResComponent}
+        ]
+      }
     ]
-
   }
 ];
-
-
-
-
-
 
 
 @NgModule({

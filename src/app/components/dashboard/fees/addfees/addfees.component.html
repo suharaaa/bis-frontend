@@ -12,7 +12,7 @@
 
   <mat-form-field appearance="fill"  class= "width">
     <mat-label>Select Grade</mat-label>
-    <mat-select name="grade" [(ngModel)]="grade">
+    <mat-select name="grade" [(ngModel)]="grade" required>
       <mat-option value="Grade 01">Grade 01</mat-option>
       <mat-option value="Grade 02">Grade 02</mat-option>
       <mat-option value="Grade 03">Grade 03</mat-option>
@@ -39,7 +39,7 @@
   
     <mat-form-field appearance="fill">
       <mat-label>Amount</mat-label>
-      <input matInput type="number" class="example-right-align" required name="termfee" [(ngModel)]="termfee">
+      <input matInput type="number" class="example-right-align" name="termfee" [(ngModel)]="termfee" required>
       <span matPrefix>Rs&nbsp;&nbsp;</span>
       <span matSuffix>.00</span>
     </mat-form-field>
@@ -130,7 +130,9 @@
 
 
     </table>
+    <br><br>
 
+    <h4>Total Fees : {{termfee + facilityfee + librarycharges + laboratorycharges + transportationfee + other}}</h4>
 
 
 
@@ -139,7 +141,8 @@
 
     <div class="bt">
 
-      <button mat-raised-button color="primary" value="Submit"  (click)="createNewFee()">Add Fees</button>
+      <button mat-raised-button color="primary" value="Submit"  (click)="createNewFee()"  *ngIf="!isOnUpdate">Add Fees</button>
+      <button mat-raised-button color="primary" (click)="changeFee()" *ngIf="isOnUpdate">Update</button>
 
       <br><br>
 
@@ -153,3 +156,8 @@
 
 
 </form>
+
+
+
+
+

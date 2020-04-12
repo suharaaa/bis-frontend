@@ -29,10 +29,8 @@ export class ManageTComponent implements OnInit {
   }
 
 
-  applyFilter(filterValue: string) {
-     filterValue = filterValue.trim();
-     filterValue = filterValue.toLowerCase();
-     this.dataSource.filter = filterValue;
+  applyFilter(keyword) {
+     this.dataSource.filter = keyword.trim().toLowerCase();
   }
 
   viewTeacher() {
@@ -48,9 +46,10 @@ export class ManageTComponent implements OnInit {
   }
 
 
-deleteTeacher(id: string) {
-  this.teacherService.deleteTeacher(id).subscribe(res => {
-    this.snackBar.open('Teacher is successfully deleted', null , { duration : 2000});
+  moveToDeleteList(id: string) {
+  this.teacherService.moveTeacher(id).subscribe(res => {
+    this.viewTeacher();
+    this.snackBar.open('Teacher is successfully moved to the Delete List', null , { duration : 2000});
   }, err => {
     this.snackBar.open(err.message, '', {
       duration: 2000

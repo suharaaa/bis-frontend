@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateNComponent } from './update-n.component';
+import { DeleteHistoryComponent } from './delete-history.component';
 
-describe('UpdateNComponent', () => {
-  let component: UpdateNComponent;
-  let fixture: ComponentFixture<UpdateNComponent>;
+describe('DeleteHistoryComponent', () => {
+  let component: DeleteHistoryComponent;
+  let fixture: ComponentFixture<DeleteHistoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateNComponent ]
+      declarations: [ DeleteHistoryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateNComponent);
+    fixture = TestBed.createComponent(DeleteHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
