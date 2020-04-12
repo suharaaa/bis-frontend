@@ -9,6 +9,8 @@ import { APIResponse } from 'src/app/models/apiresponse';
 
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { AttendanceService } from 'src/app/services/attendance.service';
+import { ChartType, ChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-overview',
