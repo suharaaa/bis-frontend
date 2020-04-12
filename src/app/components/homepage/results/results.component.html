@@ -3,23 +3,87 @@
 </div>
 <div class = "body">
     <h5>Select the Grade</h5>
-<select class="form-control form-control-lg">
-    <option>Grade 1</option>
-    <option>Grade 2</option>
-    <option>Grade 3</option>
-    <option>Grade 4</option>
-  </select><br/><br/>
-  <h4>Select the Term</h4>
-  <select class="form-control form-control-lg">
-    <option>Term 1</option>
-    <option>Term 2</option>
-    <option>Term 3</option>
-  </select><br/><br/>
+    <mat-form-field appearance="fill"  class= "width">
+      <mat-label>Grade</mat-label>
+      <mat-select required name="grade" [(ngModel)]="grade">
+        <mat-option value="Grade 01">Grade 01</mat-option>
+        <mat-option value="Grade 02">Grade 02</mat-option>
+        <mat-option value="Grade 03">Grade 03</mat-option>
+        <mat-option value="Grade 04">Grade 04</mat-option>
+        <mat-option value="Grade 05">Grade 05</mat-option>
+        <mat-option value="Grade 06">Grade 06</mat-option>
+        <mat-option value="Grade 07">Grade 07</mat-option>
+        <mat-option value="Grade 08">Grade 08</mat-option>
+        <mat-option value="Grade 09">Grade 09</mat-option>
+        <mat-option value="Grade 10">Grade 10</mat-option>
+        <mat-option value="Grade 11">Grade 11</mat-option>
+        <mat-option value="Grade 12">Grade 12</mat-option>
+        <mat-option value="Grade 13">Grade 13</mat-option>
+    
+      </mat-select> 
+      
+    </mat-form-field><br/><br/>
+  <h5>Select the Term</h5>
+  <mat-form-field appearance="fill"  class= "width">
+    <mat-label>Term</mat-label>
+    <mat-select required name="term" [(ngModel)]="term">
+      <mat-option value="Term 1">Term 1</mat-option>
+      <mat-option value="Term 2">Term 2</mat-option>
+      <mat-option value="Term 3">Term 3</mat-option>
+      
+    </mat-select> 
+    
+  </mat-form-field><br/><br/>
   <h4>Select the Subject</h4>
-  <select class="form-control form-control-lg">
-    <option>English</option>
-    <option>Maths</option>
-    <option>Science</option>
-  </select><br/><br/>
+  <mat-form-field appearance="fill"  class= "width">
+    <mat-label>Subject</mat-label>
+    <mat-select required name="subject" [(ngModel)]="subject">
+      <mat-option value="Science">Science</mat-option>
+      <mat-option value="Maths">Maths</mat-option>
+      <mat-option value="English">English</mat-option>
+      <mat-option value="Religion">Religion</mat-option>
+      <mat-option value="Music">Music</mat-option>
+      
   
-  <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="results()" >ADD RESULTS</button>
+    </mat-select> 
+    
+  </mat-form-field><br/><br/>
+</div>
+  <br/><br/>
+  <div class = "body2">
+  <table class="table table-striped" table id="results">
+        <thead>
+          <tr>
+          
+            <th scope="col">Student's Name</th>
+            <th scope="col">Marks</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          
+            <td>  <mat-form-field appearance="fill">
+              <input matInput type="text" class="example-right-align" required name="name" [(ngModel)]="name">
+                      
+            </mat-form-field></td>
+            <div class ="form">
+             <td> 
+              <mat-form-field appearance="fill">
+                <input matInput type="number" class="example-right-align" required name="marks" [(ngModel)]="marks">
+                        
+              </mat-form-field>
+              <button mat-stroked-button (click)="clear()">Clear</button>
+            </div>
+          </tr>
+         
+          <br/>
+         
+        </tbody>
+        
+  </table>
+  <button mat-raised-button color="primary" (click)="createNewResult()">SUBMIT</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="changeResult()" *ngIf="isOnUpdate">Update</button>
+</div>
+    

@@ -1,6 +1,7 @@
 import { TeacherService } from 'src/app/services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,9 @@ import { SubjectComponent } from './components/dashboard/subject/subject.compone
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
+import { ResultsService } from './services/addResults.service';
+
+
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -49,6 +53,9 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { AttendanceService } from './services/attendance.service';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -59,6 +66,8 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     LoginComponent,
     OverviewComponent,
     AddSComponent,
+    UpdateUnenrollComponent,
+    StudentArchiveComponent,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -67,7 +76,6 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     NoticeComponent,
     PublishNComponent,
     ViewNComponent,
-    UpdateUnenrollComponent,
     TeacherComponent,
     AddTComponent,
     ManageTComponent,
@@ -88,7 +96,8 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     UpdateAComponent,
     ResultsComponent,
     AddResultsComponent,
-    StudentResComponent 
+    StudentResComponent,
+
   ],
 
   imports: [
@@ -99,16 +108,21 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
-  ],
+    FontAwesomeModule,
+    ChartsModule
+
+
+    ],
   providers: [
+    DatePipe,
     MatDatepickerModule,
-   NoticeService,
-   SubjectServices,
+    AttendanceService,
+    NoticeService,
+    SubjectServices,
     StudentService,
     ClassServices,
-    TeacherService
-
+    TeacherService,
+    ResultsService,
   ],
   bootstrap: [AppComponent]
 })
