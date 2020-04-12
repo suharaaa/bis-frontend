@@ -117,20 +117,16 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'homepage', 
-  component: HomepageComponent,
-    children:[
-      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-      { path: 'home', component: HomepageComponent },
-      { path: 'noticeboard', component: NoticeboardComponent },
-      {path: 'results', 
-      component: ResultsComponent,
-        children: [
-          {path:'addResults', component: AddResultsComponent},
-          {path: 'student-res', component: StudentResComponent}
-        ]
-      }
+  {path: 'homepage', component: HomepageComponent,
+  children:[
+    { path: '', pathMatch: 'full', redirectTo: 'homepage' },
+    { path: 'home', component: HomepageComponent },
+    { path: 'noticeboard', component: NoticeboardComponent },
+    {path: 'results', component: ResultsComponent},
+    {path:'addResults', component: AddResultsComponent},
+    {path: 'student-res', component: StudentResComponent}
     ]
+
   }
 ];
 
