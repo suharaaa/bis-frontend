@@ -24,7 +24,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
-import { UpdateUnenrollComponent } from './components/dashboard/student/update-unenroll/update-unenroll.component';
+import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
@@ -60,6 +60,11 @@ import { HomeComponent } from './components/homepage/home/home.component';
 
 
 @NgModule({
+  entryComponents: [
+    UpdateUnenrollComponent, 
+    DialogBox
+  ],
+  
   declarations: [
     AppComponent,
     StudentComponent,
@@ -68,6 +73,7 @@ import { HomeComponent } from './components/homepage/home/home.component';
     OverviewComponent,
     AddSComponent,
     UpdateUnenrollComponent,
+    DialogBox,
     StudentArchiveComponent,
     AttendanceComponent,
     FeesComponent,
