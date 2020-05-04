@@ -46,15 +46,26 @@ export class ManageTComponent implements OnInit {
   }
 
 
-  moveToDeleteList(id: string) {
-  this.teacherService.moveTeacher(id).subscribe(res => {
-    this.viewTeacher();
-    this.snackBar.open('Teacher is successfully moved to the Delete List', null , { duration : 2000});
-  }, err => {
-    this.snackBar.open(err.message, '', {
-      duration: 2000
-    });
-  });
+  public deleteTeacher(id: string) {
+    this.teacherService.deleteTeacher( id ).subscribe(res => {
 
-}
+      this.snackBar.open('Deleted successfully!', '', { duration: 2000 });
+    }, err => {
+      this.snackBar.open(err.message, '', {
+        duration: 2000
+      });
+    });
+  }
+
+  // moveTeacher(id: string) {
+  // this.teacherService.moveTeacher(id).subscribe(res => {
+  //   this.viewTeacher();
+  //   this.snackBar.open('Teacher is successfully moved to the Delete List', null , { duration : 2000});
+  // }, err => {
+  //   this.snackBar.open(err.message, '', {
+  //     duration: 2000
+  //   });
+  // });
+
+  // }
 }

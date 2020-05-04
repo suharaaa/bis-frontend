@@ -1,3 +1,4 @@
+import { Teacher } from 'src/app/models/teacher';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -20,21 +21,25 @@ export class DeleteHistoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.viewHistory();
+    this.showHistory();
   }
 
-  viewHistory() {
-    this.teacherService.viewHistory().subscribe((res: any) => {
-      this.dataSource = res.data;
-    }, err => {
-      console.log(err.message);
-    });
-  }
+  applyFilter(keyword) {
+    this.dataSource.filter = keyword.trim().toLowerCase();
+ }
+
+ showHistory() {
+  this.teacherService.showHistory().subscribe((res: any) => {
+    this.dataSource = res.data;
+  }, err => {
+    console.log(err.message);
+  });
+}
 
 
   public deleteTeacher(id: string) {
     this.teacherService.deleteTeacher( id ).subscribe(res => {
-      this.viewHistory();
+      this.showHistory();
       this.snackbar.open('Deleted successfully!', '', { duration: 2000 });
     }, err => {
       this.snackbar.open(err.message, '', {

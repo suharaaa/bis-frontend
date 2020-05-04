@@ -40,7 +40,7 @@ export class TeacherService {
     return this.http.put(`${environment.apiHost}/teachers/${id}/history`, {});
   }
 
-  public viewHistory() {
+  public showHistory() {
     return this.http.get(`${environment.apiHost}/teachers/history`);
   }
 }

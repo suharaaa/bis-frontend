@@ -21,7 +21,7 @@ export class AddTComponent implements OnInit {
   private id: string;
   public isOnUpdate: boolean;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  mail = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,28 +31,29 @@ export class AddTComponent implements OnInit {
     private router: Router
   ) { }
   getErrorMessage() {
-    if (this.teacherFormGroup.controls.email.hasError('required')) {
+    if (this.teacherFormGroup.controls.mail.hasError('required')) {
       return 'You should enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.mail.hasError('email') ? 'Not a valid email' : '';
   }
   ngOnInit() {
     this.teacherFormGroup = this.formBuilder.group({
       tid: [{ value: '', disabled: true}],
+      jdate: [ new Date()],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      address: [''],
-      gender: [''],
-      nic: [''],
-      dob: [''],
-      phone: [''],
-      mstatus: [''],
-      mphone: [''],
-      nationality: [''],
-      religion: [''],
-      mail: [''],
-      qul: [''],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
+      nic: ['', Validators.required],
+      dob: ['', Validators.required],
+      phone: ['', Validators.required],
+      mstatus: ['', Validators.required],
+      mphone: ['', Validators.required],
+      nationality: ['', Validators.required],
+      religion: ['', Validators.required],
+      mail: ['', Validators.required],
+      qul: ['', Validators.required],
     });
 
     this.route.queryParams.subscribe(params => {
@@ -66,15 +67,22 @@ export class AddTComponent implements OnInit {
 
       } else {
         this.isOnUpdate = false;
-        this.teacherService.getNextTid().subscribe((response: APIResponse) => {
+        this.getNextTid();
+        // .subscribe((response: APIResponse) => {
 
-          this.teacherFormGroup.get('tid').setValue(response.data);
-        });
+        //   this.teacherFormGroup.get('tid').setValue(response.data);
+        // });
       }
     });
 
 
     this.matcher = new TeacherErrorStateMatcher();
+  }
+
+  private getNextTid(): void {
+    this.teacherService.getNextTid().subscribe((response: APIResponse) => {
+      this.teacherFormGroup.get('tid').setValue(response.data);
+    });
   }
 
   public get TeacherFormGroup(): FormGroup {
@@ -95,7 +103,7 @@ export class AddTComponent implements OnInit {
 
         
         // this.router.navigate(['dashboard/teacher/add']);
-        // this.clear();
+        this.clear();
 
       }, err => {
 
@@ -127,6 +135,26 @@ export class AddTComponent implements OnInit {
 
     public clear() {
       this.teacherFormGroup.reset ();
+      this.getNextTid();
+      // this.teacherFormGroup = this.formBuilder.group({
+      //   tid: [{ value: '', disabled: true}],
+      //   jdate: [ new Date()],
+      //   fname: [''],
+      //   lname: [''],
+      //   address: [''],
+      //   gender: [''],
+      //   nic: [''],
+      //   dob: [''],
+      //   phone: [''],
+      //   mstatus: [''],
+      //   mphone: [''],
+      //   nationality: [''],
+      //   religion: [''],
+      //   mail: [''],
+      //   qul: [''],
+      // });
+  
+      this.teacherFormGroup.controls.admissionDate.patchValue(new Date());
     }
 
 
