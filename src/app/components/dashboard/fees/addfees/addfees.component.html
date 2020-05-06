@@ -5,6 +5,12 @@
 
 <h4>Add Fees</h4>
 <br>
+
+<div class="col-md-6">
+  <button mat-stroked-button color="warn" (click)="populateFees()"
+      style="float: right; position: relative; top: -60px;">DEMO</button>
+</div>
+<br>
 <form  class="example-form">
 
   
@@ -132,9 +138,22 @@
     </table>
     <br><br>
 
+    <h6> Total</h6>
+        <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" name="tot" [(ngModel)]="tot">
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            {{termfee + facilityfee + librarycharges + laboratorycharges + transportationfee + other}}
+            <span matSuffix>.00</span>
+          </mat-form-field>
+
+    <br><br>
+
+    
     <h4>Total Fees : {{termfee + facilityfee + librarycharges + laboratorycharges + transportationfee + other}}</h4>
 
-
+    
 
 
 <br>

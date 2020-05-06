@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { FeesService } from 'src/app/services/fees.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import {MatSort} from '@angular/material/sort';
 
 interface APIResponse {
   success : boolean,
@@ -19,8 +20,10 @@ interface APIResponse {
 })
 export class UpdatefeesComponent implements OnInit {
 
-  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'action'];
+  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot', 'action'];
   dataSource = new MatTableDataSource();
+  
+
 
 /*
   private _id: String;
@@ -39,8 +42,6 @@ export class UpdatefeesComponent implements OnInit {
   constructor(
 
     private feesService: FeesService,
-    
-    //private feesService: FeesService,
     private snackBar: MatSnackBar,
     private router: Router
 
@@ -54,16 +55,18 @@ export class UpdatefeesComponent implements OnInit {
 
   }
 
-
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilterFees(keyword) {
+    this.dataSource.filter = keyword.trim().toLowerCase();
   }
+
+
+
+
+
 
   findFees(){
     this.feesService.findFees().subscribe((res: any) => {
-      this.dataSource = res.data;
+      this.dataSource = new MatTableDataSource(res.data);
     }, err => {
       console.log(err.message);
     });
