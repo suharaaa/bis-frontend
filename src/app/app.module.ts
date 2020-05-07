@@ -57,6 +57,8 @@ import { StudentArchiveComponent } from './components/dashboard/student/student-
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { HomeComponent } from './components/homepage/home/home.component';
+// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 
 
 @NgModule({
@@ -106,7 +108,9 @@ import { HomeComponent } from './components/homepage/home/home.component';
     AddResultsComponent,
     StudentResComponent,
     HomeComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    // DeleteHistoryComponent,
+    DeletedListComponent
   ],
 
   imports: [
