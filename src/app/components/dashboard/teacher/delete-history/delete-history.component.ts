@@ -1,4 +1,4 @@
-import { Teacher } from 'src/app/models/teacher';
+
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class DeleteHistoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fname', 'lname', 'action'];
+  displayedColumns: string[] = ['id', 'fname', 'lname', 'phone', 'action'];
   dataSource = new MatTableDataSource();
 
   constructor(
@@ -24,17 +24,13 @@ export class DeleteHistoryComponent implements OnInit {
     this.showHistory();
   }
 
-  applyFilter(keyword) {
-    this.dataSource.filter = keyword.trim().toLowerCase();
- }
-
- showHistory() {
-  this.teacherService.showHistory().subscribe((res: any) => {
-    this.dataSource = res.data;
-  }, err => {
-    console.log(err.message);
-  });
-}
+  showHistory() {
+    this.teacherService.showHistory().subscribe((res: any) => {
+      this.dataSource = res.data;
+    }, err => {
+      console.log(err.message);
+    });
+  }
 
 
   public deleteTeacher(id: string) {

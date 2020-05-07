@@ -35,7 +35,7 @@ export class AddTComponent implements OnInit {
       return 'You should enter a value';
     }
 
-    return this.mail.hasError('email') ? 'Not a valid email' : '';
+    return this.mail.hasError('mail') ? 'Not a valid email' : '';
   }
   ngOnInit() {
     this.teacherFormGroup = this.formBuilder.group({
@@ -62,16 +62,13 @@ export class AddTComponent implements OnInit {
         this.id = params.id;
         this.teacherService.getTeacherId(this.id).subscribe((res: APIResponse) => {
           this.teacherFormGroup.patchValue(res.data);
-          this.teacherFormGroup.controls.class.patchValue(res.data.class && res.data.class._id);
+
         });
 
       } else {
         this.isOnUpdate = false;
         this.getNextTid();
-        // .subscribe((response: APIResponse) => {
-
-        //   this.teacherFormGroup.get('tid').setValue(response.data);
-        // });
+       
       }
     });
 
@@ -101,8 +98,6 @@ export class AddTComponent implements OnInit {
         // console.log(res);
         this.snackbar.open('Added successfully!', '', { duration: 2000 });
 
-        
-        // this.router.navigate(['dashboard/teacher/add']);
         this.clear();
 
       }, err => {
@@ -112,9 +107,9 @@ export class AddTComponent implements OnInit {
         });
       });
       this.clear();
-    }
+  }
 
-    public updateTeacher() {
+  public updateTeacher() {
 
       const teacher = new Teacher(this.teacherFormGroup.getRawValue());
 
@@ -130,32 +125,15 @@ export class AddTComponent implements OnInit {
           duration: 3000
         });
       });
-      // this.router.navigate(['dashboard/teacher/manage']);
-    }
 
-    public clear() {
-      this.teacherFormGroup.reset ();
+  }
+
+  public clear() {
+      this.teacherFormGroup.reset();
       this.getNextTid();
-      // this.teacherFormGroup = this.formBuilder.group({
-      //   tid: [{ value: '', disabled: true}],
-      //   jdate: [ new Date()],
-      //   fname: [''],
-      //   lname: [''],
-      //   address: [''],
-      //   gender: [''],
-      //   nic: [''],
-      //   dob: [''],
-      //   phone: [''],
-      //   mstatus: [''],
-      //   mphone: [''],
-      //   nationality: [''],
-      //   religion: [''],
-      //   mail: [''],
-      //   qul: [''],
-      // });
-  
-      this.teacherFormGroup.controls.admissionDate.patchValue(new Date());
-    }
+
+      this.teacherFormGroup.controls.jdate.patchValue(new Date());
+  }
 
 
 }
