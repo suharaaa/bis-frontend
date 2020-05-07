@@ -31,7 +31,7 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
-import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+
 import { SubjectServices } from './services/subject.service';
 import { ResultsService } from './services/addResults.service';
 
@@ -40,7 +40,7 @@ import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
-import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
@@ -57,12 +57,21 @@ import { StudentArchiveComponent } from './components/dashboard/student/student-
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { HomeComponent } from './components/homepage/home/home.component';
+import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
 
 
 @NgModule({
   entryComponents: [
-    UpdateUnenrollComponent, 
-    DialogBox
+    UpdateUnenrollComponent,
+    DialogBox,
+    UpdatesubComponent, 
+    DialogBoxComponent,
+    DialogBoxComponent2,
+    ViewcComponent
+
+
+    
   ],
   
   declarations: [
@@ -105,6 +114,9 @@ import { HomeComponent } from './components/homepage/home/home.component';
     AddResultsComponent,
     StudentResComponent,
     HomeComponent,
+    DialogBoxComponent,
+    DialogBoxComponent2,
+    
 
   ],
 
