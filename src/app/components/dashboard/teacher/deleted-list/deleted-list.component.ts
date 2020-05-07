@@ -5,11 +5,11 @@ import { MatSnackBar } from '@angular/material';
 
 
 @Component({
-  selector: 'app-delete-history',
-  templateUrl: './delete-history.component.html',
-  styleUrls: ['./delete-history.component.css']
+  selector: 'app-deleted-list',
+  templateUrl: './deleted-list.component.html',
+  styleUrls: ['./deleted-list.component.css']
 })
-export class DeleteHistoryComponent implements OnInit {
+export class DeletedListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'fname', 'lname', 'phone', 'action'];
   dataSource = new MatTableDataSource();

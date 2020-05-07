@@ -36,7 +36,8 @@ import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.co
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
-import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 
 
 const routes: Routes = [
@@ -101,7 +102,7 @@ const routes: Routes = [
         children: [
           { path: 'add', component: AddTComponent},
           { path: 'manage', component: ManageTComponent},
-          { path: 'history', component: DeleteHistoryComponent}
+          { path: 'history', component: DeletedListComponent}
         ]},
         { path: 'subject',
         component: SubjectComponent,
