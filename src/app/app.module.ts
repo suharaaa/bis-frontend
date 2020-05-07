@@ -23,8 +23,8 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
-import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
-import { UpdateUnenrollComponent } from './components/dashboard/student/update-unenroll/update-unenroll.component';
+import { ViewNComponent, DeleteDialogBox } from './components/dashboard/notice/view-n/view-n.component';
+import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
 import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
@@ -34,8 +34,6 @@ import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.co
 import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { SubjectServices } from './services/subject.service';
 import { ResultsService } from './services/addResults.service';
-
-
 import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
@@ -60,6 +58,12 @@ import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-hi
 
 
 @NgModule({
+
+  entryComponents: [
+    UpdateUnenrollComponent, 
+    DialogBox,
+    DeleteDialogBox
+  ],
   declarations: [
     AppComponent,
     StudentComponent,
@@ -99,7 +103,8 @@ import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-hi
     AddResultsComponent,
     StudentResComponent,
     DeleteHistoryComponent,
-
+    HomeComponent,
+    DeleteDialogBox
   ],
 
   imports: [

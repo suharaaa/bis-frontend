@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { NoticeService } from 'src/app/services/notice.service';
 import {MatTableDataSource} from '@angular/material/table';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
 interface APIResponse {
   success : boolean,
@@ -33,7 +34,8 @@ export class ViewNComponent implements OnInit {
   constructor(
     private noticeService: NoticeService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +47,7 @@ export class ViewNComponent implements OnInit {
     this.updatedOn = new Date();
     this.expiresOn = new Date();
     this.currentDate = new Date();
-    this.viewAllNotices()
+    this.viewAllNotices();
     
   } 
 
@@ -59,14 +61,40 @@ export class ViewNComponent implements OnInit {
     this.router.navigate(['dashboard/notice/publish'], {queryParams: {id} });
   }
 
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DeleteDialogBox);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.deleteNotice(_id);
+      }
+    });
+  }
+
   deleteNotice(id: String){
     this.noticeService.deleteNoticeById(id).subscribe(response => {
       console.log(response);
       this.snackBar.open('Notice is successfully deleted', null, { duration : 2000});
+      this.viewAllNotices();
+      
     }, err => {
       this.snackBar.open('Notice could not be deleted', null, { duration : 3000});
       console.log(err.message);
     });
   }
+}
+
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox.html',
+})
+export class DeleteDialogBox {
+
+  constructor (
+
+  ){}
+
+  public deleteNotice() {}
+
 }
 

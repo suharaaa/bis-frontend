@@ -38,6 +38,7 @@ import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.co
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

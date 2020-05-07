@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NoticeService } from 'src/app/services/notice.service';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface APIResponse {
   success : boolean,
@@ -25,7 +26,8 @@ export class PublishNComponent implements OnInit {
   constructor(
     private noticeService: NoticeService,
     private snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -79,10 +81,10 @@ export class PublishNComponent implements OnInit {
     ).subscribe(response => {
       console.log(response);
       this.snackBar.open('Notice is successfully updated', null, { duration : 2000});
+      this.router.navigate(['dashboard/notice/view']);
     }, err => {
       this.snackBar.open('Notice could not be updated', null, { duration : 3000});
       console.log(err.message);
     });
-    this.clear();
   }
 }
