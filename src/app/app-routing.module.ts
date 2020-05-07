@@ -1,4 +1,3 @@
-
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -37,7 +36,12 @@ import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.co
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+<<<<<<< HEAD
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+=======
+// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+>>>>>>> 7ecae8cedfc1efc81273e4a5d0dac72a16aea3dd
 
 
 const routes: Routes = [
@@ -96,12 +100,13 @@ const routes: Routes = [
           { path: 'view', component: ViewNComponent} 
         ]},
 
-      { path: 'teacher',
-
+      { 
+        path: 'teacher',
         component: TeacherComponent,
         children: [
           { path: 'add', component: AddTComponent},
-          { path: 'manage', component: ManageTComponent}
+          { path: 'manage', component: ManageTComponent},
+          { path: 'history', component: DeletedListComponent}
         ]},
         { path: 'subject',
         component: SubjectComponent,

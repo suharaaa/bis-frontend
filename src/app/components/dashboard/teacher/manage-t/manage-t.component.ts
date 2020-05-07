@@ -47,15 +47,28 @@ export class ManageTComponent implements OnInit {
     this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
   }
 
-
-deleteTeacher(id: string) {
-  this.teacherService.deleteTeacher(id).subscribe(res => {
-    this.snackBar.open('Teacher is successfully deleted', null , { duration : 2000});
-  }, err => {
-    this.snackBar.open(err.message, '', {
-      duration: 2000
+  moveTeacher(id: string) {
+    this.teacherService.moveTeacher(id).subscribe(res => {
+      this.viewTeacher();
+      this.snackBar.open('Teacher is successfully moved to the Delete List', null , { duration : 2000});
+    }, err => {
+      this.snackBar.open(err.message, '', {
+        duration: 2000
+      });
     });
-  });
 
-}
+    }
+
+
+// deleteTeacher(id: string) {
+//   this.teacherService.deleteTeacher(id).subscribe(res => {
+//     this.snackBar.open('Teacher is successfully deleted', null , { duration : 2000});
+//   }, err => {
+//     this.snackBar.open(err.message, '', {
+//       duration: 2000
+//     });
+//   });
+
+// }
+
 }
