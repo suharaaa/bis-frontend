@@ -37,6 +37,7 @@ import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.co
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 
 
 const routes: Routes = [
@@ -134,7 +135,8 @@ const routes: Routes = [
           {path:'addResults', component: AddResultsComponent},
           {path:'student-res', component: StudentResComponent}
         ]
-      }
+      },
+      { path: 'studentfees', component: StudentfeesComponent }
     ]
   }
 ];
