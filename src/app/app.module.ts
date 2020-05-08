@@ -1,4 +1,4 @@
-import { TeacherService } from 'src/app/services/teacher.service';
+import { TeacherService } from './services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -68,6 +68,7 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
   entryComponents: [
     UpdateUnenrollComponent, 
     DialogBox,
+    ViewNComponent,
     DeleteDialogBox
   ],
   

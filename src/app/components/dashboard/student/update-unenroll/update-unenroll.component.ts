@@ -42,6 +42,13 @@ export class UpdateUnenrollComponent implements OnInit {
     this.router.navigate(['dashboard/student/add'], { queryParams: { id } });
   }
 
+  /**
+   * viewDetails
+   */
+  public viewDetails(id: string) {
+    this.router.navigate(['dashboard/student/view'], { queryParams: { id } });
+  }
+
   openDialog(_id: string) {
     const dialogRef = this.dialog.open(DialogBox);
 
