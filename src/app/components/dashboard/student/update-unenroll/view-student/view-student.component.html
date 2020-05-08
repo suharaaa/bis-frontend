@@ -3,16 +3,16 @@
     <div class="admission ">
         <div class="row">
             <div class="col-md-2 col-sm-12">
-                <h6 >Admission No </h6><br>
+                <h6>Admission No </h6><br>
             </div>
             <div class="col-md-4 col-sm-12">
-                <p >: {{student.admissionNumber}}</p><br>
+                <p>: {{student.admissionNumber}}</p><br>
             </div>
             <div class="col-md-2 col-sm-12">
-                <h6 >Admission Date</h6><br>
+                <h6>Admission Date</h6><br>
             </div>
             <div class="col-md-4 col-sm-12">
-                <p >: {{student.timestamps}} </p><br>
+                <p>: {{student.createdAt | date: 'dd/MM/yyyy'}} </p><br>
             </div>
         </div>
         <div class="row">
@@ -48,7 +48,7 @@
                 <h6 >DOB</h6><br>
             </div>
             <div class="col-md-4 col-sm-12">
-                <p >: {{student.dob}} </p><br>
+                <p >: {{student.dob | date: 'dd/MM/yyyy'}} </p><br>
             </div>
         </div>
         <div class="row">
@@ -150,7 +150,7 @@
                 <h6 >Address </h6><br>
             </div>
             <div class="col-md-4 col-sm-12">
-                <p >: {{student.faddress}} </p><br>f
+                <p >: {{student.faddress}} </p><br>
             </div>
         </div>
         <div class="row">
