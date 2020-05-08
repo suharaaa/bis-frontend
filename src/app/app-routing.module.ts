@@ -91,12 +91,6 @@ const routes: Routes = [
         path: "notice",
         component: NoticeComponent,
         children: [
-          { path: "publish", component: PublishNComponent },
-          { path: "view", component: ViewNComponent },
-        ],
-      },
-
-
           { path: 'publish', component: PublishNComponent},
           { path: 'view', component: ViewNComponent} 
         ]},
