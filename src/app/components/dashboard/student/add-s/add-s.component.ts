@@ -7,7 +7,8 @@ import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
 import { ActivatedRoute } from '@angular/router';
 import { ClassServices } from 'src/app/services/classes.service';
-
+import { Router } from '@angular/router';
+//for demo purposes
 import * as faker from 'faker';
 
 @Component({
@@ -30,7 +31,8 @@ export class AddSComponent implements OnInit {
     private studentService: StudentService,
     private snackbar: MatSnackBar,
     private classService: ClassServices,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   
@@ -139,6 +141,8 @@ export class AddSComponent implements OnInit {
     this.studentService.updateStudents(this.id, student).subscribe(res => {
       //notify
       this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+      //go back
+      this.router.navigate(['dashboard/student/update']);
     }, err => {
       //error msg
       this.snackbar.open(err.message, '', {
@@ -152,6 +156,7 @@ export class AddSComponent implements OnInit {
     this.getNextAdmissionNumber();
     this.studentFormGroup.controls.admissionDate.patchValue(new Date());
   }
+
 
   /**
    * For Demo Perposes ONLY
