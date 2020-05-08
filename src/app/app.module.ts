@@ -23,7 +23,7 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
-import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { ViewNComponent, DeleteDialogBox } from './components/dashboard/notice/view-n/view-n.component';
 import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
@@ -58,11 +58,17 @@ import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
 
+import { HomeComponent } from './components/homepage/home/home.component';
+// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+
+
 
 @NgModule({
   entryComponents: [
     UpdateUnenrollComponent, 
-    DialogBox
+    DialogBox,
+    DeleteDialogBox
   ],
   
   declarations: [
@@ -105,7 +111,10 @@ import { ViewStudentComponent } from './components/dashboard/student/update-unen
     AddResultsComponent,
     StudentResComponent,
     ViewStudentComponent,
-
+    HomeComponent,
+    DeleteDialogBox,
+    // DeleteHistoryComponent,
+    DeletedListComponent
   ],
 
   imports: [

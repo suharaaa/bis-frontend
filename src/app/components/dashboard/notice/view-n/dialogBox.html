@@ -1,0 +1,8 @@
+<mat-dialog-content class="mat-typography">
+    <h4>Are you sure want to delete?</h4>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button style="background-color: red" [mat-dialog-close]="true">Yes, delete</button>
+</mat-dialog-actions>
