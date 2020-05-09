@@ -16,7 +16,7 @@
   </div>
 
 
-  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
+  <table mat-table mat-table [dataSource]="dataSource" matSort matSortActive="grade" matSortDirection="asc" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
 
 
     
@@ -24,13 +24,13 @@
 
      
      <ng-container matColumnDef="grade">
-      <th mat-header-cell *matHeaderCellDef> Grade </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Grade </th>
       <td mat-cell *matCellDef="let fees"> {{fees.grade}} </td>
     </ng-container>
   
    
     <ng-container matColumnDef="termfee">
-      <th mat-header-cell *matHeaderCellDef> Term Fees </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Term Fees </th>
       <td mat-cell *matCellDef="let fees"> {{fees.termfee}} </td>
     </ng-container>
 
@@ -78,7 +78,8 @@
       <td mat-cell *matCellDef="let fees">
       
         <button mat-raised-button color="primary" (click)="UpdateFee(fees._id)" >Update</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteFee(fees._id)">Delete</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="openDelFee(fees._id)">Delete</button>
+        
       </td>
     </ng-container>
 

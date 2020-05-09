@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentComponent } from './components/dashboard/student/student.component';
@@ -19,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
-import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { UpdatefeesComponent,FeeDialogBox } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
@@ -67,6 +68,9 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
   entryComponents: [
     UpdateUnenrollComponent, 
     DialogBox,
+    DeleteDialogBox,
+    FeeDialogBox,
+    UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox
   ],
@@ -113,6 +117,9 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     ViewStudentComponent,
     HomeComponent,
     DeleteDialogBox,
+    // DeleteHistoryComponent,
+    DeletedListComponent,
+    FeeDialogBox,
     DeletedListComponent,
     
   ],

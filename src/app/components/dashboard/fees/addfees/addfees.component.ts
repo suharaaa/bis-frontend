@@ -119,7 +119,7 @@ export class AddfeesComponent implements OnInit {
   populateFees(){
 
 
-
+    this.grade= faker.random.arrayElement(['Grade 05']),
     this.termfee = faker.random.number();
     this.facilityfee = faker.random.number();
     this.librarycharges = faker.random.number();
