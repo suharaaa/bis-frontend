@@ -32,8 +32,7 @@ export class AddfeesComponent implements OnInit {
     public isOnUpdate: boolean;
     private id: string;
      tot: Number;
-    
-    
+ 
 
   constructor(
     private feesService: FeesService,
@@ -50,7 +49,10 @@ export class AddfeesComponent implements OnInit {
     this.laboratorycharges = 0;
     this.transportationfee = 0;
     this.other = 0;
-    //this.tot = 0;
+   // this.tot = 0;
+   
+    
+
 
 
     this.route.queryParams.subscribe(params => {
@@ -66,6 +68,7 @@ export class AddfeesComponent implements OnInit {
           this.transportationfee = res.data.transportationfee;
           this.other = res.data.other;
           this.tot = res.data.tot;
+       //   this.tot = res.data.termfee + res.data.facilityfee + res.data.librarycharges + res.data.laboratorycharges + res.data.transportationfee + res.data.other;
        
 
         });
@@ -125,6 +128,8 @@ export class AddfeesComponent implements OnInit {
     this.other = faker.random.number();
 
   }
+
+  
   
 
 }
