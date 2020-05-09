@@ -47,6 +47,10 @@ export class ManageTComponent implements OnInit {
     this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
   }
 
+  public detailTeacher(id: string) {
+    this.router.navigate(['dashboard/teacher/view'], { queryParams: { id } });
+  }
+
   moveTeacher(id: string) {
     this.teacherService.moveTeacher(id).subscribe(res => {
       this.viewTeacher();
@@ -60,15 +64,6 @@ export class ManageTComponent implements OnInit {
     }
 
 
-// deleteTeacher(id: string) {
-//   this.teacherService.deleteTeacher(id).subscribe(res => {
-//     this.snackBar.open('Teacher is successfully deleted', null , { duration : 2000});
-//   }, err => {
-//     this.snackBar.open(err.message, '', {
-//       duration: 2000
-//     });
-//   });
 
-// }
 
 }

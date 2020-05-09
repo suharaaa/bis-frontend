@@ -38,7 +38,6 @@ import { HomeComponent } from './components/homepage/home/home.component';
 import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
-// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 
 const routes: Routes = [
@@ -101,7 +100,8 @@ const routes: Routes = [
         children: [
           { path: 'add', component: AddTComponent},
           { path: 'manage', component: ManageTComponent},
-          { path: 'history', component: DeletedListComponent}
+          { path: 'history', component: DeletedListComponent},
+          // { path: 'view', component: ViewTComponent}
         ]},
         { path: 'subject',
 

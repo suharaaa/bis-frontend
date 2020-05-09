@@ -59,7 +59,6 @@ import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
 
 import { HomeComponent } from './components/homepage/home/home.component';
-// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 
 
@@ -114,8 +113,8 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     ViewStudentComponent,
     HomeComponent,
     DeleteDialogBox,
-    // DeleteHistoryComponent,
-    DeletedListComponent
+    DeletedListComponent,
+    
   ],
 
   imports: [
