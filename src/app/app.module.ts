@@ -1,4 +1,4 @@
-import { TeacherService } from 'src/app/services/teacher.service';
+import { TeacherService } from './services/teacher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
@@ -57,9 +57,11 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
+import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
+
 import { HomeComponent } from './components/homepage/home/home.component';
-// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     DialogBox,
     DeleteDialogBox,
     FeeDialogBox,
-    UpdatefeesComponent
+    UpdatefeesComponent,
+    ViewNComponent,
+    DeleteDialogBox
   ],
   
   declarations: [
@@ -110,11 +114,13 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
+    ViewStudentComponent,
     HomeComponent,
     DeleteDialogBox,
     // DeleteHistoryComponent,
     DeletedListComponent,
     FeeDialogBox,
+    DeletedListComponent,
     
   ],
 

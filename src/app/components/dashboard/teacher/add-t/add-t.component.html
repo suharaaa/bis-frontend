@@ -3,7 +3,18 @@
 <form [formGroup]="TeacherFormGroup">
 
     <div class="joining ">
-        <h4 style="padding-top: 20px;">Registration Form</h4><br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4 style="padding-top: 20px;">Registration Form</h4>
+                <p class ="inst"> Please fill all fields before submit the form </p><br>
+            </div>
+            <div class="col-md-6">
+                <button mat-stroked-button color="warn" (click)="populateForm()"
+                    style="float: right; position: relative; top: -60px;"> DEMO </button>
+            </div>
+        </div>
+        
 
         <div class="form-row">
             <div class="col-md-6 col-sm-12">
@@ -86,11 +97,11 @@
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Marital Status</mat-label>
                     <mat-select name="mstatus" [errorStateMatcher]="TeacherErrorStateMatcher" formControlName="mstatus">
-                        <mat-option value="female">Single</mat-option>
-                        <mat-option value="male">Married</mat-option>
-                        <mat-option value="female">Widowed</mat-option>
-                        <mat-option value="female">Divorced</mat-option>
-                        </mat-select>
+                        <mat-option value="single">Single</mat-option>
+                        <mat-option value="married">Married</mat-option>
+                        <mat-option value="widowed">Widowed</mat-option>
+                        <mat-option value="divorced">Divorced</mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
             <div class="col-md-6 col-sm-12">
@@ -121,7 +132,7 @@
             <div class="col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Nationality</mat-label>
-                    <input matInput name="nationality" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Sinhalease" formControlName="nationality">
+                    <input matInput name="nationality" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="Sinhaleese" formControlName="nationality">
                 </mat-form-field>
             </div>
         </div>
