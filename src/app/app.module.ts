@@ -60,6 +60,7 @@ import { ViewStudentComponent } from './components/dashboard/student/update-unen
 
 import { HomeComponent } from './components/homepage/home/home.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
 
 
@@ -114,6 +115,7 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     HomeComponent,
     DeleteDialogBox,
     DeletedListComponent,
+    ViewTComponent,
     
   ],
 

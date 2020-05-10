@@ -39,6 +39,7 @@ import { ViewStudentComponent } from "./components/dashboard/student/update-unen
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -101,7 +102,7 @@ const routes: Routes = [
           { path: 'add', component: AddTComponent},
           { path: 'manage', component: ManageTComponent},
           { path: 'history', component: DeletedListComponent},
-          // { path: 'view', component: ViewTComponent}
+          { path: 'view', component: ViewTComponent},
         ]},
         { path: 'subject',
 

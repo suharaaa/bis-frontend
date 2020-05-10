@@ -31,6 +31,8 @@
     "chartjs-plugin-datalabels": "^0.7.0",
     "faker": "^4.1.0",
     "hammerjs": "^2.0.8",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
