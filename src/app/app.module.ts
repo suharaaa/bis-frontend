@@ -64,6 +64,9 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
 import { WebcamModule } from 'ngx-webcam';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   entryComponents: [
@@ -138,7 +141,9 @@ import { WebcamModule } from 'ngx-webcam';
     HttpClientModule,
     FontAwesomeModule,
     ChartsModule,
-    WebcamModule
+    WebcamModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
     ],
   providers: [

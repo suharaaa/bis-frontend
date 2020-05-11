@@ -1,4 +1,4 @@
-<webcam [allowCameraSwitch]="false" (imageCapture)="handleImage($event)">
+<webcam [allowCameraSwitch]="false" [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
 </webcam>
 <div class="row">
     <div class="col-md-12">

@@ -13,6 +13,7 @@ import * as Icons from '@fortawesome/free-solid-svg-icons';
 import * as faker from 'faker';
 import { Observable, Subject } from 'rxjs';
 import { WebcamImage } from 'ngx-webcam';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-add-s',
@@ -29,6 +30,11 @@ export class AddSComponent implements OnInit {
 
   public faFile = Icons.faFileImage;
   public faWebCam = Icons.faCamera;
+  public studentImage: WebcamImage;
+
+  task;
+  uploadProgress = 0;
+  downloadURL;
 
   mail = new FormControl('', [Validators.required, Validators.email]);
 
@@ -39,7 +45,8 @@ export class AddSComponent implements OnInit {
     private classService: ClassServices,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private fileUploadService: FileUploadService
   ) { }
 
   
@@ -125,21 +132,23 @@ export class AddSComponent implements OnInit {
   public enrollStudent() {
 
     const student = new Student(this.studentFormGroup.getRawValue()); //getRawValue-cus enrollment num is disabled
+    this.fileUploadService.getDownloadUrl(this.studentFormGroup.get('admissionNumber').value).subscribe(result => {
+      this.downloadURL = result;
+      student.ImageUrl = result;
+      this.studentService.enrollStudent(student).subscribe(res => {
+        //notify
+        this.snackbar.open('Enrolled successfully!', '', { duration: 2000 });
 
-    this.studentService.enrollStudent(student).subscribe(res => {
-      //notify
-      this.snackbar.open('Enrolled successfully!', '', { duration: 2000 });
+        //clear data
+        this.clear();
 
-      //clear data
-      this.clear();
-
-    }, err => {
-      //error msg
-      this.snackbar.open(err.message, '', {
-        duration: 2000
+      }, err => {
+        //error msg
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
       });
     });
-
   }
 
   public changeStudent() {
@@ -198,6 +207,41 @@ export class AddSComponent implements OnInit {
     const dialogRef = this.dialog.open(WebCamComponent, {
       width: 'auto',
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
+      this.studentImage = result;
+      this.task = this.fileUploadService.upload(admissionNumber,
+        this.dataURItoBlob(this.studentImage.imageAsDataUrl));
+      this.uploadProgress = this.task.percentageChanges();
+      console.log(this.downloadURL);
+    });
+  }
+
+  private dataURItoBlob(dataURI) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    const byteString = atob(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+
+    // write the bytes of the string to an ArrayBuffer
+    const ab = new ArrayBuffer(byteString.length);
+
+    // create a view into the buffer
+    const ia = new Uint8Array(ab);
+
+    // set the bytes of the buffer to the correct values
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    // write the ArrayBuffer to a blob, and you're done
+    const blob = new Blob([ab], { type: mimeString });
+    return blob;
   }
 
 
@@ -219,7 +263,7 @@ export class WebCamComponent {
     this.dialogRef.close();
   }
 
-  public triggerObservable(): Observable<void> {
+  public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
   }
 
