@@ -12,7 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
-import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
+import { AddSComponent, WebCamComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -63,7 +63,7 @@ import { HomeComponent } from './components/homepage/home/home.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
-
+import { WebcamModule } from 'ngx-webcam';
 
 @NgModule({
   entryComponents: [
@@ -73,7 +73,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     FeeDialogBox,
     UpdatefeesComponent,
     ViewNComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    WebCamComponent
   ],
   
   declarations: [
@@ -123,7 +124,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     FeeDialogBox,
     DeletedListComponent,
     ViewTComponent,
-    
+
+    WebCamComponent
   ],
 
   imports: [
@@ -135,8 +137,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ChartsModule
-
+    ChartsModule,
+    WebcamModule
 
     ],
   providers: [

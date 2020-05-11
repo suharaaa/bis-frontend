@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { StudentService } from 'src/app/services/student.service';
-import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
+import { ErrorStateMatcher, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-matcher';
 import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 //for demo purposes
 import * as faker from 'faker';
+import { Observable, Subject } from 'rxjs';
+import { WebcamImage } from 'ngx-webcam';
 
 @Component({
   selector: 'app-add-s',
@@ -37,6 +39,7 @@ export class AddSComponent implements OnInit {
     private classService: ClassServices,
     private route: ActivatedRoute,
     private router: Router,
+    private dialog: MatDialog
   ) { }
 
   
@@ -191,6 +194,47 @@ export class AddSComponent implements OnInit {
     });
   }
 
+  openWebCamModal() {
+    const dialogRef = this.dialog.open(WebCamComponent, {
+      width: 'auto',
+    });
+  }
+
 
 }
 
+@Component({
+  selector: 'app-web-cam',
+  templateUrl: 'webcam.html',
+})
+export class WebCamComponent {
+
+  private trigger: Subject<void> = new Subject<void>();
+
+  constructor(
+    public dialogRef: MatDialogRef<WebCamComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  public triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+  public handleImage(webcamImage: WebcamImage): void {
+    console.log('received webcam image', webcamImage);
+    this.dialogRef.close(webcamImage);
+  }
+
+  public closeDialog() {
+    this.dialogRef.close();
+  }
+
+
+}

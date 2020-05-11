@@ -1,0 +1,8 @@
+<webcam [allowCameraSwitch]="false" (imageCapture)="handleImage($event)">
+</webcam>
+<div class="row">
+    <div class="col-md-12">
+        <button mat-raised-button color="warn" (click)="closeDialog()" style="float: right;">Close</button>
+        <button mat-raised-button color="primary" (click)="triggerSnapshot()" style="float: right; margin-right: 10px;">Capture</button>
+    </div>
+</div>
