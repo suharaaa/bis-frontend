@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiHost: 'http://localhost:3000',
+  apiHost: 'https://brightinternational.herokuapp.com',
   firebase: {
     apiKey: 'AIzaSyDYFjO8W6dbM0q0owYm_-9TlWyJOFSk_jA',
     authDomain: 'ehanger-mad.firebaseapp.com',
