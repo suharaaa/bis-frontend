@@ -8,6 +8,7 @@ import { APIResponse } from 'src/app/models/apiresponse';
 import { ActivatedRoute } from '@angular/router';
 import { ClassServices } from 'src/app/services/classes.service';
 import { Router } from '@angular/router';
+import * as Icons from '@fortawesome/free-solid-svg-icons';
 //for demo purposes
 import * as faker from 'faker';
 
@@ -23,6 +24,9 @@ export class AddSComponent implements OnInit {
   private classes:[];
   private id: string;
   public isOnUpdate: boolean;
+
+  public faFile = Icons.faFileImage;
+  public faWebCam = Icons.faCamera;
 
   mail = new FormControl('', [Validators.required, Validators.email]);
 
