@@ -28,7 +28,6 @@ form button {
 
 .image-wrapper {
   border-radius: 50%;
-  border: solid 1px rgb(97, 97, 97);
   width: 150px;
   box-shadow: 0 4px 8px 0 #7c6c6c33;
   overflow: hidden;
