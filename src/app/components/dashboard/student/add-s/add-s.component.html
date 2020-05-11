@@ -30,8 +30,9 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="image-wrapper">
-                                <img src="../../../../../assets/images/student.svg" *ngIf="!studentImage">
+                                <img src="../../../../../assets/images/student.svg" *ngIf="!studentImage && !isOnUpdate">
                                 <img [src]="studentImage.imageAsDataUrl" *ngIf="studentImage">
+                                <img [src]="studentImageUrl ? studentImageUrl : '../../../../../assets/images/student.svg'" *ngIf="!studentImage && isOnUpdate">
                             </div>
                         </div>
                         <div class="col-md-5">

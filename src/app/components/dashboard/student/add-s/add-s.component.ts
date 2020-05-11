@@ -31,6 +31,7 @@ export class AddSComponent implements OnInit {
   public faFile = Icons.faFileImage;
   public faWebCam = Icons.faCamera;
   public studentImage: WebcamImage;
+  public studentImageUrl: string;
 
   task;
   uploadProgress = 0;
@@ -94,7 +95,8 @@ export class AddSComponent implements OnInit {
         this.studentService.getStudentId(this.id).subscribe((res: APIResponse) => {
           this.studentFormGroup.patchValue(res.data);
           this.studentFormGroup.controls.class.patchValue(res.data.class && res.data.class._id);
-        })
+          this.studentImageUrl = res.data.img;
+        });
 
       }
       else {
