@@ -23,7 +23,7 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
-import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
+import { ViewNComponent, DeleteDialogBox } from './components/dashboard/notice/view-n/view-n.component';
 import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
@@ -59,7 +59,8 @@ import { DatePipe } from '@angular/common';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/subject/updatesub/updatesub.component';
 import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
-
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 
 @NgModule({
   entryComponents: [
@@ -68,10 +69,10 @@ import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/clas
     UpdatesubComponent, 
     DialogBoxComponent,
     DialogBoxComponent2,
-    ViewcComponent
-
-
-    
+    ViewcComponent,
+    UpdateUnenrollComponent, 
+    DialogBox,
+    DeleteDialogBox
   ],
   
   declarations: [
@@ -116,8 +117,9 @@ import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/clas
     HomeComponent,
     DialogBoxComponent,
     DialogBoxComponent2,
-    
-
+    DeleteDialogBox,
+    ClasseshomeComponent,
+    SubjecthomeComponent
   ],
 
   imports: [

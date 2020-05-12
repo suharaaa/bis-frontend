@@ -12,8 +12,8 @@ export class FeesService {
     private http: HttpClient
   ) { }
 
-    public createNewFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other){
-      return this.http.post(`${environment.apiHost}/fees`, { grade, termfee, facilityfee, librarycharges, laboratorycharges,transportationfee,other });
+    public createNewFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot){
+      return this.http.post(`${environment.apiHost}/fees`, { grade, termfee, facilityfee, librarycharges, laboratorycharges,transportationfee,other, tot });
     }
 
     public findFees() {
@@ -30,8 +30,8 @@ export class FeesService {
   */
 
 
- public UpdateFee(id:String,grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other){
-  return this.http.put(`${environment.apiHost}/fees/${id}`,{grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other});
+ public UpdateFee(id:String,grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot){
+  return this.http.put(`${environment.apiHost}/fees/${id}`,{grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot});
 }
 
 

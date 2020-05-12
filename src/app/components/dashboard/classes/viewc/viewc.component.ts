@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output } from '@angular/core';
 import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
+import * as jsPDF from 'jspdf';
+import * as html2pdf from 'html2pdf.js';
 
 /*interface APIResponse {
   success :  boolean,
@@ -18,11 +20,13 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class ViewcComponent implements OnInit {
 
+  
+
   displayedColumns: string[] = ['name', 'teacher','action'];
   dataSource : MatTableDataSource<any>;
  
 
-
+ 
 
   constructor(
     private classServices : ClassServices,
@@ -107,8 +111,13 @@ UpdateClass(id: string) {
       console.log(err.message);
     });
   }
+  //@ViewChild('content') content : ElementRef;
+  
 
-}
+
+  }
+
+
 
 
 //dialog box ts
@@ -122,6 +131,6 @@ export class DialogBoxComponent2 {
 
   ){}
 
-  public DeleteClass(id) {}
+  public DeleteClass() {}
 
 }

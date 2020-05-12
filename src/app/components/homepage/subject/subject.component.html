@@ -1,0 +1,71 @@
+<br>
+<br>
+<h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Subjects Classes and Subject Teachers</h2><br>
+
+<br>
+<div class ="maintb">
+<div class="container-fluid">
+    <!--img src="assets/images/school-wallpaper-backgrounds-4.jpg" class="back1" alt="back1"-->
+  <div class="row"  *ngIf="dataSource">
+    <mat-form-field appearance="outline">
+        
+      <mat-label>Search......</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter subject name / class / teacher name">
+    </mat-form-field>
+  </div>
+</div>
+    
+  <br>
+  
+<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
+
+
+    
+
+
+     
+   <ng-container matColumnDef="class">
+   <th mat-header-cell *matHeaderCellDef> Class </th>
+   <td mat-cell *matCellDef="let subject"> {{subject.class && subject.class.name}} </td>
+ </ng-container>
+
+
+ <ng-container matColumnDef="subjectname">
+    <th mat-header-cell *matHeaderCellDef> Subject </th>
+    <td mat-cell *matCellDef="let subjects"> {{subjects.subjectname}} </td>
+  </ng-container>
+
+
+ <ng-container matColumnDef="teacher">
+   <th mat-header-cell *matHeaderCellDef> Teacher Name</th>
+   <td mat-cell *matCellDef="let subject"> {{subject.teacher && subject.teacher.fname}}  {{subject.teacher && subject.teacher.lname}} </td>
+ </ng-container>
+
+
+
+
+
+
+ 
+
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+  
+</div>

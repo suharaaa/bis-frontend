@@ -1,13 +1,14 @@
-
-<h2>Edit Class and Class Teachers </h2><br>
-
 <br>
-  
+<br>
+<h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Classes and Class Teachers</h2><br>
+<br>
+
+<div class ="maintb"> 
 <div class="container-fluid">
   <div class=row>
     <mat-form-field appearance="outline">
       <mat-label>Search</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter class / teacher name">
     </mat-form-field>
   </div>
 </div>
@@ -15,8 +16,9 @@
   <table mat-table [dataSource]="dataSource"-->
 
 
-  
-<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
+    <br>
+    
+<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
 
     
@@ -33,9 +35,9 @@
  </ng-container-->
 
 
- <ng-container matColumnDef="classteacher">
+ <ng-container matColumnDef="teacher">
    <th mat-header-cell *matHeaderCellDef> Class Teacher Name</th>
-   <td mat-cell *matCellDef="let classes"> {{classes.classteacher}} </td>
+   <td mat-cell *matCellDef="let classes">  {{classes.teacher && classes.teacher.fname}}  {{classes.teacher && classes.teacher.lname}} </td>
  </ng-container>
 
 
@@ -63,4 +65,4 @@
 
 </table>
   
-
+</div>

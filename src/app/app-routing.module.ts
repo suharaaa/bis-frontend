@@ -38,6 +38,8 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomeComponent } from './components/homepage/home/home.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -127,6 +129,8 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
+      { path: 'classes', component: ClasseshomeComponent },
+      { path: 'subject', component: SubjecthomeComponent },
       { path: 'results', 
       component: ResultsComponent,
         children: [
