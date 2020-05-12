@@ -3,7 +3,7 @@ import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import * as jsPDF from 'jspdf';
+
 import * as html2pdf from 'html2pdf.js';
 
 interface APIResponse {

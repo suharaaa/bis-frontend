@@ -22,7 +22,7 @@
 .car{
 
     width: 500px;
-    height: 100px;
+    height: 400px;
     margin-left: 50px;
     margin-top: 0px;
 
@@ -38,11 +38,11 @@
 }
 .map{
 
-    width: 600px;
-    height: 400px;
-    margin-left: 300px;
+    width: 530px;
+    height: 430px;
+    margin-left: 100px;
     margin-top: 0px;
-    margin-right: 50px;
+    margin-right: 100px;
    
   
 
