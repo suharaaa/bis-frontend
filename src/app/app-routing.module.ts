@@ -37,6 +37,8 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomeComponent } from './components/homepage/home/home.component';
 import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
@@ -132,6 +134,8 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
+      { path: 'classes', component: ClasseshomeComponent },
+      { path: 'subject', component: SubjecthomeComponent },
       { path: 'results', 
       component: ResultsComponent,
         children: [

@@ -15,15 +15,13 @@ export interface APIResponse {
 }
 
 @Component({
-  selector: 'app-updatesub',
-  templateUrl: './updatesub.component.html',
-  styleUrls: ['./updatesub.component.css']
+  selector: 'app-subject',
+  templateUrl: './subject.component.html',
+  styleUrls: ['./subject.component.css']
 })
+export class SubjecthomeComponent implements OnInit {
 
-
-export class UpdatesubComponent implements OnInit {
-
-  displayedColumns: string[] = ['subjectname', 'class', 'teacher','action'];
+  displayedColumns: string[] = ['class', 'subjectname', 'teacher'];
   dataSource : MatTableDataSource<any>;
 
  
@@ -33,17 +31,16 @@ export class UpdatesubComponent implements OnInit {
    private router : Router,
    public dialog: MatDialog
 
-  ) { }
+
+   ) { }
 
   ngOnInit() {
- 
+
     this.findSubjects();
-    
   }
 
 
-
-//dispaly all the records in subject table
+  //dispaly all the records in subject table
   findSubjects(){
     this.subjectServices.findSubjects().subscribe((res: any) => {
       this.dataSource =new MatTableDataSource (res.data);
@@ -83,57 +80,5 @@ export class UpdatesubComponent implements OnInit {
   }
 
 
-
-
-//update subject details
-  UpdateSubject(id: String){
-
-    this.router.navigate(['dashboard/subject/addsub'], { queryParams: { id } });
-  }
-
-
-
-
-  //popup message for delete action
-  openDialog(_id: string) {
-    const dialogRef = this.dialog.open(DialogBoxComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result){
-        this.DeleteSubject(_id);
-      }
-    });
-  }
-
-
-
-
-  //delete subject from the system and the class array
- public DeleteSubject(_id: String){
-    this.subjectServices.DeleteSubject(_id).subscribe(response => {
-      this.findSubjects();
-      console.log(response);
-      this.snackBar.open('Subject is successfully deleted', null, { duration : 2000});
-    }, err => {
-      this.snackBar.open('Subject could not be deleted', null, { duration : 3000});
-      console.log(err.message);
-    });
-  }
-}
-
-
-
-//dialog box ts
-@Component({
-  selector: 'dialogBox',
-  templateUrl: 'dialogBox.html',
-})
-export class DialogBoxComponent {
-
-  constructor (
-
-  ){}
-
-  public DeleteSubject(id) {}
 
 }

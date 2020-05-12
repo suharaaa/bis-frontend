@@ -1,9 +1,19 @@
 <br>
 <br>
-<div id="content" #content>
-<h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Summary Of Classes</h2><br>
+<h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Classes and Class Teachers</h2><br>
 <br>
 
+<div class ="maintb"> 
+<div class="container-fluid">
+  <div class=row>
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter class / teacher name">
+    </mat-form-field>
+  </div>
+</div>
+<!--div class="list mat-elevation-z8" >
+  <table mat-table [dataSource]="dataSource"-->
 
 
     <br>
@@ -54,6 +64,5 @@
 
 
 </table>
+  
 </div>
-<br>
-<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button>
