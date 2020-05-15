@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-unenroll',
@@ -49,8 +49,8 @@ export class UpdateUnenrollComponent implements OnInit {
     this.router.navigate(['dashboard/student/view'], { queryParams: { id } });
   }
 
-  openDialog(_id: string) {
-    const dialogRef = this.dialog.open(DialogBox);
+  openDialog(_id: string, fname: string, lname: string) {
+    const dialogRef = this.dialog.open(DialogBox, {data: { _id, fname, lname }});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result){
@@ -82,7 +82,7 @@ export class UpdateUnenrollComponent implements OnInit {
 export class DialogBox {
 
   constructor (
-
+    @Inject(MAT_DIALOG_DATA) public data: { _id: string, fname: string, lname: string }
   ){}
 
   public unenroll() {}
