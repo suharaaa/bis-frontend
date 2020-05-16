@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import {MatSort, MatSortable} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 
+import * as html2pdf from 'html2pdf.js';
+
 
 interface APIResponse {
   success : boolean,
@@ -30,6 +32,17 @@ export class ProfitComponent implements OnInit {
   private num1 : Number;
   private num2 : Number;
   
+//new
+private _id: String;
+private grade : String;
+private termfee :Number;
+private facilityfee : Number;
+private librarycharges :Number;
+private laboratorycharges :Number;
+private transportationfee :Number ;
+private other :Number;
+private tot : Number;
+private fees :[];
 
 
   constructor(
@@ -47,6 +60,24 @@ export class ProfitComponent implements OnInit {
     this.num1 = 0;
     this.num2 = 0;
    // this.totf = 0;
+
+
+    
+   this.grade = '' ;
+   this.termfee = 0;
+   this.facilityfee = 0;
+   this.librarycharges = 0;
+   this.laboratorycharges = 0;
+   this.transportationfee = 0;
+   this.other = 0;
+   this.tot = 0;
+   this.feesService.findFees().subscribe((response : APIResponse) => {
+     this.fees = response.data;
+   });
+
+
+
+
   }
 
   applyFilterFees(keyword) {
@@ -83,10 +114,37 @@ export class ProfitComponent implements OnInit {
   }
 
 
- 
+ Multiply(){
+   this.totf= Number(this.num1) * Number(this.num2);
+ }
+
+
+
+ public downloadPDFNew () {
+
+  const options ={
+
+   name : 'output.pdf',
+   image : { type : 'jpeg'},
+   html2canvas : {},
+   jsPDF : {orientation:'landscape'}
+  }
+
+  const element : Element = document.getElementById('content');
+  html2pdf()
+
+     .from(element)
+     .set(options)
+     .save()
+
+   }
+
+
 
 
 }
+
+
 
 
 

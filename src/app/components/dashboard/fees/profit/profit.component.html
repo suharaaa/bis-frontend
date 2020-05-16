@@ -1,4 +1,4 @@
-
+<div id="content" #content>
   <h2>Student Fees</h2>
 
   <br>
@@ -15,7 +15,7 @@
   
     </div>
     
-    <button mat-raised-button color="primary" value="Export pdf" >Export PDF</button>
+    <button mat-raised-button color="primary" value="Export pdf" (click)="downloadPDFNew()" >Export PDF</button>
   </div>
 
 
@@ -95,9 +95,22 @@
     <p>Total Fee Income:
         <input id = "nwe" type="number" class="form-control" #second name ="num1"   />
     </p>
+
+    <input type="number" [(ngModel)]="num1.value"  ng-init="num1=0" />
+    <input type="number" [(ngModel)]="num2.value" ng-init="num2=0" />
+    <input type="number" [(ngModel)]="sumny" (click)="Multiply()" ng-init="num2=0" />
+    <input id="a" #first class="form-control" name="valuea" type="number" />
+    <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(num1.value && num2.value) ? (+num1.value * +num2.value) : ''" />
+   
+    Sum: {{ num1.value * num2.value }}
+    <input id="a" #first class="form-control" name="valuea" type="number" />{{first.value}}
+    <input id="b" #second class="form-control" name="valueb" type="number"/>
+    <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
+   
+    {{first.value * fees.facilityfee}}
     <!-- <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
 
-    
+  
     <p>Sum: {{ first.value *second.value }}</p>
 
         <input id="a" #first class="form-control" name="valuea" type="number" />
@@ -130,6 +143,43 @@
 
 
   </table>
+
+
+
+
+
+
+  <div class="board">
+    <div style="width: 75%;" >
+        <mat-card class="notice-card" *ngFor="let fees of fees" style="margin:1em;">
+            <mat-card-header>
+            <mat-card-title>{{fees.grade}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class = "feesv">
+
+              <p>Term Fees Rs.{{ fees.termfee }}  </p>            
+              <p> Facility Fees Rs.{{ fees.facilityfee }} </p>
+              <p> Library Charges Rs.{{ fees.librarycharges }} </p>
+              <p> Laboratory Charges Rs.{{ fees.laboratorycharges }} </p>
+              <p> Transportation Fees Rs.{{ fees.transportationfee }} </p>
+              <p> Other charges Rs.{{ fees.other }} </p>
+              <input type="number" [(ngModel)]="num1.value"  ng-init="num1=0" />
+              <input type="number" [(ngModel)]="num2.value" ng-init="num2=0" />
+              Sum {{num1.value *  num2.value}}
+
+            </div>
+              
+              <p class = "total" > TOTAL Term Fees = rs. {{ fees.termfee +  fees.facilityfee + fees.librarycharges + fees.laboratorycharges + fees.transportationfee + fees.other }} </p>
+            
+        </mat-card-content>
+           
+          
+        </mat-card>
+    </div>
+  </div>
+</div>
 
 
   
