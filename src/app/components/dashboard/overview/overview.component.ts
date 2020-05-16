@@ -33,8 +33,10 @@ export class OverviewComponent implements OnInit {
     responsive: true,
   };
 
+
   public isLoading: boolean;
   public isLoadingPieChart: boolean;
+  public isloading:boolean;
   
   public barChartLabels = [new Date().getFullYear() - 1, new Date().getFullYear()];
   public barChartType = 'bar';
@@ -43,6 +45,26 @@ export class OverviewComponent implements OnInit {
     { data: [0, 0], label: 'Female', backgroundColor: '#f69223' },
     { data: [0, 0], label: 'Male', backgroundColor: '#1f3146' }
   ];
+
+
+
+  public BarChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+
+ 
+  
+  public BarChartLabels = [new Date().getFullYear() - 1, new Date().getFullYear()];
+  public BarChartType = 'bar';
+  public BarChartLegend = true;
+  public BarChartData = [
+    { data: [0, 0], label: 'Grade 01', backgroundColor: '#f69223' },
+    { data: [0, 0], label: 'Grade 02', backgroundColor: '#1f3146' }
+  ];
+
+
+
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -78,6 +100,7 @@ export class OverviewComponent implements OnInit {
 
     this.isLoading = true;
     this.isLoadingPieChart = true;
+    this.isloading = true;
 
     this.statisticsService.getAllStatistics().subscribe((response: APIResponse) => {
       this.statistics = response.data;
@@ -91,6 +114,14 @@ export class OverviewComponent implements OnInit {
       this.isLoading = false;
     });
 
+
+    this.statisticsService.getTechersBysubject().subscribe((response: APIResponse) => {
+      this.BarChartData[0].data[0] = response.data.lastYearEnglish;
+      this.BarChartData[0].data[1] = response.data.thisYearEnglish;
+      this.BarChartData[1].data[0] = response.data.lastYearMaths;
+      this.BarChartData[1].data[1] = response.data.thisYearMaths;
+      this.isloading = false;
+    });
     this.attendanceService.getAttendanceByDate(new Date()).subscribe((response: APIResponse) => {
       this.pieChartData[0] = response.data.reduce((c, a) => {
         if (a.status === 'present') {

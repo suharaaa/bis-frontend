@@ -47,7 +47,7 @@ export class ManageTComponent implements OnInit {
     this.router.navigate(['dashboard/teacher/add'], { queryParams: { id } });
   }
 
-  public detailTeacher(id: string) {
+  public detailsTeacher(id: string) {
     this.router.navigate(['dashboard/teacher/view'], { queryParams: { id } });
   }
 
