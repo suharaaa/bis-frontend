@@ -39,7 +39,7 @@ export class EditsubComponent implements OnInit {
   ngOnInit() {
 
     this.findSubjects();
-    this.findClass();
+   
 }
 
 findSubjects(){
@@ -50,14 +50,7 @@ findSubjects(){
     console.log(err.message);
   });
 }
-findClass(){
-  this.classServices.findClass().subscribe((res: any) => {
-    this.dataSource = new MatTableDataSource (res.data);
-  
-  }, err => {
-    console.log(err.message);
-  });
-}
+
 
 public downloadPDF () {
 
