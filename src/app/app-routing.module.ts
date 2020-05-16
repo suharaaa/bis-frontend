@@ -127,10 +127,9 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
-      { path: 'results', 
-      component: ResultsComponent},
-          {path:'addResults', component: AddResultsComponent},
-          {path:'student-res', component: StudentResComponent}
+      { path: 'results',  component: ResultsComponent},
+      {path:'addResults', component: AddResultsComponent},
+       {path:'student-res', component: StudentResComponent}
       
     ]
 
