@@ -39,6 +39,7 @@ import { ViewStudentComponent } from "./components/dashboard/student/update-unen
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -84,6 +85,7 @@ const routes: Routes = [
         children: [
           { path: "addfees", component: AddfeesComponent },
           { path: "updatefees1", component: UpdatefeesComponent },
+          { path: "profit", component: ProfitComponent }
         ],
       },
       {
