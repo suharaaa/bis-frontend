@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {MatSort, MatSortable} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
 
+
 interface APIResponse {
   success : boolean,
   data : any
@@ -13,21 +14,22 @@ interface APIResponse {
 
 
 
-
 @Component({
-  selector: 'app-updatefees',
-  templateUrl: './updatefees.component.html',
-  styleUrls: ['./updatefees.component.css']
+  selector: 'app-profit',
+  templateUrl: './profit.component.html',
+  styleUrls: ['./profit.component.css']
 })
-export class UpdatefeesComponent implements OnInit {
+export class ProfitComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot', 'action'];
   dataSource = new MatTableDataSource();
+
+  private nums : Number;
+  private totf : Number;
+  private num1 : Number;
+  private num2 : Number;
   
-
-
-
 
 
   constructor(
@@ -40,22 +42,16 @@ export class UpdatefeesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.findFees();
-    
-    
-
-
+    this.nums = 0;
+    this.num1 = 0;
+    this.num2 = 0;
+   // this.totf = 0;
   }
 
   applyFilterFees(keyword) {
     this.dataSource.filter = keyword.trim().toLowerCase();
   }
-
-
-
-
-
 
   findFees(){
     this.feesService.findFees().subscribe((res: any) => {
@@ -74,9 +70,6 @@ export class UpdatefeesComponent implements OnInit {
   }
 
 
-
-
-
   DeleteFee(id: String){
     this.feesService.deleteFee(id).subscribe(response => {
       this.findFees();
@@ -90,30 +83,8 @@ export class UpdatefeesComponent implements OnInit {
   }
 
 
-  openDelFee(_id: string) {
-    const dialogRef = this.dialog.open(FeeDialogBox);
-  
-    dialogRef.afterClosed().subscribe(result => {
-      if (result){
-        this.DeleteFee(_id);
-      }
-    });
-  }
+ 
 
-  
-
-}
-@Component({
-  selector: 'deletefee',
-  templateUrl: 'deletefee.html',
-})
-export class FeeDialogBox {
-
-  constructor (
-
-  ){}
-
-  public DeleteFee() {}
 
 }
 

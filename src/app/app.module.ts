@@ -65,6 +65,7 @@ import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/clas
 import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
 import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
 
@@ -137,6 +138,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     FeeDialogBox,
     DeletedListComponent,
+    ProfitComponent,
     ViewTComponent,
     
   ],
