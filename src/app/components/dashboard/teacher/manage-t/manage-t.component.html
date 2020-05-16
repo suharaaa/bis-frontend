@@ -37,8 +37,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let teacher">
+        <a mat-stroked-button color="primary" (click)="detailsTeacher(teacher._id)">Details</a>
         <a mat-raised-button color="primary" (click)="updateTeacher(teacher._id)">Edit</a>
-        <a mat-stroked-button color= "warm" style="background-color: #f69223;" (click)="moveTeacher(teacher._id)">Clear</a>
+        <a mat-raised-button color= "warm" style="background-color: #f69223;" (click)="moveTeacher(teacher._id)">Clear</a>
       </td>
     </ng-container>
 
