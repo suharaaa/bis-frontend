@@ -108,7 +108,7 @@ public createNewClass(){
   console.log(response);
  this.snackBar.open('Class and Class Teacher added successfully', null, { duration : 2000});
   }, err => {
-  this.snackBar.open('Class and Teacher name required', null, { duration : 3000});
+  this.snackBar.open('Please fill all required fields', null, { duration : 3000});
     console.log(err.message);
 });
   
