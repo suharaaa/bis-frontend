@@ -45,6 +45,10 @@
                 <li>
                     <a [routerLink]="['teacher/manage']">Manage details</a>
                 </li>
+                <li>
+                    <a [routerLink]="['teacher/history']">History</a>
+                </li>
+
             </ul>
         </li>
         <mat-divider></mat-divider>
@@ -55,7 +59,10 @@
                     <a [routerLink]="['classes/addc']">Add Class & Class Teachers</a>
                 </li>
                 <li>
-                    <a [routerLink]="['classes/viewc']">Edit Details</a>
+                    <a [routerLink]="['classes/viewc']">View Details</a>
+                </li>
+                <li>
+                    <a [routerLink]="['classes/editc']">Summary of Classes</a>
                 </li>
 
             </ul>
@@ -68,8 +75,12 @@
                     <a [routerLink]="['subject/addsub']">Add Subjects & Teachers</a>
                 </li>
                 <li>
-                    <a [routerLink]="['subject/updatesub']">Edit Details</a>
+                    <a [routerLink]="['subject/updatesub']">View Details</a>
                 </li>
+                <li>
+                    <a [routerLink]="['subject/editsub']">Summary of Subjects</a>
+                </li>
+   
    
 
 
@@ -101,7 +112,10 @@
                     <a [routerLink]="['fees/addfees']">Add Fees</a>
                 </li>
                 <li>
-                    <a [routerLink]="['fees/updatefees1']">Update Fees</a>
+                    <a [routerLink]="['fees/updatefees1']">View Fees</a>
+                </li>
+                <li>
+                    <a [routerLink]="['fees/profit']">View Profit</a>
                 </li>
             </ul>
         </li>

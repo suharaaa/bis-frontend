@@ -36,5 +36,12 @@ export class TeacherService {
     return this.http.delete(`${environment.apiHost}/teachers/${id}`);
   }
 
+  public moveTeacher(id: string) {
+    return this.http.put(`${environment.apiHost}/teachers/${id}/history`, {});
+  }
+
+  public showHistory() {
+    return this.http.get(`${environment.apiHost}/teachers/history`);
+  }
 
 }
