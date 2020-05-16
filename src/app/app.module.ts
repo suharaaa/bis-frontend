@@ -152,7 +152,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ChartsModule
+    ChartsModule,
 
 
     ],

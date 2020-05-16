@@ -136,17 +136,16 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
+      { path: 'results',  component: ResultsComponent},
+      {path:'addResults', component: AddResultsComponent},
+       {path:'student-res', component: StudentResComponent},
+      
       { path: 'classes', component: ClasseshomeComponent },
       { path: 'subject', component: SubjecthomeComponent },
-      { path: 'results', 
-      component: ResultsComponent,
-        children: [
-          {path:'addResults', component: AddResultsComponent},
-          {path:'student-res', component: StudentResComponent}
-        ]
-      },
+     
       { path: 'studentfees', component: StudentfeesComponent }
     ]
+
   }
 
 ];
