@@ -3,7 +3,7 @@
 
   <br>
   
-  <h4>View Fees</h4>
+  <h4> Fees Income</h4>
   <br>
 
   <div class="container-fluid">
@@ -12,7 +12,10 @@
         <mat-label>Search name</mat-label>
         <input matInput (keyup)="applyFilterFees($event.target.value)" placeholder="Enter Grade or fees in Rs to find fees">
       </mat-form-field>
+  
     </div>
+    
+    <button mat-raised-button color="primary" value="Export pdf" >Export PDF</button>
   </div>
 
 
@@ -76,14 +79,39 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let fees">
+
       
-        <button mat-raised-button color="primary" (click)="UpdateFee(fees._id)" >Update</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="openDelFee(fees._id)">Delete</button>
+      
         
+
+        <!-- <input #first class="form-control" name="valuea" type="number" /> {{first.value}}
+        <input #second class="form-control" name="valueb" type="number" />{{second.value}}
+        <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
+        <input id="abc" class="form-control" name="mulvalue" type="number"  /> {{first.value * second.value}}
+       -->
+       <p>No of students:
+        <input id = "nw" type="number" class="form-control" #first name ="num1"  />
+    </p>
+    <p>Total Fee Income:
+        <input id = "nwe" type="number" class="form-control" #second name ="num1"   />
+    </p>
+    <!-- <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
+
+    
+    <p>Sum: {{ first.value *second.value }}</p>
+
+        <input id="a" #first class="form-control" name="valuea" type="number" />
+            <input id="b" #second class="form-control" name="valueb" type="number"/>
+                <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
+
+                <input id="abc" class="form-control" name="mulvalue2" type="number" [value]="(fees.other && second.value) ? (+fees.other * +second.value) : ''" />
+                {{fees.other * fees.facilityfee}}
+
+                Total Fees : {{first.value * second.value }} -->
       </td>
     </ng-container>
 
- 
+    
 
 
 
@@ -101,8 +129,19 @@
    
 
 
-
-
-
-
   </table>
+
+
+  
+<!-- <div ng-app="">
+    <p>First Number:
+   <input type="number" ng-model="num1" ngOnInit="num1=0" />
+    </p>
+    <p>Second Number:
+    <input type="number" ng-model="num2" ngOnInit="num2=0" />
+    </p>
+    <p>Sum: {{ num1 * num2 }}</p>
+    
+   </div> -->
+
+   

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SubjectServices } from 'src/app/services/subject.service';
+
 import { ActivatedRoute } from '@angular/router';
+import { SubjectServices } from 'src/app/services/subject.service';
+import { ClassServices } from 'src/app/services/classes.service';
+import {  MatSnackBar } from '@angular/material';
+import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-editsub',
@@ -8,6 +15,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./editsub.component.css']
 })
 export class EditsubComponent implements OnInit {
+
+  displayedColumns: string[] = ['subjectname', 'class', 'teacher'];
+  dataSource : MatTableDataSource<any>;
 
   
   public teachername: string;
@@ -18,56 +28,55 @@ export class EditsubComponent implements OnInit {
   public classes;
 
   constructor(
-    private subjectService: SubjectServices,
-  //  private teacherService: TeacherServices,
-    private route: ActivatedRoute
+    private subjectServices : SubjectServices,
+    private snackBar : MatSnackBar,
+   private router : Router,
+   private classServices : ClassServices,
+   public dialog: MatDialog
+
   ) { }
 
   ngOnInit() {
 
- /*   this.route.queryParams.subscribe(params => {
-      if (params.id) {
-        this.subjectService.findSubjectID(params.id).subscribe((res: { data: any }) => {
-          this.id = params.id;
-          this.teachername = res.data.teachername;
-          this.assignIn = res.data.In._id;
-          this.isOnUpdate = true;
-        });
-      }
-    });
-    this.findTeacher(); */
-  
-  }
-/*
-  public findTeacher() {
-    this.teacherService.findTeacher().subscribe((res: { data: any }) => this.classes = res.data);
-  }
-
-  
-  public saveSubject() {
-    this.subjectService.createNewSubject(
-      {
-        
-          this.teachername = res.data.teachername;
-          this.assignIn = res.data.In._id
-      }
-    ).subscribe(res => {
-      alert('created new subject');
-    });
-  }
-
-  public UpdateSubject() {
-    this.subjectService.UpdateSubject(
-      this.id,
-      {
-        
-          this.teachername = res.data.teachername;
-          this.assignIn = res.data.In._id
-      }
-    ).subscribe(res => {
-      alert('updated subject');
-    });
-  }*/
-
+    this.findSubjects();
+    this.findClass();
 }
 
+findSubjects(){
+  this.subjectServices.findSubjects().subscribe((res: any) => {
+    this.dataSource =new MatTableDataSource (res.data);
+    
+  }, err => {
+    console.log(err.message);
+  });
+}
+findClass(){
+  this.classServices.findClass().subscribe((res: any) => {
+    this.dataSource = new MatTableDataSource (res.data);
+  
+  }, err => {
+    console.log(err.message);
+  });
+}
+
+public downloadPDF () {
+
+  const options ={
+
+   name : 'subjectSummary.pdf',
+   image : { type : 'jpeg'},
+   html2canvas : {},
+   jsPDF : {orientation:'landscape'}
+  }
+
+  const element : Element = document.getElementById('content');
+  html2pdf()
+
+     .from(element)
+     .set(options)
+     .save()
+
+   }
+
+
+}
