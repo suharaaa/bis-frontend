@@ -41,6 +41,7 @@ import { ClasseshomeComponent } from './components/homepage/classes/classes.comp
 import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
 const routes: Routes = [
@@ -87,6 +88,7 @@ const routes: Routes = [
         children: [
           { path: "addfees", component: AddfeesComponent },
           { path: "updatefees1", component: UpdatefeesComponent },
+          { path: "profit", component: ProfitComponent }
         ],
       },
       {
