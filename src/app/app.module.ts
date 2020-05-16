@@ -53,7 +53,7 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
@@ -69,7 +69,9 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     UpdateUnenrollComponent, 
     DialogBox,
     ViewNComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    StudentArchiveComponent,
+    DialogBoxStudentDel
   ],
   
   declarations: [
@@ -82,6 +84,7 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     UpdateUnenrollComponent,
     DialogBox,
     StudentArchiveComponent,
+    DialogBoxStudentDel,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
