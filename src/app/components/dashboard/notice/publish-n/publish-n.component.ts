@@ -94,24 +94,4 @@ export class PublishNComponent implements OnInit {
       console.log(err.message);
     });
   }
-
-  downloadPDF() {
-    const doc = new jsPDF();
-
-    let publishedDate = this.datePipe.transform(this.publishedOn,'yyyy-MM-dd');
-    let pageWidth = doc.internal.pageSize.width || doc.internal.pageSize.getWidth();
-
-    doc.setFontSize(8);
-    doc.text('Bright International School, Kolonnawa', 15, 10);
-    doc.text(publishedDate,15,15);
-    doc.setFontSize(25);
-    doc.setFontStyle('bold');
-    doc.text(this.title,pageWidth/2,30, 'center');
-    doc.setFontSize(15);
-    doc.setFontStyle('italic');
-    doc.setLineWidth(10);
-    doc.text(this.content, 15, 45, {width:50});
-
-    doc.save('notice.pdf');
-  }
 }
