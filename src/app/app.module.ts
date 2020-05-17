@@ -67,6 +67,7 @@ import { SubjecthomeComponent } from './components/homepage/subject/subject.comp
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
 
@@ -140,6 +141,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    SummaryAComponent,
     
   ],
 
