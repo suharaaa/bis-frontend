@@ -105,7 +105,7 @@ export class AddTComponent implements OnInit {
 
       }, err => {
 
-        this.snackbar.open(err.message, '', {
+        this.snackbar.open('Please fill required fields', '', {
           duration: 2000
         });
       });

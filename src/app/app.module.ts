@@ -28,7 +28,7 @@ import { ViewNComponent, DeleteDialogBox } from './components/dashboard/notice/v
 import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
-import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { ManageTComponent, TDialogBox } from './components/dashboard/teacher/manage-t/manage-t.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
@@ -64,7 +64,7 @@ import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/s
 import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
 import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
 import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
-import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { DeletedListComponent, TDialogBox2 } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 
@@ -84,7 +84,9 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     FeeDialogBox,
     UpdatefeesComponent,
     ViewNComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    TDialogBox,
+    TDialogBox2
   ],
   
   declarations: [
@@ -140,6 +142,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    TDialogBox,
+    TDialogBox2
     
   ],
 
