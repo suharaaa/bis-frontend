@@ -61,6 +61,10 @@ export class ViewNComponent implements OnInit {
     this.router.navigate(['dashboard/notice/publish'], {queryParams: {id} });
   }
 
+  viewNotice(id: String) {
+    this.router.navigate(['dashboard/notice/print'], {queryParams: {id} });
+  }
+
   openDialog(_id: string) {
     const dialogRef = this.dialog.open(DeleteDialogBox);
 
