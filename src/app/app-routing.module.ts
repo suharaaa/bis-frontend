@@ -43,6 +43,7 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 const routes: Routes = [
@@ -101,7 +102,8 @@ const routes: Routes = [
         component: NoticeComponent,
         children: [
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent} 
+          { path: 'view', component: ViewNComponent},
+          { path: 'print', component: PrintNComponent}
         ]},
 
       { 
