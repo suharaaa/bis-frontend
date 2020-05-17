@@ -54,7 +54,7 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
@@ -67,6 +67,8 @@ import { SubjecthomeComponent } from './components/homepage/subject/subject.comp
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
 
@@ -85,8 +87,10 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
-    DialogBoxResults
+    DialogBoxResults,
 
+    StudentArchiveComponent,
+    DialogBoxStudentDel
   ],
   
   declarations: [
@@ -99,6 +103,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     UpdateUnenrollComponent,
     DialogBox,
     StudentArchiveComponent,
+    DialogBoxStudentDel,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -142,7 +147,9 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
-    DialogBoxResults
+    DialogBoxResults,
+    PrintNComponent,
+    SummaryAComponent
     
   ],
 
