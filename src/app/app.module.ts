@@ -154,7 +154,7 @@ import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.c
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ChartsModule
+    ChartsModule,
 
 
     ],
