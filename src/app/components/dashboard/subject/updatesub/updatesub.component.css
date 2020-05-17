@@ -5,3 +5,22 @@
 
 
 }
+.topic{
+    box-shadow: 0 4px 8px 0 #7c6c6c33;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 70%;
+  }
+  .list{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1px;
+}
+table {
+    width: 70%;
+  }

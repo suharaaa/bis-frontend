@@ -32,7 +32,7 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
-import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+
 import { SubjectServices } from './services/subject.service';
 import { ResultsService } from './services/addResults.service';
 
@@ -41,7 +41,7 @@ import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
-import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
@@ -54,14 +54,21 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
 
 import { HomeComponent } from './components/homepage/home/home.component';
+import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 import { WebcamModule } from 'ngx-webcam';
 import { AngularFireModule } from '@angular/fire';
@@ -70,6 +77,12 @@ import { environment } from 'src/environments/environment';
 
 @NgModule({
   entryComponents: [
+    UpdateUnenrollComponent,
+    DialogBox,
+    UpdatesubComponent, 
+    DialogBoxComponent,
+    DialogBoxComponent2,
+    ViewcComponent,
     UpdateUnenrollComponent, 
     DialogBox,
     DeleteDialogBox,
@@ -77,7 +90,9 @@ import { environment } from 'src/environments/environment';
     UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
-    WebCamComponent
+    WebCamComponent,
+    StudentArchiveComponent,
+    DialogBoxStudentDel
   ],
   
   declarations: [
@@ -90,6 +105,7 @@ import { environment } from 'src/environments/environment';
     UpdateUnenrollComponent,
     DialogBox,
     StudentArchiveComponent,
+    DialogBoxStudentDel,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -121,14 +137,21 @@ import { environment } from 'src/environments/environment';
     StudentResComponent,
     ViewStudentComponent,
     HomeComponent,
+    DialogBoxComponent,
+    DialogBoxComponent2,
     DeleteDialogBox,
+    ClasseshomeComponent,
+    SubjecthomeComponent,
     // DeleteHistoryComponent,
     DeletedListComponent,
     FeeDialogBox,
     DeletedListComponent,
+    ProfitComponent,
     ViewTComponent,
-
-    WebCamComponent
+    WebCamComponent,
+    PrintNComponent,
+    SummaryAComponent
+    
   ],
 
   imports: [
@@ -144,6 +167,7 @@ import { environment } from 'src/environments/environment';
     WebcamModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule
+
 
     ],
   providers: [

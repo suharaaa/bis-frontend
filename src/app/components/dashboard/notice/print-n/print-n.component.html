@@ -1,0 +1,15 @@
+<div id="content" style="width: 100%;" >
+    <mat-card class="notice-card" style="margin:1em;">
+        <mat-card-header>
+        <mat-card-title><h2>{{title}}</h2></mat-card-title> 
+      </mat-card-header>
+      <mat-card-content>
+          <br>
+        <p>
+            {{ content }}
+        </p>
+    </mat-card-content>
+    <mat-card-subtitle style="font-size: smaller;">Published On: {{ publishedDate }}</mat-card-subtitle>
+    </mat-card>
+</div>
+<button mat-raised-button color="warn" (click)="downloadPDF()">Print</button>

@@ -37,9 +37,14 @@ import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/upda
 import { HomeComponent } from './components/homepage/home/home.component';
 import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -75,6 +80,10 @@ const routes: Routes = [
                 component: ViewAComponent,
                 children: [{ path: "update", component: UpdateAComponent }],
               },
+              {
+                path: "summary",
+                component: SummaryAComponent,
+              }
             ],
           },
         ],
@@ -85,6 +94,7 @@ const routes: Routes = [
         children: [
           { path: "addfees", component: AddfeesComponent },
           { path: "updatefees1", component: UpdatefeesComponent },
+          { path: "profit", component: ProfitComponent }
         ],
       },
       {
@@ -92,7 +102,8 @@ const routes: Routes = [
         component: NoticeComponent,
         children: [
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent} 
+          { path: 'view', component: ViewNComponent},
+          { path: 'print', component: PrintNComponent}
         ]},
 
       { 
@@ -132,15 +143,16 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
-      { path: 'results', 
-      component: ResultsComponent,
-        children: [
-          {path:'addResults', component: AddResultsComponent},
-          {path:'student-res', component: StudentResComponent}
-        ]
-      },
+      { path: 'results',  component: ResultsComponent},
+      {path:'addResults', component: AddResultsComponent},
+       {path:'student-res', component: StudentResComponent},
+      
+      { path: 'classes', component: ClasseshomeComponent },
+      { path: 'subject', component: SubjecthomeComponent },
+     
       { path: 'studentfees', component: StudentfeesComponent }
     ]
+
   }
 
 ];

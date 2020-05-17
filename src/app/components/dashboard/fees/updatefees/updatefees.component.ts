@@ -27,18 +27,7 @@ export class UpdatefeesComponent implements OnInit {
   
 
 
-/*
-  private _id: String;
-  private grade : String;
-    private termfee :Number;
-    private facilityfee : Number;
-    private librarycharges :Number;
-    private laboratorycharges :Number;
-    private transportationfee :Number ;
-    private other :Number;
- public currentfee = null;
 
-*/
 
 
   constructor(

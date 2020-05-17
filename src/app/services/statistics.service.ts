@@ -18,5 +18,9 @@ export class StatisticsService {
   public getEnrollmentsByYear() {
     return this.http.get(`${environment.apiHost}/statistics/enrollments`)
   }
+  public getTechersBysubject(){
+    return this.http.get(`${environment.apiHost}/statistics/bysubjects`);
+  }
+
 
 }

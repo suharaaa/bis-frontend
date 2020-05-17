@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { StudentService } from 'src/app/services/student.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatPaginator } from '@angular/material';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-update-unenroll',
@@ -14,7 +15,8 @@ export class UpdateUnenrollComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name','class', 'mail', 'action'];
   dataSource : MatTableDataSource<any>;
-
+  // @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  
   constructor(
     private studentService: StudentService,
     private snackbar: MatSnackBar,
@@ -25,6 +27,23 @@ export class UpdateUnenrollComponent implements OnInit {
   ngOnInit() {
     this.viewStudents();
   }
+
+//   ngAfterViewInit() {
+//     this.paginator.page
+//         .pipe(
+//             tap(() => this.loadPage())
+//         )
+//         .subscribe();
+// }
+
+// loadPage() {
+//     this.dataSource(
+//         this.studentService.getStudentId._id,
+//         '',
+//         'asc',
+//         this.paginator.pageIndex,
+//         this.paginator.pageSize);
+// }
 
   applyFilter(keyword) {
     this.dataSource.filter = keyword.trim().toLowerCase();
