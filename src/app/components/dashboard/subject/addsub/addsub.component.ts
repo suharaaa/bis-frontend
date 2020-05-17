@@ -126,7 +126,7 @@ public getAllTeachers() {
     console.log(response);
    this.snackBar.open('Subjects and teacher added successfully', null, { duration : 2000});
     }, err => {
-    this.snackBar.open('Subject name and Class required', null, { duration : 3000});
+    this.snackBar.open('Please fill all required fields', null, { duration : 3000});
       console.log(err.message);
   });
     

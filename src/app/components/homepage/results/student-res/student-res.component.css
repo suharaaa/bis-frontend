@@ -6,27 +6,25 @@
     padding-top: 20px;
     padding-bottom: 25px;
   }
-.drop{
-    padding-left: 10%;
-    padding-right: 70%;
+.container-fluid{
+    margin-left: 10%;
+    margin-bottom: 10px;
+    width: fit-content;
+   
 }
 
-  .tableMarks{
-    padding-left: 10%;
-    padding-right: 10%;
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+.mat-table{
+    margin-left: 10%;
+    margin-bottom:  5%;
+    margin-right: 10%;
+   
+
     
 }
-th{
-    padding-right: 75px;
-}
-
-td{
-    padding-right: 75px;
-}
 
 
-.form{
-    size: 6px 4px;
-    padding-top: 0%;
-    
-}
