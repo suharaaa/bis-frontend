@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { TeacherErrorStateMatcher } from 'src/app/helpers/teacher-error-state-matcher';
 import { Router } from '@angular/router';
-
+import * as faker from 'faker';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class AddTComponent implements OnInit {
   private teacherFormGroup: FormGroup;
   private id: string;
   public isOnUpdate: boolean;
+
 
   mail = new FormControl('', [Validators.required, Validators.email]);
 
@@ -36,7 +37,7 @@ export class AddTComponent implements OnInit {
       return 'You should enter a value';
     }
 
-    return this.mail.hasError('email') ? 'Not a valid email' : '';
+    return this.mail.hasError('mail') ? 'Not a valid email' : '';
   }
   ngOnInit() {
     this.teacherFormGroup = this.formBuilder.group({
@@ -44,17 +45,17 @@ export class AddTComponent implements OnInit {
       jdate: [ new Date()],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      address: [''],
-      gender: [''],
-      nic: [''],
-      dob: [''],
-      phone: [''],
-      mstatus: [''],
-      mphone: [''],
-      nationality: [''],
-      religion: [''],
-      mail: [''],
-      qul: [''],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
+      nic: ['', Validators.required],
+      dob: ['', Validators.required],
+      phone: ['', Validators.required],
+      mstatus: ['', Validators.required],
+      mphone: ['', Validators.required],
+      nationality: ['', Validators.required],
+      religion: ['', Validators.required],
+      mail: ['', Validators.email],
+      qul: ['', Validators.required],
     });
 
     this.route.queryParams.subscribe(params => {
@@ -69,10 +70,7 @@ export class AddTComponent implements OnInit {
       } else {
         this.isOnUpdate = false;
         this.getNextTid();
-        // this.teacherService.getNextTid().subscribe((response: APIResponse) => {
 
-        //   this.teacherFormGroup.get('tid').setValue(response.data);
-        // });
       }
     });
 
@@ -138,5 +136,26 @@ export class AddTComponent implements OnInit {
       this.teacherFormGroup.controls.jdate.patchValue(new Date());
     }
 
+
+
+// Demo
+
+public populateForm() {
+  this.teacherFormGroup.patchValue({
+    fname: faker.name.firstName(),
+    lname: faker.name.lastName(),
+    address: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+    gender: faker.random.arrayElement(['male']),
+    dob: faker.date.past(10, '2001-04-11'),
+    nic: faker.random.arrayElement( ['977628621V']),
+    nationality: faker.random.arrayElement(['Sinhaleese']),
+    religion: faker.random.arrayElement(['Buddhist']),
+    mstatus: faker.random.arrayElement(['single']),
+    phone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+    mail: faker.internet.email(),
+    mphone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+    qul: faker.random.arrayElement(['Bsc.(Hons) in Information Technology']),
+  });
+}
 
 }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentComponent } from './components/dashboard/student/student.component';
@@ -19,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
-import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { UpdatefeesComponent,FeeDialogBox } from './components/dashboard/fees/updatefees/updatefees.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
@@ -31,7 +32,7 @@ import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
-import { UpdatesubComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+
 import { SubjectServices } from './services/subject.service';
 import { ResultsService } from './services/addResults.service';
 
@@ -40,7 +41,7 @@ import { NoticeService } from './services/notice.service';
 import { StudentService } from './services/student.service';
 import { ClassServices } from './services/classes.service';
 import { AddcComponent } from './components/dashboard/classes/addc/addc.component';
-import { ViewcComponent } from './components/dashboard/classes/viewc/viewc.component';
+
 import { ClassesComponent } from './components/dashboard/classes/classes.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { EditsubComponent } from './components/dashboard/subject/editsub/editsub.component';
@@ -59,15 +60,31 @@ import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
 
 import { HomeComponent } from './components/homepage/home/home.component';
-// import { DeleteHistoryComponent } from './components/dashboard/teacher/delete-history/delete-history.component';
+import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/subject/updatesub/updatesub.component';
+import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
+import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
 
 @NgModule({
   entryComponents: [
+    UpdateUnenrollComponent,
+    DialogBox,
+    UpdatesubComponent, 
+    DialogBoxComponent,
+    DialogBoxComponent2,
+    ViewcComponent,
     UpdateUnenrollComponent, 
     DialogBox,
+    DeleteDialogBox,
+    FeeDialogBox,
+    UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
     StudentArchiveComponent,
@@ -116,9 +133,21 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     StudentResComponent,
     ViewStudentComponent,
     HomeComponent,
+    DialogBoxComponent,
+    DialogBoxComponent2,
     DeleteDialogBox,
+    ClasseshomeComponent,
+    SubjecthomeComponent,
+   
     // DeleteHistoryComponent,
-    DeletedListComponent
+    DeletedListComponent,
+    FeeDialogBox,
+    DeletedListComponent,
+    ProfitComponent,
+    ViewTComponent,
+    PrintNComponent,
+    SummaryAComponent
+    
   ],
 
   imports: [
@@ -130,7 +159,7 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ChartsModule
+    ChartsModule,
 
 
     ],

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Results } from '../models/results';
 
 
 @Injectable({
@@ -12,8 +13,8 @@ import { HttpClient } from '@angular/common/http';
       private http: HttpClient
     ) { }
   
-    public createNewResult(grade, term, subject, name, marks) {
-      return this.http.post(`${environment.apiHost}/results`, {grade,term,subject,name,marks});
+    public createNewResult(results : Results) {
+      return this.http.post(`${environment.apiHost}/results`,results);
   }
 
   public viewResults() {
@@ -24,9 +25,13 @@ import { HttpClient } from '@angular/common/http';
     return this.http.delete(`${environment.apiHost}/results/${id}`);
   }
   
-  public UpdateSubject(id:String,grade,term,subject,name,marks){
+  /*public UpdateResults(id:String,grade,term,subject,name,marks){
     return this.http.put(`${environment.apiHost}/results/${id}`,{grade, term, subject,name, marks});
-  }
+  }*/
+
+  public UpdateResults(id:String ,results){
+    return this.http.put(`${environment.apiHost}/results/${id}`,results);
+}
 
   public findResultID(id){
     return this.http.get(`${environment.apiHost}/results/${id}`);

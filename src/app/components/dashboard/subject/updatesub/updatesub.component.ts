@@ -4,10 +4,13 @@ import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
-interface APIResponse {
+export interface APIResponse {
   success :  boolean,
-  data : any
+  subjectname : any,
+  class :any,
+  teacher :any,
 
 }
 
@@ -16,49 +19,99 @@ interface APIResponse {
   templateUrl: './updatesub.component.html',
   styleUrls: ['./updatesub.component.css']
 })
+
+
 export class UpdatesubComponent implements OnInit {
 
-  displayedColumns: string[] = ['subjectname', 'classname', 'teachername','action'];
-  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = ['subjectname', 'class', 'teacher','action'];
+  dataSource : MatTableDataSource<any>;
 
- /* private _id: String;
-  private classname: String;
-  private subjectname: String;
-  private teachername: String;*/
-
+ 
   constructor(
     private subjectServices : SubjectServices,
     private snackBar : MatSnackBar,
-   private router : Router
+   private router : Router,
+   public dialog: MatDialog
 
   ) { }
 
-  ngOnInit() :void{
+  ngOnInit() {
  
     this.findSubjects();
     
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 
+
+//dispaly all the records in subject table
   findSubjects(){
     this.subjectServices.findSubjects().subscribe((res: any) => {
-      this.dataSource = res.data;
+      this.dataSource =new MatTableDataSource (res.data);
+      this.dataSource.filterPredicate = this.filterPredicate;
     }, err => {
       console.log(err.message);
     });
   }
 
+
+
+  //search by class,subject and teacher name
+  private filterPredicate = (data, filter: string) => {
+    const accumulator = (currentTerm, key) => {
+      return this.nestedFilterCheck(currentTerm, data, key);
+    };
+    const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+    const transformedFilter = filter.trim().toLowerCase();
+    return dataStr.indexOf(transformedFilter) !== -1;
+  }
+
+  private nestedFilterCheck(applyFilter, data, key) {
+    if (typeof data[key] === 'object') {
+      for (const k in data[key]) {
+        if (data[key][k] !== null) {
+          applyFilter = this.nestedFilterCheck(applyFilter, data[key], k);
+        }
+      }
+    } else {
+      applyFilter += data[key];
+    }
+    return applyFilter;
+  }
+
+  applyFilter(keyword) {
+    this.dataSource.filter = keyword.trim().toLowerCase();
+  }
+
+
+
+
+//update subject details
   UpdateSubject(id: String){
 
     this.router.navigate(['dashboard/subject/addsub'], { queryParams: { id } });
   }
 
-  DeleteSubject(id: String){
-    this.subjectServices.DeleteSubject(id).subscribe(response => {
+
+
+
+  //popup message for delete action
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DialogBoxComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.DeleteSubject(_id);
+      }
+    });
+  }
+
+
+
+
+  //delete subject from the system and the class array
+ public DeleteSubject(_id: String){
+    this.subjectServices.DeleteSubject(_id).subscribe(response => {
+      this.findSubjects();
       console.log(response);
       this.snackBar.open('Subject is successfully deleted', null, { duration : 2000});
     }, err => {
@@ -70,3 +123,17 @@ export class UpdatesubComponent implements OnInit {
 
 
 
+//dialog box ts
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'dialogBox.html',
+})
+export class DialogBoxComponent {
+
+  constructor (
+
+  ){}
+
+  public DeleteSubject(id) {}
+
+}

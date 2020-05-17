@@ -1,17 +1,17 @@
 <h2>Add Classes and Class Teachers </h2><br>
 <br>
 
-<form>
+<form [formGroup]="ClassForm">
     
     <br>
 
 
-    <form>
+    
         <div class = "example-conatiner">
           
           <mat-form-field hintLabel="" appearance="fill" class= "width">
             <mat-label>Class</mat-label>
-            <input matInput type="text" input maxlength="20" placeholder="Class" name="name" [(ngModel)]="name">
+            <input matInput type="text" input maxlength="20" placeholder="Class" name="name" [(ngModel)]="name"formControlName="name" required>
             <mat-hint align = "end">   </mat-hint>
       </mat-form-field>
     </div>
@@ -21,33 +21,22 @@
     
     <div class = "example-conatiner">
       
-      
+    
       <mat-form-field appearance="fill"  class= "width">
         <mat-label >Teacher's Name</mat-label>
-      
-           
-       <!--mat-option value="teacher._id" *ngFor = "let teacher of teachers">{{teacher.fname}} {{teacher.lname}}</mat-option-->
-       <mat-select placeholder ="classteacher" name ="classteacher" [(ngModel)]="classteacher">
-        <mat-option value="Ruvindi Gunathilaka">Ruvindi Gunathilaka</mat-option>
-        <mat-option value="Sahan Karunathilaka">Sahan Karunathilaka</mat-option>
-        <mat-option value="Yasiru	Guanthilake">Yasiru	Guanthilake</mat-option>
-        <mat-option value="Nisal	Perera">	Nisal	Perera</mat-option>
-        <mat-option value="Ronald	Weeraman">Ronald	Weeraman</mat-option>
-        <mat-option value="Vinod	Silva">	Vinod	Silva</mat-option>
-        <mat-option value="Anne	Fernando">	Anne	Fernando</mat-option>
-        <mat-option value="Jane	Leone">	Jane	Leone</mat-option>
-     
+        <mat-select name="teachers" formControlName="teacher" required>
+          <mat-option [value]="teacher._id" *ngFor="let teacher of teachers">{{teacher.fname}} {{teacher.lname}}</mat-option>
+      </mat-select>
         
-      
-        </mat-select>
         
         
       </mat-form-field>
+
     </div>
     
     <br>
     
-    <!--button (click)="createNewClass()" type="submit" class=" btn btn-primary" >Add Class</button-->
+    
     <button mat-raised-button color="primary" (click)="createNewClass()" *ngIf="!isOnUpdate">Add Class</button>
     <button mat-raised-button color="primary" (click)="changeClass()" *ngIf="isOnUpdate">Update</button>
     <br>

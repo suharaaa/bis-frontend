@@ -1,32 +1,22 @@
 <div class="heading">
     <h4>Examination Results</h4>
 </div>
+<form [formGroup]="ResultsForm">
 <div class = "body">
+  
     <h5>Select the Grade</h5>
     <mat-form-field appearance="fill"  class= "width">
-      <mat-label>Grade</mat-label>
-      <mat-select required name="grade" [(ngModel)]="grade">
-        <mat-option value="Grade 01">Grade 01</mat-option>
-        <mat-option value="Grade 02">Grade 02</mat-option>
-        <mat-option value="Grade 03">Grade 03</mat-option>
-        <mat-option value="Grade 04">Grade 04</mat-option>
-        <mat-option value="Grade 05">Grade 05</mat-option>
-        <mat-option value="Grade 06">Grade 06</mat-option>
-        <mat-option value="Grade 07">Grade 07</mat-option>
-        <mat-option value="Grade 08">Grade 08</mat-option>
-        <mat-option value="Grade 09">Grade 09</mat-option>
-        <mat-option value="Grade 10">Grade 10</mat-option>
-        <mat-option value="Grade 11">Grade 11</mat-option>
-        <mat-option value="Grade 12">Grade 12</mat-option>
-        <mat-option value="Grade 13">Grade 13</mat-option>
-    
-      </mat-select> 
+      <mat-label >Grade</mat-label>
+      <mat-select name="class" formControlName="class" required>
+        <mat-option [value]="class._id" *ngFor="let class of classes">{{class.name}}</mat-option>
+    </mat-select>
       
-    </mat-form-field><br/><br/>
+   </mat-form-field><br/><br/>
+
   <h5>Select the Term</h5>
   <mat-form-field appearance="fill"  class= "width">
     <mat-label>Term</mat-label>
-    <mat-select required name="term" [(ngModel)]="term">
+    <mat-select  name="term" formControlName="term" required>
       <mat-option value="Term 1">Term 1</mat-option>
       <mat-option value="Term 2">Term 2</mat-option>
       <mat-option value="Term 3">Term 3</mat-option>
@@ -34,10 +24,10 @@
     </mat-select> 
     
   </mat-form-field><br/><br/>
-  <h4>Select the Subject</h4>
-  <mat-form-field appearance="fill"  class= "width">
+  <h5>Select the Subject</h5>
+  <mat-form-field appearance="fill"  class= "width"    >
     <mat-label>Subject</mat-label>
-    <mat-select required name="subject" [(ngModel)]="subject">
+    <mat-select name="subject" formControlName="subject" required  >
       <mat-option value="Science">Science</mat-option>
       <mat-option value="Maths">Maths</mat-option>
       <mat-option value="English">English</mat-option>
@@ -63,14 +53,19 @@
         <tbody>
           <tr>
           
-            <td>  <mat-form-field appearance="fill">
-              <input matInput type="text" class="example-right-align" required name="name" [(ngModel)]="name">
-                      
+            <td>  <mat-form-field appearance="fill"  class= "width">
+              <mat-label >Student's Name</mat-label>
+              <mat-select name="students" formControlName="students" required>
+                <mat-option [value]="student._id" *ngFor="let student of students">{{student.fname}} {{student.lname}}</mat-option>
+            </mat-select>
+              
+              
+              
             </mat-form-field></td>
             <div class ="form">
              <td> 
               <mat-form-field appearance="fill">
-                <input matInput type="number" class="example-right-align" required name="marks" [(ngModel)]="marks">
+                <input matInput type="number" class="example-right-align" required name="marks" formControlName="marks">
                         
               </mat-form-field>
               <button mat-stroked-button (click)="clear()">Clear</button>
@@ -86,4 +81,5 @@
   <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button><br/><br/>
   <button mat-raised-button color="primary" (click)="changeResult()" *ngIf="isOnUpdate">Update</button>
 </div>
+</form>
     

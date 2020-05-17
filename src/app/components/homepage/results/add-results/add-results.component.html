@@ -5,36 +5,41 @@
   <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
 
      
-     <ng-container matColumnDef="name">
+     <ng-container matColumnDef="students">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let results"> {{results.name}} </td>
+      <td mat-cell *matCellDef="let result">{{result.students && result.students.fname }} {{result.students && result.students.lname}}</td>
     </ng-container>
   
    
-    <ng-container matColumnDef="grade">
-      <th mat-header-cell *matHeaderCellDef> Grade </th>
-      <td mat-cell *matCellDef="let results"> {{results.grade}} </td>
+    <ng-container matColumnDef="class">
+      <th mat-header-cell *matHeaderCellDef> Grade</th>
+      <td mat-cell *matCellDef="let result">{{result.class && result.class.name}} </td>
     </ng-container>
+    
+    <ng-container matColumnDef="term">
+      <th mat-header-cell *matHeaderCellDef> Term</th>
+      <td mat-cell *matCellDef="let result">{{result.term}} </td>
+    </ng-container> 
 
   
     <ng-container matColumnDef="subject">
       <th mat-header-cell *matHeaderCellDef> Subject </th>
-      <td mat-cell *matCellDef="let results"> {{results.subject}} </td>
+      <td mat-cell *matCellDef="let result"> {{result.subject}} </td>
     </ng-container>
 
 
 
     <ng-container matColumnDef="marks">
-      <th mat-header-cell *matHeaderCellDef> marks </th>
-      <td mat-cell *matCellDef="let results"> {{results.marks}} </td>
+      <th mat-header-cell *matHeaderCellDef> Marks </th>
+      <td mat-cell *matCellDef="let result"> {{result.marks}} </td>
     </ng-container>
-
+ 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
-      <td mat-cell *matCellDef="let results">
+      <td mat-cell *matCellDef="let result">
       
-        <button mat-raised-button color="primary" (click)="UpdateResults(results._id)">Update</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteResults(results._id)">Delete</button>
+        <button mat-raised-button color="primary" (click)="UpdateResults(result._id)">Update</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteResults(result._id)">Delete</button>
       </td>
     </ng-container>
 
