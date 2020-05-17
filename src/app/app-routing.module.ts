@@ -44,6 +44,7 @@ import { DeletedListComponent } from './components/dashboard/teacher/deleted-lis
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -79,6 +80,10 @@ const routes: Routes = [
                 component: ViewAComponent,
                 children: [{ path: "update", component: UpdateAComponent }],
               },
+              {
+                path: "summary",
+                component: SummaryAComponent,
+              }
             ],
           },
         ],
