@@ -16,13 +16,6 @@ export class AddResultsComponent implements OnInit {
   dataSource : MatTableDataSource<any>;
   
 
-  /*private id: string;
-  public isOnUpdate: boolean;
-    
-    private grade : string;
-    private name : string;
-    private subject : string;
-    private marks : number;*/
   
     
 
@@ -40,11 +33,6 @@ export class AddResultsComponent implements OnInit {
    
   }
 
-   /*applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }*/
-
    applyFilter(keyword) {
     
     this.dataSource.filter = keyword.trim().toLowerCase();
@@ -61,6 +49,13 @@ export class AddResultsComponent implements OnInit {
     });
 
   }
+
+  UpdateResults(id: String){
+
+    this.router.navigate(['homepage/results'], { queryParams: { id } });
+  }
+
+
 
   private filterPredicate = (data, filter: string) => {
     const accumulator = (currentTerm, key) => {
@@ -83,25 +78,18 @@ export class AddResultsComponent implements OnInit {
     }
     return applyFilter;
   }
-
   
-    /*this.route.queryParams.subscribe(params => {
-      if (params.id) {
-        this.resultsService.findResultID(params.id).subscribe((res: { data: any }) => {
-          this.id = params.id;
-          this.name = res.data.name;
-          this.grade=res.data.grade;
-          this.subject = res.data.subject;
-       
-          this.isOnUpdate = true;
-        });
-      }
-    });*/
+    openDialog(_id: string) {
+      const dialogRef = this.dialog.open(DialogBoxResults);
   
-
+      dialogRef.afterClosed().subscribe(result => {
+        if (result){
+          this.DeleteResults(_id);
+        }
+      });
+    }
     
-    
-  DeleteResults(id: String){
+  public DeleteResults(id: String){
     this.resultsService.DeleteResults(id).subscribe(res => {
       this.viewResults();
       this.snackBar.open('Result is successfully deleted', null, { duration : 2000});
@@ -111,40 +99,21 @@ export class AddResultsComponent implements OnInit {
     });
   }
 
- /* openDialog(_id: string) {
-    const dialogRef = this.dialog.open(DialogBoxComponent2);
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result){
-        this.DeleteResults(_id);
-      }
-    });
-  }*/
-  
-
-  
-  
-  UpdateResults(id: String){
-
-    this.router.navigate(['homepage/results'], { queryParams: { id } });
-  }
-  
-
-
+ 
 
 }
-/*@Component({
-  selector: 'deleteDialog',
-  templateUrl: 'deleteDialog.html',
+@Component({
+  selector: 'dialogBox',
+  templateUrl: 'deleteDialogBox.html',
 })
-
-
-export class DialogBoxComponent2 {
+export class DialogBoxResults {
 
   constructor (
 
   ){}
 
-  public DeleteResults(id) {}
+  public DeleteResults() {}
 
-}*/
+}
+
+

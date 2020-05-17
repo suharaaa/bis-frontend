@@ -52,7 +52,7 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
@@ -84,7 +84,9 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     FeeDialogBox,
     UpdatefeesComponent,
     ViewNComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    DialogBoxResults
+
   ],
   
   declarations: [
@@ -140,6 +142,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    DialogBoxResults
     
   ],
 
