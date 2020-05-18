@@ -1,31 +1,33 @@
 
 
 .logo{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    float: left;
-    top: 93px;
+    position: top;
+    width: 90px;
+    height: 90px;
+    float: center;
+    top: 79px;
+    padding-right: 5px;
+    padding-top: 5px; 
     
-}
+ } 
 
 
 .headerviewt{
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 45px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background-color: #f69223;
-    font-family: 'IM Fell French Canon SC', serif;
-    margin-bottom: 50px;
-}
+    margin-bottom: 5px;
+} 
 
 .joining{
 
-    /* margin-top: 30px; */
-    background: #ffffff;
-    border-radius: 10px;
+    margin-top: 24px; 
+    background: #ffffff; 
+     border-radius: 10px; 
     padding-left: 100px;
-    padding-top: 80px;
+    padding-top: 8px;
+    margin-bottom: 40px;
+    
+
 }
+
+
+
