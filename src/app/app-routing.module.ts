@@ -43,6 +43,7 @@ import { StudentfeesComponent } from './components/homepage/studentfees/studentf
 import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -107,6 +108,7 @@ const routes: Routes = [
           { path: 'manage', component: ManageTComponent},
           { path: 'history', component: DeletedListComponent},
           { path: 'view', component: ViewTComponent},
+          { path: 'report1', component: Report1Component},
         ]},
         { path: 'subject',
 

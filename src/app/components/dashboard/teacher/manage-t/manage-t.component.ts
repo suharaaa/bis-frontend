@@ -36,6 +36,10 @@ export class ManageTComponent implements OnInit {
     this.dataSource.filter = keyword.trim().toLowerCase();
   }
 
+  clickhere() {
+    this.router.navigate(['dashboard/teacher/report1']);
+  }
+
   viewTeacher() {
     this.teacherService.viewTeacher().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res.data);
@@ -74,7 +78,6 @@ export class ManageTComponent implements OnInit {
         }
       });
     }
-
 
 
 }

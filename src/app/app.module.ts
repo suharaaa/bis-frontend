@@ -67,6 +67,7 @@ import { SubjecthomeComponent } from './components/homepage/subject/subject.comp
 import { DeletedListComponent, TDialogBox2 } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 
 
 
@@ -143,7 +144,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     ProfitComponent,
     ViewTComponent,
     TDialogBox,
-    TDialogBox2
+    TDialogBox2,
+    Report1Component
     
   ],
 
