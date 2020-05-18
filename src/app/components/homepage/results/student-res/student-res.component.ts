@@ -10,6 +10,8 @@ import { AttendanceService } from 'src/app/services/attendance.service';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import * as html2pdf from 'html2pdf.js';
+import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 
 interface APIResponse {
   success : boolean,
@@ -43,9 +45,6 @@ export class StudentResComponent implements OnInit {
   ngOnInit() {
     this.viewResults();
 
-
-
-  
   }
 
  
@@ -89,12 +88,24 @@ export class StudentResComponent implements OnInit {
     return applyFilter;
   }
 
- /* public isLoading: boolean;
-  
-  public barChartType = 'bar';
-  public barChartLegend = true;
-  public barChartData = [
-    { data: [this.marks, this.subject], label: 'Subject', backgroundColor: '#f69223' },
-    
-  ];*/
+  public downloadPDF () {
+
+    const options ={
+
+     name : 'output.pdf',
+     document: { type : 'jpeg'},
+     html2canvas : {},
+     jsPDF : {orientation:'landscape'}
+    }
+
+    const element : Element = document.getElementById('content');
+    html2pdf()
+
+       .from(element)
+       .set(options)
+       .save()
+
+     }
+ 
+ 
 }

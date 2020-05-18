@@ -19,12 +19,14 @@
   }
 
 .mat-table{
-    margin-left: 10%;
+    margin-left: 8%;
     margin-bottom:  5%;
     margin-right: 10%;
    
-
     
+}
+.but{
+  margin-left: 10%;
 }
 
 

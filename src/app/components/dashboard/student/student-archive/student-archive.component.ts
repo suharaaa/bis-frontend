@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { StudentService } from 'src/app/services/student.service';
+import {MatDialog} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -15,6 +16,7 @@ export class StudentArchiveComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
+    public dialog: MatDialog,
     private snackbar: MatSnackBar
   ) { }
 
@@ -42,5 +44,29 @@ export class StudentArchiveComponent implements OnInit {
       });
     });
   }
+
+  openDialog(_id: string) {
+    const dialogRef = this.dialog.open(DialogBoxStudentDel);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.delete(_id);
+      }
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialogBoxStudentDel',
+  templateUrl: 'dialogBoxStudentDel.html',
+})
+export class DialogBoxStudentDel {
+
+  constructor (
+
+  ){}
+
+  public delete() {}
 
 }

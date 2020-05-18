@@ -52,9 +52,9 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
@@ -68,6 +68,8 @@ import { DeletedListComponent, TDialogBox2 } from './components/dashboard/teache
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
 
@@ -87,7 +89,11 @@ import { Report1Component } from './components/dashboard/teacher/report1/report1
     ViewNComponent,
     DeleteDialogBox,
     TDialogBox,
-    TDialogBox2
+    TDialogBox2,
+    DialogBoxResults,
+
+    StudentArchiveComponent,
+    DialogBoxStudentDel
   ],
   
   declarations: [
@@ -100,6 +106,7 @@ import { Report1Component } from './components/dashboard/teacher/report1/report1
     UpdateUnenrollComponent,
     DialogBox,
     StudentArchiveComponent,
+    DialogBoxStudentDel,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -145,7 +152,10 @@ import { Report1Component } from './components/dashboard/teacher/report1/report1
     ViewTComponent,
     TDialogBox,
     TDialogBox2,
-    Report1Component
+    Report1Component,
+    DialogBoxResults,
+    PrintNComponent,
+    SummaryAComponent
     
   ],
 
