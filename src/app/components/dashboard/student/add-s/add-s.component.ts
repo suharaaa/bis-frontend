@@ -216,12 +216,10 @@ export class AddSComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
       const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
-      // this.studentImage = result;
-      // this.task = this.fileUploadService.upload(admissionNumber,
-      //   this.dataURItoBlob(this.studentImage.imageAsDataUrl));
+      this.studentImage = result;
+      this.task = this.fileUploadService.upload(admissionNumber,
+        this.dataURItoBlob(result));
       this.uploadProgress = this.task.percentageChanges();
       console.log(this.downloadURL);
     });
@@ -284,6 +282,7 @@ export class AddSComponent implements OnInit {
 export class WebCamComponent {
 
   @ViewChild('cameraPreview', { static: true }) cameraPreview: ElementRef;
+  @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
 
   private stream: any;
 
@@ -302,15 +301,6 @@ export class WebCamComponent {
     private renderer: Renderer2
     ) { 
       this.loadCamera();
-    }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  public closeDialog() {
-    this.stream.getTracks().forEach(track => track.stop());
-    this.dialogRef.close();
   }
 
   private loadCamera() {
@@ -336,6 +326,20 @@ export class WebCamComponent {
     this.closeDialog();
   }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
+  public capture() {
+    this.canvas.nativeElement
+      .getContext('2d')
+      .drawImage(this.cameraPreview.nativeElement, 0, 0, 150, 150);
+    this.dialogRef.close(this.canvas.nativeElement.toDataURL('image/jpeg'));
+  }
+
+  public closeDialog() {
+    this.stream.getTracks().forEach(track => track.stop());
+    this.dialogRef.close();
+  }
 
 }
