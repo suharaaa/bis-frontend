@@ -331,6 +331,7 @@ export class WebCamComponent {
   }
 
   public capture() {
+    this.stream.getTracks().forEach(track => track.stop());
     this.canvas.nativeElement
       .getContext('2d')
       .drawImage(this.cameraPreview.nativeElement, 0, 0, 150, 150);
