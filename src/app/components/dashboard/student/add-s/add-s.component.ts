@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { StudentService } from 'src/app/services/student.service';
 import { ErrorStateMatcher, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
@@ -283,19 +283,59 @@ export class AddSComponent implements OnInit {
 })
 export class WebCamComponent {
 
-  private trigger: Subject<void> = new Subject<void>();
+  @ViewChild('cameraPreview', { static: true }) cameraPreview: ElementRef;
+
+  private stream: any;
+
+  private constraints = {
+    video: {
+      facingMode: 'environment',
+      width: { ideal: 512 },
+      height: { ideal: 512 }
+    }
+  };
 
   constructor(
     public dialogRef: MatDialogRef<WebCamComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private snackbar: MatSnackBar,
+    private renderer: Renderer2
+    ) { 
+      this.loadCamera();
+    }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
   public closeDialog() {
+    this.stream.getTracks().forEach(track => track.stop());
     this.dialogRef.close();
   }
+
+  private loadCamera() {
+    if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) { 
+      navigator.mediaDevices.getUserMedia(this.constraints).then(this.attachVideoStream.bind(this)).catch(this.handleError);
+         } else {
+            this.showSnackbar('Sorry! A camera device was not found.');
+         }
+  }
+
+  private attachVideoStream(stream) {
+    this.stream = stream;
+    this.renderer.setProperty(this.cameraPreview.nativeElement, 'srcObject', stream);
+  }
+
+  private handleError(err) {
+    this.snackbar.open('Sorry! Could not open the camera device.');
+    this.closeDialog();
+  }
+
+  private showSnackbar(message: string) {
+    this.snackbar.open(message, null, { duration: 3000 });
+    this.closeDialog();
+  }
+
 
 
 }
