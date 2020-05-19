@@ -37,10 +37,11 @@
                         </div>
                         <div class="col-md-5">
                             <div class="button-wrapper">
-                                <button type="button" mat-stroked-button color="primary">
+                                <button type="button" mat-stroked-button color="primary" (click)="selectFile()">
                                     <fa-icon class="stat-icon" [icon]="faFile"></fa-icon>
                                     Upload from Computer
                                 </button>
+                                <input #file type="file" style="display: none;" accept="image/*" (change)="triggerUpload($event)">
                                 <button type="button" mat-stroked-button style="color: #f69223;" (click)="openWebCamModal()">
                                     <fa-icon class="stat-icon" [icon]="faWebCam"></fa-icon>
                                     Open Web Camera

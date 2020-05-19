@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { StudentService } from 'src/app/services/student.service';
 import { ErrorStateMatcher, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
@@ -12,7 +12,6 @@ import * as Icons from '@fortawesome/free-solid-svg-icons';
 //for demo purposes
 import * as faker from 'faker';
 import { Observable, Subject } from 'rxjs';
-import { WebcamImage } from 'ngx-webcam';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
@@ -22,6 +21,8 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 })
 export class AddSComponent implements OnInit {
 
+  @ViewChild('file', { static: true }) fileSelector: ElementRef;
+
   private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
   private classes:[];
@@ -30,7 +31,6 @@ export class AddSComponent implements OnInit {
 
   public faFile = Icons.faFileImage;
   public faWebCam = Icons.faCamera;
-  public studentImage: WebcamImage;
   public studentImageUrl: string;
 
   task;
@@ -214,9 +214,9 @@ export class AddSComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
       const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
-      this.studentImage = result;
-      this.task = this.fileUploadService.upload(admissionNumber,
-        this.dataURItoBlob(this.studentImage.imageAsDataUrl));
+      // this.studentImage = result;
+      // this.task = this.fileUploadService.upload(admissionNumber,
+      //   this.dataURItoBlob(this.studentImage.imageAsDataUrl));
       this.uploadProgress = this.task.percentageChanges();
       console.log(this.downloadURL);
     });
@@ -246,6 +246,28 @@ export class AddSComponent implements OnInit {
     return blob;
   }
 
+  public selectFile() {
+    this.fileSelector.nativeElement.click();
+  }
+
+  public triggerUpload($event) {
+    console.log($event.target.files);
+    this.uploadStudentImage($event.target.files[0]);
+  }
+
+  private uploadStudentImage(file) {
+    const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      this.task = this.fileUploadService.upload(admissionNumber,
+        this.dataURItoBlob(reader.result));
+      this.uploadProgress = this.task.percentageChanges();
+    });
+    if(file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
 
 }
 
@@ -263,19 +285,6 @@ export class WebCamComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  public get triggerObservable(): Observable<void> {
-    return this.trigger.asObservable();
-  }
-
-  public triggerSnapshot(): void {
-    this.trigger.next();
-  }
-
-  public handleImage(webcamImage: WebcamImage): void {
-    console.log('received webcam image', webcamImage);
-    this.dialogRef.close(webcamImage);
   }
 
   public closeDialog() {

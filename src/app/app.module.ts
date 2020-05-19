@@ -70,7 +70,6 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
-import { WebcamModule } from 'ngx-webcam';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
@@ -164,7 +163,6 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     FontAwesomeModule,
     ChartsModule,
-    WebcamModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule
 
