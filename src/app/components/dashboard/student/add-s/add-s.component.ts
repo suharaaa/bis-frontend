@@ -32,6 +32,7 @@ export class AddSComponent implements OnInit {
   public faFile = Icons.faFileImage;
   public faWebCam = Icons.faCamera;
   public studentImageUrl: string;
+  public studentImage: any;
 
   task;
   uploadProgress = 0;
@@ -155,16 +156,20 @@ export class AddSComponent implements OnInit {
 
   public changeStudent() {
     const student = new Student(this.studentFormGroup.getRawValue());
-    
-    this.studentService.updateStudents(this.id, student).subscribe(res => {
-      //notify
-      this.snackbar.open('Updated successfully!', '', { duration: 2000 });
-      //go back
-      this.router.navigate(['dashboard/student/update']);
-    }, err => {
-      //error msg
-      this.snackbar.open(err.message, '', {
-        duration: 2000
+
+    this.fileUploadService.getDownloadUrl(this.studentFormGroup.get('admissionNumber').value).subscribe(result => {
+      this.downloadURL = result;
+      student.ImageUrl = result;
+      this.studentService.updateStudents(this.id, student).subscribe(res => {
+        //notify
+        this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+        //go back
+        this.router.navigate(['dashboard/student/update']);
+      }, err => {
+        //error msg
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
       });
     });
   }
@@ -259,6 +264,7 @@ export class AddSComponent implements OnInit {
     const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
     const reader = new FileReader();
     reader.addEventListener('load', () => {
+      this.studentImage = reader.result;
       this.task = this.fileUploadService.upload(admissionNumber,
         this.dataURItoBlob(reader.result));
       this.uploadProgress = this.task.percentageChanges();
