@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { StudentService } from 'src/app/services/student.service';
 import { ErrorStateMatcher, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
@@ -12,7 +12,6 @@ import * as Icons from '@fortawesome/free-solid-svg-icons';
 //for demo purposes
 import * as faker from 'faker';
 import { Observable, Subject } from 'rxjs';
-import { WebcamImage } from 'ngx-webcam';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
@@ -22,6 +21,8 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 })
 export class AddSComponent implements OnInit {
 
+  @ViewChild('file', { static: true }) fileSelector: ElementRef;
+
   private matcher: StudentErrorStateMatcher;
   private studentFormGroup: FormGroup;
   private classes:[];
@@ -30,8 +31,8 @@ export class AddSComponent implements OnInit {
 
   public faFile = Icons.faFileImage;
   public faWebCam = Icons.faCamera;
-  public studentImage: WebcamImage;
   public studentImageUrl: string;
+  public studentImage: any;
 
   task;
   uploadProgress = 0;
@@ -155,16 +156,20 @@ export class AddSComponent implements OnInit {
 
   public changeStudent() {
     const student = new Student(this.studentFormGroup.getRawValue());
-    
-    this.studentService.updateStudents(this.id, student).subscribe(res => {
-      //notify
-      this.snackbar.open('Updated successfully!', '', { duration: 2000 });
-      //go back
-      this.router.navigate(['dashboard/student/update']);
-    }, err => {
-      //error msg
-      this.snackbar.open(err.message, '', {
-        duration: 2000
+
+    this.fileUploadService.getDownloadUrl(this.studentFormGroup.get('admissionNumber').value).subscribe(result => {
+      this.downloadURL = result;
+      student.ImageUrl = result;
+      this.studentService.updateStudents(this.id, student).subscribe(res => {
+        //notify
+        this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+        //go back
+        this.router.navigate(['dashboard/student/update']);
+      }, err => {
+        //error msg
+        this.snackbar.open(err.message, '', {
+          duration: 2000
+        });
       });
     });
   }
@@ -211,12 +216,10 @@ export class AddSComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
       const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
       this.studentImage = result;
       this.task = this.fileUploadService.upload(admissionNumber,
-        this.dataURItoBlob(this.studentImage.imageAsDataUrl));
+        this.dataURItoBlob(result));
       this.uploadProgress = this.task.percentageChanges();
       console.log(this.downloadURL);
     });
@@ -246,6 +249,29 @@ export class AddSComponent implements OnInit {
     return blob;
   }
 
+  public selectFile() {
+    this.fileSelector.nativeElement.click();
+  }
+
+  public triggerUpload($event) {
+    console.log($event.target.files);
+    this.uploadStudentImage($event.target.files[0]);
+  }
+
+  private uploadStudentImage(file) {
+    const admissionNumber = this.studentFormGroup.get('admissionNumber').value;
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      this.studentImage = reader.result;
+      this.task = this.fileUploadService.upload(admissionNumber,
+        this.dataURItoBlob(reader.result));
+      this.uploadProgress = this.task.percentageChanges();
+    });
+    if(file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
 
 }
 
@@ -255,32 +281,66 @@ export class AddSComponent implements OnInit {
 })
 export class WebCamComponent {
 
-  private trigger: Subject<void> = new Subject<void>();
+  @ViewChild('cameraPreview', { static: true }) cameraPreview: ElementRef;
+  @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
+
+  private stream: any;
+
+  private constraints = {
+    video: {
+      facingMode: 'environment',
+      width: { ideal: 512 },
+      height: { ideal: 512 }
+    }
+  };
 
   constructor(
     public dialogRef: MatDialogRef<WebCamComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private snackbar: MatSnackBar,
+    private renderer: Renderer2
+    ) { 
+      this.loadCamera();
+  }
+
+  private loadCamera() {
+    if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) { 
+      navigator.mediaDevices.getUserMedia(this.constraints).then(this.attachVideoStream.bind(this)).catch(this.handleError);
+         } else {
+            this.showSnackbar('Sorry! A camera device was not found.');
+         }
+  }
+
+  private attachVideoStream(stream) {
+    this.stream = stream;
+    this.renderer.setProperty(this.cameraPreview.nativeElement, 'srcObject', stream);
+  }
+
+  private handleError(err) {
+    this.snackbar.open('Sorry! Could not open the camera device.');
+    this.closeDialog();
+  }
+
+  private showSnackbar(message: string) {
+    this.snackbar.open(message, null, { duration: 3000 });
+    this.closeDialog();
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  public get triggerObservable(): Observable<void> {
-    return this.trigger.asObservable();
-  }
-
-  public triggerSnapshot(): void {
-    this.trigger.next();
-  }
-
-  public handleImage(webcamImage: WebcamImage): void {
-    console.log('received webcam image', webcamImage);
-    this.dialogRef.close(webcamImage);
+  public capture() {
+    this.stream.getTracks().forEach(track => track.stop());
+    this.canvas.nativeElement
+      .getContext('2d')
+      .drawImage(this.cameraPreview.nativeElement, 0, 0, 150, 150);
+    this.dialogRef.close(this.canvas.nativeElement.toDataURL('image/jpeg'));
   }
 
   public closeDialog() {
+    this.stream.getTracks().forEach(track => track.stop());
     this.dialogRef.close();
   }
-
 
 }

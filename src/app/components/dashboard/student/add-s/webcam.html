@@ -1,8 +1,8 @@
-<webcam [allowCameraSwitch]="false" [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
-</webcam>
+<video #cameraPreview autoplay></video>
+<canvas #canvas style="display: none;" width="150" height="150"></canvas>
 <div class="row">
     <div class="col-md-12">
         <button mat-raised-button (click)="closeDialog()" style="float: right; background-color: #f69223; color: white;">Close</button>
-        <button mat-raised-button color="primary" (click)="triggerSnapshot()" style="float: right; margin-right: 10px;">Capture</button>
+        <button mat-raised-button color="primary" (click)="capture()" style="float: right; margin-right: 10px;">Capture</button>
     </div>
 </div>
