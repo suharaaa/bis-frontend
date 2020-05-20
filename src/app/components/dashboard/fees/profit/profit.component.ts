@@ -24,7 +24,7 @@ interface APIResponse {
 export class ProfitComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort : MatSort;
-  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot', 'action'];
+  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot','updatedon', 'action'];
   dataSource = new MatTableDataSource();
 
   private nums : Number;
@@ -42,8 +42,9 @@ private laboratorycharges :Number;
 private transportationfee :Number ;
 private other :Number;
 private tot : Number;
+private updated : Date;
 private fees :[];
-
+curDate=new Date();
 
   constructor(
 
@@ -124,7 +125,7 @@ private fees :[];
 
   const options ={
 
-   name : 'output.pdf',
+   name : 'Fees_details.pdf',
    image : { type : 'jpeg'},
    html2canvas : {},
    jsPDF : {orientation:'landscape'}
