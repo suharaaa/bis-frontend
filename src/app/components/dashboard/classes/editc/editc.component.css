@@ -1,0 +1,45 @@
+
+.mat-raised-button{
+
+    margin-right: 10px;
+
+
+}
+.topic{
+    box-shadow: 0 4px 8px 0 #7c6c6c33;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 70%;
+  }
+  .list{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1px;
+}
+table {
+    width: 70%;
+  }
+
+  .headerclasses{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #f69223;
+    font-family: 'IM Fell French Canon SC', serif;
+    margin-bottom: 0px;
+}
+.logo{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  float: left;
+  top: 70px;
+  
+}

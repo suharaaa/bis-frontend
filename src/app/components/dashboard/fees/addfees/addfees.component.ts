@@ -3,6 +3,7 @@ import { Validators} from '@angular/forms';
 import { FeesService } from 'src/app/services/fees.service';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import * as faker from 'faker';
 
 
 
@@ -30,8 +31,8 @@ export class AddfeesComponent implements OnInit {
     private other :Number;
     public isOnUpdate: boolean;
     private id: string;
-
-
+     tot: Number;
+ 
 
   constructor(
     private feesService: FeesService,
@@ -48,6 +49,11 @@ export class AddfeesComponent implements OnInit {
     this.laboratorycharges = 0;
     this.transportationfee = 0;
     this.other = 0;
+   // this.tot = 0;
+   //this.tot = Number(this.termfee) + Number(this.facilityfee) + Number(this.librarycharges) + Number(this.laboratorycharges) + Number(this.librarycharges) + Number(this.laboratorycharges);
+   
+    
+
 
 
     this.route.queryParams.subscribe(params => {
@@ -62,6 +68,8 @@ export class AddfeesComponent implements OnInit {
           this.laboratorycharges = res.data.laboratorycharges;
           this.transportationfee = res.data.transportationfee;
           this.other = res.data.other;
+          this.tot = res.data.tot;
+         // this.tot = res.data.termfee + res.data.facilityfee + res.data.librarycharges + res.data.laboratorycharges + res.data.transportationfee + res.data.other;
        
 
         });
@@ -74,7 +82,7 @@ export class AddfeesComponent implements OnInit {
   }
 
   changeFee(id:String){
-    this.feesService.UpdateFee(this.id,this.grade,this.termfee,this.facilityfee,this.librarycharges,this.laboratorycharges,this.transportationfee,this.other ).subscribe(response => {
+    this.feesService.UpdateFee(this.id,this.grade,this.termfee,this.facilityfee,this.librarycharges,this.laboratorycharges,this.transportationfee,this.other, this.tot ).subscribe(response => {
     console.log(response);
    this.snackBar.open('Updated successfully', null, { duration : 2000});
     }, err => {
@@ -86,7 +94,7 @@ export class AddfeesComponent implements OnInit {
 
 
   createNewFee() {
-    this.feesService.createNewFee(this.grade,this.termfee,this.facilityfee,this.librarycharges,this.laboratorycharges, this.transportationfee, this.other).subscribe(response => {
+    this.feesService.createNewFee(this.grade,this.termfee,this.facilityfee,this.librarycharges,this.laboratorycharges, this.transportationfee, this.other, this.tot).subscribe(response => {
       console.log(response);
       this.snackBar.open('Added fees to database', null, { duration : 2000});
     }, err => {
@@ -103,8 +111,27 @@ export class AddfeesComponent implements OnInit {
     this.laboratorycharges = 0;
     this.transportationfee = 0;
     this.other = 0;
+   // this.tot = 0;
 
   }
+
+
+//DEMO button  
+  populateFees(){
+
+
+    this.grade= faker.random.arrayElement(['Grade 05']),
+    this.termfee = faker.random.number();
+    this.facilityfee = faker.random.number();
+    this.librarycharges = faker.random.number();
+    this.laboratorycharges = faker.random.number();
+    this.transportationfee = faker.random.number();
+    this.other = faker.random.number();
+
+  }
+
+  
+  
 
 }
 

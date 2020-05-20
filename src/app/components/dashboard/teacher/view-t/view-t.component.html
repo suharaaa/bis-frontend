@@ -1,0 +1,124 @@
+<div id = "content" #content >
+    <div class="headerviewt">
+        <img src="assets/images/logo.jpg" class="logo" alt="logo">
+    
+        
+    </div>
+    
+    
+
+    <h4 style="padding-left: 10px;">Teacher Details</h4>
+    
+    <div class="joining">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6>ID Number  : {{teacher.tid}}   </h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6>Joined Date : {{teacher.createdAt | date: 'dd/MM/yyyy'}}</h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >First Name : {{teacher.fname}} {{teacher.lname}} </h6>
+            </div>
+            
+            
+    
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Address : {{teacher.address}}  </h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >NIC : {{teacher.nic}}</h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Gender : {{teacher.gender}}</h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Date Of Birth : {{teacher.dob | date: 'dd/MM/yyyy'}}</h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Nationality : {{teacher.nationality}}</h6>
+            </div>
+           
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Religion : {{teacher.religion}} </h6>
+            </div>
+           
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Marital Status : {{teacher.mstatus}}</h6>
+            </div>
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Email : {{teacher.mail || 'N/A'}}</h6>
+            </div>
+            
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Phone Number : {{teacher.phone}}</h6>
+            </div>
+            
+            
+            
+        </div>
+      
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Mobile Number : {{teacher.mphone}}</h6>
+            </div>
+            
+            
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h6 >Qualifications : {{teacher.qul}}</h6>
+            </div>
+            
+            
+        </div>
+        
+        
+
+    </div>
+</div>
+
+<div>
+    <button mat-raised-button color = "primary" (click)="downloadpdf()">Download</button>
+</div>

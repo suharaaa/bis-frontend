@@ -1,4 +1,3 @@
-
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -35,83 +34,109 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+<<<<<<< HEAD
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+=======
+import { HomeComponent } from './components/homepage/home/home.component';
+import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
+import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
+import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
+import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
+import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
+import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+>>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
 
  
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: "", component: LoginComponent },
+  { path: "signup", component: SignupComponent },
   {
-    path: 'dashboard',
+    path: "dashboard",
     component: DashboardComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'overview' },
-      { path: 'overview', component: OverviewComponent },
+      { path: "", pathMatch: "full", redirectTo: "overview" },
+      { path: "overview", component: OverviewComponent },
       {
-        path: 'student',
+        path: "student",
         component: StudentComponent,
         children: [
-          { path: 'add', component: AddSComponent },
-          { path: 'update', component: UpdateUnenrollComponent }
-        ]
+          { path: "", pathMatch: "full", redirectTo: "update" },
+          { path: "add", component: AddSComponent },
+          { path: "update", component: UpdateUnenrollComponent },
+          { path: "view", component: ViewStudentComponent },
+          { path: "archive", component: StudentArchiveComponent },
+        ],
       },
       {
-        path: 'attendance',
+        path: "attendance",
         component: AttendanceComponent,
         children: [
           {
-            path: 'teachers',
+            path: "teachers",
             component: TeachersComponent,
             children: [
-              { path: 'create', component: CreateAComponent },
+              { path: "create", component: CreateAComponent },
               {
-                path: 'view', component: ViewAComponent,
-                children: [
-                  { path: 'update', component: UpdateAComponent }
-                ]
+                path: "view",
+                component: ViewAComponent,
+                children: [{ path: "update", component: UpdateAComponent }],
               },
-            ]
+              {
+                path: "summary",
+                component: SummaryAComponent,
+              }
+            ],
           },
-        ]
+        ],
       },
       {
-        path: 'fees',
+        path: "fees",
         component: FeesComponent,
         children: [
-          { path: 'addfees', component: AddfeesComponent },
-          { path: 'updatefees1', component: UpdatefeesComponent },
-
-        ]
+          { path: "addfees", component: AddfeesComponent },
+          { path: "updatefees1", component: UpdatefeesComponent },
+          { path: "profit", component: ProfitComponent }
+        ],
       },
       {
-        path: 'notice',
+        path: "notice",
         component: NoticeComponent,
         children: [
-
           { path: 'publish', component: PublishNComponent},
-          { path: 'view', component: ViewNComponent} 
+          { path: 'view', component: ViewNComponent},
+          { path: 'print', component: PrintNComponent}
         ]},
 
-      { path: 'teacher',
-
+      { 
+        path: 'teacher',
         component: TeacherComponent,
         children: [
           { path: 'add', component: AddTComponent},
-          { path: 'manage', component: ManageTComponent}
+          { path: 'manage', component: ManageTComponent},
+          { path: 'history', component: DeletedListComponent},
+          { path: 'view', component: ViewTComponent},
+          { path: 'report1', component: Report1Component},
         ]},
         { path: 'subject',
+
         component: SubjectComponent,
         children: [
-          { path: 'addsub', component: AddsubComponent },
-          { path: 'updatesub', component: UpdatesubComponent },
-          { path: 'editsub', component: EditsubComponent }
-        ]
+          { path: "addsub", component: AddsubComponent },
+          { path: "updatesub", component: UpdatesubComponent },
+          { path: "editsub", component: EditsubComponent },
+        ],
       },
       {
-        path: 'classes',
+        path: "classes",
         component: ClassesComponent,
         children: [
+<<<<<<< HEAD
           { path: 'addc', component: AddcComponent },
           { path: 'viewc', component: ViewcComponent },
           { path: 'editc', component: EditcComponent }
@@ -125,28 +150,39 @@ const routes: Routes = [
         ]
       }
     ]
+=======
+          { path: "addc", component: AddcComponent },
+          { path: "viewc", component: ViewcComponent },
+          { path: "editc", component: EditcComponent },
+        ],
+      },
+    ],
+>>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
   },
+
 
   {path: 'homepage', 
   component: HomepageComponent,
     children:[
-      { path: '', pathMatch: 'full', redirectTo: 'homepage' },
-      { path: 'home', component: HomepageComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
-      {path: 'results', 
-      component: ResultsComponent,
-        children: [
-          {path:'addResults', component: AddResultsComponent},
-          {path: 'student-res', component: StudentResComponent}
-        ]
-      }
+      { path: 'results',  component: ResultsComponent},
+      {path:'addResults', component: AddResultsComponent},
+       {path:'student-res', component: StudentResComponent},
+      
+      { path: 'classes', component: ClasseshomeComponent },
+      { path: 'subject', component: SubjecthomeComponent },
+     
+      { path: 'studentfees', component: StudentfeesComponent }
     ]
-  }
-];
 
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

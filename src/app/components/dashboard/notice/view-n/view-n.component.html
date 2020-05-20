@@ -1,6 +1,6 @@
 <h2>Published Notices</h2><br>
-<div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 50px;">
+<div class="list mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
 
         <!-- Title Column -->
         <ng-container matColumnDef="title">
@@ -30,8 +30,9 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Action </th>
           <td mat-cell *matCellDef="let notice">
-            <a mat-stroked-button color="primary" (click)="updateNotice(notice._id)">Update</a>
-            <a mat-stroked-button style="color: #f69223;" (click)="deleteNotice(notice._id)">Delete</a>
+            <a mat-stroked-button color="primary" (click)="viewNotice(notice._id)">View</a>
+            <a mat-stroked-button style="color: #f69223;" (click)="updateNotice(notice._id)">Update</a>
+            <a mat-stroked-button style="color: red;" (click)="openDialog(notice._id)">Delete</a>
           </td>
         </ng-container>
       

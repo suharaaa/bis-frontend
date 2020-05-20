@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NoticeService } from 'src/app/services/notice.service';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import * as jsPDF from 'jspdf';
+import { DatePipe } from '@angular/common';
 
 interface APIResponse {
   success : boolean,
@@ -21,11 +24,14 @@ export class PublishNComponent implements OnInit {
   private expiresOn: Date;
   private noOfViewers: number;
   private isOnUpdate: boolean;
+  private publishedOn: Date;
 
   constructor(
     private noticeService: NoticeService,
     private snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +40,7 @@ export class PublishNComponent implements OnInit {
     this.teachersOnly = false;
     this.expiresOn = new Date();
     this.noOfViewers = 0;
+    this.publishedOn = new Date();
 
     this.route.queryParams.subscribe(params => {
       if (params.id) {
@@ -43,6 +50,7 @@ export class PublishNComponent implements OnInit {
           this.content = res.data.content;
           this.teachersOnly = res.data.teachersOnly;
           this.expiresOn = res.data.expiresOn;
+          this.publishedOn = res.data.publishedOn;
           this.isOnUpdate = true;
         });
       }
@@ -74,15 +82,16 @@ export class PublishNComponent implements OnInit {
         title:  this.title,
         content: this.content,
         teachersOnly: this.teachersOnly,
-        expiresOn: this.expiresOn
+        expiresOn: this.expiresOn,
+        publishedOn: this.publishedOn
       }
     ).subscribe(response => {
       console.log(response);
       this.snackBar.open('Notice is successfully updated', null, { duration : 2000});
+      this.router.navigate(['dashboard/notice/view']);
     }, err => {
       this.snackBar.open('Notice could not be updated', null, { duration : 3000});
       console.log(err.message);
     });
-    this.clear();
   }
 }

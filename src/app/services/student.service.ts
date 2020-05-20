@@ -23,12 +23,20 @@ export class StudentService {
     return this.http.get(`${environment.apiHost}/students`);
   }
 
+  public viewUnenrolledStudents() {
+    return this.http.get(`${environment.apiHost}/students/archived`);
+  }
+
   public updateStudents(id: string, student) {
     return this.http.put(`${environment.apiHost}/students/${id}`, student);
   }
 
   public getStudentId(id: string) {
     return this.http.get(`${environment.apiHost}/students/${id}`);
+  }
+
+  public unenrollStudent(id: string){
+    return this.http.put(`${environment.apiHost}/students/${id}/archived`, {});
   }
 
   public deleteStudent(id: string) {

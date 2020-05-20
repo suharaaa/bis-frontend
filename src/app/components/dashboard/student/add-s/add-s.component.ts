@@ -7,6 +7,9 @@ import { Student } from 'src/app/models/student';
 import { APIResponse } from 'src/app/models/apiresponse';
 import { ActivatedRoute } from '@angular/router';
 import { ClassServices } from 'src/app/services/classes.service';
+import { Router } from '@angular/router';
+//for demo purposes
+import * as faker from 'faker';
 
 @Component({
   selector: 'app-add-s',
@@ -21,49 +24,53 @@ export class AddSComponent implements OnInit {
   private id: string;
   public isOnUpdate: boolean;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  mail = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private formBuilder: FormBuilder,
     private studentService: StudentService,
     private snackbar: MatSnackBar,
     private classService: ClassServices,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
+  
   getErrorMessage() {
-    if (this.studentFormGroup.controls.email.hasError('required')) {
+    if (this.studentFormGroup.controls.mail.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.mail.hasError('mail') ? 'Not a valid email' : '';
   }
 
   ngOnInit() {
     this.classes = [];
+    // this.studentFormGroup = new FormGroup[];
     this.studentFormGroup = this.formBuilder.group({
       admissionNumber: [{ value: '', disabled: true }],
+      admissionDate: [new Date()],
       fname: ['', Validators.required],
       lname: ['', Validators.required],
-      address: [''],
-      gender: [''],
-      dob: [''],
-      nation: [''],
-      religion: [''],
-      mail: [''],
-      class: [''],
-      mname: [''],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
+      dob: ['', Validators.required],
+      nation: ['', Validators.required],
+      religion: ['', Validators.required],
+      mail: ['', Validators.email],
+      class: ['', Validators.required],
+      mname: ['', Validators.required],
       moccupation: [''],
       mworkp: [''],
       maddress: [''],
-      mphone: [''],
-      memail: [''],
-      faname: [''],
+      mphone: ['', Validators.required],
+      memail: ['', [Validators.required, Validators.email]],
+      faname: ['', Validators.required],
       foccupation: [''],
       fworkp: [''],
       faddress: [''],
-      fphone: [''],
-      femail: [''],
+      fphone: ['', Validators.required],
+      femail: ['', [Validators.required, Validators.email]],
     });
 
     this.route.queryParams.subscribe(params => {
@@ -78,9 +85,7 @@ export class AddSComponent implements OnInit {
       }
       else {
         this.isOnUpdate = false;
-        this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
-          this.studentFormGroup.get('admissionNumber').setValue(response.data);
-        });
+        this.getNextAdmissionNumber();
       }
     })
 
@@ -88,6 +93,13 @@ export class AddSComponent implements OnInit {
 
     this.getAllClasses();
   }
+
+  private getNextAdmissionNumber(): void {
+    this.studentService.getNextAdmissionNumber().subscribe((response: APIResponse) => {
+      this.studentFormGroup.get('admissionNumber').setValue(response.data);
+    });
+  }
+
 
   public get StudentFormGroup(): FormGroup {
     return this.studentFormGroup;
@@ -129,6 +141,8 @@ export class AddSComponent implements OnInit {
     this.studentService.updateStudents(this.id, student).subscribe(res => {
       //notify
       this.snackbar.open('Updated successfully!', '', { duration: 2000 });
+      //go back
+      this.router.navigate(['dashboard/student/update']);
     }, err => {
       //error msg
       this.snackbar.open(err.message, '', {
@@ -139,6 +153,38 @@ export class AddSComponent implements OnInit {
 
   public clear() {
     this.studentFormGroup.reset();
+    this.getNextAdmissionNumber();
+    this.studentFormGroup.controls.admissionDate.patchValue(new Date());
+  }
+
+
+  /**
+   * For Demo Perposes ONLY
+   */
+  public populateForm() {
+    this.studentFormGroup.patchValue({
+      fname: faker.name.firstName(),
+      lname: faker.name.lastName(),
+      address: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      gender: faker.random.arrayElement(['male', 'female']),
+      dob: faker.date.past(10, '2001-04-11'),
+      nation: faker.random.arrayElement(['Sinhaleese']),
+      religion: faker.random.arrayElement(['Buddhist', 'Christianity']),
+      mail: faker.internet.email(),
+      class: '',
+      mname: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      moccupation: faker.name.jobTitle(),
+      mworkp: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      maddress: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      mphone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      memail: faker.internet.email(),
+      faname: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      foccupation: faker.name.jobTitle(),
+      fworkp: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      faddress: `${faker.address.streetAddress()}, ${faker.address.county()}, ${faker.address.zipCode()}`,
+      fphone: faker.phone.phoneNumberFormat(0).split('-').join(''),
+      femail: faker.internet.email(),
+    });
   }
 
 

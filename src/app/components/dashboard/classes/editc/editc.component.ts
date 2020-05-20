@@ -4,6 +4,8 @@ import {  MatSnackBar } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 
+import * as html2pdf from 'html2pdf.js';
+
 interface APIResponse {
   success :  boolean,
   data : any
@@ -17,7 +19,7 @@ interface APIResponse {
 })
 export class EditcComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'classteacher','action'];
+  displayedColumns: string[] = ['name', 'teacher'];
   dataSource = new MatTableDataSource();
 
   
@@ -28,73 +30,46 @@ export class EditcComponent implements OnInit {
 
 
   constructor(
-    private classService : ClassServices,
+    private classServices : ClassServices,
     private snackBar : MatSnackBar,
    
     private route: ActivatedRoute,
   ) { }
 
-  //ngOnInit() :void{
-    //this.findClass();
+  
+    
 
     ngOnInit() {
-      this.route.queryParams.subscribe(params => {
-        if (params.id) {
-          this.classService.findClassID(params.id).subscribe((res: { data: any }) => {
-            this.id = params.id;
-            this.name = res.data.name;
-            this.classteacher=res.data.classteacher;
-         
-            this.isOnUpdate = true;
-          });
-        }
-      });
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+      
+    this.findClass();
   }
   findClass(){
-    this.classService.findClass().subscribe((res: any) => {
-      this.dataSource = res.data;
+    this.classServices.findClass().subscribe((res: any) => {
+      this.dataSource = new MatTableDataSource (res.data);
+    
     }, err => {
       console.log(err.message);
     });
   }
-  
+
+
+  public downloadPDF () {
+
+    const options ={
+
+     name : 'Results.pdf',
+     image : { type : 'jpeg'},
+     html2canvas : {},
+     jsPDF : {orientation:'landscape'}
+    }
+
+    const element : Element = document.getElementById('content');
+    html2pdf()
+
+       .from(element)
+       .set(options)
+       .save()
+
+     }
  
-
-
- /* DeleteClass(id: String){
-    this.classServices.DeleteClass(id).subscribe(response => {
-      console.log(response);
-      this.snackBar.open('Subject is successfully deleted', null, { duration : 2000});
-    }, err => {
-      this.snackBar.open('Subject could not be deleted', null, { duration : 3000});
-      console.log(err.message);
-    });
   }
-
-  public UpdateClass() {
-    this.classService.UpdateClass(
-      this.id,
-      {
-        name: this.name,
-        classteacher: this.classteacher
-        
-      }
-    ).subscribe(res => {
-      alert('updated student');
-    });
-
-  }
-  saveClass(){
-    this.classService.createNewClass(this.name,this.classteacher).subscribe(response => {
-    console.log(response);
-   this.snackBar.open('Class and Class Teacher added successfully', null, { duration : 2000});
-    }, err => {
-    this.snackBar.open('Class and Class Teacher required', null, { duration : 3000});
-      console.log(err.message);
-  });
-  }*/}

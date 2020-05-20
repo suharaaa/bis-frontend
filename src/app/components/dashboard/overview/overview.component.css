@@ -1,6 +1,6 @@
-.example-card {
-    max-width: 400px;
-  }
+/* .example-card {
+    
+  } */
   
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -15,4 +15,112 @@
     font-size: 30px;
   }
 
-  .card-chart{overflow:hidden}.card-chart .card-header .card-title i{font-size:16px;margin-right:5px;margin-bottom:3px}.card-chart .card-header .card-category{margin-bottom:5px}.card-chart .card-body{padding-left:5px;padding-right:5px}.card-chart .card-body .tab-space{padding:0}.card-chart .table{margin-bottom:0}.card-chart .table td{border-top:none;border-bottom:1px solid hsla(0,0%,100%,.1)}.card-chart .card-progress{margin-top:30px;padding:0 10px}.card-chart .chart-area{height:220px;width:100%}.card-chart .card-footer{margin-top:15px}.card-chart .card-footer .stats{color:#9a9a9a}.card-chart .dropdown{position:absolute;right:20px;top:20px}.card-chart .dropdown .btn{margin:0}.card-chart.card-chart-pie .chart-area{padding:10px 0 25px;height:auto}.card-chart.card-chart-pie .card-title{margin-bottom:10px}.card-chart.card-chart-pie .card-title i{font-size:1rem}.map{height:500px}.card-user{overflow:hidden}
+  .card-chart{overflow:hidden}.card-chart .card-header .card-title i{
+    font-size:16px;
+    margin-right:5px;
+    margin-bottom:3px
+  }
+  
+  .card-chart .card-header .card-category{
+    margin-bottom:5px
+  }
+  
+  .card-chart .card-body{
+    padding-left:5px;
+    padding-right:5px
+  }
+  
+  .card-chart .card-body .tab-space{
+    padding:0
+  }
+  
+  .card-chart .table{
+    margin-bottom:0
+  }
+  
+  .card-chart .table td{
+    border-top:none;
+    border-bottom:1px solid #ffffff1a
+  }
+  
+  .card-chart .card-progress{
+    margin-top:30px;
+    padding:0 10px
+  }
+  
+  .card-chart .chart-area{
+    height:220px;
+    width:100%
+  }
+  
+  .card-chart .card-footer{
+    margin-top:15px
+  }
+  
+  .card-chart .card-footer .stats{
+    color:#9a9a9a
+  }
+  
+  .card-chart .dropdown{
+    position:absolute;
+    right:20px;
+    top:20px
+  }
+  
+  .card-chart .dropdown .btn{
+    margin:0
+  }
+  
+  .card-chart.card-chart-pie .chart-area{
+    padding:10px 0 25px;
+    height:auto
+  }
+  
+  .card-chart.card-chart-pie .card-title{
+    margin-bottom:10px
+  }
+  
+  .card-chart.card-chart-pie .card-title i{
+    font-size:1rem
+  }
+  
+  .map{
+    height:500px
+  }
+  
+  .card-user{
+    overflow:hidden
+  }
+
+  .stat-icon {
+    font-size: 150px;
+    color: #1f3146;
+    position: relative;
+    top: -40px;
+    left: -40px;
+  }
+
+  .stat-card {
+    height: 140px;
+    max-width: 400px;
+    overflow: hidden;
+    background-color: #f69223;
+    color: white;
+    margin: auto;
+  }
+
+  .stat-card h1{
+    font-size: 70px;
+    margin-top: 0;
+  }
+
+  .stat-card h6 {
+    margin-bottom: 5px;
+    color: #fefefe;
+    position: relative;
+    bottom: -10px;
+  }
+
+  .form-row {
+    margin-bottom: 40px;
+  }

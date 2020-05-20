@@ -1,51 +1,53 @@
-<div class="heading">
-    <h2>Add Results</h2>
-</div>
-<div class = "tableMarks">
-<table class="table table-striped" table id="Marks">
-    <thead>
-      <tr>
-        <th scope="col">Index number</th>
-        <th scope="col">Student's Name</th>
-        <th scope="col">Marks</th>
-      
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">index 1</th>
-        <td>Name 1</td>
-        <div class ="form">
-         <td> 
-          <input class="form-control form-control-lg" type="text" ></td>
-        </div>
-      </tr>
-      <tr>
-        <th scope="row">index 2</th>
-        <td>Name 2</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
-      <tr>
-        <th scope="row">index 3</th>
-        <td>Name 3</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
-      <tr>
-        <th scope="row">index 4</th>
-        <td>Name 4</td>
-        <div class ="form">
-          <td> 
-            <input class="form-control form-control-lg" type="text" ></td>
-         </div>
-      </tr>
-      <br/>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </tbody>
-  </table>
 
+  <div class = "heading"><h2>Results</h2></div>
+
+  <br>
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
+
+     
+     <ng-container matColumnDef="students">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let result">{{result.students && result.students.fname }} {{result.students && result.students.lname}}</td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="class">
+      <th mat-header-cell *matHeaderCellDef> Grade</th>
+      <td mat-cell *matCellDef="let result">{{result.class && result.class.name}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="term">
+      <th mat-header-cell *matHeaderCellDef> Term</th>
+      <td mat-cell *matCellDef="let result">{{result.term}} </td>
+    </ng-container> 
+
+  
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef> Subject </th>
+      <td mat-cell *matCellDef="let result"> {{result.subject}} </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="marks">
+      <th mat-header-cell *matHeaderCellDef> Marks </th>
+      <td mat-cell *matCellDef="let result"> {{result.marks}} </td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let result">
+      
+        <button mat-raised-button color="primary" (click)="UpdateResults(result._id)">Update</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;"(click)="openDialog(result._id)">Delete</button>
+      </td>
+    </ng-container>
+
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+  </table>
