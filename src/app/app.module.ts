@@ -54,12 +54,10 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-<<<<<<< HEAD
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
 
 
-=======
 import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
@@ -76,7 +74,6 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
->>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
 
 
 
@@ -143,12 +140,10 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
-<<<<<<< HEAD
     UsersComponent,
     ViewUsersComponent,
     
    
-=======
     ViewStudentComponent,
     HomeComponent,
     DialogBoxComponent,
@@ -170,7 +165,6 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
     PrintNComponent,
     SummaryAComponent
     
->>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
   ],
 
   imports: [

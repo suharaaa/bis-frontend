@@ -34,10 +34,8 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
-<<<<<<< HEAD
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
-=======
 import { HomeComponent } from './components/homepage/home/home.component';
 import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
@@ -50,7 +48,6 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
->>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
 
  
 const routes: Routes = [
@@ -136,7 +133,6 @@ const routes: Routes = [
         path: "classes",
         component: ClassesComponent,
         children: [
-<<<<<<< HEAD
           { path: 'addc', component: AddcComponent },
           { path: 'viewc', component: ViewcComponent },
           { path: 'editc', component: EditcComponent }
@@ -150,14 +146,6 @@ const routes: Routes = [
         ]
       }
     ]
-=======
-          { path: "addc", component: AddcComponent },
-          { path: "viewc", component: ViewcComponent },
-          { path: "editc", component: EditcComponent },
-        ],
-      },
-    ],
->>>>>>> 75e83c8c9cf452b43f53a71130d809273bb87aee
   },
 
 
