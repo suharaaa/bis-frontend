@@ -4,6 +4,7 @@ import { Teacher } from 'src/app/models/teacher';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -17,27 +18,32 @@ import {MatSnackBar} from '@angular/material';
 export class ManageTComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'fname', 'lname', 'action'];
-  dataSource = new MatTableDataSource ();
+  dataSource: MatTableDataSource<any>;
+
 
   constructor(
     private snackBar: MatSnackBar,
     private teacherService: TeacherService,
-    private router: Router) { }
+    private router: Router,
+    public dialog: MatDialog ) { }
 
   ngOnInit() {
    this.viewTeacher();
   }
 
 
-  applyFilter(filterValue: string) {
-     filterValue = filterValue.trim();
-     filterValue = filterValue.toLowerCase();
-     this.dataSource.filter = filterValue;
+  applyFilter(keyword) {
+    this.dataSource.filter = keyword.trim().toLowerCase();
+  }
+
+  clickhere() {
+    this.router.navigate(['dashboard/teacher/report1']);
   }
 
   viewTeacher() {
     this.teacherService.viewTeacher().subscribe((res: any) => {
-      this.dataSource = res.data;
+      this.dataSource = new MatTableDataSource(res.data);
+
     }, err => {
       console.log(err.message);
     });
@@ -63,7 +69,30 @@ export class ManageTComponent implements OnInit {
 
     }
 
+    openDialog(id: string) {
+      const dialogRef = this.dialog.open(TDialogBox);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.moveTeacher(id);
+        }
+      });
+    }
 
 
+}
+
+
+@Component({
+  selector: 'deleteconfirm',
+  templateUrl: 'deleteconfirm.html',
+})
+export class TDialogBox {
+
+  constructor(
+
+  ) {}
+
+  public moveTeacher() {}
 
 }

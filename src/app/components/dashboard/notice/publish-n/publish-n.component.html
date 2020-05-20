@@ -43,5 +43,4 @@
     <button mat-raised-button color="primary" (click)="createNotice()" *ngIf="!isOnUpdate">Publish</button>
     <button mat-raised-button color="primary" (click)="updateNotice()" *ngIf="isOnUpdate">Update</button>
     <button mat-stroked-button (click)="clear()" *ngIf="!isOnUpdate">Clear</button>
-    <button mat-raised-button color="warn" (click)="downloadPDF()" *ngIf="isOnUpdate">Print</button>
 </form>

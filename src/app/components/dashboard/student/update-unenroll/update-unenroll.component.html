@@ -3,7 +3,7 @@
   <div class=row>
     <mat-form-field appearance="outline">
       <mat-label>Search name</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find students by Admission Number, Name, Class or Email">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Find students by Name or Email">
     </mat-form-field>
   </div>
 </div>
@@ -49,5 +49,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
+
+<!-- <mat-paginator [length]="student?.lessonsCount" [pageSize]="3"[pageSizeOptions]="[3, 5, 10]">
+</mat-paginator> -->
   
   
