@@ -10,7 +10,10 @@ import { StudentErrorStateMatcher } from 'src/app/helpers/student-error-state-ma
 
 
 
-
+interface APIResponse {
+  success : boolean,
+  data : any
+}
 
 
 @Component({
@@ -55,6 +58,30 @@ export class SignupComponent implements OnInit {
     this.password = new FormControl('', [Validators.required]);
     this.reenter = new FormControl('', [Validators.required]);
 
+
+
+    // this.route.queryParams.subscribe(params => {
+    //   if (params.id) {
+    //     this.isOnUpdate = true;
+    //     this.UsersService.findUserID(params.id).subscribe((res: APIResponse) => {
+    //       this.id = params.id;
+    //       this.fullname = res.data.fullname;
+    //       this.grade = res.data.grade;
+    //       this.email=res.data.email;
+    //       this.password = res.data.password;
+    //       this.reenter = res.data.reenter;
+      
+       
+
+    //     });
+    //   }else{
+    //     this.isOnUpdate = false;
+    //   }
+    // });
+
+
+  
+
   }
 
   public get StudentErrorStateMatcher(): ErrorStateMatcher {
@@ -78,6 +105,21 @@ export class SignupComponent implements OnInit {
   public get Reenter(): FormControl {
     return this.reenter;
   }
+
+
+  changeUser(id:String){
+    this.UsersService.UpdateUser(this.id,this.fullname,this.grade,this.email,this.password,this.reenter ).subscribe(response => {
+    console.log(response);
+   this.snackBar.open('Updated successfully', null, { duration : 2000});
+    }, err => {
+    this.snackBar.open('Fullname  required', null, { duration : 3000});
+      console.log(err.message);
+  });
+
+}
+
+
+
 
   createNewUser() {
     this.UsersService.createNewUser(this.fullname.value , this.email.value, this.grade.value, this.password.value, this.reenter.value).subscribe(response => {

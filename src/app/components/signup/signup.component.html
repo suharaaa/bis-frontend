@@ -76,7 +76,16 @@
               <div class="form-group">
                 <button mat-raised-button color="primary" class="width"
                   [disabled]="Fullname.hasError('required') || !Fullname.value"
-                  (click)="createNewUser()">SignUp</button>
+                  (click)="createNewUser()" *ngIf="!isOnUpdate">SignUp</button>
+
+            
+              <!-- <button mat-raised-button color="primary" (click)="changeUser()" *ngIf="isOnUpdate">Update</button> -->
+            
+
+
+
+
+
               </div>
               <div class="text-block text-center my-3">
                 <span class="text-small font-weight-semibold">Already have an account?</span>

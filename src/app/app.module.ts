@@ -49,6 +49,9 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
+import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+
 
 
 
@@ -91,6 +94,9 @@ import { StudentResComponent } from './components/homepage/results/student-res/s
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
+    UsersComponent,
+    ViewUsersComponent,
+    
    
   ],
 

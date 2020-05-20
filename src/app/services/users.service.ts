@@ -19,8 +19,26 @@ export class UsersService {
   }
 
 
+  public findUsers() {
+    return this.http.get(`${environment.apiHost}/users`);
+  }
+
+  public findUserID(id: string) {
+    return this.http.get(`${environment.apiHost}/users/${id}`);
+  }
 
   
+ public UpdateUser(id:String,fullname, email, grade, password, reenter){
+  return this.http.put(`${environment.apiHost}/users/${id}`,{fullname, email, grade, password, reenter});
+}
+  
+
+
+public DeleteUser(id) {
+  return this.http.delete(`${environment.apiHost}/users/${id}`);
+}
+
+
 
   login(email: string, password: string) {
     return this.webService.login(email, password).pipe(

@@ -35,7 +35,10 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
+import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
 
+ 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -112,6 +115,13 @@ const routes: Routes = [
           { path: 'addc', component: AddcComponent },
           { path: 'viewc', component: ViewcComponent },
           { path: 'editc', component: EditcComponent }
+        ]
+      },
+      {
+        path: 'cl',
+        component: UsersComponent,
+        children: [
+          { path: 'viewu', component: ViewUsersComponent }
         ]
       }
     ]
