@@ -22,7 +22,6 @@ export class PrintNComponent implements OnInit {
   private content: String;
   private teachersOnly: boolean;
   private expiresOn: Date;
-  private noOfViewers: number;
   private publishedOn: Date;
   public publishedDate: any;
 
@@ -38,7 +37,6 @@ export class PrintNComponent implements OnInit {
     this.content = '';
     this.teachersOnly = false;
     this.expiresOn = new Date();
-    this.noOfViewers = 0;
     this.publishedOn = new Date();
     this.publishedDate = new Date();
 

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticeService } from 'src/app/services/notice.service';
-
-interface APIResponse {
-  success : boolean,
-  data : any
-}
+import { APIResponse } from 'src/app/models/apiresponse';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-noticeboard',
@@ -17,13 +14,12 @@ export class NoticeboardComponent implements OnInit {
   private publishedOn: Date;
   private title: String;
   private teachersOnly: Boolean;
-  private noOfViewers: Number;
   private updatedOn: Date;
   private expiresOn: Date;
   private notices:[];
 
   constructor(
-    private noticeService: NoticeService,
+    public noticeService: NoticeService
   ) { }
 
   ngOnInit(): void {
@@ -31,16 +27,10 @@ export class NoticeboardComponent implements OnInit {
     this.publishedOn = new Date();
     this.title = '';
     this.teachersOnly = false;
-    this.noOfViewers = null;
     this.updatedOn = new Date();
     this.expiresOn = new Date();
-    this.noticeService.viewNotices().subscribe((response : APIResponse) => {
+    this.noticeService.viewPublicNotices().subscribe((response : APIResponse) => {
       this.notices = response.data;
     });
   }
-  
-  updateViewer(id: String) {
-
-  }
-  
-} 
+}

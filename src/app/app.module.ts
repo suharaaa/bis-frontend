@@ -76,7 +76,6 @@ import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.c
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
-
 @NgModule({
   entryComponents: [
     UpdateUnenrollComponent,
