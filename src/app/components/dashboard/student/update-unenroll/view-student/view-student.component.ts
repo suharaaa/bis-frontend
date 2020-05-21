@@ -48,7 +48,7 @@ export class ViewStudentComponent implements OnInit {
     const element: Element = document.getElementById('content');
   
     html2pdf()
-      .from(element, 15, 15)
+      .from(element)
       .set(options)
       .save();
   }
