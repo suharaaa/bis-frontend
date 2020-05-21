@@ -1,0 +1,40 @@
+.topic{
+    box-shadow: 0 4px 4px 0 #8b2a2a33;
+    text-align: center;
+    background: #cbd628;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 70%;
+  }
+  .list{
+    background: #d8a61c;
+    border-radius: 10px;
+    padding: 1px;
+  }
+  table {
+    width: 70%;
+  }
+  
+  .mat-header-cell{
+    font-size: 18px;
+    background: #26272b;
+    color:#fff;
+    
+    width:35%;
+  
+  }
+  .back1{
+  
+    background-color: #d9e4a8 ;
+   
+    width: 400px;
+    height: 700px;
+    float : right;
+    
+  }
+  .maintb{
+    margin-left: 310px;
+  }
