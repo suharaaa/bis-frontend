@@ -123,4 +123,8 @@
 
   .form-row {
     margin-bottom: 40px;
+    
+  }
+  .mat-raised-button{
+    margin-right:30px;
   }
