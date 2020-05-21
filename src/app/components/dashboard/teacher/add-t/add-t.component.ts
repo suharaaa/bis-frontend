@@ -24,7 +24,7 @@ export class AddTComponent implements OnInit {
 
 
   mail = new FormControl('', [Validators.required, Validators.email]);
-
+  phone = new FormControl('', [Validators.required, Validators.pattern("[6-9]\d{9}") ]);
   constructor(
     private formBuilder: FormBuilder,
     private teacherService: TeacherService,
@@ -54,7 +54,7 @@ export class AddTComponent implements OnInit {
       mphone: ['', Validators.required],
       nationality: ['', Validators.required],
       religion: ['', Validators.required],
-      mail: ['', Validators.email],
+      mail: ['', [Validators.required, Validators.email]],
       qul: ['', Validators.required],
     });
 
