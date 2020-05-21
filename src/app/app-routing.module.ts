@@ -8,8 +8,6 @@ import { AddSComponent } from './components/dashboard/student/add-s/add-s.compon
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
-import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
@@ -34,6 +32,8 @@ import { UpdateAComponent } from './components/dashboard/attendance/teachers/upd
 import { FeesComponent } from './components/dashboard/fees/fees.component';
 import { AddfeesComponent } from './components/dashboard/fees/addfees/addfees.component';
 import { UpdatefeesComponent } from './components/dashboard/fees/updatefees/updatefees.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
+import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { ViewStudentComponent } from "./components/dashboard/student/update-unenroll/view-student/view-student.component";
 import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
@@ -46,7 +46,15 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
+import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
+import { ThomeComponent } from './components/hometeacher/thome/thome.component';
+import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tnoticeboard.component';
+import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
+import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
+import { AddResultComponent } from './components/hometeacher/tresults/add-result/add-result.component';
 
+ 
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "signup", component: SignupComponent },
@@ -130,31 +138,48 @@ const routes: Routes = [
         path: "classes",
         component: ClassesComponent,
         children: [
-          { path: "addc", component: AddcComponent },
-          { path: "viewc", component: ViewcComponent },
-          { path: "editc", component: EditcComponent },
-        ],
+          { path: 'addc', component: AddcComponent },
+          { path: 'viewc', component: ViewcComponent },
+          { path: 'editc', component: EditcComponent }
+        ]
       },
-    ],
+      {
+        path: 'cl',
+        component: UsersComponent,
+        children: [
+          { path: 'viewu', component: ViewUsersComponent }
+        ]
+      }
+    ]
   },
 
 
-  {path: 'homepage', 
-  component: HomepageComponent,
+  { 
+    path: 'homepage', 
+    component: HomepageComponent,
     children:[
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
-      { path: 'results',  component: ResultsComponent},
-      {path:'addResults', component: AddResultsComponent},
-       {path:'student-res', component: StudentResComponent},
-      
+      { path: 'results',  component: ResultsComponent },
       { path: 'classes', component: ClasseshomeComponent },
       { path: 'subject', component: SubjecthomeComponent },
-     
       { path: 'studentfees', component: StudentfeesComponent }
     ]
+  },
 
+  {
+    path: 'hometeacher',
+    component: HometeacherComponent,
+    children:[
+      { path: '', pathMatch: 'full', redirectTo: 'thome' },
+      { path: 'thome', component:ThomeComponent },
+      { path: 'tnoticeboard', component:TnoticeboardComponent },
+      { path: 'tresult', component:TresultsComponent },
+      { path: 'taddresult', component:AddResultComponent},
+      { path: 'tclasses', component:TclassesComponent },
+      { path: 'tsubject', component:TsubjectComponent }
+    ]
   }
 
 ];

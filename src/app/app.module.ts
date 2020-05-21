@@ -52,8 +52,10 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
-import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
+import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+
+
 import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
@@ -70,7 +72,13 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
-
+import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
+import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
+import { ThomeComponent } from './components/hometeacher/thome/thome.component';
+import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tnoticeboard.component';
+import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
+import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
+import { AddResultComponent, DialogBoxResults } from './components/hometeacher/tresults/add-result/add-result.component';
 
 
 @NgModule({
@@ -91,7 +99,6 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
     TDialogBox,
     TDialogBox2,
     DialogBoxResults,
-
     StudentArchiveComponent,
     DialogBoxStudentDel
   ],
@@ -134,8 +141,10 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
     ViewAComponent,
     UpdateAComponent,
     ResultsComponent,
-    AddResultsComponent,
-    StudentResComponent,
+    UsersComponent,
+    ViewUsersComponent,
+    
+   
     ViewStudentComponent,
     HomeComponent,
     DialogBoxComponent,
@@ -155,7 +164,14 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
     Report1Component,
     DialogBoxResults,
     PrintNComponent,
-    SummaryAComponent
+    SummaryAComponent,
+    HometeacherComponent,
+    TclassesComponent,
+    ThomeComponent,
+    TnoticeboardComponent,
+    TsubjectComponent,
+    TresultsComponent,
+    AddResultComponent
     
   ],
 

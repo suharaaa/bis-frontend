@@ -11,12 +11,16 @@ export class NoticeService {
     private http: HttpClient
   ) { }
 
-  public createNotice(title, content,teachersOnly,expiresOn,noOfViewers) {
-    return this.http.post(`${environment.apiHost}/notices`, {title, content, teachersOnly,expiresOn,noOfViewers});
+  public createNotice(title, content,teachersOnly,expiresOn) {
+    return this.http.post(`${environment.apiHost}/notices`, {title, content, teachersOnly,expiresOn});
   }
 
   public viewNotices() {
     return this.http.get(`${environment.apiHost}/notices`);
+  }
+
+  public viewPublicNotices() {
+    return this.http.get(`${environment.apiHost}/notices/public`);
   }
 
   public viewNoticeById(id) {
@@ -25,10 +29,6 @@ export class NoticeService {
 
   public updateNoticeById(id: string, student) {
     return this.http.put(`${environment.apiHost}/notices/${id}`, student);
-  }
-
-  public updateNoticeViewersById(id,noOfViewers: number) {
-    return this.http.put(`${environment.apiHost}/notices/${id}/noofviewers`, {noOfViewers});
   }
 
   public deleteNoticeById(id) {
