@@ -14,7 +14,8 @@
 </div>
 
 <div class="list mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+  <app-loader *ngIf="isLoading"></app-loader>
+  <table mat-table [dataSource]="dataSource" *ngIf="!isLoading">
     <!-- RegNo Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef><b> Admission No. </b></th>
@@ -73,6 +74,7 @@
   <br />
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
+    (page)="changePage($event)"
+    [length]="count"
   ></mat-paginator>
 </div>

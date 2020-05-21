@@ -4,6 +4,8 @@ import { StudentService } from "src/app/services/student.service";
 import { Router } from "@angular/router";
 import { MatSnackBar, MatPaginator } from "@angular/material";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { Subject } from 'rxjs';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: "app-update-unenroll",
@@ -14,12 +16,12 @@ export class UpdateUnenrollComponent implements OnInit {
   displayedColumns: string[] = ["id", "name", "class", "mail", "action"];
   dataSource: MatTableDataSource<any>;
   dataIsLoaded = false;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
-  set appBacon(paginator: MatPaginator) {
-    this.paginator = paginator;
-    this.dataSource.paginator = this.paginator;
-  }
+  private filters: {
+    limit: number,
+    page: number
+  };
+  count: number;
+  isLoading: boolean;
 
   constructor(
     private studentService: StudentService,
@@ -29,7 +31,12 @@ export class UpdateUnenrollComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.viewStudents();
+    this.filters = { limit: 5, page: 0 };
+    this.viewStudents(this.filters.page, this.filters.limit);
+  }
+
+  changePage($event) {
+    this.viewStudents($event.pageIndex, $event.pageSize);
   }
 
   //   ngAfterViewInit() {
@@ -53,11 +60,14 @@ export class UpdateUnenrollComponent implements OnInit {
     this.dataSource.filter = keyword.trim().toLowerCase();
   }
 
-  viewStudents() {
-    this.studentService.viewStudents().subscribe(
+  viewStudents(page: number, limit: number) {
+    this.isLoading = true;
+    this.studentService.viewStudents(page, limit).subscribe(
       (res: any) => {
         this.dataSource = new MatTableDataSource(res.data);
+        this.count = res.count;
         this.dataIsLoaded = true;
+        this.isLoading = false;
       },
       (err) => {
         console.log(err.message);

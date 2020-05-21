@@ -19,8 +19,14 @@ export class StudentService {
     return this.http.post(`${environment.apiHost}/students`, student);
   }
 
-  public viewStudents() {
-    return this.http.get(`${environment.apiHost}/students`);
+  public viewStudents(page: number, limit: number) {
+    return this.http.get(`${environment.apiHost}/students`,
+    {
+      params: {
+        page: page.toString(),
+        limit: limit.toString()
+      }
+    });
   }
 
   public viewUnenrolledStudents() {
