@@ -1,0 +1,85 @@
+<div class="heading">
+    <h4>Examination Results</h4>
+</div>
+<form [formGroup]="ResultsForm">
+<div class = "body">
+  
+    <h5>Select the Grade</h5>
+    <mat-form-field appearance="fill"  class= "width">
+      <mat-label >Grade</mat-label>
+      <mat-select name="class" formControlName="class" required>
+        <mat-option [value]="class._id" *ngFor="let class of classes">{{class.name}}</mat-option>
+    </mat-select>
+      
+   </mat-form-field><br/><br/>
+
+  <h5>Select the Term</h5>
+  <mat-form-field appearance="fill"  class= "width">
+    <mat-label>Term</mat-label>
+    <mat-select  name="term" formControlName="term" required>
+      <mat-option value="Term 1">Term 1</mat-option>
+      <mat-option value="Term 2">Term 2</mat-option>
+      <mat-option value="Term 3">Term 3</mat-option>
+      
+    </mat-select> 
+    
+  </mat-form-field><br/><br/>
+  <h5>Select the Subject</h5>
+  <mat-form-field appearance="fill"  class= "width"    >
+    <mat-label>Subject</mat-label>
+    <mat-select name="subject" formControlName="subject" required  >
+      <mat-option value="Science">Science</mat-option>
+      <mat-option value="Maths">Maths</mat-option>
+      <mat-option value="English">English</mat-option>
+      <mat-option value="Religion">Religion</mat-option>
+      <mat-option value="Music">Music</mat-option>
+      
+  
+    </mat-select> 
+    
+  </mat-form-field><br/><br/>
+</div>
+  <br/><br/>
+  <div class = "body2">
+  <table class="table table-striped" table id="results">
+        <thead>
+          <tr>
+          
+            <th scope="col">Student's Name</th>
+            <th scope="col">Marks</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          
+            <td>  <mat-form-field appearance="fill"  class= "width">
+              <mat-label >Student's Name</mat-label>
+              <mat-select name="students" formControlName="students" required>
+                <mat-option [value]="student._id" *ngFor="let student of students">{{student.fname}} {{student.lname}}</mat-option>
+            </mat-select>
+              
+              
+              
+            </mat-form-field></td>
+            <div class ="form">
+             <td> 
+              <mat-form-field appearance="fill">
+                <input matInput type="number" class="example-right-align" required name="marks" formControlName="marks">
+                        
+              </mat-form-field>
+              <button mat-stroked-button (click)="clear()">Clear</button>
+            </div>
+          </tr>
+         
+          <br/>
+         
+        </tbody>
+        
+  </table>
+  <button mat-raised-button color="primary" (click)="createNewResult()">SUBMIT</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="results()" >VIEW RESULTS</button><br/><br/>
+  <button mat-raised-button color="primary" (click)="changeResult()" *ngIf="isOnUpdate">Update</button>
+</div>
+</form>
+    
