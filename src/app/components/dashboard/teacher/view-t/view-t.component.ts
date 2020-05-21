@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { ActivatedRoute } from '@angular/router';
-import * as jspdf from 'jspdf';
-// import html2canvas from 'html2canvas';
-
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-view-t',
@@ -14,6 +12,7 @@ export class ViewTComponent implements OnInit {
 
   private id: string;
   public teacher;
+
 
   constructor(
     private studentService: TeacherService,
@@ -38,23 +37,27 @@ export class ViewTComponent implements OnInit {
     );
   }
 
-  // public downloadpdf() {
+  public downloadpdf() {
 
-  //   const data = document.getElementById('content');
+    const options = {
+      margin: 0,
+      filename: 'Teacher_Details.pdf' ,
+      image: {type: 'jpeg'},
+      html2canvas: {},
+      jsPDF: { orientation: 'landscape'}
+    };
 
-  //   html2canvas(data).then((canvas) => {
-  //     console.log(canvas);
 
-  //     const imgData = canvas.toDataURL ('image/png');
-  //     const doc = new jspdf();
-  //     doc.addImage(imgData, 0, 0, 208, 500);
-
-  //     doc.save('Test.pdf');
-
-  //   });
-
-  // }
+    const content: Element =  document.getElementById('content');
+    html2pdf()
+    .from(content)
+    .set(options)
+    .save();
 
   }
+
+
+
+}
 
 

@@ -28,7 +28,7 @@ import { ViewNComponent, DeleteDialogBox } from './components/dashboard/notice/v
 import { UpdateUnenrollComponent, DialogBox } from './components/dashboard/student/update-unenroll/update-unenroll.component';
 import { TeacherComponent } from './components/dashboard/teacher/teacher.component';
 import { AddTComponent } from './components/dashboard/teacher/add-t/add-t.component';
-import { ManageTComponent } from './components/dashboard/teacher/manage-t/manage-t.component';
+import { ManageTComponent, TDialogBox } from './components/dashboard/teacher/manage-t/manage-t.component';
 import { StudentfeesComponent } from './components/homepage/studentfees/studentfees.component';
 import { SubjectComponent } from './components/dashboard/subject/subject.component';
 import { AddsubComponent } from './components/dashboard/subject/addsub/addsub.component';
@@ -52,9 +52,13 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
+import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
 import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
-import { StudentArchiveComponent } from './components/dashboard/student/student-archive/student-archive.component';
+import { UsersComponent } from './components/dashboard/users/users.component';
+import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+
+
+import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
 import { AttendanceService } from './services/attendance.service';
 import { DatePipe } from '@angular/common';
 import { ViewStudentComponent } from './components/dashboard/student/update-unenroll/view-student/view-student.component';
@@ -64,9 +68,12 @@ import { UpdatesubComponent, DialogBoxComponent } from './components/dashboard/s
 import { ViewcComponent, DialogBoxComponent2 } from './components/dashboard/classes/viewc/viewc.component';
 import { ClasseshomeComponent } from './components/homepage/classes/classes.component';
 import { SubjecthomeComponent } from './components/homepage/subject/subject.component';
-import { DeletedListComponent } from './components/dashboard/teacher/deleted-list/deleted-list.component';
+import { DeletedListComponent, TDialogBox2 } from './components/dashboard/teacher/deleted-list/deleted-list.component';
 import { ProfitComponent } from './components/dashboard/fees/profit/profit.component';
 import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.component';
+import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
+import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
+import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 
 
 
@@ -84,7 +91,13 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     FeeDialogBox,
     UpdatefeesComponent,
     ViewNComponent,
-    DeleteDialogBox
+    DeleteDialogBox,
+    TDialogBox,
+    TDialogBox2,
+    DialogBoxResults,
+
+    StudentArchiveComponent,
+    DialogBoxStudentDel
   ],
   
   declarations: [
@@ -97,6 +110,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     UpdateUnenrollComponent,
     DialogBox,
     StudentArchiveComponent,
+    DialogBoxStudentDel,
     AttendanceComponent,
     FeesComponent,
     AddfeesComponent,
@@ -126,6 +140,10 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     ResultsComponent,
     AddResultsComponent,
     StudentResComponent,
+    UsersComponent,
+    ViewUsersComponent,
+    
+   
     ViewStudentComponent,
     HomeComponent,
     DialogBoxComponent,
@@ -140,6 +158,12 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    TDialogBox,
+    TDialogBox2,
+    Report1Component,
+    DialogBoxResults,
+    PrintNComponent,
+    SummaryAComponent
     
   ],
 
@@ -152,7 +176,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    ChartsModule
+    ChartsModule,
 
 
     ],

@@ -1,4 +1,4 @@
-<h2>Manage Teacher Information</h2>
+<h2>History</h2>
 <br>
 
 
@@ -42,7 +42,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let teacher">
-            <a mat-raised-button color="primary" style="background-color: #f69223;" (click)="deleteTeacher(teacher._id)">Delete</a>
+            <a mat-raised-button color="primary" style="background-color: #f69223;" (click)="openDialog(teacher._id)">Delete</a>
       </td>
     </ng-container>
 

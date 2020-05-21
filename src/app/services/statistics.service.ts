@@ -22,4 +22,5 @@ export class StatisticsService {
     return this.http.get(`${environment.apiHost}/statistics/byclasses`);
   }
 
+
 }
