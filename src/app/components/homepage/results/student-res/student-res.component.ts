@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators} from '@angular/forms';
 import { ResultsService } from 'src/app/services/addResults.service';
 import { MatSnackBar, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import {MatSort, MatSortable} from '@angular/material/sort';
 
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { AttendanceService } from 'src/app/services/attendance.service';
@@ -13,6 +12,7 @@ import { Label } from 'ng2-charts';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import * as html2pdf from 'html2pdf.js';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
+import {MatSort, MatSortable} from '@angular/material/sort';
 
 interface APIResponse {
   success : boolean,
@@ -20,11 +20,12 @@ interface APIResponse {
 }
 
 @Component({
-  selector: 'app-results',
-  templateUrl: './results.component.html',
-  styleUrls: ['./results.component.css']
+  selector: 'app-student-res',
+  templateUrl: './student-res.component.html',
+  styleUrls: ['./student-res.component.css']
 })
-export class ResultsComponent implements OnInit {
+
+export class StudentResComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = [ 'students','class','term','subject','marks'];
   dataSource = new MatTableDataSource();
@@ -34,18 +35,15 @@ export class ResultsComponent implements OnInit {
     marks: 0,
     
   };
-  
-  
 
-  constructor(
+  
+  constructor( 
     private resultsService: ResultsService,
     private snackBar: MatSnackBar,
     private router : Router,
-    private statisticsService: StatisticsService
-  )
- 
-  { 
+    private statisticsService: StatisticsService,) {  
   }
+  
 
   ngOnInit() {
     this.viewResults();
@@ -60,18 +58,19 @@ export class ResultsComponent implements OnInit {
   }
 
   
-  
+  //retreive all the data
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
-     this.dataSource.sort = this.sort;
      this.dataSource.filterPredicate = this.filterPredicate;
+     this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });
 
   }
 
+  //searching names
   private filterPredicate = (data, filter: string) => {
     const accumulator = (currentTerm, key) => {
       return this.nestedFilterCheck(currentTerm, data, key);
@@ -94,6 +93,7 @@ export class ResultsComponent implements OnInit {
     return applyFilter;
   }
 
+  //downloading as a pdf
   public downloadPDF () {
 
     const options ={
@@ -112,5 +112,6 @@ export class ResultsComponent implements OnInit {
        .save()
 
      }
-
+ 
+ 
 }
