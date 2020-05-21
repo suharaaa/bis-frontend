@@ -73,6 +73,7 @@ import { SummaryAComponent } from './components/dashboard/attendance/teachers/su
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   entryComponents: [
@@ -149,7 +150,8 @@ import { environment } from 'src/environments/environment';
     ViewTComponent,
     WebCamComponent,
     PrintNComponent,
-    SummaryAComponent
+    SummaryAComponent,
+    LoaderComponent
     
   ],
 
