@@ -39,17 +39,17 @@ export class AddResultsComponent implements OnInit {
   }
 
   
-  
+  //view all the added results
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
-     this.dataSource.filterPredicate = this.filterPredicate;
     }, err => {
       console.log(err.message);
     });
 
   }
 
+  //update results by id
   UpdateResults(id: String){
 
     this.router.navigate(['homepage/results'], { queryParams: { id } });
@@ -57,29 +57,10 @@ export class AddResultsComponent implements OnInit {
 
 
 
-  private filterPredicate = (data, filter: string) => {
-    const accumulator = (currentTerm, key) => {
-      return this.nestedFilterCheck(currentTerm, data, key);
-    };
-    const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
-    const transformedFilter = filter.trim().toLowerCase();
-    return dataStr.indexOf(transformedFilter) !== -1;
-  }
   
-  private nestedFilterCheck(applyFilter, data, key) {
-    if (typeof data[key] === 'object') {
-      for (const k in data[key]) {
-        if (data[key][k] !== null) {
-          applyFilter = this.nestedFilterCheck(applyFilter, data[key], k);
-        }
-      }
-    } else {
-      applyFilter += data[key];
-    }
-    return applyFilter;
-  }
   
-    openDialog(_id: string) {
+  //open deleteDialogBox
+  openDialog(_id: string) {
       const dialogRef = this.dialog.open(DialogBoxResults);
   
       dialogRef.afterClosed().subscribe(result => {
@@ -88,7 +69,8 @@ export class AddResultsComponent implements OnInit {
         }
       });
     }
-    
+  
+  //delete added results by id
   public DeleteResults(id: String){
     this.resultsService.DeleteResults(id).subscribe(res => {
       this.viewResults();
@@ -102,6 +84,7 @@ export class AddResultsComponent implements OnInit {
  
 
 }
+//dialog box
 @Component({
   selector: 'dialogBox',
   templateUrl: 'deleteDialogBox.html',

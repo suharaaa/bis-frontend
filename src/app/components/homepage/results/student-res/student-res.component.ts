@@ -55,7 +55,7 @@ export class StudentResComponent implements OnInit {
   }
 
   
-  
+  //retreive all the data
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
@@ -66,6 +66,7 @@ export class StudentResComponent implements OnInit {
 
   }
 
+  //searching names
   private filterPredicate = (data, filter: string) => {
     const accumulator = (currentTerm, key) => {
       return this.nestedFilterCheck(currentTerm, data, key);
@@ -88,6 +89,7 @@ export class StudentResComponent implements OnInit {
     return applyFilter;
   }
 
+  //downloading as a pdf
   public downloadPDF () {
 
     const options ={
