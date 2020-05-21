@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { StudentService } from "src/app/services/student.service";
 import { ActivatedRoute } from "@angular/router";
 import { ClassServices } from "src/app/services/classes.service";
+import * as html2pdf from "html2pdf.js";
 
 @Component({
   selector: "app-view-student",
@@ -34,5 +35,21 @@ export class ViewStudentComponent implements OnInit {
         console.log(err.message);
       }
     );
+  }
+
+  public toPDF() {
+    const options = {
+      filename: 'StudentDetails.pdf',
+      image: { type: 'jpeg' },
+      html2canvas: {},
+      jsPDF: { orientation: 'portrait' }
+    };
+
+    const element: Element = document.getElementById('content');
+  
+    html2pdf()
+      .from(element, 15, 15)
+      .set(options)
+      .save();
   }
 }
