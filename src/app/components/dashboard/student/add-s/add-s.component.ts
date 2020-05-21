@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ClassServices } from 'src/app/services/classes.service';
 import { Router } from '@angular/router';
 import * as Icons from '@fortawesome/free-solid-svg-icons';
-//for demo purposes
-import * as faker from 'faker';
 import { Observable, Subject } from 'rxjs';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+//for demo purposes
+import * as faker from 'faker';
+
 
 @Component({
   selector: 'app-add-s',
@@ -51,18 +52,10 @@ export class AddSComponent implements OnInit {
     private fileUploadService: FileUploadService
   ) { }
 
-  
-  getErrorMessage() {
-    if (this.studentFormGroup.controls.mail.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.mail.hasError('mail') ? 'Not a valid email' : '';
-  }
 
   ngOnInit() {
     this.classes = [];
-    // this.studentFormGroup = new FormGroup[];
+    
     this.studentFormGroup = this.formBuilder.group({
       admissionNumber: [{ value: '', disabled: true }],
       admissionDate: [new Date()],
@@ -77,15 +70,15 @@ export class AddSComponent implements OnInit {
       class: ['', Validators.required],
       mname: ['', Validators.required],
       moccupation: [''],
-      mworkp: [''],
+      mworkp: ['', [Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
       maddress: [''],
-      mphone: ['', Validators.required],
+      mphone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
       memail: ['', [Validators.required, Validators.email]],
       faname: ['', Validators.required],
       foccupation: [''],
-      fworkp: [''],
+      fworkp: ['', [Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
       faddress: [''],
-      fphone: ['', Validators.required],
+      fphone: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
       femail: ['', [Validators.required, Validators.email]],
     });
 
