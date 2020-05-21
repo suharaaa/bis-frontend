@@ -68,7 +68,7 @@ export class EditcComponent implements OnInit {
 
        .from(element)
        .set(options)
-       .save()
+       .save('classSummary.pdf')
 
      }
  
