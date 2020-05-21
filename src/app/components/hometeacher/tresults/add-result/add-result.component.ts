@@ -1,32 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResultsService } from 'src/app/services/addResults.service';
 import { MatSnackBar, MatTableDataSource, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-
+import {MatSort, MatSortable} from '@angular/material/sort';
 
 @Component({
-  selector: 'app-add-results',
-  templateUrl: './add-results.component.html',
-  styleUrls: ['./add-results.component.css']
+  selector: 'app-add-result',
+  templateUrl: './add-result.component.html',
+  styleUrls: ['./add-result.component.css']
 })
 
-
-export class AddResultsComponent implements OnInit {
+export class AddResultComponent implements OnInit {
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = [ 'students','class','term', 'subject','marks','action'];
   dataSource : MatTableDataSource<any>;
-  
 
-  
-    
-
-  constructor( 
+  constructor(
     private resultsService: ResultsService,
     private snackBar: MatSnackBar,
     private router : Router,
-    public dialog: MatDialog,
-    ) {  
-  }
-  
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.viewResults();
@@ -43,6 +37,7 @@ export class AddResultsComponent implements OnInit {
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
+     this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });
@@ -52,7 +47,7 @@ export class AddResultsComponent implements OnInit {
   //update results by id
   UpdateResults(id: String){
 
-    this.router.navigate(['homepage/results'], { queryParams: { id } });
+    this.router.navigate(['hometeacher/tresult'], { queryParams: { id } });
   }
 
 
@@ -85,6 +80,7 @@ export class AddResultsComponent implements OnInit {
 
 }
 //dialog box
+
 @Component({
   selector: 'dialogBox',
   templateUrl: 'deleteDialogBox.html',
@@ -98,5 +94,3 @@ export class DialogBoxResults {
   public DeleteResults() {}
 
 }
-
-

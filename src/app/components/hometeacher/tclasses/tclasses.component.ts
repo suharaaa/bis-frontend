@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
   data : any
 
 }*/
-@Component({
-  selector: 'app-classes',
-  templateUrl: './classes.component.html',
-  styleUrls: ['./classes.component.css']
 
+@Component({
+  selector: 'app-tclasses',
+  templateUrl: './tclasses.component.html',
+  styleUrls: ['./tclasses.component.css']
 })
-export class ClasseshomeComponent implements OnInit {
+export class TclassesComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'teacher'];
   dataSource : MatTableDataSource<any>;
@@ -26,7 +26,6 @@ export class ClasseshomeComponent implements OnInit {
   private name: String;
   private classteacher: String;*/
 
-
   constructor(
     private classServices : ClassServices,
     private snackBar : MatSnackBar,
@@ -34,7 +33,6 @@ export class ClasseshomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.findClass();
   }
 
@@ -81,4 +79,3 @@ applyFilter(keyword) {
 }
 
 }
-
