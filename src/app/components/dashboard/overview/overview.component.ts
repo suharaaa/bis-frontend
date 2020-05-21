@@ -171,7 +171,7 @@ export class OverviewComponent implements OnInit {
      name : 'subjectSummary.pdf',
      image : { type : 'jpeg'},
      html2canvas : {},
-     jsPDF : {orientation:'landscape'}
+     jsPDF : {orientation:'portrait'}
     }
   
     const element : Element = document.getElementById('content');
