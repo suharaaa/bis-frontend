@@ -85,6 +85,7 @@ import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tno
 import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
 import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
 import { AddResultComponent, DialogBoxResults } from './components/hometeacher/tresults/add-result/add-result.component';
+import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.component';
 
 
 @NgModule({
@@ -184,6 +185,8 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     TnoticeboardComponent,
     TsubjectComponent,
     TresultsComponent,
+    AddResultComponent,
+    ChartcComponent,
     AddResultComponent
   ],
 

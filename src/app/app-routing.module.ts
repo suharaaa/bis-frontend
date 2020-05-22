@@ -54,7 +54,7 @@ import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tno
 import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
 import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
 import { AddResultComponent } from './components/hometeacher/tresults/add-result/add-result.component';
-
+import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.component';
  
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -141,7 +141,8 @@ const routes: Routes = [
         children: [
           { path: 'addc', component: AddcComponent },
           { path: 'viewc', component: ViewcComponent },
-          { path: 'editc', component: EditcComponent }
+          { path: 'editc', component: EditcComponent },
+          { path: 'chartc', component: ChartcComponent }
         ]
       },
       {

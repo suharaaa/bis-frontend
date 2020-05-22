@@ -90,34 +90,7 @@
 </div>
 <br>
 
-    <!--div  class="container-fluid">
-       
-    <div class="row">
-      
-            <div class="col-md-6">
-                <mat-card class="chart-card" style="margin-left: 46px;">
-                   <mat-card-header>
-                        <mat-card-title>No of Students in a class</mat-card-title>
-                        <mat-card-subtitle>Students by class by year</mat-card-subtitle>
-                        <mat-card-subtitle>Primary Section</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <canvas *ngIf="!isloading" baseChart [datasets]="BarChartData" [labels]="BarChartLabels" [options]="BarChartOptions"
-                                    [legend]="BarChartLegend" [chartType]="BarChartType">
-                                </canvas>
-                            </div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-            
-            
-    </div>
-    </div>
-</div> 
-    <button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button-->
+  
  
         
 
@@ -126,10 +99,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <mat-card class="chart-card" style="margin-left: 46px;">
+                        <mat-card class="chart-card" style="margin-left: 46px;" >
                             <mat-card-header>
-                                <mat-card-title>No of Students in a class</mat-card-title>
+                                <mat-card-title>No of students in a class</mat-card-title>
                                 <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                                <mat-card-subtitle>Primary Section</mat-card-subtitle>
                             </mat-card-header>
                             <mat-card-content>
                                 <div class="row">
@@ -146,5 +120,3 @@
             </div>
         </div>            
 <br>  
-<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button> 
- 

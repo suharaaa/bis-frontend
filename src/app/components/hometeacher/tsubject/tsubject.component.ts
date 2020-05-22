@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SubjectServices } from 'src/app/services/subject.service';
 import { ClassServices } from 'src/app/services/classes.service';
-import {  MatSnackBar } from '@angular/material';
+import {  MatSnackBar, MatSort } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
@@ -21,8 +21,12 @@ export interface APIResponse {
 })
 export class TsubjectComponent implements OnInit {
 
-  displayedColumns: string[] = ['class', 'subjectname', 'teacher'];
-  dataSource : MatTableDataSource<any>;
+  //displayedColumns: string[] = ['class', 'subjectname', 'teacher'];
+  //dataSource : MatTableDataSource<any>;
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
+  displayedColumns: string[] = ['teacher', 'subjectname','class'];
+  dataSource = new MatTableDataSource();
+
 
   constructor(
     private subjectServices : SubjectServices,
@@ -41,6 +45,7 @@ export class TsubjectComponent implements OnInit {
     this.subjectServices.findSubjects().subscribe((res: any) => {
       this.dataSource =new MatTableDataSource (res.data);
       this.dataSource.filterPredicate = this.filterPredicate;
+      this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });
