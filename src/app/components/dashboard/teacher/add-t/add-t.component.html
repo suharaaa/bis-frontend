@@ -88,7 +88,9 @@
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Phone Number</mat-label>
                     <input matInput name="phone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000" formControlName="phone">
-                    
+                    <mat-error *ngIf="TeacherFormGroup.controls.phone.hasError('pattern') ||TeacherFormGroup.controls.phone.hasError('minLength') ||
+                    TeacherFormGroup.controls.phone.hasError('maxLength') ||!TeacherFormGroup.controls.phone.hasError('required')">
+                    Please enter a valid phone number</mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -109,7 +111,9 @@
                 <mat-form-field appearance="outline" class="width">
                     <mat-label>Mobile Number</mat-label>
                     <input matInput name="mphone" [errorStateMatcher]="TeacherErrorStateMatcher" placeholder="0710000000" formControlName="mphone" >
-    
+                    <mat-error *ngIf="TeacherFormGroup.controls.mphone.hasError('pattern') ||TeacherFormGroup.controls.mphone.hasError('minLength') ||
+                    TeacherFormGroup.controls.mphone.hasError('maxLength') ||!TeacherFormGroup.controls.mphone.hasError('required')">
+                    Please enter a valid phone number</mat-error>
                 </mat-form-field>
             </div>
 
