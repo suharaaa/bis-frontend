@@ -53,7 +53,7 @@ import { ViewAComponent } from './components/dashboard/attendance/teachers/view-
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
-import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+import { ViewUsersComponent, DeleteUserDialogBox } from './components/dashboard/users/view-users/view-users.component';
 
 
 import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
@@ -72,6 +72,8 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
@@ -106,7 +108,8 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     TDialogBox2,
     DialogBoxResults,
     StudentArchiveComponent,
-    DialogBoxStudentDel
+    DialogBoxStudentDel,
+    DeleteUserDialogBox
   ],
   
   declarations: [
@@ -174,6 +177,8 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     DialogBoxResults,
     PrintNComponent,
     SummaryAComponent,
+    DeleteUserDialogBox,
+    UserreportComponent,
     HometeacherComponent,
     TclassesComponent,
     ThomeComponent,

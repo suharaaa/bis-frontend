@@ -55,7 +55,8 @@
                 <mat-form-field appearance="outline" class="width">
                   <mat-label>Enter your password</mat-label>
                   <input matInput [type]="hide ? 'password' : 'text'" name="password" [formControl]="Password"
-                    [errorStateMatcher]="StudentErrorStateMatcher">
+                    [errorStateMatcher]="StudentErrorStateMatcher" required>
+                    <mat-error *ngIf="Password.hasError('required')">Enter a password</mat-error>
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -66,7 +67,7 @@
                 <mat-form-field appearance="outline" class="width">
                   <mat-label>Re-enter your password</mat-label>
                   <input matInput [type]="hide ? 'password' : 'text'" name="reenter" [formControl]="Reenter"
-                    [errorStateMatcher]="StudentErrorStateMatcher">
+                    [errorStateMatcher]="StudentErrorStateMatcher" required>
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -79,7 +80,7 @@
                   (click)="createNewUser()" *ngIf="!isOnUpdate">SignUp</button>
 
             
-              <!-- <button mat-raised-button color="primary" (click)="changeUser()" *ngIf="isOnUpdate">Update</button> -->
+              <button mat-raised-button color="primary" class="width" (click)="changeUser()" *ngIf="isOnUpdate">Update</button>
             
 
 
@@ -89,7 +90,7 @@
               </div>
               <div class="text-block text-center my-3">
                 <span class="text-small font-weight-semibold">Already have an account?</span>
-                <a href="login.html" class="text-black text-small">LogIn</a>
+                <a href="" class="text-black text-small">LogIn</a>
               </div>
             </form>
           </div>
@@ -108,6 +109,10 @@
         </div>
       </div>
     </div>
-    <!-- content-wrapper ends -->
+   
   </div>
-</div>
+</div> 
+
+
+
+
