@@ -48,6 +48,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
 
  
 const routes: Routes = [
@@ -142,7 +143,8 @@ const routes: Routes = [
         path: 'cl',
         component: UsersComponent,
         children: [
-          { path: 'viewu', component: ViewUsersComponent }
+          { path: 'viewu', component: ViewUsersComponent },
+          { path: 'userreport', component: UserreportComponent }
         ]
       }
     ]
