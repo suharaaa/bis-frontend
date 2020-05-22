@@ -11,6 +11,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
+import * as html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-overview',
@@ -54,13 +55,16 @@ export class OverviewComponent implements OnInit {
   };
 
  
-  
-  public BarChartLabels = [new Date().getFullYear() - 1, new Date().getFullYear()];
+  //get students by classes
+  public BarChartLabels = [ new Date().getFullYear()];
   public BarChartType = 'bar';
   public BarChartLegend = true;
   public BarChartData = [
-    { data: [0, 0], label: 'Grade 01', backgroundColor: '#f69223' },
-    { data: [0, 0], label: 'Grade 02', backgroundColor: '#1f3146' }
+    { data: [0,0], label: 'Grade 01', backgroundColor: '#f69223' },
+    { data: [0,0], label: 'Grade 02', backgroundColor: '#90ec3a' },
+    { data: [0,0], label: 'Grade 03', backgroundColor:  '#1f3146'},
+    { data: [0,0], label: 'Grade 04', backgroundColor: '#3a8dec' },
+    { data: [0,0], label: 'Grade 05', backgroundColor: '#ec3aa2' },
   ];
 
 
@@ -115,13 +119,27 @@ export class OverviewComponent implements OnInit {
     });
 
 
-    this.statisticsService.getTechersBysubject().subscribe((response: APIResponse) => {
-      this.BarChartData[0].data[0] = response.data.lastYearEnglish;
-      this.BarChartData[0].data[1] = response.data.thisYearEnglish;
-      this.BarChartData[1].data[0] = response.data.lastYearMaths;
-      this.BarChartData[1].data[1] = response.data.thisYearMaths;
+
+    //get students by classes
+    this.statisticsService.getStudentsByClass().subscribe((response: APIResponse) => {
+    
+      this.BarChartData[0].data[0] = response.data.thisYear01;
+  
+      this.BarChartData[1].data[0]= response.data.thisYear02;
+    
+      this.BarChartData[2].data[0] = response.data.thisYear03;
+      
+      this.BarChartData[3].data[0] = response.data.thisYear04;
+    
+      this.BarChartData[4].data[0]= response.data.thisYear05;
+
       this.isloading = false;
     });
+
+
+
+
+
     this.attendanceService.getAttendanceByDate(new Date()).subscribe((response: APIResponse) => {
       this.pieChartData[0] = response.data.reduce((c, a) => {
         if (a.status === 'present') {
@@ -142,5 +160,28 @@ export class OverviewComponent implements OnInit {
       this.isLoadingPieChart = false;
     });
   }
+
+
+
+//generate pdf
+public downloadPDF () {
+
+  const options ={
+
+   name : 'output.pdf',
+   document: { type : 'jpeg'},
+   html2canvas : {},
+   jsPDF : {orientation:'landscape'}
+  }
+
+  const element : Element = document.getElementById('content');
+  html2pdf()
+
+     .from(element)
+     .set(options)
+     .save()
+
+   }
+
 
 }

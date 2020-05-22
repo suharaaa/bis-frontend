@@ -3,11 +3,11 @@ import { NoticeService } from 'src/app/services/notice.service';
 import { APIResponse } from 'src/app/models/apiresponse';
 
 @Component({
-  selector: 'app-noticeboard',
-  templateUrl: './noticeboard.component.html',
-  styleUrls: ['./noticeboard.component.css']
+  selector: 'app-tnoticeboard',
+  templateUrl: './tnoticeboard.component.html',
+  styleUrls: ['./tnoticeboard.component.css']
 })
-export class NoticeboardComponent implements OnInit {
+export class TnoticeboardComponent implements OnInit {
 
   private _id: String;
   private publishedOn: Date;
@@ -28,8 +28,9 @@ export class NoticeboardComponent implements OnInit {
     this.teachersOnly = false;
     this.updatedOn = new Date();
     this.expiresOn = new Date();
-    this.noticeService.viewPublicNotices().subscribe((response : APIResponse) => {
+    this.noticeService.viewNotices().subscribe((response : APIResponse) => {
       this.notices = response.data;
     });
   }
+
 }

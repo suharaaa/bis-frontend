@@ -1,32 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResultsService } from 'src/app/services/addResults.service';
 import { MatSnackBar, MatTableDataSource, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-
+import {MatSort, MatSortable} from '@angular/material/sort';
 
 @Component({
-  selector: 'app-add-results',
-  templateUrl: './add-results.component.html',
-  styleUrls: ['./add-results.component.css']
+  selector: 'app-add-result',
+  templateUrl: './add-result.component.html',
+  styleUrls: ['./add-result.component.css']
 })
 
-
-export class AddResultsComponent implements OnInit {
+export class AddResultComponent implements OnInit {
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = [ 'students','class','term', 'subject','marks','action'];
   dataSource : MatTableDataSource<any>;
-  
 
-  
-    
-
-  constructor( 
+  constructor(
     private resultsService: ResultsService,
     private snackBar: MatSnackBar,
     private router : Router,
-    public dialog: MatDialog,
-    ) {  
-  }
-  
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.viewResults();
@@ -39,47 +33,29 @@ export class AddResultsComponent implements OnInit {
   }
 
   
-  
+  //view all the added results
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
-     this.dataSource.filterPredicate = this.filterPredicate;
+     this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });
 
   }
 
+  //update results by id
   UpdateResults(id: String){
 
-    this.router.navigate(['homepage/results'], { queryParams: { id } });
+    this.router.navigate(['hometeacher/tresult'], { queryParams: { id } });
   }
 
 
 
-  private filterPredicate = (data, filter: string) => {
-    const accumulator = (currentTerm, key) => {
-      return this.nestedFilterCheck(currentTerm, data, key);
-    };
-    const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
-    const transformedFilter = filter.trim().toLowerCase();
-    return dataStr.indexOf(transformedFilter) !== -1;
-  }
   
-  private nestedFilterCheck(applyFilter, data, key) {
-    if (typeof data[key] === 'object') {
-      for (const k in data[key]) {
-        if (data[key][k] !== null) {
-          applyFilter = this.nestedFilterCheck(applyFilter, data[key], k);
-        }
-      }
-    } else {
-      applyFilter += data[key];
-    }
-    return applyFilter;
-  }
   
-    openDialog(_id: string) {
+  //open deleteDialogBox
+  openDialog(_id: string) {
       const dialogRef = this.dialog.open(DialogBoxResults);
   
       dialogRef.afterClosed().subscribe(result => {
@@ -88,7 +64,8 @@ export class AddResultsComponent implements OnInit {
         }
       });
     }
-    
+  
+  //delete added results by id
   public DeleteResults(id: String){
     this.resultsService.DeleteResults(id).subscribe(res => {
       this.viewResults();
@@ -102,6 +79,8 @@ export class AddResultsComponent implements OnInit {
  
 
 }
+//dialog box
+
 @Component({
   selector: 'dialogBox',
   templateUrl: 'deleteDialogBox.html',
@@ -115,5 +94,3 @@ export class DialogBoxResults {
   public DeleteResults() {}
 
 }
-
-

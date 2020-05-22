@@ -52,8 +52,6 @@ import { CreateAComponent } from './components/dashboard/attendance/teachers/cre
 import { ViewAComponent } from './components/dashboard/attendance/teachers/view-a/view-a.component';
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent, DialogBoxResults  } from './components/homepage/results/add-results/add-results.component';
-import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
 import { ViewUsersComponent, DeleteUserDialogBox } from './components/dashboard/users/view-users/view-users.component';
 
@@ -76,6 +74,13 @@ import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.c
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
 
+import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
+import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
+import { ThomeComponent } from './components/hometeacher/thome/thome.component';
+import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tnoticeboard.component';
+import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
+import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
+import { AddResultComponent, DialogBoxResults } from './components/hometeacher/tresults/add-result/add-result.component';
 
 
 @NgModule({
@@ -96,7 +101,6 @@ import { UserreportComponent } from './components/dashboard/users/userreport/use
     TDialogBox,
     TDialogBox2,
     DialogBoxResults,
-
     StudentArchiveComponent,
     DialogBoxStudentDel,
     DeleteUserDialogBox
@@ -140,8 +144,6 @@ import { UserreportComponent } from './components/dashboard/users/userreport/use
     ViewAComponent,
     UpdateAComponent,
     ResultsComponent,
-    AddResultsComponent,
-    StudentResComponent,
     UsersComponent,
     ViewUsersComponent,
     
@@ -167,7 +169,14 @@ import { UserreportComponent } from './components/dashboard/users/userreport/use
     PrintNComponent,
     SummaryAComponent,
     DeleteUserDialogBox,
-    UserreportComponent
+    UserreportComponent,
+    HometeacherComponent,
+    TclassesComponent,
+    ThomeComponent,
+    TnoticeboardComponent,
+    TsubjectComponent,
+    TresultsComponent,
+    AddResultComponent
     
   ],
 

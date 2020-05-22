@@ -10,9 +10,20 @@
 
 
 <h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Summary of Subjects</h2><br>
+<div class="container-fluid">
+  <div class="row"  *ngIf="dataSource">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+  </div>
+</div>
+    
+  
+<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
 
     
-<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
 
 
     

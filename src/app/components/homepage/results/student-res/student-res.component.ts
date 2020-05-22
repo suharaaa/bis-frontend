@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators} from '@angular/forms';
 import { ResultsService } from 'src/app/services/addResults.service';
@@ -12,6 +12,7 @@ import { Label } from 'ng2-charts';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import * as html2pdf from 'html2pdf.js';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
+import {MatSort, MatSortable} from '@angular/material/sort';
 
 interface APIResponse {
   success : boolean,
@@ -23,7 +24,9 @@ interface APIResponse {
   templateUrl: './student-res.component.html',
   styleUrls: ['./student-res.component.css']
 })
+
 export class StudentResComponent implements OnInit {
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = [ 'students','class','term','subject','marks'];
   dataSource = new MatTableDataSource();
   
@@ -55,17 +58,19 @@ export class StudentResComponent implements OnInit {
   }
 
   
-  
+  //retreive all the data
   viewResults(){
     this.resultsService.viewResults().subscribe((res: any) => {
      this.dataSource = new MatTableDataSource(res.data);
      this.dataSource.filterPredicate = this.filterPredicate;
+     this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });
 
   }
 
+  //searching names
   private filterPredicate = (data, filter: string) => {
     const accumulator = (currentTerm, key) => {
       return this.nestedFilterCheck(currentTerm, data, key);
@@ -88,6 +93,7 @@ export class StudentResComponent implements OnInit {
     return applyFilter;
   }
 
+  //downloading as a pdf
   public downloadPDF () {
 
     const options ={

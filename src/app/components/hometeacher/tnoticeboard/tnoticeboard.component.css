@@ -1,0 +1,21 @@
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+notice-card {
+    max-width: 100%;
+    min-width: 400px;
+    border-radius: 5px;
+  }
+  
+  button {
+    float: right;
+    margin-right: 15px;
+  }
+  
+  p {
+    margin-left: 15px;;
+  }
+  

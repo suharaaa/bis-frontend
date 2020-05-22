@@ -8,8 +8,6 @@ import { AddSComponent } from './components/dashboard/student/add-s/add-s.compon
 import { AttendanceComponent } from './components/dashboard/attendance/attendance.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
-import { AddResultsComponent } from './components/homepage/results/add-results/add-results.component';
-import { StudentResComponent } from './components/homepage/results/student-res/student-res.component';
 import { NoticeComponent } from './components/dashboard/notice/notice.component';
 import { PublishNComponent } from './components/dashboard/notice/publish-n/publish-n.component';
 import { ViewNComponent } from './components/dashboard/notice/view-n/view-n.component';
@@ -49,6 +47,13 @@ import { Report1Component } from './components/dashboard/teacher/report1/report1
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
+import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
+import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
+import { ThomeComponent } from './components/hometeacher/thome/thome.component';
+import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tnoticeboard.component';
+import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
+import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
+import { AddResultComponent } from './components/hometeacher/tresults/add-result/add-result.component';
 
  
 const routes: Routes = [
@@ -151,22 +156,32 @@ const routes: Routes = [
   },
 
 
-  {path: 'homepage', 
-  component: HomepageComponent,
+  { 
+    path: 'homepage', 
+    component: HomepageComponent,
     children:[
       { path: '', pathMatch: 'full', redirectTo: 'home' },
       { path: 'home', component: HomeComponent },
       { path: 'noticeboard', component: NoticeboardComponent },
-      { path: 'results',  component: ResultsComponent},
-      {path:'addResults', component: AddResultsComponent},
-       {path:'student-res', component: StudentResComponent},
-      
+      { path: 'results',  component: ResultsComponent },
       { path: 'classes', component: ClasseshomeComponent },
       { path: 'subject', component: SubjecthomeComponent },
-     
       { path: 'studentfees', component: StudentfeesComponent }
     ]
+  },
 
+  {
+    path: 'hometeacher',
+    component: HometeacherComponent,
+    children:[
+      { path: '', pathMatch: 'full', redirectTo: 'thome' },
+      { path: 'thome', component:ThomeComponent },
+      { path: 'tnoticeboard', component:TnoticeboardComponent },
+      { path: 'tresult', component:TresultsComponent },
+      { path: 'taddresult', component:AddResultComponent},
+      { path: 'tclasses', component:TclassesComponent },
+      { path: 'tsubject', component:TsubjectComponent }
+    ]
   }
 
 ];

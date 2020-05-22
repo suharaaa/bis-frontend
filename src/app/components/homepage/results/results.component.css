@@ -1,35 +1,32 @@
 
+
 .heading{
-    text-align: left;
-    padding-left: 75px;
-    padding-top: 20px;
-    padding-bottom: 45px;
-  }
-  .body{
-    padding-left: 5%;
-    padding-right: 50%;
-  }
-  .body2{
-    padding-left:  5%;
-    padding-right: 10%;
-    padding-bottom: 10%;
-  }
+  text-align: left;
+  padding-left: 10%;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+.container-fluid{
+  margin-left: 10%;
+  margin-bottom: 10px;
+  width: fit-content;
  
-  .tableMarks{
-    padding-left: 10%;
-    padding-right: 10%;
-    
-}
-th{
-    padding-right: 75px;
 }
 
-td{
-    padding-right: 75px;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
 }
 
-
-
-
-
+.mat-table{
+  margin-left: 8%;
+  margin-bottom:  5%;
+  margin-right: 10%;
  
+  
+}
+.but{
+margin-left: 10%;
+}
+
+
