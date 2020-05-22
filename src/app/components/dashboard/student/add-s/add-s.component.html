@@ -1,10 +1,11 @@
-<h2>Student Registration</h2>
+<h2 *ngIf="!isOnUpdate">Student Registration</h2>
+<h2 *ngIf="isOnUpdate">Update Student</h2>
 <br />
 <form [formGroup]="StudentFormGroup">
   <div class="admission">
     <div class="row">
       <div class="col-md-6"></div>
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="isOnUpdate">
         <button mat-stroked-button color="warn" (click)="populateForm()"
           style="float: right; position: relative; top: -60px;">
           Populate form - DEMO ONLY
@@ -221,6 +222,8 @@
         <mat-form-field appearance="outline" class="lwidth">
           <mat-label>Address</mat-label>
           <input matInput name="madd" placeholder="221B, Backer Street, Colombo" formControlName="maddress" />
+          <mat-error *ngIf="StudentFormGroup.controls.address.hasError('required')">Please enter mother's address
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -295,6 +298,8 @@
         <mat-form-field appearance="outline" class="lwidth">
           <mat-label>Address</mat-label>
           <input matInput name="fadd" placeholder="221B, Backer Street, Colombo" formControlName="faddress" />
+          <mat-error *ngIf="StudentFormGroup.controls.address.hasError('required')">Please enter father's address
+          </mat-error>
         </mat-form-field>
       </div>
 
