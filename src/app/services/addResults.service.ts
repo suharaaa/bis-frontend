@@ -24,10 +24,7 @@ import { Results } from '../models/results';
   public DeleteResults(id){
     return this.http.delete(`${environment.apiHost}/results/${id}`);
   }
-  
-  /*public UpdateResults(id:String,grade,term,subject,name,marks){
-    return this.http.put(`${environment.apiHost}/results/${id}`,{grade, term, subject,name, marks});
-  }*/
+ 
 
   public UpdateResults(id:String ,results){
     return this.http.put(`${environment.apiHost}/results/${id}`,results);
