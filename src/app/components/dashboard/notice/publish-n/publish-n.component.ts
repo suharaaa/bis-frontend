@@ -22,7 +22,6 @@ export class PublishNComponent implements OnInit {
   private content: String;
   private teachersOnly: boolean;
   private expiresOn: Date;
-  private noOfViewers: number;
   private isOnUpdate: boolean;
   private publishedOn: Date;
 
@@ -39,7 +38,6 @@ export class PublishNComponent implements OnInit {
     this.content = '';
     this.teachersOnly = false;
     this.expiresOn = new Date();
-    this.noOfViewers = 0;
     this.publishedOn = new Date();
 
     this.route.queryParams.subscribe(params => {
@@ -58,11 +56,11 @@ export class PublishNComponent implements OnInit {
   }
 
   createNotice() {
-    this.noticeService.createNotice(this.title,this.content,this.teachersOnly,this.expiresOn,this.noOfViewers).subscribe(response => {
+    this.noticeService.createNotice(this.title,this.content,this.teachersOnly,this.expiresOn).subscribe(response => {
       console.log(response);
       this.snackBar.open('Notice is published successfully', null, { duration : 2000});
     }, err => {
-      this.snackBar.open('Title & Content required', null, { duration : 3000});
+      this.snackBar.open('Title, Message & Expiry Date are required', null, { duration : 3000});
       console.log(err.message);
     });
     this.clear();

@@ -57,7 +57,7 @@ export class EditcComponent implements OnInit {
 
     const options ={
 
-     name : 'output.pdf',
+     name : 'Results.pdf',
      image : { type : 'jpeg'},
      html2canvas : {},
      jsPDF : {orientation:'landscape'}
@@ -68,7 +68,7 @@ export class EditcComponent implements OnInit {
 
        .from(element)
        .set(options)
-       .save()
+       .save('classSummary.pdf')
 
      }
  

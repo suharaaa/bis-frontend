@@ -25,7 +25,6 @@ export class ViewNComponent implements OnInit {
   private publishedOn: Date;
   private title: String;
   private teachersOnly: Boolean;
-  private noOfViewers: Number;
   private updatedOn: Date;
   private expiresOn: Date;
   private notices:[];
@@ -43,7 +42,6 @@ export class ViewNComponent implements OnInit {
     this.publishedOn = new Date();
     this.title = '';
     this.teachersOnly = false;
-    this.noOfViewers = null;
     this.updatedOn = new Date();
     this.expiresOn = new Date();
     this.currentDate = new Date();

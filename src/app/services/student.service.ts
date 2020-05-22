@@ -19,7 +19,7 @@ export class StudentService {
     return this.http.post(`${environment.apiHost}/students`, student);
   }
 
-  public viewStudents(page: number, limit: number) {
+  public viewStudents(page?: number, limit?: number) {
     return this.http.get(`${environment.apiHost}/students`,
     {
       params: {

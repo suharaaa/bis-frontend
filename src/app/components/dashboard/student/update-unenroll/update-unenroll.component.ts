@@ -38,6 +38,10 @@ export class UpdateUnenrollComponent implements OnInit {
   }
 
   changePage($event) {
+    this.filters = {
+      page: $event.pageIndex,
+      limit: $event.pageSize
+    };
     this.viewStudents($event.pageIndex, $event.pageSize);
   }
 
@@ -104,7 +108,7 @@ export class UpdateUnenrollComponent implements OnInit {
   public unenroll(_id: string) {
     this.studentService.unenrollStudent(_id).subscribe(
       (res) => {
-        this.viewStudents();
+        this.viewStudents(this.filters.page, this.filters.limit);
         //notify
         this.snackbar.open("Unenrolled successfully!", "", { duration: 2000 });
       },

@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ClassServices } from 'src/app/services/classes.service';
 import {  MatSnackBar } from '@angular/material';
@@ -80,12 +79,6 @@ private nestedFilterCheck(applyFilter, data, key) {
 applyFilter(keyword) {
   this.dataSource.filter = keyword.trim().toLowerCase();
 }
-
-
-
-
-  
-  
 
 }
 

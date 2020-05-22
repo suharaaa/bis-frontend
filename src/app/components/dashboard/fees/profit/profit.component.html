@@ -1,11 +1,14 @@
-
-  <h2>Student Fees</h2>
+<div id="content" #content>
+  <h2>Student Term Fees</h2>
 
   <br>
+
   
-  <h4> Fees Income</h4>
-  <br>
 
+  
+  <h4> Fees Details as at {{curDate | date:'yyyy-MM-dd'}}</h4>
+  <br>
+  <h5>Per student</h5>
   <div class="container-fluid">
     <div class=row>
       <mat-form-field appearance="outline">
@@ -15,7 +18,7 @@
   
     </div>
     
-    <button mat-raised-button color="primary" value="Export pdf" >Export PDF</button>
+    <button mat-raised-button color="primary" value="Export pdf" (click)="downloadPDFNew()" >Export PDF</button>
   </div>
 
 
@@ -68,12 +71,16 @@
       <td mat-cell *matCellDef="let fees"> {{fees.other}} </td>
     </ng-container>
 
+    
     <ng-container matColumnDef="tot">
       <th mat-header-cell *matHeaderCellDef> TOTAL </th>
       <td mat-cell *matCellDef="let fees"> {{ fees.termfee + fees.facilityfee + fees.librarycharges + fees.laboratorycharges + fees.transportationfee + fees.other }}  </td>
     </ng-container>
 
-  
+    <ng-container matColumnDef="updatedon">
+      <th mat-header-cell *matHeaderCellDef> Updated On</th>
+      <td mat-cell *matCellDef="let fees"> {{fees.updatedOn}} </td>
+    </ng-container>
 
 
     <ng-container matColumnDef="action">
@@ -92,22 +99,9 @@
        <p>No of students:
         <input id = "nw" type="number" class="form-control" #first name ="num1"  />
     </p>
-    <p>Total Fee Income:
-        <input id = "nwe" type="number" class="form-control" #second name ="num1"   />
-    </p>
-    <!-- <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
+  
 
-    
-    <p>Sum: {{ first.value *second.value }}</p>
-
-        <input id="a" #first class="form-control" name="valuea" type="number" />
-            <input id="b" #second class="form-control" name="valueb" type="number"/>
-                <input id="ab" class="form-control" name="mulvalue" type="number" [value]="(first.value && second.value) ? (+first.value * +second.value) : ''" />
-
-                <input id="abc" class="form-control" name="mulvalue2" type="number" [value]="(fees.other && second.value) ? (+fees.other * +second.value) : ''" />
-                {{fees.other * fees.facilityfee}}
-
-                Total Fees : {{first.value * second.value }} -->
+   
       </td>
     </ng-container>
 
@@ -130,6 +124,42 @@
 
 
   </table>
+
+
+
+
+
+
+  <div class="board">
+    <div style="width: 75%;" >
+        <mat-card class="notice-card" *ngFor="let fees of fees" style="margin:1em;">
+            <mat-card-header>
+            <mat-card-title>{{fees.grade}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class = "feesv">
+
+              <p>Term Fees Rs.{{ fees.termfee }}  </p>            
+              <p> Facility Fees Rs.{{ fees.facilityfee }} </p>
+              <p> Library Charges Rs.{{ fees.librarycharges }} </p>
+              <p> Laboratory Charges Rs.{{ fees.laboratorycharges }} </p>
+              <p> Transportation Fees Rs.{{ fees.transportationfee }} </p>
+              <p> Other charges Rs.{{ fees.other }} </p>
+              <p>Updated on {{fees.updatedOn }}</p>
+           
+
+            </div>
+              
+              <p class = "total" > TOTAL Term Fees = rs. {{ fees.termfee +  fees.facilityfee + fees.librarycharges + fees.laboratorycharges + fees.transportationfee + fees.other }} </p>
+            
+        </mat-card-content>
+           
+          
+        </mat-card>
+    </div>
+  </div>
+</div>
 
 
   
