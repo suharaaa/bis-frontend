@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { UsersService } from 'src/app/services/users.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ViewUsersComponent implements OnInit {
 
     private usersService: UsersService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
 
   ) { }
 
@@ -56,6 +58,7 @@ export class ViewUsersComponent implements OnInit {
 
   DeleteUser(id: String){
     this.usersService.DeleteUser(id).subscribe(response => {
+      this.findUsers();
       console.log(response);
       this.snackBar.open('User has been successfully deleted', null, { duration : 2000});
      
@@ -64,6 +67,33 @@ export class ViewUsersComponent implements OnInit {
       console.log(err.message);
     });
   }
+
+
+  openDeleteUser(_id: string) {
+    const dialogRef = this.dialog.open(DeleteUserDialogBox);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        this.DeleteUser(_id);
+      }
+    });
+  }
+
+
+}
+
+
+@Component({
+  selector: 'deleteuser',
+  templateUrl: 'deleteuser.html',
+})
+export class DeleteUserDialogBox {
+
+  constructor (
+
+  ){}
+
+  public DeleteUser() {}
 
 }
 
