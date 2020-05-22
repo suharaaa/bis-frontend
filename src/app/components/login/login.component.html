@@ -5,7 +5,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
               <form action="#">
-                <div class="form-group">
+                <div class="form-group" name = "loginform">
                     <mat-form-field appearance="outline" class="width">
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="pat@example.com" [formControl]="email" required>
@@ -15,15 +15,18 @@
                 <div class="form-group">
                     <mat-form-field appearance="outline" class="width">
                         <mat-label>Enter your password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <input matInput [type]="hide ? 'password' : 'text'" required>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <button mat-raised-button color="primary" class="width" [routerLink]="['/dashboard']" >Login</button>
-                </div>
+                </div> -->
+                <div class="form-group">
+                  <button mat-raised-button color="primary" class="width" (click)="onLoginButtonClicked()" >Login</button>
+              </div>
                 <div class="form-group d-flex justify-content-between">
                   <div class="form-check form-check-flat mt-0">
                     <label class="form-check-label">
@@ -33,7 +36,7 @@
                 </div>
                 <div class="form-group">
                   <button class="btn btn-block g-login">
-                    <img class="mr-3" src="../../../assets/images/icon-google.svg" alt="">Log in with Google</button>
+                    <img class="mr-3" alt="" href="overview">Login as admin</button>
                 </div>
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">Not a member ?</span>

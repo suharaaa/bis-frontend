@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher, MatSnackBar } from '@angular/material';
 import { Validators, FormControl } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 //import { Router } from '@angular/router';
 
 
@@ -29,55 +29,61 @@ export class SignupComponent implements OnInit {
   private matcher: StudentErrorStateMatcher;
   private password: FormControl;
   private reenter: FormControl;
-  // private mail: string;
-  // private password: string;
+  public isOnUpdate: boolean;
+  private id: string;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
+
+
+
+
+
+
+
   //usersService: any;
   constructor(
     // private router: Router,
     private snackBar: MatSnackBar,
-    private UsersService: UsersService
+    private UsersService: UsersService,
+    private route: ActivatedRoute
   ) { }
 
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
+ 
+ 
 
   
   ngOnInit() {
     this.matcher = new StudentErrorStateMatcher();
     this.fullname = new FormControl('', [Validators.required]);
     this.grade = new FormControl('', [Validators.required]);
-    this.email = new FormControl('', [Validators.required]);
+    this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required]);
     this.reenter = new FormControl('', [Validators.required]);
 
 
 
-    // this.route.queryParams.subscribe(params => {
-    //   if (params.id) {
-    //     this.isOnUpdate = true;
-    //     this.UsersService.findUserID(params.id).subscribe((res: APIResponse) => {
-    //       this.id = params.id;
-    //       this.fullname = res.data.fullname;
-    //       this.grade = res.data.grade;
-    //       this.email=res.data.email;
-    //       this.password = res.data.password;
-    //       this.reenter = res.data.reenter;
+
+
+
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.isOnUpdate = true;
+        this.UsersService.findUserID(params.id).subscribe((res: APIResponse) => {
+          this.id = params.id;
+          this.fullname = res.data.fullname;
+          this.grade = res.data.grade;
+          this.email=res.data.email;
+          this.password = res.data.password;
+          this.reenter = res.data.reenter;
       
        
 
-    //     });
-    //   }else{
-    //     this.isOnUpdate = false;
-    //   }
-    // });
+        });
+      }else{
+        this.isOnUpdate = false;
+      }
+    });
 
 
   
@@ -131,5 +137,19 @@ export class SignupComponent implements OnInit {
     });
 
   }
+
+
+
+
+
+  
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
 
 }
