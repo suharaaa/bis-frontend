@@ -14,7 +14,7 @@
 
 <br/>
 
-<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  width= 1000px >
+<table mat-table mat-table [dataSource]="dataSource" matSort matSortActive="term" matSortDirection="asc"class="mat-elevation-z8"  width= 1000px >
 
 <ng-container matColumnDef="students">
   <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -23,12 +23,12 @@
 
 
 <ng-container matColumnDef="class">
-  <th mat-header-cell *matHeaderCellDef> Grade</th>
+  <th mat-header-cell *matHeaderCellDef > Grade</th>
   <td mat-cell *matCellDef="let result">{{result.class && result.class.name}} </td>
 </ng-container>
 
 <ng-container matColumnDef="term">
-  <th mat-header-cell *matHeaderCellDef>Term </th>
+  <th mat-header-cell *matHeaderCellDef  mat-sort-header>Term </th>
   <td mat-cell *matCellDef="let result"> {{result.term}} </td>
 </ng-container>
 
