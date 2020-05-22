@@ -5,7 +5,7 @@
   <div class="admission">
     <div class="row">
       <div class="col-md-6"></div>
-      <div class="col-md-6" *ngIf="isOnUpdate">
+      <div class="col-md-6" *ngIf="!isOnUpdate">
         <button mat-stroked-button color="warn" (click)="populateForm()"
           style="float: right; position: relative; top: -60px;">
           Populate form - DEMO ONLY
