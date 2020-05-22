@@ -12,7 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
-import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
+import { AddSComponent, WebCamComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -53,7 +53,7 @@ import { ViewAComponent } from './components/dashboard/attendance/teachers/view-
 import { UpdateAComponent } from './components/dashboard/attendance/teachers/update-a/update-a.component';
 import { ResultsComponent } from './components/homepage/results/results.component';
 import { UsersComponent } from './components/dashboard/users/users.component';
-import { ViewUsersComponent } from './components/dashboard/users/view-users/view-users.component';
+import { ViewUsersComponent, DeleteUserDialogBox } from './components/dashboard/users/view-users/view-users.component';
 
 
 import { StudentArchiveComponent, DialogBoxStudentDel } from './components/dashboard/student/student-archive/student-archive.component';
@@ -72,6 +72,12 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
 import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
 import { ThomeComponent } from './components/hometeacher/thome/thome.component';
@@ -79,6 +85,7 @@ import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tno
 import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
 import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
 import { AddResultComponent, DialogBoxResults } from './components/hometeacher/tresults/add-result/add-result.component';
+import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.component';
 
 
 @NgModule({
@@ -96,11 +103,13 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
+    WebCamComponent,
     TDialogBox,
     TDialogBox2,
     DialogBoxResults,
     StudentArchiveComponent,
-    DialogBoxStudentDel
+    DialogBoxStudentDel,
+    DeleteUserDialogBox
   ],
   
   declarations: [
@@ -152,27 +161,33 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     DeleteDialogBox,
     ClasseshomeComponent,
     SubjecthomeComponent,
-   
     // DeleteHistoryComponent,
     DeletedListComponent,
     FeeDialogBox,
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    WebCamComponent,
+    PrintNComponent,
+    SummaryAComponent,
+    LoaderComponent,
     TDialogBox,
     TDialogBox2,
     Report1Component,
     DialogBoxResults,
     PrintNComponent,
     SummaryAComponent,
+    DeleteUserDialogBox,
+    UserreportComponent,
     HometeacherComponent,
     TclassesComponent,
     ThomeComponent,
     TnoticeboardComponent,
     TsubjectComponent,
     TresultsComponent,
+    AddResultComponent,
+    ChartcComponent,
     AddResultComponent
-    
   ],
 
   imports: [
@@ -185,6 +200,8 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     HttpClientModule,
     FontAwesomeModule,
     ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
 
     ],

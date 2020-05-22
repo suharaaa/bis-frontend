@@ -1,0 +1,51 @@
+<div id="content" #content>
+  <h2>Users</h2>
+
+  <br>
+  
+  <h4>Current User Profiles</h4>
+  <br>
+
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
+
+
+    
+
+
+     
+     <ng-container matColumnDef="fullname">
+      <th mat-header-cell *matHeaderCellDef> Full name </th>
+      <td mat-cell *matCellDef="let users"> {{users.fullname}} </td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let users"> {{users.email}} </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef>Grade </th>
+      <td mat-cell *matCellDef="let users"> {{users.grade}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+  </table>
+
+  <br>
+  <h6> Date {{curDate | date:'yyyy-MM-dd'}}</h6>
+</div>
+ 
+  <br>
+<div>
+
+    <button mat-raised-button color="primary" value="Export pdf" (click)="downloadUserPDF()" >Export PDF</button>
+  </div>
+  

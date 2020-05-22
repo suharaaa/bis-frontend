@@ -163,25 +163,5 @@ export class OverviewComponent implements OnInit {
 
 
 
-//generate pdf
-public downloadPDF () {
-
-  const options ={
-
-   name : 'output.pdf',
-   document: { type : 'jpeg'},
-   html2canvas : {},
-   jsPDF : {orientation:'landscape'}
-  }
-
-  const element : Element = document.getElementById('content');
-  html2pdf()
-
-     .from(element)
-     .set(options)
-     .save()
-
-   }
-
 
 }

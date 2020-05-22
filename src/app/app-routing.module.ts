@@ -46,6 +46,7 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
 import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
 import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
 import { ThomeComponent } from './components/hometeacher/thome/thome.component';
@@ -53,7 +54,7 @@ import { TnoticeboardComponent } from './components/hometeacher/tnoticeboard/tno
 import { TresultsComponent } from './components/hometeacher/tresults/tresults.component';
 import { TsubjectComponent } from './components/hometeacher/tsubject/tsubject.component';
 import { AddResultComponent } from './components/hometeacher/tresults/add-result/add-result.component';
-
+import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.component';
  
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -140,14 +141,16 @@ const routes: Routes = [
         children: [
           { path: 'addc', component: AddcComponent },
           { path: 'viewc', component: ViewcComponent },
-          { path: 'editc', component: EditcComponent }
+          { path: 'editc', component: EditcComponent },
+          { path: 'chartc', component: ChartcComponent }
         ]
       },
       {
         path: 'cl',
         component: UsersComponent,
         children: [
-          { path: 'viewu', component: ViewUsersComponent }
+          { path: 'viewu', component: ViewUsersComponent },
+          { path: 'userreport', component: UserreportComponent }
         ]
       }
     ]

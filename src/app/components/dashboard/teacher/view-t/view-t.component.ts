@@ -15,7 +15,7 @@ export class ViewTComponent implements OnInit {
 
 
   constructor(
-    private studentService: TeacherService,
+    private teacherService: TeacherService,
     private route: ActivatedRoute
   ) { }
 
@@ -27,7 +27,7 @@ export class ViewTComponent implements OnInit {
   }
 
   getTeacherDetails(id: string) {
-    this.studentService.getTeacherId(id).subscribe(
+    this.teacherService.getTeacherId(id).subscribe(
       (res: any) => {
         this.teacher = res.data;
       },

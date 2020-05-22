@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Output } from '@angular/core';
 import { ClassServices } from 'src/app/services/classes.service';
-import {  MatSnackBar } from '@angular/material';
+import {  MatSnackBar, MatSort } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
@@ -22,11 +22,14 @@ export class ViewcComponent implements OnInit {
 
   
 
-  displayedColumns: string[] = ['name', 'teacher','action'];
-  dataSource : MatTableDataSource<any>;
+  /*displayedColumns: string[] = ['name', 'teacher','action'];
+  dataSource : MatTableDataSource<any>;*/
  
 
- 
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
+  displayedColumns: string[] = ['name','teacher', 'action'];
+  dataSource = new MatTableDataSource();
+
 
   constructor(
     private classServices : ClassServices,
@@ -45,6 +48,7 @@ export class ViewcComponent implements OnInit {
     this.classServices.findClass().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource (res.data);
       this.dataSource.filterPredicate = this.filterPredicate;
+      this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });

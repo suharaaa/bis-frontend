@@ -44,7 +44,8 @@
       <td mat-cell *matCellDef="let users">
       
         <button mat-raised-button color="primary" (click)="UpdateUser(users._id)" >Update</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteUser(users._id)">Delete</button>
+        <!-- <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteUser(users._id)">Delete</button> -->
+        <button mat-raised-button color="warn" style="background-color: #f69223;"     (click)="openDeleteUser(users._id)">Delete</button>
       </td>
     </ng-container>
 

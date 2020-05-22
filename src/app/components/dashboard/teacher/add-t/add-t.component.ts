@@ -24,7 +24,7 @@ export class AddTComponent implements OnInit {
 
 
   mail = new FormControl('', [Validators.required, Validators.email]);
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private teacherService: TeacherService,
@@ -32,13 +32,7 @@ export class AddTComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-  getErrorMessage() {
-    if (this.teacherFormGroup.controls.mail.hasError('required')) {
-      return 'You should enter a value';
-    }
-
-    return this.mail.hasError('mail') ? 'Not a valid email' : '';
-  }
+  
   ngOnInit() {
     this.teacherFormGroup = this.formBuilder.group({
       tid: [{ value: '', disabled: true}],
@@ -49,12 +43,12 @@ export class AddTComponent implements OnInit {
       gender: ['', Validators.required],
       nic: ['', Validators.required],
       dob: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: ['',[ Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern("^[0-9]*$")]],
       mstatus: ['', Validators.required],
-      mphone: ['', Validators.required],
+      mphone: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern("^[0-9]*$")]],
       nationality: ['', Validators.required],
       religion: ['', Validators.required],
-      mail: ['', Validators.email],
+      mail: ['', [Validators.required, Validators.email]],
       qul: ['', Validators.required],
     });
 

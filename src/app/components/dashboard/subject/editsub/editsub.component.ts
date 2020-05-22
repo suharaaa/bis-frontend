@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { SubjectServices } from 'src/app/services/subject.service';
 import { ClassServices } from 'src/app/services/classes.service';
-import {  MatSnackBar } from '@angular/material';
+import {  MatSnackBar, MatSort } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
@@ -16,7 +16,7 @@ import * as html2pdf from 'html2pdf.js';
   styleUrls: ['./editsub.component.css']
 })
 export class EditsubComponent implements OnInit {
-
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
   displayedColumns: string[] = ['subjectname', 'class', 'teacher'];
   dataSource : MatTableDataSource<any>;
 
@@ -50,6 +50,7 @@ findSubjects(){
   this.subjectServices.findSubjects().subscribe((res: any) => {
     this.dataSource =new MatTableDataSource (res.data);
     this.dataSource.filterPredicate = this.filterPredicate;
+    this.dataSource.sort = this.sort;
   }, err => {
     console.log(err.message);
   });

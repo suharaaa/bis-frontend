@@ -24,13 +24,9 @@ interface APIResponse {
 export class ProfitComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort : MatSort;
-  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot','updatedon', 'action'];
+  displayedColumns: string[] = ['grade', 'termfee', 'facilityfee', 'librarycharges', 'laboratorycharges', 'transportationfee', 'other', 'tot','updatedon'];
   dataSource = new MatTableDataSource();
 
-  private nums : Number;
-  private totf : Number;
-  private num1 : Number;
-  private num2 : Number;
   
 //new
 private _id: String;
@@ -57,10 +53,7 @@ curDate=new Date();
 
   ngOnInit() {
     this.findFees();
-    this.nums = 0;
-    this.num1 = 0;
-    this.num2 = 0;
-   // this.totf = 0;
+  
 
 
     
@@ -115,9 +108,7 @@ curDate=new Date();
   }
 
 
- Multiply(){
-   this.totf= Number(this.num1) * Number(this.num2);
- }
+ 
 
 
 
@@ -138,7 +129,7 @@ curDate=new Date();
      .set(options)
      .save()
 
-   }
+  }
 
 
 
