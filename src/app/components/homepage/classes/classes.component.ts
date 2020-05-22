@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ClassServices } from 'src/app/services/classes.service';
-import {  MatSnackBar } from '@angular/material';
+import {  MatSnackBar, MatSort } from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 
@@ -17,14 +17,17 @@ import { Router } from '@angular/router';
 })
 export class ClasseshomeComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'teacher'];
-  dataSource : MatTableDataSource<any>;
+  //displayedColumns: string[] = ['name', 'teacher'];
+  //dataSource : MatTableDataSource<any>;
   //dataSource = new MatTableDataSource();
 
   
  /* private _id: String;
   private name: String;
   private classteacher: String;*/
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
+  displayedColumns: string[] = ['name','teacher'];
+  dataSource = new MatTableDataSource();
 
 
   constructor(
@@ -48,6 +51,7 @@ export class ClasseshomeComponent implements OnInit {
     this.classServices.findClass().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource (res.data);
       this.dataSource.filterPredicate = this.filterPredicate;
+      this.dataSource.sort = this.sort;
     }, err => {
       console.log(err.message);
     });

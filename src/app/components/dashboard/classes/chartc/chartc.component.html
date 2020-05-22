@@ -1,0 +1,35 @@
+<div id="content" #content>
+    <div class="headerclasses">
+      
+      <h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Bright International School</h2><br>
+  </div>
+  
+  <br>
+  <h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Primary Section</h2><br>
+  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <mat-card class="chart-card" style="margin-left: 46px;" >
+                    <mat-card-header>
+                        <mat-card-title>No of students in a class</mat-card-title>
+                        <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                        <mat-card-subtitle>Primary Section</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <canvas *ngIf="!isloading" baseChart [datasets]="BarChartData" [labels]="BarChartLabels" [options]="BarChartOptions"
+                                    [legend]="BarChartLegend" [chartType]="BarChartType">
+                                </canvas>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>  
+    </div>
+</div>            
+<br>  
+<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button>
+
