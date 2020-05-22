@@ -1,3 +1,4 @@
+
 <div class="form-row">
     <div class="col-md-4">
         <mat-card class="stat-card" >
@@ -88,13 +89,17 @@
        
 </div>
 <br>
-<div class="container-fluid">
-        <div class="row">
+
+    <!--div  class="container-fluid">
+       
+    <div class="row">
+      
             <div class="col-md-6">
                 <mat-card class="chart-card" style="margin-left: 46px;">
-                    <mat-card-header>
-                        <mat-card-title>No of Subject in a class</mat-card-title>
-                        <mat-card-subtitle>Subjects by class by year</mat-card-subtitle>
+                   <mat-card-header>
+                        <mat-card-title>No of Students in a class</mat-card-title>
+                        <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                        <mat-card-subtitle>Primary Section</mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>
                         <div class="row">
@@ -107,5 +112,39 @@
                     </mat-card-content>
                 </mat-card>
             </div>
-        </div>       
-</div>
+            
+            
+    </div>
+    </div>
+</div> 
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button-->
+ 
+        
+
+
+        <div id="content" #content>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-card class="chart-card" style="margin-left: 46px;">
+                            <mat-card-header>
+                                <mat-card-title>No of Students in a class</mat-card-title>
+                                <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <canvas *ngIf="!isloading" baseChart [datasets]="BarChartData" [labels]="BarChartLabels" [options]="BarChartOptions"
+                                            [legend]="BarChartLegend" [chartType]="BarChartType">
+                                        </canvas>
+                                     </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>  
+            </div>
+        </div>            
+<br>  
+<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button> 
+ 

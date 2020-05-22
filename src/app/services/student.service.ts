@@ -19,7 +19,7 @@ export class StudentService {
     return this.http.post(`${environment.apiHost}/students`, student);
   }
 
-  public viewStudents(page: number, limit: number) {
+  public viewStudents(page?: number, limit?: number) {
     return this.http.get(`${environment.apiHost}/students`,
     {
       params: {
@@ -47,5 +47,9 @@ export class StudentService {
 
   public deleteStudent(id: string) {
     return this.http.delete(`${environment.apiHost}/students/${id}`);
+  }
+
+  public getPdf(studentIds: string[]) {
+    return this.http.post(`${environment.apiHost}/students/reports`, { students: studentIds });
   }
 }

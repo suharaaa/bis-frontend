@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Validators} from '@angular/forms';
 import { ResultsService } from 'src/app/services/addResults.service';
-import { ClassServices } from 'src/app/services/classes.service';
-import { StudentService } from 'src/app/services/student.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { Results } from 'src/app/models/results';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import {MatSort, MatSortable} from '@angular/material/sort';
 
-
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { AttendanceService } from 'src/app/services/attendance.service';
+import { ChartType, ChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import * as html2pdf from 'html2pdf.js';
+import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 
 interface APIResponse {
   success : boolean,
@@ -21,128 +25,92 @@ interface APIResponse {
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  @ViewChild(MatSort, {static: true}) sort : MatSort;
+  displayedColumns: string[] = [ 'students','class','term','subject','marks'];
+  dataSource = new MatTableDataSource();
+  
 
-  private classes: [];
-  private term : string;
-  private subject: string;
-  private students: [];
-  private marks: Number;
- // public classes :[];
-  private resultsForm: FormGroup;
-
-
-  private id: string;
-  public isOnUpdate: boolean;
+  public statistics = {
+    marks: 0,
+    
+  };
   
   
 
   constructor(
-    private resultsService : ResultsService,
+    private resultsService: ResultsService,
     private snackBar: MatSnackBar,
-    public studentService: StudentService,
-    public classService: ClassServices,
-    private route: ActivatedRoute,
-    private router: Router ,
-    private formBuilder: FormBuilder
-    
+    private router : Router,
+    private statisticsService: StatisticsService
   )
  
   { 
   }
 
   ngOnInit() {
+    this.viewResults();
 
-    this.students =[];
-    this.classes= [];
-    this.resultsForm = this.formBuilder.group({
-    class: '',
-    term : [''],
-    subject:[''],
-    students :'',
-    marks:[''],
-    
-      });
+  }
 
-     
+ 
+
+  applyFilter(keyword) {
     
-    this.route.queryParams.subscribe(params => {
-        if (params.id) {
-          this.isOnUpdate = true;
-          this.id = params.id;
-          this.resultsService.findResultID(this.id).subscribe((res: APIResponse) => {
-           
-            this.resultsForm.patchValue(res.data);
-            this.resultsForm.controls.students.patchValue(res.data.students && res.data.students._id);
-            this.resultsForm.controls.class.patchValue(res.data.class && res.data.class._id);
-         
+    this.dataSource.filter = keyword.trim().toLowerCase();
+  }
+
   
-          })
-        }else{
-          this.isOnUpdate = false;
+  
+  viewResults(){
+    this.resultsService.viewResults().subscribe((res: any) => {
+     this.dataSource = new MatTableDataSource(res.data);
+     this.dataSource.sort = this.sort;
+     this.dataSource.filterPredicate = this.filterPredicate;
+    }, err => {
+      console.log(err.message);
+    });
+
+  }
+
+  private filterPredicate = (data, filter: string) => {
+    const accumulator = (currentTerm, key) => {
+      return this.nestedFilterCheck(currentTerm, data, key);
+    };
+    const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+    const transformedFilter = filter.trim().toLowerCase();
+    return dataStr.indexOf(transformedFilter) !== -1;
+  }
+  
+  private nestedFilterCheck(applyFilter, data, key) {
+    if (typeof data[key] === 'object') {
+      for (const k in data[key]) {
+        if (data[key][k] !== null) {
+          applyFilter = this.nestedFilterCheck(applyFilter, data[key], k);
         }
-      })
-     
-      this.viewStudent();
-      this.viewGrades();
-   
-
+      }
+    } else {
+      applyFilter += data[key];
+    }
+    return applyFilter;
   }
 
-  public get ResultsForm(): FormGroup {
-    return this.resultsForm;
- 
-  }
+  public downloadPDF () {
 
-  public changeResult(){
-    const results = new Results(this.resultsForm.getRawValue()); 
-  
-    this.resultsService.UpdateResults(this.id,results).subscribe(response => {
-    console.log(response);
-    this.clear();
-   this.snackBar.open('Updated successfully', null, { duration : 2000});
-    }, err => {
-    this.snackBar.open('All the fields required', null, { duration : 3000});
-      console.log(err.message);
-  });
-  
-  }
+    const options ={
 
-  public viewStudent() {
-    this.studentService.viewStudents().subscribe((res: { data: any }) => {this.students = res.data;
-  });
-}
-public viewGrades() {
-  this.classService.findClass().subscribe((res: { data: any }) => {this.classes = res.data;
-});
-}
+     name : 'output.pdf',
+     document: { type : 'jpeg'},
+     html2canvas : {},
+     jsPDF : {orientation:'landscape'}
+    }
 
-  
-  
- 
+    const element : Element = document.getElementById('content');
+    html2pdf()
 
-  
-  
-  public createNewResult(){
-    const result = new Results(this.resultsForm.getRawValue()); 
-    this.resultsService.createNewResult(result).subscribe(response => {
-    console.log(response);
-   this.snackBar.open('Results added successfully', null, { duration : 2000});
-    }, err => {
-    this.snackBar.open('all the fields required', null, { duration : 3000});
-      console.log(err.message);
-  });
-    
-    
-  }
+       .from(element)
+       .set(options)
+       .save()
 
- 
-  public clear(){
-    this.resultsForm.reset();
-  }
-
-  results(){
-    this.router.navigate(["homepage/addResults"]);
-  }
-
+     }
 
 }

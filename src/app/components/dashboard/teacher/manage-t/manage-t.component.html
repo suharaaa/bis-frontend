@@ -1,15 +1,28 @@
 <h2>Manage Teacher Information</h2>
 <br>
 
-
-<mat-form-field appearance="outline">
-  <mat-label>Search ID Number</mat-label>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex.  T00001">
-</mat-form-field>
+<div class="container-fluid">
+  <div class = row>
+    <div class="col-md-10 col-sm-12">
+    <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex.Teachers ID or Name">
+    </mat-form-field>
+  </div>
+  <div class="col-md-4 col-sm-12">
+    <div>
+      <button mat-stroked-button color = "primary" (click)="clickhere()">click here to get the contacts of Teachers</button>
+  </div>
+  </div>
+  </div> 
+</div>
+  
 
 <br>
 
 <div class="list mat-elevation-z8">
+
+  <div id = "content" #content >
 
   <h4 style="padding-top: 20px;">Teachers List</h4><br>
 
@@ -39,7 +52,7 @@
       <td mat-cell *matCellDef="let teacher">
         <a mat-stroked-button color="primary" (click)="detailsTeacher(teacher._id)">Details</a>
         <a mat-raised-button color="primary" (click)="updateTeacher(teacher._id)">Edit</a>
-        <a mat-raised-button color= "warm" style="background-color: #f69223;" (click)="moveTeacher(teacher._id)">Clear</a>
+        <a mat-raised-button color= "warm" style="background-color: #f69223;" (click)="openDialog(teacher._id)">Clear</a>
       </td>
     </ng-container>
 
@@ -49,6 +62,9 @@
   </table>
 
 </div>
+</div>
+
+
 
 
 

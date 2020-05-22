@@ -2,7 +2,7 @@
   <div class = "heading"><h2>Results</h2></div>
 
   <br>
-  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
+  <table mat-table mat-table [dataSource]="dataSource" matSort matSortActive="term" matSortDirection="asc" class="mat-elevation-z8" style="border-radius: 250px;" width= 1200px>
 
      
      <ng-container matColumnDef="students">
@@ -12,12 +12,12 @@
   
    
     <ng-container matColumnDef="class">
-      <th mat-header-cell *matHeaderCellDef> Grade</th>
+      <th mat-header-cell *matHeaderCellDef > Grade</th>
       <td mat-cell *matCellDef="let result">{{result.class && result.class.name}} </td>
     </ng-container>
     
     <ng-container matColumnDef="term">
-      <th mat-header-cell *matHeaderCellDef> Term</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Term</th>
       <td mat-cell *matCellDef="let result">{{result.term}} </td>
     </ng-container> 
 
@@ -39,7 +39,7 @@
       <td mat-cell *matCellDef="let result">
       
         <button mat-raised-button color="primary" (click)="UpdateResults(result._id)">Update</button>
-        <button mat-raised-button color="warn" style="background-color: #f69223;" (click)="DeleteResults(result._id)">Delete</button>
+        <button mat-raised-button color="warn" style="background-color: #f69223;"(click)="openDialog(result._id)">Delete</button>
       </td>
     </ng-container>
 
