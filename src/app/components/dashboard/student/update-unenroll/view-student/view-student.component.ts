@@ -3,6 +3,7 @@ import { StudentService } from "src/app/services/student.service";
 import { ActivatedRoute } from "@angular/router";
 import { ClassServices } from "src/app/services/classes.service";
 import * as html2pdf from "html2pdf.js";
+import { APIResponse } from 'src/app/models/apiresponse';
 
 @Component({
   selector: "app-view-student",
@@ -38,18 +39,9 @@ export class ViewStudentComponent implements OnInit {
   }
 
   public toPDF() {
-    const options = {
-      filename: 'StudentDetails.pdf',
-      image: { type: 'jpeg' },
-      html2canvas: {},
-      jsPDF: { orientation: 'portrait' }
-    };
-
-    const element: Element = document.getElementById('content');
-  
-    html2pdf()
-      .from(element)
-      .set(options)
-      .save();
+    this.studentService.getPdf([this.id]).subscribe((response: APIResponse) => {
+      window.open(response.data.filename, '_blank');
+    });
   }
+
 }

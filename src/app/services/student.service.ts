@@ -48,4 +48,8 @@ export class StudentService {
   public deleteStudent(id: string) {
     return this.http.delete(`${environment.apiHost}/students/${id}`);
   }
+
+  public getPdf(studentIds: string[]) {
+    return this.http.post(`${environment.apiHost}/students/reports`, { students: studentIds });
+  }
 }

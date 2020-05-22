@@ -10,6 +10,7 @@
         placeholder="Find students by Name or Email"
       />
     </mat-form-field>
+
   </div>
 </div>
 
@@ -63,6 +64,13 @@
           (click)="openDialog(student._id, student.fname, student.lname)"
           >Unenroll</a
         >
+
+        <a
+          mat-stroked-button
+          style="color: black;"
+          (click)="toPDF(student._id)"
+          >Export to PDF</a
+        >
       </td>
     </ng-container>
 
@@ -72,6 +80,12 @@
 </div>
 <div class="paginate">
   <br />
+  <a
+  mat-stroked-button
+  style="color: black; margin-bottom: 20px;"
+  (click)="exportAll()"
+  >Export all to PDF</a
+>
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
     (page)="changePage($event)"

@@ -6,6 +6,7 @@ import { MatSnackBar, MatPaginator } from "@angular/material";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Subject } from 'rxjs';
 import { EventEmitter } from 'protractor';
+import { APIResponse } from 'src/app/models/apiresponse';
 
 @Component({
   selector: "app-update-unenroll",
@@ -15,6 +16,7 @@ import { EventEmitter } from 'protractor';
 export class UpdateUnenrollComponent implements OnInit {
   displayedColumns: string[] = ["id", "name", "class", "mail", "action"];
   dataSource: MatTableDataSource<any>;
+  students;
   dataIsLoaded = false;
   private filters: {
     limit: number,
@@ -67,6 +69,7 @@ export class UpdateUnenrollComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res.data);
         this.count = res.count;
         this.dataIsLoaded = true;
+        this.students = res.data;
         this.isLoading = false;
       },
       (err) => {
@@ -112,6 +115,19 @@ export class UpdateUnenrollComponent implements OnInit {
         });
       }
     );
+  }
+
+  public toPDF(studentId: string) {
+    this.studentService.getPdf([studentId]).subscribe((response: APIResponse) => {
+      window.open(response.data.filename, '_blank');
+    });
+  }
+
+  exportAll() {
+    const studentIds = this.students.map(s => s._id);
+    this.studentService.getPdf([...studentIds]).subscribe((response: APIResponse) => {
+      window.open(response.data.filename, '_blank');
+    });
   }
 }
 
