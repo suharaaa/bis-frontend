@@ -1,0 +1,34 @@
+.example-container {
+    height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+  h4 {
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  .list{
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.mat-form-field {
+  
+  font-size: 14px;
+  width: 50%;
+}
+
+
+
+
+
+.mat-stroked-button{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

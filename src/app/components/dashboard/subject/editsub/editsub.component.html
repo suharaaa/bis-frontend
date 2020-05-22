@@ -1,0 +1,80 @@
+
+<div id="content" #content>
+  <div class="headerclasses">
+    
+    <h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Bright International School</h2><br>
+</div>
+
+<br>
+
+
+
+<h2 style="text-align: center; font-family: 'IM Fell French Canon SC', serif;">Summary of Subjects</h2><br>
+<div class="container-fluid">
+  <div class="row"  *ngIf="dataSource">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+  </div>
+</div>
+    
+  
+<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 250px;" width= 1000px>
+
+    
+
+
+
+    
+
+
+ <!--ng-container matColumnDef="name">
+   <th mat-header-cell *matHeaderCellDef> Class </th>
+   <td mat-cell *matCellDef="let classes"> {{classes.name}} </td>
+ </ng-container-->
+ <ng-container matColumnDef="subjectname">
+    <th mat-header-cell *matHeaderCellDef> Subject </th>
+    <td mat-cell *matCellDef="let subjects"> {{subjects.subjectname}} </td>
+  </ng-container>
+ 
+
+  <ng-container matColumnDef="class">
+    <th mat-header-cell *matHeaderCellDef> Class </th>
+    <td mat-cell *matCellDef="let subject"> {{subject.class && subject.class.name}} </td>
+  </ng-container>
+ 
+ 
+  <ng-container matColumnDef="teacher">
+    <th mat-header-cell *matHeaderCellDef> Teacher Name</th>
+    <td mat-cell *matCellDef="let subject"> {{subject.teacher && subject.teacher.fname}}  {{subject.teacher && subject.teacher.lname}} </td>
+  </ng-container>
+
+  
+  
+
+ 
+ 
+
+
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+</div>
+<br>
+<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button>

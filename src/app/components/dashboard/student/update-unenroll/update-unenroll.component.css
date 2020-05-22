@@ -10,3 +10,21 @@ table {
   .mat-stroked-button{
     margin-right: 20px;
   }
+
+  .list{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.topic{
+  box-shadow: 0 4px 8px 0 #7c6c6c33;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.paginate{
+  border-radius: 10px;
+}

@@ -1,33 +1,150 @@
-<div class="form-row" >
+
+<div class="form-row">
     <div class="col-md-4">
-        <mat-card class="example-card" >
-            <mat-card-header class="text-center cen" >
-            <div><fa-icon [icon]="faUserGraduate"></fa-icon>
-            <mat-card-title>4820</mat-card-title>
-            <mat-card-subtitle>STUDENTS</mat-card-subtitle></div>
-            </mat-card-header>
-        <mat-card-content><p></p></mat-card-content> 
+        <mat-card class="stat-card" >
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <fa-icon class="stat-icon" [icon]="faUserGraduate"></fa-icon>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>STUDENTS</h6>
+                        <h1>{{statistics.studentCount}}</h1>
+                    </div>
+                </div>
+            </mat-card-content> 
         </mat-card>
     </div>
     <div class="col-md-4">
-        <mat-card class="example-card">
-            <mat-card-header class="text-center cen">
-            <div><fa-icon [icon]="faChalkboardTeacher"></fa-icon>
-            <mat-card-title>231</mat-card-title>
-            <mat-card-subtitle>TEACHERS</mat-card-subtitle></div>
-            </mat-card-header>
-            <mat-card-content><p></p></mat-card-content>
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <fa-icon class="stat-icon" [icon]="faChalkboardTeacher"></fa-icon>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>TEACHERS</h6>
+                        <h1>{{statistics.teacherCount}}</h1>
+                    </div>
+                </div>
+            </mat-card-content>
         </mat-card>
     </div>
     <div class="col-md-4">
-        <mat-card class="example-card">
-            <mat-card-header class="text-center cen">
-            <div><fa-icon [icon]="faSchool"></fa-icon>
-            <mat-card-title>13</mat-card-title>
-            <mat-card-subtitle>CLASSES</mat-card-subtitle></div>
-            </mat-card-header>
-            <mat-card-content><p></p></mat-card-content> 
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <fa-icon class="stat-icon" [icon]="faSchool"></fa-icon>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>CLASSES</h6>
+                        <h1>{{statistics.classesCount}}</h1>
+                    </div>
+                </div>
+            </mat-card-content>
         </mat-card>
     </div>
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-card class="chart-card" style="margin-left: 46px;">
+                <mat-card-header>
+                    <mat-card-title>Student Enrollments</mat-card-title>
+                    <mat-card-subtitle>Students by gender by year</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas *ngIf="!isLoading" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                                [legend]="barChartLegend" [chartType]="barChartType">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+         </div>
+
+        <div class="col-md-6">
+            <mat-card class="chart-card" style="margin-right: 46px;">
+                <mat-card-header>
+                    <mat-card-title>Teacher Attendance</mat-card-title>
+                    <mat-card-subtitle>Available teachers today</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas *ngIf="!isLoadingPieChart" baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
+                                [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+        </div>        
+    </div>
+       
+</div>
+<br>
+
+    <!--div  class="container-fluid">
+       
+    <div class="row">
+      
+            <div class="col-md-6">
+                <mat-card class="chart-card" style="margin-left: 46px;">
+                   <mat-card-header>
+                        <mat-card-title>No of Students in a class</mat-card-title>
+                        <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                        <mat-card-subtitle>Primary Section</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <canvas *ngIf="!isloading" baseChart [datasets]="BarChartData" [labels]="BarChartLabels" [options]="BarChartOptions"
+                                    [legend]="BarChartLegend" [chartType]="BarChartType">
+                                </canvas>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            
+            
+    </div>
+    </div>
+</div> 
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button-->
+ 
+        
+
+
+        <div id="content" #content>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-card class="chart-card" style="margin-left: 46px;">
+                            <mat-card-header>
+                                <mat-card-title>No of Students in a class</mat-card-title>
+                                <mat-card-subtitle>Students by class by year</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <canvas *ngIf="!isloading" baseChart [datasets]="BarChartData" [labels]="BarChartLabels" [options]="BarChartOptions"
+                                            [legend]="BarChartLegend" [chartType]="BarChartType">
+                                        </canvas>
+                                     </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>  
+            </div>
+        </div>            
+<br>  
+<button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button> 
  

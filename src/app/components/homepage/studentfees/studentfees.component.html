@@ -1,4 +1,52 @@
-<h2>School Fees</h2>
+<br>
+<div class = "desc">
 
-<button>View Term Fees</button>
-<button>View Annual Fees</button>
+  <h2>School Fees</h2>
+
+  <br><br>
+
+    <label>At Bright International School, we try to be flexible as possible when it comes to student payments and fees. </label>
+    <br>
+    <label>You can view term fees for each grade to get an understanding and idea of how much you will have to pay in the future. </label>
+    <br>
+    <label>Feel free to contact us if there is any issue. </label>
+
+
+</div>
+
+    <br>
+
+    <div class="board">
+        <div style="width: 75%;" >
+            <mat-card class="notice-card" *ngFor="let fees of fees" style="margin:1em;">
+                <mat-card-header>
+                <mat-card-title>{{fees.grade}}</mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <div class = "feesv">
+
+                  <p>Term Fees Rs.{{ fees.termfee }}  </p>            
+                  <p> Facility Fees Rs.{{ fees.facilityfee }} </p>
+                  <p> Library Charges Rs.{{ fees.librarycharges }} </p>
+                  <p> Laboratory Charges Rs.{{ fees.laboratorycharges }} </p>
+                  <p> Transportation Fees Rs.{{ fees.transportationfee }} </p>
+                  <p> Other charges Rs.{{ fees.other }} </p>
+
+                </div>
+                  
+                  <p class = "total" > TOTAL Term Fees = rs. {{ fees.termfee +  fees.facilityfee + fees.librarycharges + fees.laboratorycharges + fees.transportationfee + fees.other }} </p>
+                
+            </mat-card-content>
+               
+              
+            </mat-card>
+        </div>
+    </div>
+
+
+
+
+
+
+   

@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-stroked-button{
+    margin-right: 20px;
+  }
+  
+.attendance-status {
+  font-weight: 500;
+}
+
+.absent {
+  color: red;
+}
+
+.present {
+  color: green;
+}

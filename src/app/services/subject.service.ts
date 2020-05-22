@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Subject } from '../models/subject';
 
 
 
@@ -14,8 +15,8 @@ export class SubjectServices {
 
     constructor(private http: HttpClient) { }
 
-    public createNewSubject(subjectname, classname, teachername){
-        return this.http.post(`${environment.apiHost}/subjects`,{subjectname, classname, teachername});
+    public createNewSubject(subject: Subject){
+        return this.http.post(`${environment.apiHost}/subjects`,subject);
     }
 
     public findSubjects() {
@@ -26,11 +27,11 @@ export class SubjectServices {
         return this.http.get(`${environment.apiHost}/subjects/${id}`);
     }
 
-    public UpdateSubject(id,subjectname, classname, teachername){
-        return this.http.put(`${environment.apiHost}/subjects/${id}`,{subjectname, classname, teachername});
+    public UpdateSubject(id:String,subject){
+        return this.http.put(`${environment.apiHost}/subjects/${id}`,subject);
     }
 
-    public DeleteSubject(id){
+    public DeleteSubject(id:String){
         return this.http.delete(`${environment.apiHost}/subjects/${id}`);
     }
 

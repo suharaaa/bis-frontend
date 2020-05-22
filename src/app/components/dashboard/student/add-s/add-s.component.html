@@ -1,199 +1,345 @@
-<h2>Student Registration </h2><br>
-
+<h2>Student Registration</h2>
+<br />
 <form [formGroup]="StudentFormGroup">
-
-    <div class="admission ">
-        <h4 style="padding-top: 20px;">Student Information</h4><br>
-
-        <div class="form-row">
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Admission Number</mat-label>
-                    <input matInput name="ano" placeholder="S012" formControlName="admissionNumber">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Admission Date</mat-label>
-                    <input matInput name="adate" [matDatepicker]="picker1" placeholder="3/6/2020">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>First Name</mat-label>
-                    <input matInput name="fn" [errorStateMatcher]="StudentErrorStateMatcher"  placeholder="Damon" formControlName="fname">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput name="ln" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="Salvatore" formControlName="lname">
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col-md-12 col-sm-12">
-                <mat-form-field appearance="outline" class="lwidth">
-                    <mat-label>Address</mat-label>
-                    <input matInput name="address" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="221B, Baker Street, Colombo" formControlName="address">
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Gender</mat-label>
-                    <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="gender">
-                        <mat-option value="male">Male</mat-option>
-                        <mat-option value="female">Female</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Date Of Birth</mat-label>
-                    <input matInput name="dob" [errorStateMatcher]="StudentErrorStateMatcher" [matDatepicker]="picker" placeholder="3/6/2000" formControlName="dob">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Ethnicity</mat-label>
-                    <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="nation">
-                        <mat-option value="Sinhaleese">Sinahaleese</mat-option>
-                        <mat-option value="Tamil">Tamil</mat-option>
-                        <mat-option value="Muslim">Muslim</mat-option>
-                        <mat-option value="Burgher">Burgher</mat-option>
-                        <mat-option value="Other">Other</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Religion</mat-label>
-                    <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="religion">
-                    <mat-option value="Buddhism">Buddhism</mat-option>
-                    <mat-option value="Christianity">Christianity</mat-option>
-                    <mat-option value="Islam">Islam</mat-option>
-                    <mat-option value="Hinduism">Hinduism</mat-option>
-                    <mat-option value="Other">Other</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Email</mat-label>
-                    <input matInput name="mail" placeholder="pat@example.com" required formControlName="mail">
-                </mat-form-field>
-            </div>
-        </div>
+  <div class="admission">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <button mat-stroked-button color="warn" (click)="populateForm()"
+          style="float: right; position: relative; top: -60px;">
+          Populate form - DEMO ONLY
+        </button>
+      </div>
     </div>
-    <br>
-
-    <div class="admission ">
-        <h4 style="padding-top: 20px;">Parent/Guardian Information</h4><br>
-
-        <p>1.Mother's Details</p>
-
-        <div class="form-row">
-            <div class="col-md-12 col-sm-12">
-                <mat-form-field appearance="outline" class="lwidth">
-                    <mat-label>Name</mat-label>
-                    <input matInput name="mname" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="Mary Jean" formControlName="mname">
-                </mat-form-field>
+    <div class="form-row">
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Admission Date</mat-label>
+          <input matInput name="adate" [matDatepicker]="picker1" placeholder="3/6/2020"
+            formControlName="admissionDate" />
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Admission Number</mat-label>
+          <input matInput name="ano" placeholder="S012" formControlName="admissionNumber" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="image-wrapper">
+                <img src="../../../../../assets/images/student.svg" *ngIf="!studentImage && !isOnUpdate">
+                <img [src]="studentImage" *ngIf="studentImage">
+                <img [src]="studentImageUrl ? studentImageUrl : '../../../../../assets/images/student.svg'"
+                  *ngIf="!studentImage && isOnUpdate">
+              </div>
             </div>
-
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Occupation</mat-label>
-                    <input matInput name="mwork" placeholder="Manager" formControlName="moccupation">
-                </mat-form-field>
+            <div class="col-md-5">
+              <div class="button-wrapper">
+                <button type="button" mat-stroked-button color="primary" (click)="selectFile()">
+                  <fa-icon class="stat-icon" [icon]="faFile"></fa-icon>
+                  Upload from Computer
+                </button>
+                <input #file type="file" style="display: none;" accept="image/*" (change)="triggerUpload($event)">
+                <button type="button" mat-stroked-button style="color: #f69223;" (click)="openWebCamModal()">
+                  <fa-icon class="stat-icon" [icon]="faWebCam"></fa-icon>
+                  Open Web Camera
+                </button>
+                <mat-progress-bar [hidden]="uploadProgress === 0" mode="determinate" [value]="uploadProgress | async">
+                </mat-progress-bar>
+              </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Work Phone</mat-label>
-                    <input matInput name="mwtp" placeholder="0714589632" formControlName="mworkp">
-                </mat-form-field>
-            </div>
-
-            <div class="col-md-12 col-sm-12">
-                <mat-form-field appearance="outline" class="lwidth">
-                    <mat-label>Address</mat-label>
-                    <input matInput name="madd" placeholder="221B, Backer Street, Colombo" formControlName="maddress">
-                </mat-form-field>
-            </div>
-
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Phone</mat-label>
-                    <input matInput name="mtp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0174895874" formControlName="mphone">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Email</mat-label>
-                    <input matInput name="mmail" placeholder="pat@example.com" required formControlName="memail">
-                </mat-form-field>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <hr class="lwidth" style="margin-left: 0;" />
+    <div class="row">
+      <div class="col-md-12">
+        <h4 style="padding-top: 20px;">Student Information</h4>
+        <br />
+      </div>
+    </div>
 
-        <p>2.Father's Details</p>
+    <div class="form-row">
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>First Name</mat-label>
+          <input matInput name="fn" formControlName="fname" [errorStateMatcher]="StudentErrorStateMatcher"
+            placeholder="Damon" />
+          <mat-error *ngIf="StudentFormGroup.controls.fname.hasError('required')">Please enter your first name
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Last Name</mat-label>
+          <input matInput name="ln" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="Salvatore"
+            formControlName="lname" />
+          <mat-error *ngIf="StudentFormGroup.controls.lname.hasError('required')">Please enter your last name
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="col-md-12 col-sm-12">
-                <mat-form-field appearance="outline" class="lwidth">
-                    <mat-label>Name</mat-label>
-                    <input matInput name="fname" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="John Salvatore" formControlName="faname">
-                </mat-form-field>
-            </div>
+    <div class="form-row">
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" class="lwidth">
+          <mat-label>Address</mat-label>
+          <input matInput name="address" [errorStateMatcher]="StudentErrorStateMatcher"
+            placeholder="221B, Baker Street, Colombo" formControlName="address" />
+          <mat-error *ngIf="StudentFormGroup.controls.address.hasError('required')">Please enter your home address
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Occupation</mat-label>
-                    <input matInput name="fwork" placeholder="Businessmen" formControlName="foccupation">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Work Phone</mat-label>
-                    <input matInput name="fwtp" placeholder="0174895874" formControlName="fworkp">
-                </mat-form-field>
-            </div>
+    <div class="form-row">
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Gender</mat-label>
+          <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error *ngIf="StudentFormGroup.controls.gender.hasError('required')">Please select the gender
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput name="dob" [errorStateMatcher]="StudentErrorStateMatcher" [matDatepicker]="picker"
+            placeholder="3/6/2000" formControlName="dob" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="StudentFormGroup.controls.dob.hasError('required')">Please enter the date of birth
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
 
-            <div class="col-md-12 col-sm-12">
-                <mat-form-field appearance="outline" class="lwidth">
-                    <mat-label>Address</mat-label>
-                    <input matInput name="fadd" placeholder="221B, Backer Street, Colombo" formControlName="faddress">
-                </mat-form-field>
-            </div>
+    <div class="form-row">
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Ethnicity</mat-label>
+          <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="nation">
+            <mat-option value="Sinhaleese">Sinahalese</mat-option>
+            <mat-option value="Tamil">Tamil</mat-option>
+            <mat-option value="Muslim">Muslim</mat-option>
+            <mat-option value="Burgher">Burgher</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="StudentFormGroup.controls.nation.hasError('required')">Please select the ethnicity
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Religion</mat-label>
+          <mat-select name="gender" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="religion">
+            <mat-option value="Buddhist">Buddhist</mat-option>
+            <mat-option value="Christianity">Christian</mat-option>
+            <mat-option value="Islam">Islam</mat-option>
+            <mat-option value="Hinduism">Hindu</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="StudentFormGroup.controls.religion.hasError('required')">Please select the religion
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Email</mat-label>
+          <input matInput name="mail" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="pat@example.com"
+            required formControlName="mail" />
+          <mat-error *ngIf="
+              StudentFormGroup.controls.mail.hasError('email') &&
+              !StudentFormGroup.controls.mail.hasError('required')
+            ">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="StudentFormGroup.controls.mail.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Class</mat-label>
+          <mat-select name="class" [errorStateMatcher]="StudentErrorStateMatcher" formControlName="class">
+            <mat-option [value]="class._id" *ngFor="let class of classes">{{
+              class.name
+            }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="StudentFormGroup.controls.class.hasError('required')">Please select the class of enrollment
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <br />
 
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Phone</mat-label>
-                    <input matInput name="ftp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0174895874" formControlName="fphone">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <mat-form-field appearance="outline" class="width">
-                    <mat-label>Email</mat-label>
-                    <input matInput name="fmail" placeholder="pat@example.com" required formControlName="femail">
-                </mat-form-field>
-            </div>
+  <div class="admission">
+    <h4 style="padding-top: 20px;">Parent/Guardian Information</h4>
+    <br />
 
-        </div>
-    </div><br>
-    <button mat-raised-button color="primary"
-    (click)="enrollStudent()">Add Student</button>
-    <button mat-raised-button color="basic" (click)="clear()">Clear</button>
+    <p>1.Mother's Details</p>
+
+    <div class="form-row">
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" class="lwidth">
+          <mat-label>Name</mat-label>
+          <input matInput name="mname" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="Mary Jean"
+            formControlName="mname" />
+          <mat-error *ngIf="StudentFormGroup.controls.mname.hasError('required')">Please enter the Mother's name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Occupation</mat-label>
+          <input matInput name="mwork" placeholder="Manager" formControlName="moccupation" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Work Phone</mat-label>
+          <input matInput name="mwtp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0714589632" formControlName="mworkp" />
+          <mat-error *ngIf="
+            StudentFormGroup.controls.mworkp.hasError('minLength', 'maxLength', 'pattern')
+          ">
+          Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" class="lwidth">
+          <mat-label>Address</mat-label>
+          <input matInput name="madd" placeholder="221B, Backer Street, Colombo" formControlName="maddress" />
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Phone (Mobile)</mat-label>
+          <input matInput name="mtp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0714895874"
+            formControlName="mphone" />
+          <mat-error *ngIf="StudentFormGroup.controls.mphone.hasError('required')">Please enter mother's phone
+            number
+          </mat-error>
+          <mat-error *ngIf="
+              StudentFormGroup.controls.mphone.hasError('pattern') ||
+              StudentFormGroup.controls.mphone.hasError('minLength') ||
+              StudentFormGroup.controls.mphone.hasError('maxLength') ||
+              !StudentFormGroup.controls.mphone.hasError('required')
+            ">
+            Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Email</mat-label>
+          <input matInput name="mmail" placeholder="pat@example.com" required formControlName="memail" />
+          <mat-error *ngIf="StudentFormGroup.controls.memail.hasError('required')">Please enter the Mother's email
+          </mat-error>
+          <mat-error *ngIf="
+              StudentFormGroup.controls.memail.hasError('email') &&
+              !StudentFormGroup.controls.memail.hasError('required')
+            ">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <p>2.Father's Details</p>
+
+    <div class="form-row">
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" class="lwidth">
+          <mat-label>Name</mat-label>
+          <input matInput name="fname" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="John Salvatore"
+            formControlName="faname" />
+          <mat-error *ngIf="StudentFormGroup.controls.faname.hasError('required')">Please enter the Father's name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Occupation</mat-label>
+          <input matInput name="fwork" placeholder="Businessmen" formControlName="foccupation" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Work Phone</mat-label>
+          <input matInput name="fwtp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0174895874" formControlName="fworkp" />
+          <mat-error *ngIf="
+            StudentFormGroup.controls.fworkp.hasError('pattern') ||
+            StudentFormGroup.controls.fworkp.hasError('minLength') ||
+            StudentFormGroup.controls.fworkp.hasError('maxLength')
+          ">
+          Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" class="lwidth">
+          <mat-label>Address</mat-label>
+          <input matInput name="fadd" placeholder="221B, Backer Street, Colombo" formControlName="faddress" />
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Phone (Mobile)</mat-label>
+          <input matInput name="ftp" [errorStateMatcher]="StudentErrorStateMatcher" placeholder="0174895874"
+            formControlName="fphone" />
+          <mat-error *ngIf="StudentFormGroup.controls.fphone.hasError('required')">
+            Please enter the Father's phone number
+          </mat-error>
+          <mat-error *ngIf="
+            StudentFormGroup.controls.fphone.hasError('pattern') ||
+            StudentFormGroup.controls.fphone.hasError('minLength') ||
+            StudentFormGroup.controls.fphone.hasError('maxLength') ||
+            !StudentFormGroup.controls.fphone.hasError('required')
+          ">
+          Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="width">
+          <mat-label>Email</mat-label>
+          <input matInput name="fmail" placeholder="pat@example.com" required formControlName="femail" />
+          <mat-error *ngIf="StudentFormGroup.controls.femail.hasError('required')">Please enter the Father's email
+          </mat-error>
+          <mat-error *ngIf="
+              StudentFormGroup.controls.femail.hasError('email') &&
+              !StudentFormGroup.controls.femail.hasError('required')
+            ">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <br />
+  <button mat-raised-button color="primary" (click)="enrollStudent()" *ngIf="!isOnUpdate"
+    [disabled]="!StudentFormGroup.valid">
+    Add Student
+  </button>
+  <button mat-raised-button color="primary" (click)="changeStudent()" *ngIf="isOnUpdate"
+    [disabled]="!StudentFormGroup.valid">
+    Update
+  </button>
+  <button mat-raised-button color="basic" (click)="clear()">Clear</button>
 </form>

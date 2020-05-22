@@ -8,7 +8,7 @@ export class Student {
     private nation: string;
     private religion: string;
     private mail: string;
-    
+    private class: any;
     private mname: string;
     private moccupation: string;
     private mworkp: number;
@@ -21,9 +21,7 @@ export class Student {
     private faddress: string;
     private fphone: number;
     private femail: string;
-
-    private createdOn: Date;
-    private updatedOn: Date;
+    private img: string;
 
 
     constructor(value) {
@@ -36,6 +34,7 @@ export class Student {
         this.nation = value.nation;
         this.religion = value.religion;
         this.mail = value.mail;
+        this.class = value.class;
         this.mname = value.mname;
         this.moccupation = value.moccupation;
         this.mworkp = value.mworkp;
@@ -48,6 +47,14 @@ export class Student {
         this.faddress = value.faddress;
         this.fphone = value.fphone;
         this.femail = value.femail;
+    }
+
+    public get ImageUrl(): string {
+        return this.img;
+    }
+
+    public set ImageUrl(url: string) {
+        this.img = url;
     }
 
     public get getAdmissionNumber(): string {

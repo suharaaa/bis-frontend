@@ -1,0 +1,113 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+      <div class="row w-100">
+        <div class="col-lg-4 mx-auto">
+          <div class="auto-form-wrapper">
+            <form name="userForm">
+              <h4>Sign Up</h4>
+
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="width">
+                  <mat-label>Full name</mat-label>
+                  <input matInput placeholder="sam perera" name="fullname" [formControl]="Fullname"
+                    [errorStateMatcher]="StudentErrorStateMatcher" required>
+                  <mat-error *ngIf="Fullname.hasError('required')">Enter your name</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="width">
+                  <mat-label>Email</mat-label>
+                  <input name="email" matInput placeholder="pat@example.com" required [formControl]="email">
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="width">
+                  <mat-label>Select Grade</mat-label>
+                  <mat-select name="grade" [formControl]="Grade" [errorStateMatcher]="StudentErrorStateMatcher">
+                    <mat-option value="Grade 01">Grade 01</mat-option>
+                    <mat-option value="Grade 02">Grade 02</mat-option>
+                    <mat-option value="Grade 03">Grade 03</mat-option>
+                    <mat-option value="Grade 04">Grade 04</mat-option>
+                    <mat-option value="Grade 05">Grade 05</mat-option>
+                    <mat-option value="Grade 06">Grade 06</mat-option>
+                    <mat-option value="Grade 07">Grade 07</mat-option>
+                    <mat-option value="Grade 08">Grade 08</mat-option>
+                    <mat-option value="Grade 09">Grade 09</mat-option>
+                    <mat-option value="Grade 10">Grade 10</mat-option>
+                    <mat-option value="Grade 11">Grade 11</mat-option>
+                    <mat-option value="Grade 12">Grade 12</mat-option>
+                    <mat-option value="Grade 13">Grade 13</mat-option>
+
+                  </mat-select>
+
+                </mat-form-field>
+
+              </div>
+
+
+
+
+
+
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="width">
+                  <mat-label>Enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" name="password" [formControl]="Password"
+                    [errorStateMatcher]="StudentErrorStateMatcher">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="width">
+                  <mat-label>Re-enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" name="reenter" [formControl]="Reenter"
+                    [errorStateMatcher]="StudentErrorStateMatcher">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <button mat-raised-button color="primary" class="width"
+                  [disabled]="Fullname.hasError('required') || !Fullname.value"
+                  (click)="createNewUser()" *ngIf="!isOnUpdate">SignUp</button>
+
+            
+              <!-- <button mat-raised-button color="primary" (click)="changeUser()" *ngIf="isOnUpdate">Update</button> -->
+            
+
+
+
+
+
+              </div>
+              <div class="text-block text-center my-3">
+                <span class="text-small font-weight-semibold">Already have an account?</span>
+                <a href="login.html" class="text-black text-small">LogIn</a>
+              </div>
+            </form>
+          </div>
+          <ul class="auth-footer">
+            <li>
+              <a href="#">Conditions</a>
+            </li>
+            <li>
+              <a href="#">Help</a>
+            </li>
+            <li>
+              <a href="#">Terms</a>
+            </li>
+          </ul>
+          <p class="footer-text text-center">copyright © 2020 BIS. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+</div>

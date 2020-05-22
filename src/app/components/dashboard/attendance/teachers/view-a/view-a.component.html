@@ -1,0 +1,52 @@
+<h2>View Teachers' Attendance</h2><br>
+
+<div class="row">
+  <div class="col-md-4">
+    <mat-form-field appearance="outline">
+      <mat-label>View attendance on</mat-label>
+      <input matInput [matDatepicker]="picker" name="date" [max]="today" [(ngModel)]="date" (dateChange)="viewAttendance()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
+<div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-radius: 50px;">
+
+      <ng-container matColumnDef="teacherId">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let r"> {{r.teacher.tid}} </td>
+      </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="teacherName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let r"> {{r.teacher.fname}} {{r.teacher.lname}} </td>
+        </ng-container>
+      
+        <!-- Attendance Record Column -->
+        <ng-container matColumnDef="attendanceRecord">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let r"> 
+            <span class="attendance-status"
+              [class.present]="r.status === 'present'"
+              [class.absent]="r.status === 'absent'">
+              {{r.status | titlecase}}
+            </span>
+          </td>
+        </ng-container>
+    
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="text-center"> Action </th>
+          <td mat-cell *matCellDef="let r" class="text-center">
+            <a mat-stroked-button color="primary" *ngIf="r.status === 'absent'" (click)="updateRecord(r)">Mark as Present</a>
+            <a mat-stroked-button color="warn" *ngIf="r.status === 'present'" (click)="deleteRecord(r)">Delete Record</a>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
+

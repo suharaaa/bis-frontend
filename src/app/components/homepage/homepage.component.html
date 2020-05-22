@@ -1,33 +1,32 @@
-<img src="assets/images/logo.jpg" class="logo" alt="logo">
-
-
+<head>
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">
+</head>
 <div class="heading">
     <h2>Bright International School</h2>
 </div>
+<img src="assets/images/logo.jpg" class="logo" alt="logo">
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Results <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink] = "['home']">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Subjects <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink] = "['noticeboard']">Noticeboard <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Notices <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink] = "['subject']">Subjects <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Fees <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink] = "['classes']">Classes <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">My Profile <span class="sr-only">(current)</span></a>
+          <a class="nav-link"  [routerLink]="['results']">Exam Results <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['studentfees']">Fees <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -40,7 +39,58 @@
 
 
 
+  <router-outlet></router-outlet>
 
+ 
+    
+  
+   
+     
+    
+  
+    
 
+<br><br>
 
-<router-outlet></router-outlet>
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Contact Us</h6>
+          <p class="text-justify">Bright International School Colombo  </p>
+          <p>466/5 N M. Ishak Mawatha</p>
+           <p> 0112 682 855</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Branches</h6>
+          <ul class="footer-links">
+            <li>Maradana</li>
+            <li>Kolonnawa</li>
+            <li>Kandy</li>
+            
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Follow Us</h6>
+          <ul class="footer-links">
+            <li><a href="http://www.facebook.com/Brightschools.lk/">Facebook</a></li>
+            <li><a href="http://www.twitter.com">Twiiter</a></li>
+          
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          
+        </div>
+
+      
+      </div>
+    </div>
+</footer>

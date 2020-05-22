@@ -1,0 +1,32 @@
+
+
+.heading{
+  text-align: left;
+  padding-left: 10%;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+.container-fluid{
+  margin-left: 10%;
+  margin-bottom: 10px;
+  width: fit-content;
+ 
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table{
+  margin-left: 8%;
+  margin-bottom:  5%;
+  margin-right: 10%;
+ 
+  
+}
+.but{
+margin-left: 10%;
+}
+
+

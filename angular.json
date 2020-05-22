@@ -26,6 +26,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/chart.js/dist/Chart.js",
               "src/styles.css"
             ],
             "scripts": []
@@ -125,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "bis-frontend"
+  "defaultProject": "bis-frontend",
+  "cli": {
+    "analytics": "0e2d56f9-c233-4d7a-8ec2-8ffd0381bcf9"
+  }
 }

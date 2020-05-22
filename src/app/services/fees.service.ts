@@ -12,36 +12,39 @@ export class FeesService {
     private http: HttpClient
   ) { }
 
-    public createNewFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other){
-      return this.http.post(`${environment.apiHost}/fees`, { grade, termfee, facilityfee, librarycharges, laboratorycharges,transportationfee,other });
+    public createNewFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot){
+      return this.http.post(`${environment.apiHost}/fees`, { grade, termfee, facilityfee, librarycharges, laboratorycharges,transportationfee,other, tot });
     }
 
     public findFees() {
       return this.http.get(`${environment.apiHost}/fees`);
     }
   
-    public findFeeID() {
-      return this.http.get(`${environment.apiHost}/fees/:id`);
+    public findFeeID(id: string) {
+      return this.http.get(`${environment.apiHost}/fees/${id}`);
     }
   
-    public updateFee(title, content, teachersOnly, expiresOn) {
-      return this.http.put(`${environment.apiHost}/notices/:id`, {title, content, teachersOnly, expiresOn});
+ /*  public updateFee(grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other) {
+      return this.http.put(`${environment.apiHost}/fees/:id`, {grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other});
     }
-  
+  */
+
+
+ public UpdateFee(id:String,grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot){
+  return this.http.put(`${environment.apiHost}/fees/${id}`,{grade, termfee, facilityfee, librarycharges, laboratorycharges, transportationfee, other, tot});
+}
+
+
+
+ 
+
 
 //try to delete the other fees by giving like updatenoticeviewersbyid
 
 
-  
-    public deleteFee() {
-      return this.http.delete(`${environment.apiHost}/fees/:id`);
+    public deleteFee(id) {
+      return this.http.delete(`${environment.apiHost}/fees/${id}`);
     }
-
-
-
-
-
-    
 
 
 

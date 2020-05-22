@@ -1,33 +1,42 @@
 <h2>Published Notices</h2><br>
-<div>
-    <div class="col-md-12" >
-        <mat-card class="notice-card" *ngFor="let notice of notices" style="margin:1em;">
-            <mat-card-header>
-            <mat-card-title>{{notice.title}}</mat-card-title>
-            <mat-card-subtitle style="font-size: smaller;">{{ notice.publishedOn }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p style="color:grey;font-size: x-small;"> is teachers ONLY : {{ notice.teachersOnly }}</p>
-            <p>
-                {{ notice.content }}
-            </p>
-            <p style="float: right;">
-                No. of Viewers : {{ notice.noOfViewers}}
-            </p>
-            <p style="color:grey;font-size: smaller;">
-                Expires On : {{ notice.expiresOn }}
-            </p>
-        </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button style="background-color: darkred;color: white;" (click)="deleteNotice(notice._id)">Delete</button>
-                <button mat-raised-button style="background-color: #f69223;color: white;">Update</button>
-              </mat-card-actions>
-              <mat-card-content>
-            <p style="color:grey;font-size: smaller;">
-                Updated On : {{ notice.updatedOn }}
-            </p>
-          </mat-card-content>
-          
-        </mat-card>
-    </div>
+<div class="list mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.title}} </td>
+        </ng-container>
+      
+        <!-- Published Date Column -->
+        <ng-container matColumnDef="publishedOn">
+          <th mat-header-cell *matHeaderCellDef> Published Date </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.publishedOn}} </td>
+        </ng-container>
+    
+        <!-- Expiry Date Column -->
+        <ng-container matColumnDef="expiresOn">
+          <th mat-header-cell *matHeaderCellDef> Expiry Date </th>
+          <td mat-cell *matCellDef="let notice"> {{notice.expiresOn}} </td>
+        </ng-container>
+
+        <!-- isTeachersOnly Column -->
+        <ng-container matColumnDef="isTeachersOnly">
+            <th mat-header-cell *matHeaderCellDef> is Teachers Only </th>
+            <td mat-cell *matCellDef="let notice"> {{notice.teachersOnly}} </td>
+          </ng-container>
+    
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let notice">
+            <a mat-stroked-button color="primary" (click)="viewNotice(notice._id)">View</a>
+            <a mat-stroked-button style="color: #f69223;" (click)="updateNotice(notice._id)">Update</a>
+            <a mat-stroked-button style="color: red;" (click)="openDialog(notice._id)">Delete</a>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
 </div>

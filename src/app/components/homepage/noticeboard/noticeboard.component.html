@@ -1,0 +1,25 @@
+<br>
+<h2 style="text-align: center;">NOTICEBOARD</h2><br>
+<div class="board">
+    <div style="width: 75%;" >
+        <mat-card class="notice-card" *ngFor="let notice of notices" style="margin:1em;">
+            <mat-card-header>
+            <mat-card-title>{{notice.title}}</mat-card-title>
+            <mat-card-subtitle style="font-size: smaller;">{{ notice.publishedOn }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+                {{ notice.content }}
+            </p>
+        </mat-card-content>
+              <mat-card-content>
+            <p style="color:grey;font-size: smaller;">
+                Updated On : {{ notice.updatedOn }}
+            </p>
+          </mat-card-content>
+          
+        </mat-card>
+    </div>
+</div>
+
+

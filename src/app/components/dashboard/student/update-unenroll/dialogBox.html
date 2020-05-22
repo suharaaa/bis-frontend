@@ -1,0 +1,8 @@
+<mat-dialog-content class="mat-typography">
+    <h4>Are you sure you want to unenroll {{data.fname}} {{data.lname}} from the system? </h4>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button style="background-color: #f69223; color: white;" [mat-dialog-close]="true">Yes, unenroll</button>
+</mat-dialog-actions>

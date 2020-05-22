@@ -1,0 +1,33 @@
+
+
+.logo{
+    position: top;
+    width: 90px;
+    height: 90px;
+    float: center;
+    top: 79px;
+    padding-right: 5px;
+    padding-top: 5px; 
+    
+ } 
+
+
+.headerviewt{
+    text-align: center;
+    margin-bottom: 5px;
+} 
+
+.joining{
+
+    margin-top: 24px; 
+    background: #ffffff; 
+     border-radius: 10px; 
+    padding-left: 100px;
+    padding-top: 8px;
+    margin-bottom: 40px;
+    
+
+}
+
+
+

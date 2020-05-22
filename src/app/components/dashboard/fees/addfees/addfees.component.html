@@ -5,6 +5,12 @@
 
 <h4>Add Fees</h4>
 <br>
+
+<div class="col-md-6">
+  <button mat-stroked-button color="warn" (click)="populateFees()"
+      style="float: right; position: relative; top: -60px;">DEMO</button>
+</div>
+<br>
 <form  class="example-form">
 
   
@@ -12,10 +18,21 @@
 
   <mat-form-field appearance="fill"  class= "width">
     <mat-label>Select Grade</mat-label>
-    <mat-select>
-      <mat-option value="option">Grade 01</mat-option>
-      <mat-option value="option">Grade 02</mat-option>
-      <mat-option value="option">Grade 03</mat-option>
+    <mat-select name="grade" [(ngModel)]="grade" required>
+      <mat-option value="Grade 01">Grade 01</mat-option>
+      <mat-option value="Grade 02">Grade 02</mat-option>
+      <mat-option value="Grade 03">Grade 03</mat-option>
+      <mat-option value="Grade 04">Grade 04</mat-option>
+      <mat-option value="Grade 05">Grade 05</mat-option>
+      <mat-option value="Grade 06">Grade 06</mat-option>
+      <mat-option value="Grade 07">Grade 07</mat-option>
+      <mat-option value="Grade 08">Grade 08</mat-option>
+      <mat-option value="Grade 09">Grade 09</mat-option>
+      <mat-option value="Grade 10">Grade 10</mat-option>
+      <mat-option value="Grade 11">Grade 11</mat-option>
+      <mat-option value="Grade 12">Grade 12</mat-option>
+      <mat-option value="Grade 13">Grade 13</mat-option>
+  
     </mat-select> 
     
   </mat-form-field>
@@ -28,7 +45,7 @@
   
     <mat-form-field appearance="fill">
       <mat-label>Amount</mat-label>
-      <input matInput type="number" class="example-right-align" required>
+      <input matInput type="number" class="example-right-align" name="termfee" [(ngModel)]="termfee" required>
       <span matPrefix>Rs&nbsp;&nbsp;</span>
       <span matSuffix>.00</span>
     </mat-form-field>
@@ -44,7 +61,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" required>
+            <input matInput type="number" class="example-right-align" required name="facilityfee" [(ngModel)]="facilityfee">
             <span matPrefix>Rs&nbsp;&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -59,7 +76,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align">
+            <input matInput type="number" class="example-right-align" name="librarycharges" [(ngModel)]="librarycharges"> 
             <span matPrefix>Rs&nbsp;&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -74,7 +91,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" >
+            <input matInput type="number" class="example-right-align" name="laboratorycharges" [(ngModel)]="laboratorycharges">
             <span matPrefix>Rs&nbsp;&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -90,7 +107,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" >
+            <input matInput type="number" class="example-right-align" name="transportationfee" [(ngModel)]="transportationfee" >
             <span matPrefix>Rs&nbsp;&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -107,7 +124,7 @@
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Amount</mat-label>
-            <input matInput type="number" class="example-right-align" >
+            <input matInput type="number" class="example-right-align" name="other" [(ngModel)]="other">
             <span matPrefix>Rs&nbsp;&nbsp;</span>
             <span matSuffix>.00</span>
           </mat-form-field>
@@ -119,18 +136,36 @@
 
 
     </table>
+    <br><br>
 
+    <h6> Total</h6>
+        <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" class="example-right-align" name="tot" [(ngModel)]="tot">
+            <span matPrefix>Rs&nbsp;&nbsp;</span>
+            {{termfee + facilityfee + librarycharges + laboratorycharges + transportationfee + other}}
+            <span matSuffix>.00</span>
+          </mat-form-field>
 
+    <br><br>
 
+    
+    <h4>Total Fees : {{termfee + facilityfee + librarycharges + laboratorycharges + transportationfee + other}}</h4>
+
+    
 
 
 <br>
 
     <div class="bt">
 
-      <button mat-raised-button color="primary" value="Submit" >Add Fees</button>
+      <button mat-raised-button color="primary" value="Submit"  (click)="createNewFee()"  *ngIf="!isOnUpdate">Add Fees</button>
+      <button mat-raised-button color="primary" (click)="changeFee()" *ngIf="isOnUpdate">Update</button>
 
-      <button mat-stroked-button class="reset" value="Reset">Reset</button>
+      <br><br>
+
+      <button mat-stroked-button (click)="clear()">Clear</button>
       
 
 
@@ -140,3 +175,16 @@
 
 
 </form>
+
+
+<p>First Number:
+  <input type="number" [(ngModel)]="num1" ng-init="num1=0" />
+   </p>
+   <p>Second Number:
+   <input type="number" [(ngModel)]="num2" ng-init="num2=0" />
+   </p>
+   <p>Sum: {{ num1 * num2 }}</p>
+
+
+
+

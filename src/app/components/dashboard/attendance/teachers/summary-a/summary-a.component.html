@@ -1,0 +1,38 @@
+<div id="content" #content>
+
+  <h2 style="text-align: center; font-family: 'Times New Roman', serif;">Summary of Attendance</h2><br>
+
+  <p>Today: {{date | date: 'dd/MM/yyyy'}}</p>
+     
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+  
+    <ng-container matColumnDef="teacherId">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let r"> {{r.teacher.tid}} </td>
+      </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="teacherName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let r"> {{r.teacher.fname}} {{r.teacher.lname}} </td>
+        </ng-container>
+      
+        <!-- Attendance Record Column -->
+        <ng-container matColumnDef="attendanceRecord">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let r"> 
+            <span class="attendance-status"
+              [class.present]="r.status === 'present'"
+              [class.absent]="r.status === 'absent'">
+              {{r.status | titlecase}}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  </div>
+  <br>
+  <button mat-raised-button color="primary" (click)="downloadPDF()">Export to PDF</button>
