@@ -12,7 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
-import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
+import { AddSComponent, WebCamComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -74,6 +74,10 @@ import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.c
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
 import { UserreportComponent } from './components/dashboard/users/userreport/userreport.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
 import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
 import { ThomeComponent } from './components/hometeacher/thome/thome.component';
@@ -98,6 +102,7 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
+    WebCamComponent,
     TDialogBox,
     TDialogBox2,
     DialogBoxResults,
@@ -155,13 +160,16 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     DeleteDialogBox,
     ClasseshomeComponent,
     SubjecthomeComponent,
-   
     // DeleteHistoryComponent,
     DeletedListComponent,
     FeeDialogBox,
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    WebCamComponent,
+    PrintNComponent,
+    SummaryAComponent,
+    LoaderComponent,
     TDialogBox,
     TDialogBox2,
     Report1Component,
@@ -177,7 +185,6 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     TsubjectComponent,
     TresultsComponent,
     AddResultComponent
-    
   ],
 
   imports: [
@@ -190,6 +197,8 @@ import { AddResultComponent, DialogBoxResults } from './components/hometeacher/t
     HttpClientModule,
     FontAwesomeModule,
     ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
 
     ],
