@@ -10,6 +10,7 @@
   background: #ffffff;
   border-radius: 10px;
   padding-left: 100px;
+  padding-top: 20px;
   box-shadow: 0 4px 8px 0 #7c6c6c33;
 }
 
@@ -23,4 +24,29 @@ form button {
 
 .example-container .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+.image-wrapper {
+  border-radius: 50%;
+  width: 150px;
+  box-shadow: 0 4px 8px 0 #7c6c6c33;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 150px;
+  height: 150px;
+}
+
+.button-wrapper {
+    margin-top: 30px;
+}
+
+.button-wrapper button{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.button-wrapper button fa-icon {
+  float: left;
 }

@@ -21,6 +21,7 @@ export class Student {
     private faddress: string;
     private fphone: number;
     private femail: string;
+    private img: string;
 
 
     constructor(value) {
@@ -46,6 +47,14 @@ export class Student {
         this.faddress = value.faddress;
         this.fphone = value.fphone;
         this.femail = value.femail;
+    }
+
+    public get ImageUrl(): string {
+        return this.img;
+    }
+
+    public set ImageUrl(url: string) {
+        this.img = url;
     }
 
     public get getAdmissionNumber(): string {

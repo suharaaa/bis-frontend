@@ -12,7 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/dashboard/overview/overview.component';
-import { AddSComponent } from './components/dashboard/student/add-s/add-s.component';
+import { AddSComponent, WebCamComponent } from './components/dashboard/student/add-s/add-s.component';
 import { MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -72,6 +72,10 @@ import { ViewTComponent } from './components/dashboard/teacher/view-t/view-t.com
 import { Report1Component } from './components/dashboard/teacher/report1/report1.component';
 import { PrintNComponent } from './components/dashboard/notice/print-n/print-n.component';
 import { SummaryAComponent } from './components/dashboard/attendance/teachers/summary-a/summary-a.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { HometeacherComponent } from './components/hometeacher/hometeacher.component';
 import { TclassesComponent } from './components/hometeacher/tclasses/tclasses.component';
 import { ThomeComponent } from './components/hometeacher/thome/thome.component';
@@ -97,6 +101,7 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     UpdatefeesComponent,
     ViewNComponent,
     DeleteDialogBox,
+    WebCamComponent,
     TDialogBox,
     TDialogBox2,
     DialogBoxResults,
@@ -153,13 +158,16 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     DeleteDialogBox,
     ClasseshomeComponent,
     SubjecthomeComponent,
-   
     // DeleteHistoryComponent,
     DeletedListComponent,
     FeeDialogBox,
     DeletedListComponent,
     ProfitComponent,
     ViewTComponent,
+    WebCamComponent,
+    PrintNComponent,
+    SummaryAComponent,
+    LoaderComponent,
     TDialogBox,
     TDialogBox2,
     Report1Component,
@@ -173,8 +181,8 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     TsubjectComponent,
     TresultsComponent,
     AddResultComponent,
-    ChartcComponent
-    
+    ChartcComponent,
+    AddResultComponent
   ],
 
   imports: [
@@ -187,6 +195,8 @@ import { ChartcComponent } from './components/dashboard/classes/chartc/chartc.co
     HttpClientModule,
     FontAwesomeModule,
     ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
 
 
     ],
