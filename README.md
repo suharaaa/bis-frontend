@@ -1,4 +1,9 @@
-# BisFrontend
+BIS-School Management System
+
+This is a complete school management system to manage major processes through semi-automated system.
+
+Tools
+-Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
